@@ -5,7 +5,6 @@ development:
   username: rails
   password: root
   pool: 5
-  timeout: 5000
 
 test:
   adapter: postgresql
@@ -14,8 +13,8 @@ test:
   username: rails
   password: root
   pool: 5
-  timeout: 5000
 
+#  not sure if this go
 production:
   adapter: postgresql
   database: fulbo_production
@@ -23,4 +22,3 @@ production:
   username: rails
   password: root
   pool: 5
-  timeout: 5000
