@@ -1,0 +1,50 @@
+-------------------------------------- FULBITO --------------------------------
+
+----------SCOPE
+
+- Reserva de Turnos 
+- Confeccion de equipos
+- Bitacora de partido
+- Retos
+- Ranking de equipos
+- Historial de usuario/jugador
+- Armado de Torneo
+- Prode
+
+
+---------BUSINESS MODEL   
+
+-  % sobre el alquiler
+- alquiler de software a la cancha
+- Publicidades a negocios relacionados: 
+               - Deportes - Centro de Reabilitacion - Comida - Remises 
+              -Colectivo - Ropa informal 
+
+
+---------------SCHEDULE
+
+---STAGE 0
+- Active Admin
+- HipChat
+- Heroku
+
+---STAGE 1
+- Registracion
+- Creacion de Equipos
+- Reserva de Cancha
+
+---STAGE 2
+- Bitacora de partido
+- Ranking  equipos/jugador
+
+---STAGE 4
+- Retos /Challenge
+- Torneos
+
+--STAGE 5
+- Prode 
+- Publicidad
+               
+
+
+
