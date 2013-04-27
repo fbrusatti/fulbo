@@ -1,0 +1,39 @@
+# require : postgresql installed 
+#
+# This is a example to connect with postgresql database.
+# for this example I create a 'superuser' on postgresql with :
+# username: rails 
+# password: root
+#
+# The easiest way is using pgAdmin III or with psql
+# example  with psql: CREATE USER rails WITH PASSWORD 'root';
+#                     ALTER USER rails WITH SUPERUSER;
+#
+# then create databases that see in this file (development -> fulbo_developemnt | test -> fulbo_test...). 
+# for all databases put 'username'(rails in my case) as the owner.
+#
+# in the end your database.yml file has to look like this
+
+development:
+  adapter: postgresql
+  database: fulbo_development
+  host: localhost
+  username: rails
+  password: root
+  pool: 5
+
+test:
+  adapter: postgresql
+  database: fulbo_test
+  host: localhost
+  username: rails
+  password: root
+  pool: 5
+
+production:
+  adapter: postgresql
+  database: fulbo_production
+  host: localhost
+  username: rails
+  password: root
+  pool: 5
