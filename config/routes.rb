@@ -1,6 +1,15 @@
 Fulbo::Application.routes.draw do
+  
+
+  root :to => "home#index"
+
+  devise_for :users
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  # example of root
+  # root :to => "XX#xx"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,6 +1,12 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+  # If you have more than one role in your application (such as "User" and "Admin"), you will notice 
+  # that Devise uses the same views for all roles. Fortunately, Devise offers an easy way to 
+  # customize views. All you need to do is set "config.scoped_views = true"
+
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
@@ -82,7 +88,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "1c7510517a0fdbfc2d05646a31066affdd46a96658c52ac75643b26f697a4d1917cf728d59ee6bca6d9845300fb434fca84357e7cb0a01cfaa1bf824f8b312b3"
+  # config.pepper = "951c1f550cff449d9557ca2f97ed3235816bf8b6dce899e49a9433688d97b27e298f40844d1e20d5888aafefba3276e868420b3a679c78e1fc4aa16bd96d5f01"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
