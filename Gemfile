@@ -4,6 +4,10 @@ gem 'rails', '3.2.13'
 
 gem 'pg', '>= 0.12.2'
 
+group :development do
+  gem 'annotate', ">=2.5.0"
+end
+
 # Divice
 gem 'devise'
 
