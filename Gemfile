@@ -17,6 +17,8 @@ end
 
 gem 'devise'
 
+gem 'pg'
+
 # ActiveAdmin
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
