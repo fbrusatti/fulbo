@@ -166,6 +166,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    shoulda-matchers (2.0.0)
+      activesupport (>= 3.0.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -198,8 +200,9 @@ DEPENDENCIES
   factory_girl_rails (= 4.1.0)
   jquery-rails
   meta_search (>= 1.1.0.pre)
-  pg (>= 0.12.2)
+  pg
   rails (= 3.2.13)
   rspec-rails (= 2.11.0)
   sass-rails (~> 3.2.3)
+  shoulda-matchers (= 2.0.0)
   uglifier (>= 1.0.3)
