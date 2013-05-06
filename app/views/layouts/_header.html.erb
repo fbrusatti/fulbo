@@ -11,7 +11,7 @@
             <li>Signed in as <%= current_user.email %>. Not you? </li>
             <li><%= link_to "Salir", destroy_user_session_path, method: 'delete' %></li>
           <% else %>
-            <li><%= link_to "Registrase", new_user_registration_path %></li>
+            <li><%= link_to "Registrarse", new_user_registration_path %></li>
             <li><%= link_to "Entrar", new_user_session_path %></li>
           <% end %>
         </ul>
