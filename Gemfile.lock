@@ -194,9 +194,9 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   annotate (>= 2.5.0)
+  capybara (= 1.1.2)
   coffee-rails (~> 3.2.1)
   devise
-  capybara (= 1.1.2)
   factory_girl_rails (= 4.1.0)
   jquery-rails
   meta_search (>= 1.1.0.pre)

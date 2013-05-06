@@ -10,11 +10,12 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  # reply-to:   movetequeentras@fulbo.com (example)
+  config.mailer_sender = "movetequeentras@fulbo.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
-
+  
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
@@ -52,7 +53,7 @@ Devise.setup do |config|
   # It can be set to an array that will enable params authentication only for the
   # given strategies, for example, `config.params_authenticatable = [:database]` will
   # enable it only for database (email + password) authentication.
-  # config.params_authenticatable = true
+  # config.params_authenticatable = True
 
   # Tell if authentication through HTTP Basic Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the

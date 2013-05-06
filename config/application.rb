@@ -12,6 +12,10 @@ end
 module Fulbo
   class Application < Rails::Application
 
+
+    # Devise-i18n
+    config.i18n.default_locale = :es
+
     # ActiveAdmin and Device
     # If you are deploying Rails 3.1+ on Heroku, you may want to set:
     config.assets.initialize_on_precompile = false
