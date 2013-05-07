@@ -9,6 +9,10 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+CONFIG = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+CONFIG.merge! CONFIG.fetch(Rails.env, {})
+CONFIG.symbolize_keys!
+
 module Fulbo
   class Application < Rails::Application
 
@@ -80,6 +84,8 @@ module Fulbo
       g.fixture_replacement :factory_girl, :dir => "spec/factories"  
       # to generate factories instead of fixtures, and to save them in the 
       # spec/factories directory.
+
+      config.action_mailer.default_url_options = {host: CONFIG[:host]}
     end  
   end
 end

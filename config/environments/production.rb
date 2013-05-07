@@ -1,19 +1,16 @@
 Fulbo::Application.configure do
 
-  # ActiveAdmin and Devise
-  # In production, :host should be set to the actual host of your application.
-  # Configure before to deploy with data of app
-  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  # :enable_starttls_auto => true,
-  # :address => "smtp.gmail.com",
-  # :port => 587,
-  # :domain => "gmail.com",
-  # :authentication => :login,
-  # :user_name => "edu.depetris@gmail.com",
-  # :password => "actorporno23"
-  # }
+    
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :enable_starttls_auto => true,
+  :address => "smtp.gmail.com",
+  :port => CONFIG[:mailer_port],
+  :domain => CONFIG[:mailer_domain],
+  :authentication => :login,
+  :user_name => CONFIG[:mailer_username],
+  :password => CONFIG[:mailer_password]
+  }
 
   # Settings specified here will take precedence over those in config/application.rb
 

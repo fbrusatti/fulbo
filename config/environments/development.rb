@@ -1,19 +1,16 @@
 Fulbo::Application.configure do
 
-  #ActiveAdmin and Device
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-  # To use uncomment this lines and put your email in user_name tag and your password in password tag
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  # :enable_starttls_auto => true,
-  # :address => "smtp.gmail.com",
-  # :port => 587,
-  # :domain => "gmail.com",
-  # :authentication => :login,
-  # :user_name => "your-email example edu.depetris@gmail.com",
-  # :password => "your-password"
-  # }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :enable_starttls_auto => true,
+  :address => "smtp.gmail.com",
+  :port => 587,
+  :domain => "gmail.com",
+  :authentication => :login,
+  :user_name => CONFIG[:mailer_username],
+  :password => CONFIG[:mailer_password]
+  }
 
   # Settings specified here will take precedence over those in config/application.rb
 
