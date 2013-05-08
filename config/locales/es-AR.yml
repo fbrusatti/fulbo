@@ -1,27 +1,3 @@
-# Sample of use here: 
-
-	# /anything.html
-	# ...
-
-	# <% title 'The Fulbo' %> -<--!Fulbo is a static text -->
-	# <p>'This will be the best social soccer network'</p>
-	# ...
-
-	# you can change the static  text to dynamic text. You put  static text
-	# you want to be  dynamic text in this file for instance 
-
-	# es-AR:
-	# ...
-	# welcome:
-	# 	title:"El Fulbo"
-	# 	paragraph: "Esta va a ser la mejor red social de internet"  
-
-	# /anything.html		
-	# ...
-	# <% title t('welcome.title') %> 
-	# <p> <%= t('welcome.paragraph')  %> </p>
-	# ...
-
 es-AR:
   date:
     abbr_day_names:
