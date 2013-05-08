@@ -1,0 +1,27 @@
+# This is a example to configure mailer for send emails.
+# first create a file named 'application.yml'in config/.
+# second  put your email address and your password in the follows lines
+
+# development
+#   ..
+#   mailer_username: "youremail@gmail.com"
+#   mailer_password: "your password"
+# ..
+
+# third delete the comments.
+# Note: remember indent with 2 spaces, it's a rule!  
+# the first line (movetequeentras@fulbo.com) is only a example. if you want see a email in inbox puts this line!
+
+mailer_reply_to: "movetequeentras@fulbo.com"
+development:
+  host: "localhost:3000"
+  mailer_username: "youremail@gmail.com"
+  mailer_password: "your password"
+test:
+  host: "localhost:3000"
+production:
+  host: "heroku_domain example"
+  mailer_username: ""
+  mailer_password: ""
+  mailer_domain: ""
+  mailer_port: ""
