@@ -46,6 +46,8 @@ GEM
       activesupport (>= 3.0.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (2.3.1.0)
+      sass (~> 3.2)
     bourbon (3.1.6)
       sass (>= 3.2.0)
       thor
@@ -84,6 +86,13 @@ GEM
     ffi (1.8.1)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    haml (4.0.2)
+      tilt
+    haml-rails (0.4)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (>= 3.1, < 4.1)
+      railties (>= 3.1, < 4.1)
     has_scope (0.5.1)
     hike (1.2.2)
     i18n (0.6.1)
@@ -194,10 +203,12 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   annotate (>= 2.5.0)
+  bootstrap-sass (~> 2.3.1.0)
   capybara (= 1.1.2)
   coffee-rails (~> 3.2.1)
   devise
   factory_girl_rails (= 4.1.0)
+  haml-rails
   jquery-rails
   meta_search (>= 1.1.0.pre)
   pg

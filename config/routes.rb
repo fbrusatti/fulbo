@@ -1,7 +1,5 @@
 Fulbo::Application.routes.draw do
-  
-
-  root :to => "home#index"
+  root :to => "landing_page#index"
 
   devise_for :users
 
