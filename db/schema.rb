@@ -61,8 +61,16 @@ ActiveRecord::Schema.define(:version => 20130509141155) do
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.string   "surname"
+    t.string   "nickname"
+    t.string   "playing_position"
+    t.string   "born"
+    t.string   "locality"
+    t.string   "foot"
+    t.string   "features"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "users", :force => true do |t|
