@@ -7,6 +7,7 @@ describe SportCenter do
   it { should validate_presence_of(:phone) }
   it { should validate_presence_of(:address) }
   it { should validate_presence_of(:email) }
+  
 
   it { should allow_mass_assignment_of(:name) }
   it { should allow_mass_assignment_of(:cuit) }
@@ -14,4 +15,5 @@ describe SportCenter do
   it { should allow_mass_assignment_of(:phone) }
   it { should allow_mass_assignment_of(:address) }
   it { should allow_mass_assignment_of(:email) }
+  it { should allow_mass_assignment_of(:user_id) }
 end
