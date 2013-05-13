@@ -1,2 +1,21 @@
-%h1 UsersProfiles#edit
-%p Find me in app/views/users_profiles/edit.html.haml
+%h2 Edit your profile
+= form_for @profile do |f|
+  = error_messages!
+  = f.label :name
+  = f.text_field :name
+  = f.label :surname
+  = f.text_field :surname
+  = f.label :nickname
+  = f.text_field :nickname
+  = f.label :playing_position
+  = f.text_field :playing_position
+  = f.label :born
+  = f.text_field :born
+  = f.label :locality
+  = f.text_field :locality
+  = f.label :foot
+  = f.text_field :foot
+  = f.label :features
+  = f.text_field :features
+  %div
+    = f.submit "Save Changes", method: 'put' 

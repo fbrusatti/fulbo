@@ -1,5 +1,5 @@
-%h2 Crea tu perfil
-= form_for @profile, url: users_profiles_path(@profile) do |f|
+%h2 Create your profile
+= form_for @profile, url: user_profile_path(current_user, @profile) do |f|
   = error_messages!
   = f.label :name
   = f.text_field :name

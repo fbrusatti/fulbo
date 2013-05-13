@@ -9,6 +9,7 @@
           <li><%= link_to "Estadios", '#' %></li>
           <% if user_signed_in? %>
             <li>Signed in as <%= current_user.email %>. Not you? </li>
+            <li><%= link_to "Profile", user_profile_path(current_user)%></li>
             <li><%= link_to "Salir", destroy_user_session_path, method: 'delete' %></li>
           <% else %>
             <li><%= link_to "Registrarse", new_user_registration_path %></li>

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     if profile
       root_path
     else
-      new_users_profile_path
+      new_user_profile_path(current_user.id)
     end
   end
 
