@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
+gem "carrierwave"
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'pg'
 gem "haml-rails"
