@@ -15,5 +15,5 @@ describe SportCenter do
   it { should allow_mass_assignment_of(:phone) }
   it { should allow_mass_assignment_of(:address) }
   it { should allow_mass_assignment_of(:email) }
-  it { should allow_mass_assignment_of(:user_id) }
+  it { should allow_mass_assignment_of(:owner_id) }
 end

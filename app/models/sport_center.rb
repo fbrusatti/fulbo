@@ -1,6 +1,6 @@
 class SportCenter < ActiveRecord::Base
-  attr_accessible :address, :cuit, :description, :email, :name, :phone , :user_id
-  belongs_to :user
+  attr_accessible :address, :cuit, :description, :email, :name, :phone , :owner_id
+  belongs_to :owner, :class_name => 'User', :foreign_key => 'owner_id' , :validate => true 	
 
   validates_presence_of :address, :cuit, :description, :email, :name, :phone
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
