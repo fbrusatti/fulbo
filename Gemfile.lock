@@ -89,6 +89,7 @@ GEM
     ffi (1.8.1)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    friendly_id (4.0.9)
     haml (4.0.2)
       tilt
     haml-rails (0.4)
@@ -213,6 +214,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   factory_girl_rails (= 4.1.0)
+  friendly_id
   haml-rails
   jquery-rails
   meta_search (>= 1.1.0.pre)
