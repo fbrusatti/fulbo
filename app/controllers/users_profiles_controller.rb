@@ -43,6 +43,6 @@ class UsersProfilesController < ApplicationController
     def verify_profile
       if !current_user.user_profile.nil?
         redirect_to root_path, notice: "you have a profile"
-      end
+      end 
     end
 end
