@@ -34,7 +34,7 @@ class UsersProfilesController < ApplicationController
   def update
     @profile = current_user.user_profile
     if @profile.update_attributes(params[:user_profile])
-      flash[:notice] = "Successfully updated product."
+      flash[:notice] = "Successfully updated profile."
     end
     respond_with @profile 
   end

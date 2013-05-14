@@ -1,5 +1,11 @@
 %h1 Perfil
 %h4=link_to "Edit?", edit_user_profile_path(current_user)
+%h3 Picture Perfil
+= form_for @profile, :html => {:multipart => true} do |f|
+  %pre.avatar
+    = image_tag(@profile.avatar_url) if @profile.avatar?
+    %div
+      = link_to "edit", edit_user_profile_path(current_user)
 %h3 Name
 %pre.name 
   =@profile.name
@@ -12,6 +18,9 @@
 %h3 Playing position
 %pre.name 
   =@profile.playing_position
+%h3 Born
+%pre.name 
+  =@profile.born
 %h3 Locallity
 %pre.name 
   =@profile.locality

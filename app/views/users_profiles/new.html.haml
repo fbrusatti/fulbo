@@ -1,6 +1,11 @@
 %h2 Create your profile
-= form_for @profile, url: user_profile_path(current_user, @profile) do |f|
+= form_for @profile, url: user_profile_path(current_user, @profile), :html => {:multipart => true} do |f|
   = error_messages!
+  = f.label :avatar do
+    %pre.avatar
+      = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
+      = f.file_field :avatar
+      = f.hidden_field :avatar_cache
   = f.label :name
   = f.text_field :name
   = f.label :surname

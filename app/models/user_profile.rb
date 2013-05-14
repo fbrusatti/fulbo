@@ -21,13 +21,13 @@ class UserProfile < ActiveRecord::Base
 
   
   attr_accessible :user_id, :name, :surname, :nickname, :playing_position, :born, 
-  :locality, :foot, :avatar, :features
+  :locality, :foot, :features, :avatar, :avatar_cache, :remove_avatar
 
   belongs_to :user 
   validates_presence_of :name, :surname, :playing_position
   validates :features, length: {maximum: 200}
-
   values = %w(Goalkeeper Defender Midfielder Forward Coach Coaching staff Referee Assistant referee)
   validates :playing_position, :inclusion => { :in => values }
+  mount_uploader :avatar, AvatarUploader
 
 end

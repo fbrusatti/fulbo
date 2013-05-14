@@ -1,6 +1,15 @@
 %h2 Edit your profile
 = form_for @profile do |f|
   = error_messages!
+  = f.label :avatar do
+    %pre.avatar
+      = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
+      = f.file_field :avatar
+      = f.hidden_field :avatar_cache 
+  = if @profile.avatar.url.present? 
+    = f.label :remove_avatar, "remove avatar"
+    = f.check_box :remove_avatar
+  %p  
   = f.label :name
   = f.text_field :name
   = f.label :surname
