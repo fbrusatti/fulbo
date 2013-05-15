@@ -257,7 +257,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   meta_search (>= 1.1.0.pre)
-  omniauth
+  omniauth (~> 1.0.3)
   omniauth-facebook
   pg
   rails (= 3.2.13)

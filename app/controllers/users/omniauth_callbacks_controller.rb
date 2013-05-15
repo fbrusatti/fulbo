@@ -24,8 +24,12 @@ private
     case provider
     when "Facebook"
       uid = access_token['uid']
-      email = access_token['extra']['user_hash']['email']
-      auth_attr = { :uid => uid, :token => access_token['credentials']['token'], :secret => nil, :name => access_token['extra']['user_hash']['name'], :link => access_token['extra']['user_hash']['link'] }
+      email = access_token['extra']['raw_info']['email']
+      auth_attr = { :uid => uid,
+                    :token => access_token['credentials']['token'],
+                    :secret => nil,
+                    :name => access_token['extra']['raw_info']['name'],
+                    :link => access_token['extra']['raw_info']['link'] }
     when "Twitter"
       uid = access_token['extra']['user_hash']['id']
       name = access_token['user_info']['name']
@@ -55,7 +59,7 @@ private
       auth = user.authorizations.build(:provider => provider)
       user.authorizations << auth
     end
-    auth.update_attributes auth_attr
+    # auth.update_attributes auth_attr
 
     return user
   end

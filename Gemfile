@@ -14,6 +14,7 @@ gem 'omniauth'
 gem 'omniauth', "~> 1.0.3"
 gem 'omniauth-facebook'
 
+
 group :development do
   gem 'annotate', ">=2.5.0"
 end
