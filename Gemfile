@@ -12,8 +12,7 @@ gem "haml-rails"
 gem "awesome_print"
 gem "debugger"
 gem 'omniauth'
-gem 'oauth2'
-gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'annotate', ">=2.5.0"
