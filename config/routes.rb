@@ -3,10 +3,12 @@ Fulbo::Application.routes.draw do
   root :to => "landing_page#index"
 
   devise_for :users
-  resources :users do
+  resources :users, :path => "" do 
     resource :profile, controller: "users_profiles"
   end
   
+  # get ":user_id/profile" => 'users_profiles#show', as: :user_profile
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
