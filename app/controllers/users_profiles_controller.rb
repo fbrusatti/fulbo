@@ -3,16 +3,17 @@ class UsersProfilesController < ApplicationController
   respond_to :html
 
   # the profile is available only if user is authenticates 
-  before_filter :authenticate_user!, only: [:edit, :update, :create, :new] 
+  before_filter :authenticate, only: [:edit, :update, :create] 
   before_filter :verify_profile, only: [:new]
  
    # GET /users/:user_id/profile
   def show
     @user = User.find(params[:user_id])
     @profile = @user.user_profile
-    # if request.path != user_profile_path(@user)
-    #   redirect_to @profile, status: :moved_permanently
-    # end
+    redirect_to new_user_profile_path(@user) unless @profile
+    if request.path != user_profile_path(@user)
+      redirect_to user_profile_path(@user), status: :moved_permanently
+    end
   end 
 
   # GET /users/:user_id/profile/new
@@ -20,7 +21,6 @@ class UsersProfilesController < ApplicationController
     @profile = UserProfile.new
   end
 
-  # respond_with user_profile_path(@user)  
   # POST /users/:user_id/profile
   def create
     @user = User.find(params[:user_id])
@@ -33,12 +33,15 @@ class UsersProfilesController < ApplicationController
 
   # GET /users_profiles/:id/edit
   def edit
-    @profile = UserProfile.find_by_user_id(params[:user_id])
+    @user = User.find(params[:user_id])
+    @profile = @user.user_profile
+    # @profile = UserProfile.find_by_user_id(params[:user_id])
   end
   
   # PUT /users/:user_id/profile
   def update
-    @profile = UserProfile.find_by_user_id(params[:user_id])
+    @user = User.find(params[:user_id])
+    @profile = @user.user_profile
     if @profile.update_attributes(params[:user_profile])
       flash[:notice] = "Successfully updated profile."
     end
@@ -47,8 +50,30 @@ class UsersProfilesController < ApplicationController
 
   private
     def verify_profile
-      if !current_user.user_profile.nil?
+      if !user_signed_in?
+        redirect_to new_user_session_path, notice: "You need to sign in or sign
+         up before continuing."
+      end
+
+      if user_signed_in? and current_user != User.find(params[:user_id])
+        redirect_to root_path, notice: "you do not have a permission"
+      end
+
+      if user_signed_in? and current_user == User.find(params[:user_id]) and 
+           !current_user.user_profile.nil?
         redirect_to root_path, notice: "you have a profile"
-      end 
+      end
     end
+
+    def authenticate
+      if !user_signed_in?
+        redirect_to new_user_session_path, notice: "You need to sign in or sign
+         up before continuing."
+      end
+
+      if user_signed_in? and current_user != User.find(params[:user_id])
+        redirect_to root_path, notice: "you do not have a permission"
+      end
+    end
+
 end

@@ -1,26 +1,10 @@
 %h2 Create your profile
-= form_for @profile, :url => user_profile_path(current_user), :html => {:multipart => true} do |f|
+= form_for @profile, :url => user_profile_path(current_user) do |f|
   = error_messages!
-  = f.label :avatar do
-    %pre.avatar
-      = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
-      = f.file_field :avatar
-      = f.hidden_field :avatar_cache
-  = f.label :name
-  = f.text_field :name
-  = f.label :surname
-  = f.text_field :surname
-  = f.label :nickname
-  = f.text_field :nickname
-  = f.label :playing_position
-  = f.text_field :playing_position
-  = f.label :born
-  = f.text_field :born
-  = f.label :locality
-  = f.text_field :locality
-  = f.label :foot
-  = f.text_field :foot
-  = f.label :features
-  = f.text_field :features
+  %div{:class => "img-polaroid pull-right"}
+    = f.file_field :avatar
+    = f.hidden_field :avatar_cache
+    = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
+  = render "data", :f => f
   %div
     = f.submit "Save", method: 'post' 

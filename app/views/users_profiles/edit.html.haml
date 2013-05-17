@@ -1,30 +1,15 @@
 %h2 Edit your profile
-= form_for @profile, url: user_profile_path(@profile.user_id) do |f|
+= form_for @profile, url: user_profile_path(@user) do |f|
   = error_messages!
-  = f.label :avatar do
-    %pre.avatar
-      = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
-      = f.file_field :avatar
-      = f.hidden_field :avatar_cache 
-  - if @profile.avatar.url.present? 
-    = f.label :remove_avatar, "remove avatar"
-    = f.check_box :remove_avatar
-  %p  
-  = f.label :name
-  = f.text_field :name
-  = f.label :surname
-  = f.text_field :surname
-  = f.label :nickname
-  = f.text_field :nickname
-  = f.label :playing_position
-  = f.text_field :playing_position
-  = f.label :born
-  = f.text_field :born
-  = f.label :locality
-  = f.text_field :locality
-  = f.label :foot
-  = f.text_field :foot
-  = f.label :features
-  = f.text_field :features
+  %div{:class => "img-polaroid pull-right"}
+    = f.file_field :avatar
+    = f.hidden_field :avatar_cache 
+    - if @profile.avatar.url.present? 
+      %div{:class => "form-inline"}
+        = f.check_box :remove_avatar
+        = f.label :remove_avatar, "remove avatar"
+  = f.label :avatar, :class => "img-polaroid pull-right" do
+    = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
+  = render  "data", :f => f
   %div
     = f.submit "Save Changes", method: 'put' 

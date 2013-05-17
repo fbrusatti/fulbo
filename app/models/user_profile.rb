@@ -18,16 +18,24 @@
 #
 
 class UserProfile < ActiveRecord::Base
+  after_destroy :remove_tmp_directory
+  serialize :playing_position, Array
 
-  
   attr_accessible :user_id, :name, :surname, :nickname, :playing_position, :born, 
   :locality, :foot, :features, :avatar, :avatar_cache, :remove_avatar
 
   belongs_to :user 
   validates_presence_of :name, :surname, :playing_position
   validates :features, length: {maximum: 200}
-  values = %w(Goalkeeper Defender Midfielder Forward Coach Coaching staff Referee Assistant referee)
-  validates :playing_position, :inclusion => { :in => values }
+
   mount_uploader :avatar, AvatarUploader
 
+
+  private
+
+    # For removing temp folder of avatar after destroy picture
+    def remove_tmp_directory
+      path_to_be_deleted = "#{Rails.root}/public/uploads/tmp"
+      FileUtils.remove_dir(path_to_be_deleted, :force => true)
+    end
 end

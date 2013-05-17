@@ -1,33 +1,39 @@
 %h1 Perfil
-- if user_signed_in?
+- if user_signed_in? and current_user == @user
   %h4=link_to "Edit?", edit_user_profile_path(@user)
-%h3 Picture Perfil
-= form_for @profile, :html => {:multipart => true} do |f|
-  %pre.avatar
-    = image_tag(@profile.avatar_url) if @profile.avatar?
-    - if user_signed_in?
-      = link_to "edit", edit_user_profile_path(@user)
-%h3 Name
-%pre.name 
-  =@profile.name
-%h3 Surname
-%pre.name 
-  =@profile.surname
-%h3 Nickname
-%pre.name 
-  =@profile.nickname
-%h3 Playing position
-%pre.name 
-  =@profile.playing_position
-%h3 Born
-%pre.name 
-  =@profile.born
-%h3 Locallity
-%pre.name 
-  =@profile.locality
-%h3 Foot
-%pre.name 
-  =@profile.foot
-%h3 Features
-%pre.name 
-  =@profile.features
+%div{:class => "row-fluid"}
+    
+  %div{:class => "span10"}      
+    %div{:class => "hero-unit"}
+      %h3
+        -if @profile.nickname.empty?
+          ="#{@profile.name} #{@profile.surname} "
+        -else
+          ="#{@profile.name} #{@profile.surname} (#{@profile.nickname})"
+
+  %div{:class => "span2"}  
+    %div{:class => "img-polaroid"}
+      %h3 Picture
+      = form_for @profile, :html => {:multipart => true} do |f|
+        -if @profile.avatar? 
+          = image_tag(@profile.avatar_url(:thumb)) 
+        -else
+          = image_tag "profile_dafault.png"
+        %div
+          - if user_signed_in? and current_user == @user
+            = link_to "edit", edit_user_profile_path(@user)
+ 
+%br
+
+%div{:class => "well well-large"}
+  %div{:class => "dl-horizontal"}
+    %dt Playing position
+    %dd= @profile.playing_position.to_sentence
+    %dt Born
+    %dd= @profile.born
+    %dt Locallity
+    %dd= @profile.locality
+    %dt Foot
+    %dd= @profile.foot
+    %dt Features
+    %dd= @profile.features
