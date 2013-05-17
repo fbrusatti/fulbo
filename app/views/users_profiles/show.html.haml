@@ -20,9 +20,9 @@
         -else
           = image_tag "profile_dafault.png"
         %div
+
           - if user_signed_in? and current_user == @user
             = link_to "edit", edit_user_profile_path(@user)
- 
 %br
 
 %div{:class => "well well-large"}

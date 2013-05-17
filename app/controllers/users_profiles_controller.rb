@@ -26,9 +26,15 @@ class UsersProfilesController < ApplicationController
     @user = User.find(params[:user_id])
     @profile = @user.build_user_profile(params[:user_profile])
     if @profile.save
-      flash[:success] = "Successfully created profile."
+      if params[:user_profile][:avatar].present? and 
+             (params[:user_profile][:remove_avatar] != "1") 
+        render :crop 
+      else
+        redirect_to user_profile_path(@user), :notice => "Successfully updated profile."
+      end
+    else
+      render :new
     end
-    respond_with @profile, :location => user_profile_path
   end
 
   # GET /users_profiles/:id/edit
@@ -43,9 +49,15 @@ class UsersProfilesController < ApplicationController
     @user = User.find(params[:user_id])
     @profile = @user.user_profile
     if @profile.update_attributes(params[:user_profile])
-      flash[:notice] = "Successfully updated profile."
+      if params[:user_profile][:avatar].present? and 
+             (params[:user_profile][:remove_avatar] != "1") 
+        render :crop 
+      else
+        redirect_to user_profile_path(@user), :notice => "Successfully updated profile."
+      end
+    else
+      render :edit
     end
-    respond_with @profile, :location => user_profile_path
   end
 
   private
