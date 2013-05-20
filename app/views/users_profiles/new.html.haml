@@ -2,9 +2,9 @@
 = form_for @profile, :url => user_profile_path(current_user) do |f|
   = error_messages!
   %div{:class => "img-polaroid pull-right"}
+    = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
     = f.file_field :avatar
     = f.hidden_field :avatar_cache
-    = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
   = render "data", :f => f
   %div
     = f.submit "Save", method: 'post' 

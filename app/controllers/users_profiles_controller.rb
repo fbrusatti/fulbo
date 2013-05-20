@@ -27,13 +27,13 @@ class UsersProfilesController < ApplicationController
     @profile = @user.build_user_profile(params[:user_profile])
     if @profile.save
       if params[:user_profile][:avatar].present? and 
-             (params[:user_profile][:remove_avatar] != "1") 
-        render :crop 
+           (params[:user_profile][:remove_avatar] != "1") 
+        render :crop
       else
-        redirect_to user_profile_path(@user), :notice => "Successfully updated profile."
+        redirect_to user_profile_path(@user), success: "Successfully created profile."
       end
     else
-      render :new
+      render :new     
     end
   end
 
@@ -44,13 +44,14 @@ class UsersProfilesController < ApplicationController
     # @profile = UserProfile.find_by_user_id(params[:user_id])
   end
   
+  
   # PUT /users/:user_id/profile
   def update
     @user = User.find(params[:user_id])
     @profile = @user.user_profile
     if @profile.update_attributes(params[:user_profile])
       if params[:user_profile][:avatar].present? and 
-             (params[:user_profile][:remove_avatar] != "1") 
+           (params[:user_profile][:remove_avatar] != "1") 
         render :crop 
       else
         redirect_to user_profile_path(@user), :notice => "Successfully updated profile."
@@ -59,6 +60,7 @@ class UsersProfilesController < ApplicationController
       render :edit
     end
   end
+
 
   private
     def verify_profile

@@ -12,4 +12,4 @@
     = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
   = render  "data", :f => f
   %div
-    = f.submit "Save Changes", method: 'put' 
+    = f.submit "Save Changes",:class => "btn", method: 'put' 

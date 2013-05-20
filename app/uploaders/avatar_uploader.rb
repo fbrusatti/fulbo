@@ -8,7 +8,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
-  process :resize_to_fit => [600,600]
+  process :resize_to_limit => [600,600]
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -22,12 +22,24 @@ class AvatarUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-
   # Create different versions of your uploaded files:
   version :thumb do
+    process :crop
     process :resize_to_fill => [140,140]
   end
 
+  def crop
+    if model.crop_x.present?
+      resize_to_limit(600, 600)
+      manipulate! do |img|
+        x = model.crop_x.to_i
+        y = model.crop_y.to_i
+        w = model.crop_w.to_i
+        h = model.crop_h.to_i
+        img.crop!(x, y, w, h)
+      end
+    end
+  end
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::MiniMagick
