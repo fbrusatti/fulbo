@@ -1,0 +1,47 @@
+# == Schema Information
+#
+# Table name: user_profiles
+#
+#  id               :integer          not null, primary key
+#  user_id          :integer
+#  name             :string(255)
+#  surname          :string(255)
+#  nickname         :string(255)
+#  playing_position :string(255)
+#  born             :string(255)
+#  locality         :string(255)
+#  foot             :string(255)
+#  features         :string(255)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  avatar           :string(255)
+#
+
+require 'spec_helper'
+
+describe UserProfile do
+  
+  it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:surname) }
+  it { should validate_presence_of(:playing_position) }
+
+  it { should belong_to(:user) }
+  it { should have_db_column(:user_id).of_type(:integer)}
+
+  it { should allow_mass_assignment_of(:name) }
+  it { should allow_mass_assignment_of(:surname) }
+  it { should allow_mass_assignment_of(:nickname) }
+  it { should allow_mass_assignment_of(:playing_position) }
+  it { should allow_mass_assignment_of(:born) }
+  it { should allow_mass_assignment_of(:locality) }
+  it { should allow_mass_assignment_of(:foot) }
+  it { should allow_mass_assignment_of(:avatar) }
+  it { should allow_mass_assignment_of(:features) }
+
+
+  values = %w(Goalkeeper Defender Midfielder Forward Coach Coaching staff Referee Assistant referee)
+  it {should ensure_inclusion_of(:playing_position).in_array(values) }
+  it { should ensure_length_of(:features).is_at_most(200) }  
+
+
+end
