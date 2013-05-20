@@ -18,19 +18,8 @@
 #  slug                   :string(255)
 #
 
-class User < ActiveRecord::Base
-  extend FriendlyId
-  # for nice url
-  friendly_id :name, use: [:slugged, :history]
-  
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+require 'spec_helper'
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  has_one :user_profile, :dependent => :destroy
-  delegate :name, :name=, :to => :user_profile, :allow_nil => true
+describe User do
+  it { should have_one(:user_profile) }  
 end

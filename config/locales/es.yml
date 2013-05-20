@@ -98,6 +98,10 @@ es:
   errors: &errors
     format: ! '%{attribute} %{message}'
     messages:
+      extension_white_list_error: "el formato del archivo no es valido"
+      carrierwave_processing_error: "No se puede redimensionar la imagen."
+      carrierwave_integrity_error: "No hay una imagen."
+      carrierwave_download_error: "No se puede descargar la imagen."    
       accepted: debe ser aceptado
       blank: no puede estar en blanco
       confirmation: no coincide con la confirmación

@@ -1,13 +1,16 @@
 Fulbo::Application.routes.draw do
+
   root :to => "landing_page#index"
 
   devise_for :users
+  resources :users, :path => "" do 
+    resource :profile, controller: "users_profiles"
+  end
+  
+  # get ":user_id/profile" => 'users_profiles#show', as: :user_profile
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
-  # example of root
-  # root :to => "XX#xx"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
