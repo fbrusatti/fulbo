@@ -12,10 +12,14 @@ Fulbo::Application.routes.draw do
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'
+  match '/users/auth/facebook' => 'users/omniauth_callbacks#passthru'
+
+  root :to => "landing_page#index"
 
   devise_scope :user do
     get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config

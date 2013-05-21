@@ -42,6 +42,14 @@ class User < ActiveRecord::Base
 
   before_create :init_profile
   
+
+  def self.from_omniath(auth)
+    where(auth.slice(:provider, :uid)).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+    end
+  end
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
