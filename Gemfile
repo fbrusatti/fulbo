@@ -8,16 +8,18 @@ gem "carrierwave"
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'pg'
 gem "haml-rails"
+<<<<<<< HEAD
 gem "awesome_print"
 gem "debugger"
+gem 'omniauth'
+gem 'oauth2'
+gem 'omniauth-facebook', '1.4.0'
 
 group :development do
   gem 'annotate', ">=2.5.0"
 end
 
 gem 'devise'
-
-gem 'pg'
 
 # ActiveAdmin
 gem 'activeadmin'

@@ -2,6 +2,12 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
+  # ==> Configuration for authentication with Facebook
+  require 'omniauth-facebook'
+  config.omniauth :facebook, "462524327155629", "76e58370644e6937edce0b10338e6019", #:strategy_class => OmniAuth::Strategies::Facebook,
+    {:scope => 'email, offline_access',
+      :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+
   # If you have more than one role in your application (such as "User" and "Admin"), you will notice 
   # that Devise uses the same views for all roles. Fortunately, Devise offers an easy way to 
   # customize views. All you need to do is set "config.scoped_views = true"
