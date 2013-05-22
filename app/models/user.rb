@@ -16,13 +16,15 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  slug                   :string(255)
+#  provider               :string(255)
+#  uid                    :string(255)
+#  name                   :string(255)
 #
 
 class User < ActiveRecord::Base
   extend FriendlyId
   # == for nice url
-  # friendly_id :name, use: [:slugged, :history]
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :history]
 
 
   # Include default devise modules. Others available are:
@@ -75,7 +77,7 @@ class User < ActiveRecord::Base
   end
   
   private
-  def init_profile
-    build_profile
-  end
+    def init_profile
+      build_profile
+    end
 end

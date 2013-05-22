@@ -13,7 +13,7 @@ Devise.setup do |config|
   #     :client_options => {:ssl => {:ca_file => "#{Rails.root}/config/ca-bundle.crt"}}}
 
 
-  config.authentication_keys = [:login]
+  config.authentication_keys = [:email]
   # If you have more than one role in your application (such as "User" and "Admin"), you will notice
   # that Devise uses the same views for all roles. Fortunately, Devise offers an easy way to
   # customize views. All you need to do is set "config.scoped_views = true"
@@ -141,7 +141,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length. Default is 8..128.
-  config.password_length = 8..128
+  config.password_length = 4..128
 
   # Email regex used to validate email formats. It simply asserts that
   # an one (and only one) @ exists in the given string. This is mainly
