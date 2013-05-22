@@ -2,12 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-gem 'friendly_id'
+gem 'friendly_id',  "~> 4.0.9"
 gem "rmagick"
 gem "carrierwave"
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'pg'
 gem "haml-rails"
+gem "awesome_print"
+gem "debugger"
 
 group :development do
   gem 'annotate', ">=2.5.0"
