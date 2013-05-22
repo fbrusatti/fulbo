@@ -2,11 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def after_sign_in_path_for(resource)
-    if current_user.profile
-      root_path
+    if current_user.name.blank?
+      edit_user_profile_path(current_user)
     else
-      new_user_profile_path(current_user)
+      root_path
     end
-	  sign_in_url = root_url
   end
 end

@@ -4,17 +4,16 @@
 #
 #  id               :integer          not null, primary key
 #  user_id          :integer
-#  name             :string(255)
 #  surname          :string(255)
 #  nickname         :string(255)
 #  playing_position :string(255)
-#  born             :string(255)
 #  locality         :string(255)
 #  foot             :string(255)
 #  features         :string(255)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  avatar           :string(255)
+#  dob              :date
 #
 
 require 'spec_helper'
