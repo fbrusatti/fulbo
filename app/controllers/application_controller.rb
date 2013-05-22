@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
     else
       new_user_profile_path(current_user)
     end
+	  sign_in_url = root_url
   end
 end
