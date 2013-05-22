@@ -1,6 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
+    debugger
     oauthorize "Facebook"
   end
 
@@ -33,7 +34,11 @@ private
     when "Twitter"
       uid = access_token['extra']['user_hash']['id']
       name = access_token['user_info']['name']
-      auth_attr = { :uid => uid, :token => access_token['credentials']['token'], :secret => access_token['credentials']['secret'], :name => name, :link => "http://twitter.com/#{name}" }
+      auth_attr = { :uid => uid, 
+                    :token => access_token['credentials']['token'], 
+                    :secret => access_token['credentials']['secret'], 
+                    :name => name, 
+                    :link => "http://twitter.com/#{name}" }
     when 'LinkedIn'
       uid = access_token['uid']
       name = access_token['user_info']['name']

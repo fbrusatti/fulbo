@@ -33,14 +33,17 @@ class User < ActiveRecord::Base
          :omniauth_providers => [:facebook]
 
   # == Accessors
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider
 
   # == Associations
   has_one :profile, dependent: :destroy,
                     class_name: 'UserProfile',
                     inverse_of: :user
+  has_many :authorizations
 
   before_create :init_profile
+
+  validate :name, :email, :presence => true
   
 
   def self.from_omniath(auth)
