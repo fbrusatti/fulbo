@@ -46,16 +46,13 @@ ActiveRecord::Schema.define(:version => 20130517042148) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "friendly_id_slugs", :force => true do |t|
-    t.string   "slug",                         :null => false
-    t.integer  "sluggable_id",                 :null => false
-    t.string   "sluggable_type", :limit => 40
-    t.datetime "created_at"
+  create_table "authorizations", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
-  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "sport_centers", :force => true do |t|
     t.string   "name"
@@ -75,14 +72,17 @@ ActiveRecord::Schema.define(:version => 20130517042148) do
     t.string   "surname"
     t.string   "nickname"
     t.string   "playing_position"
-    t.date     "born"
+    t.date     "dob"
     t.string   "locality"
     t.string   "foot"
     t.string   "features"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "avatar"
+    t.string   "slug"
   end
+
+  add_index "user_profiles", ["slug"], :name => "index_user_profiles_on_slug"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -97,11 +97,11 @@ ActiveRecord::Schema.define(:version => 20130517042148) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "slug"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-  add_index "users", ["slug"], :name => "index_users_on_slug"
 
 end
