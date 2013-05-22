@@ -54,6 +54,17 @@ ActiveRecord::Schema.define(:version => 20130522123352) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "sport_centers", :force => true do |t|
     t.string   "name"
     t.string   "cuit"
@@ -93,9 +104,9 @@ ActiveRecord::Schema.define(:version => 20130522123352) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "slug"
     t.string   "provider"
     t.string   "uid"
-    t.string   "slug"
     t.string   "name"
   end
 
