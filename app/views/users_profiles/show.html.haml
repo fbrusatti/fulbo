@@ -2,21 +2,21 @@
 - if user_signed_in? and current_user == @user
   %h4=link_to "Edit?", edit_user_profile_path(@user)
 %div{:class => "row-fluid"}
-    
-  %div{:class => "span10"}      
+
+  %div{:class => "span10"}
     %div{:class => "hero-unit"}
       %h3
-        -if @profile.nickname.empty?
+        -if @profile.nickname.blank?
           ="#{@profile.name} #{@profile.surname} "
         -else
           ="#{@profile.name} #{@profile.surname} (#{@profile.nickname})"
 
-  %div{:class => "span2"}  
+  %div{:class => "span2"}
     %div{:class => "img-polaroid"}
       %h3 Picture
       = form_for @profile, :html => {:multipart => true} do |f|
-        -if @profile.avatar? 
-          = image_tag(@profile.avatar_url(:thumb)) 
+        -if @profile.avatar?
+          = image_tag(@profile.avatar_url(:thumb))
         -else
           = image_tag "profile_dafault.png"
         %div
@@ -30,7 +30,7 @@
     %dt Playing position
     %dd= @profile.playing_position.to_sentence
     %dt Born
-    %dd= @profile.born
+    %dd= @profile.dob
     %dt Locallity
     %dd= @profile.locality
     %dt Foot

@@ -9,8 +9,8 @@
   - UsersProfilesHelper::POSITIONS.each do |position|
     = f.check_box :playing_position, {:multiple => true}, position, nil
     = f.label "#{position} |"
-= f.label :born
-= f.date_select :born, {:include_blank => true, :start_year => 1923, :end_year => 2013}
+= f.label :dob
+= f.date_select :dob, {:include_blank => true, :start_year => 1923, :end_year => 2013}
 = f.label :locality
 = f.text_field :locality
 = f.label :foot

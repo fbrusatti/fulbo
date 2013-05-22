@@ -1,6 +1,6 @@
 class AddSlugToUsers < ActiveRecord::Migration
   def change
-    add_column :user_profiles, :slug, :string
-    add_index :user_profiles, :slug
+    add_column :users, :slug, :string
+    add_index :users, :slug
   end
 end

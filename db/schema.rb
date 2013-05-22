@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517042148) do
+ActiveRecord::Schema.define(:version => 20130522123352) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,14 +46,6 @@ ActiveRecord::Schema.define(:version => 20130517042148) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "authorizations", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "sport_centers", :force => true do |t|
     t.string   "name"
     t.string   "cuit"
@@ -68,21 +60,17 @@ ActiveRecord::Schema.define(:version => 20130517042148) do
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id"
-    t.string   "name"
     t.string   "surname"
     t.string   "nickname"
     t.string   "playing_position"
-    t.date     "dob"
     t.string   "locality"
     t.string   "foot"
     t.string   "features"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "avatar"
-    t.string   "slug"
+    t.date     "dob"
   end
-
-  add_index "user_profiles", ["slug"], :name => "index_user_profiles_on_slug"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -97,11 +85,12 @@ ActiveRecord::Schema.define(:version => 20130517042148) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "slug"
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug"
 
 end
