@@ -10,7 +10,6 @@ gem 'pg'
 gem "haml-rails"
 gem "awesome_print"
 gem "debugger"
-gem 'omniauth'
 gem 'omniauth', "~> 1.0.3"
 gem 'omniauth-facebook'
 

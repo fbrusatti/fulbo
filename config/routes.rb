@@ -2,11 +2,11 @@ Fulbo::Application.routes.draw do
 
   root :to => "landing_page#index"
 
-  devise_for :users 
-  resources :users, :path => "" do 
+  devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :users, :path => "" do
     resource :profile, controller: "users_profiles"
   end
-  
+
   devise_for :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # get ":user_id/profile" => 'users_profiles#show', as: :user_profile
 
