@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522123352) do
+ActiveRecord::Schema.define(:version => 20130523124717) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -76,6 +76,27 @@ ActiveRecord::Schema.define(:version => 20130522123352) do
     t.datetime "updated_at",  :null => false
     t.integer  "owner_id"
   end
+
+  create_table "team_users", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "team_users", ["team_id", "user_id"], :name => "index_team_users_on_team_id_and_user_id", :unique => true
+  add_index "team_users", ["team_id"], :name => "index_team_users_on_team_id"
+  add_index "team_users", ["user_id"], :name => "index_team_users_on_user_id"
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.integer  "captain"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "teams", ["user_id"], :name => "index_teams_on_user_id"
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id"

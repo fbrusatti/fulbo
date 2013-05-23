@@ -2,6 +2,9 @@ Fulbo::Application.routes.draw do
 
   root :to => "landing_page#index"
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :path => "" do
     resource :profile, controller: "users_profiles"
@@ -15,17 +18,12 @@ Fulbo::Application.routes.draw do
   match '/auth/failure', :to => 'sessions#failure'
   match '/users/auth/facebook' => 'users/omniauth_callbacks#passthru'
 
-  root :to => "landing_page#index"
 
-   devise_scope :user do
-      get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
-     # delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-     # get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
-   end
-
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+ devise_scope :user do
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+   # delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+   # get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
+ end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

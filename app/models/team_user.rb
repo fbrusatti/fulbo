@@ -9,11 +9,10 @@
 #  updated_at :datetime         not null
 #
 
-require 'spec_helper'
+class TeamUser < ActiveRecord::Base
 
-describe TeamUser do
-
-  it { should belong_to(:user) }
-  it { should belong_to(:team) }
+  # == Associations
+  belongs_to :team
+  belongs_to :user
 
 end

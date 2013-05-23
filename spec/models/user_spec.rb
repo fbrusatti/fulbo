@@ -24,10 +24,10 @@
 require 'spec_helper'
 
 describe User do
-  it { should have_one(:user_profile) }  
+  it { should have_one(:profile) }
 
-  # its owner
-  it { should have_many(:owners) }  
+  # is owner
+  it { should have_many(:own_teams) }
 
   it { should have_many(:team_users) }
   it { should have_many(:teams).through(:team_users) }
