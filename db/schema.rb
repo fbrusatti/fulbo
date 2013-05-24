@@ -91,12 +91,12 @@ ActiveRecord::Schema.define(:version => 20130523124717) do
   create_table "teams", :force => true do |t|
     t.string   "name"
     t.integer  "captain"
-    t.integer  "user_id"
+    t.integer  "owner_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "teams", ["user_id"], :name => "index_teams_on_user_id"
+  add_index "teams", ["owner_id"], :name => "index_teams_on_owner_id"
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id"

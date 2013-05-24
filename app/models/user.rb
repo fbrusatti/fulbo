@@ -38,14 +38,15 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider
 
   # == Associations
-  has_many :own_teams, class_name: "Team"
-  
-  has_many :team_users
-  has_many :teams, through: :team_users
-  
+  has_one :team, foreign_key: "owner_id"
+
   has_one :profile, dependent: :destroy,
                     class_name: 'UserProfile',
                     inverse_of: :user
+
+  has_many :team_users
+  has_many :teams, through: :team_users
+  
   has_many :authorizations
 
   before_create :init_profile

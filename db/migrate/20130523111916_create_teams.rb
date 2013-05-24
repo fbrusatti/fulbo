@@ -3,10 +3,10 @@ class CreateTeams < ActiveRecord::Migration
     create_table :teams do |t|
       t.string :name
       t.integer :captain
-      t.references :user
+      t.integer :owner_id
 
       t.timestamps
     end
-    add_index :teams, :user_id
+    add_index :teams, :owner_id
   end
 end

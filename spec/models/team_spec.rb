@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  captain    :integer
-#  user_id    :integer
+#  owner_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -16,7 +16,7 @@ describe Team do
   
   # owner
   it { should belong_to(:owner) }
-  it { should have_db_column(:user_id).
+  it { should have_db_column(:owner_id).
               of_type(:integer)}
 
   # team users
