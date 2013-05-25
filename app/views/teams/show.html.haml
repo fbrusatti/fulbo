@@ -1,0 +1,9 @@
+%h1 Team
+%div{:class => "well well-  large"}
+  %div{:class => "dl-horizontal"}
+    %dt Team name:
+    %dd= @team.name
+
+- if user_signed_in? and current_user.team == @team
+  = button_to "Delete team", team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => "Are you sure?"}
+  
