@@ -23,13 +23,18 @@ private
     user, email, name, uid, auth_attr = nil, nil, nil, {}
     case provider
     when "Facebook"
-      uid = access_token['uid']
-      email = access_token['extra']['raw_info']['email']
-      auth_attr = { :uid => uid,
+      extra_info = access_token['extra']['raw_info']
+      info = access_token['info']
+      auth_attr = { :uid => access_token['uid'],
                     :token => access_token['credentials']['token'],
                     :secret => nil,
-                    :name => access_token['extra']['raw_info']['name'],
-                    :link => access_token['extra']['raw_info']['link'] }
+                    :name => extra_info['name'],
+                    :link => extra_info['link'],
+                    :email => extra_info['email'],
+                    :nickname => info['nickname'],
+                    :location => info['location'],
+                    :image => info['image'],
+                    :dob =>  Date.strptime(extra_info['birthday'],'%m/%d/%Y') }
     when "Twitter"
       uid = access_token['extra']['user_hash']['id']
       name = access_token['user_info']['name']
@@ -38,20 +43,16 @@ private
                     :secret => access_token['credentials']['secret'], 
                     :name => name, 
                     :link => "http://twitter.com/#{name}" }
-    when 'LinkedIn'
-      uid = access_token['uid']
-      name = access_token['user_info']['name']
-      auth_attr = { :uid => uid, :token => access_token['credentials']['token'], :secret => access_token['credentials']['secret'], :name => name, :link => access_token['user_info']['public_profile_url'] }
     else
       raise 'Provider #{provider} not handled'
     end
     if resource.nil?
       if email
-        user = find_for_oauth_by_email(email, resource)
+        user = find_for_oauth_by_email(resource, auth_attr)
       elsif uid && name
         user = find_for_oauth_by_uid(uid, resource)
         if user.nil?
-          user = find_for_oauth_by_name(name, resource)
+          user = find_for_oauth_by_name(resource, auth_attr)
         end
       end
     else
@@ -64,7 +65,6 @@ private
       user.authorizations << auth
     end
     # auth.update_attributes auth_attr
-
     return user
   end
 
@@ -76,24 +76,40 @@ private
     return user
   end
 
-  def find_for_oauth_by_email(email, resource=nil)
-    if user = User.find_by_email(email)
+  def find_for_oauth_by_email(resource=nil, auth_attr)
+    if user = User.find_by_email(auth_attr[:email])
       user
     else
-      user = User.new(:email => email, :password => Devise.friendly_token[0,20])
+      user = User.new(:email => auth_attr[:email], 
+                      :password => Devise.friendly_token[0,20])
       user.save
+      profile_attr = auth_attr[:name].split(' ')
+      user.profile.update_attributes( :name => profile_attr.first, 
+                                      :surname => profile_attr.last, 
+                                      :nickname => auth_attr[:nickname],
+                                      :locality => auth_attr[:location],
+                                      :dob => auth_attr[:dob],
+                                      :avatar => auth_attr[:image] )
     end
     return user
   end
 
-  def find_for_oauth_by_name(name, resource=nil)
-    if user = User.find_by_name(name)
+  def find_for_oauth_by_name(resource=nil, auth_attr)
+    if user = User.find_by_name(auth_attr[:name])
       user
     else
-      user = User.new(:name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host")
+      user = User.new(:name => auth_attr[:name], 
+                      :password => Devise.friendly_token[0,20], 
+                      :email => auth_attr[:email])
       user.save false
+      profile_attr = auth_attr[:name].split(' ')
+      user.profile.update_attributes( :name => profile_attr.first, 
+                                      :surname => profile_attr.last, 
+                                      :nickname => auth_attr[:nickname],
+                                      :locality => auth_attr[:location],
+                                      :dob => auth_attr[:dob],
+                                      :avatar => auth_attr[:image] )
     end
     return user
   end
-
 end
