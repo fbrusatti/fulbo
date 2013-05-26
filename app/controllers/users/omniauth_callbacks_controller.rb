@@ -89,7 +89,7 @@ private
                                       :nickname => auth_attr[:nickname],
                                       :locality => auth_attr[:location],
                                       :dob => auth_attr[:dob],
-                                      :avatar => auth_attr[:image] )
+                                      :avatar.url => auth_attr[:image] )
     end
     return user
   end
