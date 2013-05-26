@@ -23,6 +23,7 @@ private
     user, email, name, uid, auth_attr = nil, nil, nil, {}
     case provider
     when "Facebook"
+      debugger
       extra_info = access_token['extra']['raw_info']
       info = access_token['info']
       auth_attr = { :uid => access_token['uid'],
