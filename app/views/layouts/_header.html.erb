@@ -5,7 +5,7 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Ligas", '#' %></li>
-          <li><%= link_to "Equipos", '#' %></li>
+          <li><%= link_to "Equipos", teams_path %></li>
           <li><%= link_to "Estadios", '#' %></li>
           <% if user_signed_in? %>
             <li>Signed in as <%= current_user.email %>. Not you? </li>

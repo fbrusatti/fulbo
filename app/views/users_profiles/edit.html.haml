@@ -1,6 +1,6 @@
 %h2 Edit your profile
 = form_for @profile, url: user_profile_path(@user) do |f|
-  = error_messages!
+  = errors_for(@profile).html_safe
   %div{:class => "img-polaroid pull-right"}
     = f.file_field :avatar
     = f.hidden_field :avatar_cache 
