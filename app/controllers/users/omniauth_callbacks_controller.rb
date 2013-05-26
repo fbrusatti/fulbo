@@ -89,7 +89,7 @@ private
                                       :nickname => auth_attr[:nickname],
                                       :locality => auth_attr[:location],
                                       :dob => auth_attr[:dob],
-                                      :avatar.url => auth_attr[:image] )
+                                      :remote_avatar_url => auth_attr[:image].split("=")[0] << "=large" )
     end
     return user
   end
@@ -108,7 +108,7 @@ private
                                       :nickname => auth_attr[:nickname],
                                       :locality => auth_attr[:location],
                                       :dob => auth_attr[:dob],
-                                      :avatar => auth_attr[:image] )
+                                      :remote_avatar_url => auth_attr[:image].split("=")[0] << "=large" )
     end
     return user
   end

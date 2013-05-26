@@ -31,7 +31,7 @@ class UserProfile < ActiveRecord::Base
   # == Accessors
   attr_accessible :user_id, :name, :surname, :nickname, :playing_position, :dob,
                   :locality, :foot, :features, :avatar, :avatar_cache, :remove_avatar,
-                  :crop_x, :crop_y, :crop_w, :crop_h
+                  :remote_avatar_url, :crop_x, :crop_y, :crop_w, :crop_h
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   # == Associations
