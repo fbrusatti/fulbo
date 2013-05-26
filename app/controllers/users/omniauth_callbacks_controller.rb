@@ -20,10 +20,9 @@ private
   end
 
   def find_for_ouath(provider, access_token, resource=nil)
-    user, email, name, uid, auth_attr = nil, nil, nil, {}
+    user, auth_attr = nil, {}
     case provider
     when "Facebook"
-      debugger
       extra_info = access_token['extra']['raw_info']
       info = access_token['info']
       auth_attr = { :uid => access_token['uid'],
@@ -48,10 +47,10 @@ private
       raise 'Provider #{provider} not handled'
     end
     if resource.nil?
-      if email
+      if auth_attr[:email]
         user = find_for_oauth_by_email(resource, auth_attr)
-      elsif uid && name
-        user = find_for_oauth_by_uid(uid, resource)
+      elsif auth_attr[:uid] && auth_attr[:name]
+        user = find_for_oauth_by_uid(auth_attr[:uid], resource)
         if user.nil?
           user = find_for_oauth_by_name(resource, auth_attr)
         end
@@ -77,7 +76,7 @@ private
     return user
   end
 
-  def find_for_oauth_by_email(resource=nil, auth_attr)
+  def find_for_oauth_by_email(resource=nil, auth_attr)    
     if user = User.find_by_email(auth_attr[:email])
       user
     else

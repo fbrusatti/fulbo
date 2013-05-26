@@ -12,7 +12,7 @@ Fulbo::Application.routes.draw do
     resource :profile, controller: "users_profiles"
   end
 
-  devise_for :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #devise_for :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # get ":user_id/profile" => 'users_profiles#show', as: :user_profile
 
   get   '/login', :to => 'sessions#new', :as => :login
