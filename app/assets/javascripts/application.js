@@ -11,6 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require bootstrap
+//= require holder
 //= require jquery_ujs
 //= require jquery.Jcrop
 //= require_tree .

@@ -1,0 +1,8 @@
+%h1 new team
+%h2 Create your team
+= form_for @team do |f|
+  = errors_for(@team).html_safe
+  = f.label "#{:name}*"  
+  = f.text_field :name
+  %div
+    = f.submit "Save", :class => "btn"
