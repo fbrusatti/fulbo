@@ -11,6 +11,8 @@ gem "haml-rails"
 gem "awesome_print"
 gem 'omniauth', "~> 1.0.3"
 gem 'omniauth-facebook'
+gem 'simple-navigation'
+gem 'simple-navigation-bootstrap'
 
 gem 'thin'
 

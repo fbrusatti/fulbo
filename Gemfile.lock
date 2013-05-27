@@ -238,6 +238,10 @@ GEM
       websocket (~> 1.0.4)
     shoulda-matchers (2.0.0)
       activesupport (>= 3.0.0)
+    simple-navigation (3.10.1)
+      activesupport (>= 2.3.2)
+    simple-navigation-bootstrap (0.0.4)
+      simple-navigation (>= 3.7.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -293,5 +297,6 @@ DEPENDENCIES
   rspec-rails (= 2.11.0)
   sass-rails (~> 3.2.3)
   shoulda-matchers (= 2.0.0)
-  thin
+  simple-navigation
+  simple-navigation-bootstrap
   uglifier (>= 1.0.3)

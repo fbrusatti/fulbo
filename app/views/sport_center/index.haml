@@ -1,0 +1,21 @@
+%h1 Administracion
+#example_3.example_content
+  #top_navigation= render_navigation(:level => 1, :expand_all => true)
+  .clear_float
+  .content_wrapper
+    #sub_navigation= render_navigation(:level => 2, :expand_all => true)
+    .content
+      .breadcrumbs
+        = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ', :prefix => 'que queres: ')
+    .clear_float
+/ #example_4.example_content.no_anchor
+/   #js_navigation= render_navigation(:expand_all => true)
+/   .content
+/     .breadcrumbs
+/       = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ', :prefix => 'breadcrumbs: ')
+/   .clear_float
+ 
+/ :javascript
+/   $(document).ready(function(){ 
+/     $("#js_navigation ul").superfish(); 
+/   });
