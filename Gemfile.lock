@@ -299,4 +299,5 @@ DEPENDENCIES
   shoulda-matchers (= 2.0.0)
   simple-navigation
   simple-navigation-bootstrap
+  thin
   uglifier (>= 1.0.3)

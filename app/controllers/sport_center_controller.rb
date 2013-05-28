@@ -10,9 +10,9 @@ class SportCenterController < ApplicationController
   	@user = User.find(params[:user_id])
 	@sport_center = @user.sport_center
 
-    if request.path != user_profile_path(@user)
-      redirect_to user_profile_path(@user), status: :moved_permanently
-    end
+    # if request.path != user_profile_path(@user)
+    #   redirect_to user_profile_path(@user), status: :moved_permanently
+    # end
     
   end
 end
