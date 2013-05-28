@@ -1,9 +1,48 @@
-#example_3.example_content
-  #top_navigation= render_navigation(:level => 1)
-  .clear_float
-  .content_wrapper
-    #sub_navigation= render_navigation(:level => 2)
-    .content
-      .breadcrumbs
-        = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ', :prefix => 'breadcrumbs: ')
-    .clear_float
+%h1 Centro Deportivo
+.container-fluid
+  .row-fluid
+    .span2
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap	
+    .span10
+      - if user_signed_in? and current_user == @user
+        %h4=link_to "Edit?", edit_user_profile_path(@user)
+      %div{:class => "row-fluid"}
+
+        %div{:class => "span10"}
+          %div{:class => "hero-unit"}
+            = link_to image_tag('rails.jpg'), '#'
+
+          / %h3
+          /   -if @user.sport_center.blank?
+          /     ="#{@user.sport_center.name}"
+          /   -else
+          /     ="#{@user.sport_center.name}"
+
+/   %div{:class => "span2"}
+/     %div{:class => "img-polaroid"}
+/       %h3 Picture
+/       = form_for @profile, :html => {:multipart => true} do |f|
+/         -if @profile.avatar?
+/           = image_tag(@profile.avatar_url(:thumb))
+/         -else
+/           = image_tag "profile_dafault.png"
+/         %div
+
+/           - if user_signed_in? and current_user == @user
+/             = link_to "edit", edit_user_profile_path(@user)
+/ %br
+
+/ %div{:class => "well well-large"}
+/   %div{:class => "dl-horizontal"}
+/     %dt Playing position
+/     / %dd= @profile.playing_position.to_sentence
+/     %dt Born
+/     / %dd= @profile.dob
+/     %dt Locallity
+/     / %dd= @profile.locality
+/     %dt Foot
+/     / %dd= @profile.foot
+/     %dt Features
+/     / %dd= @profile.features
+		
+

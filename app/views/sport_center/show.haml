@@ -1,0 +1,22 @@
+%h1 Centro Deportivo
+.container-fluid
+  .row-fluid
+    .span2
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
+    .span10
+      - if user_signed_in? and current_user == @user
+        %h4=link_to "Edit?", edit_user_profile_path(@user)
+      %div{:class => "row-fluid"}
+
+        %div{:class => "span10"}
+          %div{:class => "hero-unit"}
+            = link_to image_tag('rails.jpg'), '#'
+/ %h1 Informacion
+/ %div{:class => "well well-  large"}
+/   %div{:class => "dl-horizontal"}
+/     %dt Informacion:
+/     %dd= @sport_center.name
+
+/ - if user_signed_in? and current_user.team == @team
+/   = button_to "Delete team", team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => "Are you sure?"}
+  

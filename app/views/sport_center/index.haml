@@ -1,21 +1,22 @@
-%h1 Administracion
-#example_3.example_content
-  #top_navigation= render_navigation(:level => 1, :expand_all => true)
-  .clear_float
-  .content_wrapper
-    #sub_navigation= render_navigation(:level => 2, :expand_all => true)
-    .content
-      .breadcrumbs
-        = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ', :prefix => 'que queres: ')
-    .clear_float
-/ #example_4.example_content.no_anchor
-/   #js_navigation= render_navigation(:expand_all => true)
-/   .content
-/     .breadcrumbs
-/       = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ', :prefix => 'breadcrumbs: ')
-/   .clear_float
- 
-/ :javascript
-/   $(document).ready(function(){ 
-/     $("#js_navigation ul").superfish(); 
-/   });
+%h1 Centro Deportivo
+%table{:class => "table table-striped"}
+  - for sport_center in @sport_centers
+    %tr
+      %td
+        %div{:class => "media"}
+          %a{:class => "pull-left", :href => "#"}
+            %img{:class => "media-object", "data-src" => "holder.js/64x64"}
+          %div{:class => "media-body"}
+            %h4{:class => "media-heading"}=link_to "#{sport_center.name}", sport_center
+      %td
+        %div{:class => "btn-group"}
+          %a{:class => "btn dropdown-toggle", "data-toggle" => "dropdown", :href => "#"}
+            Action
+            %span{:class => "caret"}
+          %ul{:class => "dropdown-menu", :role => "menu", "aria-labelledby" => "dropdownMenu"}
+            %li
+              %a{:tabindex => "-1", :href =>"#"}
+                Oganizar partido
+            %li
+              %a{:tabindex => "-1", :href =>"#"}
+                Unirme a este equipo    

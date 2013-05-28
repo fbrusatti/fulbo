@@ -92,18 +92,22 @@
 #   end
 # end
 SimpleNavigation::Configuration.run do |navigation|  
-  # navigation.renderer = SimpleNavigation::Renderer::Bootstrap
+  navigation.renderer = SimpleNavigation::Renderer::Bootstrap
   navigation.items do |primary|
     # Bootstrap classes for tabbed menu
-    # primary.dom_class = "nav nav-tabs nav-stacked span3"
-    primary.item :books, 'Books', '#', :highlights_on => /(^\/$|^\/books)/ do |books|
-      books.item :fiction, 'Fiction', '#'
-    end
-    primary.item :music, 'Music', '#' do |music|
-      music.item :rock, 'Rock', '#'
-    end
-    primary.item :dvds, 'Dvds', '#' do |dvds|
-      dvds.item :drama, 'Drama', '#'
+    primary.dom_class = "nav nav-tabs nav-stacked"
+
+    primary.item :data, 'Informacion', '/sport_center', :icon => ['icon-flag'] do |data|
+      data.item :view, 'Ver', '/sport_center/'
+      data.item :modify, 'Modificar', '#'
     end    
+    primary.item :locations, 'Sedes', '#' ,:icon => ['icon-home'] do |locations|
+      locations.item :show, 'Ver Sedes', '/teams'
+      locations.item :new, 'Nueva Sede', '/teams'
+    end
+    primary.item :tourmentent, 'Torneos','#',:icon =>['icon-star'] do |tourmentent|
+      tourmentent.item :show, 'Ver Torneos', '#'
+      tourmentent.item :new, 'Nuevo Torneo', '#'
+    end 
   end
 end
