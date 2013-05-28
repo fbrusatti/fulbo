@@ -13,6 +13,8 @@ gem "debugger"
 gem 'omniauth', "~> 1.0.3"
 gem 'omniauth-facebook'
 
+gem 'thin'
+
 group :development do
   gem 'annotate', ">=2.5.0"
 end
