@@ -1,7 +1,8 @@
 class TeamsController < ApplicationController
   respond_to :html
 
-  before_filter :verfify_team, only: [:new]
+  before_filter :authenticate_user!, only: [:new]
+  before_filter :verify_team, only: [:new]
 
   def index
     @teams = Team.all
@@ -21,6 +22,9 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    if request.path != team_path(@team)
+      redirect_to team_path(@team), status: :moved_permanently
+    end
   end
 
   def destroy
@@ -32,8 +36,8 @@ class TeamsController < ApplicationController
 
   private
 
-    def verfify_team
-      redirect_to teams_path, notice: "you has a team" unless current_user.team.blank?
+    def verify_team
+      redirect_to teams_path, notice: "you have a team" unless current_user.team.blank?
     end
 
 end

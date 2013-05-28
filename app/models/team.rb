@@ -23,4 +23,8 @@ class Team < ActiveRecord::Base
 
   # == Accessors
   attr_accessible :captain, :name
+
+  # == FriendlyId
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
 end
