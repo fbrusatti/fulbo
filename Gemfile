@@ -13,6 +13,8 @@ gem "debugger"
 gem 'omniauth', "~> 1.0.3"
 gem 'omniauth-facebook'
 
+gem 'thin'
+
 group :development do
   gem 'annotate', ">=2.5.0"
 end
@@ -27,6 +29,9 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'awesome_print'
   gem 'debugger'
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'factory_girl_rails', '4.1.0'
 end
 # Gems used only for assets and not required
 # in production environments by default.
@@ -40,10 +45,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem "cucumber-rails", :group => :test, :require => false
+
 group :test do
   gem 'capybara', '1.1.2'
-  gem 'factory_girl_rails', '4.1.0'
   gem 'shoulda-matchers', '2.0.0'
+  gem "database_cleaner"
+  gem "email_spec"
 end
 
 gem 'jquery-rails'
