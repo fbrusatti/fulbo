@@ -43,6 +43,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem "cucumber-rails", :group => :test, :require => false
+
 group :test do
   gem 'capybara', '1.1.2'
   gem 'shoulda-matchers', '2.0.0'
