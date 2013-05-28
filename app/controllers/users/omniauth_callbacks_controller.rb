@@ -20,7 +20,7 @@ private
   end
 
   def find_for_ouath(provider, access_token, resource=nil)
-    user, email, name, uid, auth_attr = nil, nil, nil, {}
+    user, auth_attr = nil, {}
     case provider
     when "Facebook"
       extra_info = access_token['extra']['raw_info']
@@ -47,10 +47,10 @@ private
       raise 'Provider #{provider} not handled'
     end
     if resource.nil?
-      if email
+      if auth_attr[:email]
         user = find_for_oauth_by_email(resource, auth_attr)
-      elsif uid && name
-        user = find_for_oauth_by_uid(uid, resource)
+      elsif auth_attr[:uid] && auth_attr[:name]
+        user = find_for_oauth_by_uid(auth_attr[:uid], resource)
         if user.nil?
           user = find_for_oauth_by_name(resource, auth_attr)
         end
@@ -76,7 +76,7 @@ private
     return user
   end
 
-  def find_for_oauth_by_email(resource=nil, auth_attr)
+  def find_for_oauth_by_email(resource=nil, auth_attr)    
     if user = User.find_by_email(auth_attr[:email])
       user
     else
@@ -89,7 +89,7 @@ private
                                       :nickname => auth_attr[:nickname],
                                       :locality => auth_attr[:location],
                                       :dob => auth_attr[:dob],
-                                      :avatar => auth_attr[:image] )
+                                      :remote_avatar_url => auth_attr[:image].split("=")[0] << "=large" )
     end
     return user
   end
@@ -108,7 +108,7 @@ private
                                       :nickname => auth_attr[:nickname],
                                       :locality => auth_attr[:location],
                                       :dob => auth_attr[:dob],
-                                      :avatar => auth_attr[:image] )
+                                      :remote_avatar_url => auth_attr[:image].split("=")[0] << "=large" )
     end
     return user
   end
