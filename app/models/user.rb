@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
 
   has_one :profile, dependent: :destroy,
                     class_name: 'UserProfile',
-                    inverse_of: :use
+                    inverse_of: :user
 
   has_many :team_users
   has_many :teams, through: :team_users
