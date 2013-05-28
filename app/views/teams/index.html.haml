@@ -5,7 +5,7 @@
 - if user_signed_in? and current_user.team.blank?
   = button_to "create a team", new_team_path, {:method => :get, :class => "btn btn-mini btn-primary", :type => "button"}
 - if !user_signed_in?
-  = button_to "create a team", "#", {:method => :get, :class => "btn btn-mini btn-primary disabled", :type => "button"}
+  = button_to "create a team", new_team_path, {:method => :get, :class => "btn btn-mini btn-primary disabled", :type => "button"}
 
 %table{:class => "table table-striped"}
   - for team in @teams
@@ -27,4 +27,4 @@
                 Oganizar partido
             %li
               %a{:tabindex => "-1", :href =>"#"}
-                Unirme a este equipo    
+                Unirme a este equipo
