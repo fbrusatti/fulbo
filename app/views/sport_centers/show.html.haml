@@ -1,0 +1,16 @@
+%h1 #{@sport_center.name}
+.container-fluid
+  .row-fluid
+    .span2
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
+    .span10
+      = link_to image_tag('complejo.jpg'), '#'
+/ %h1 Informacion
+/ %div{:class => "well well-  large"}
+/   %div{:class => "dl-horizontal"}
+/     %dt Informacion:
+/     %dd= @sport_center.name
+
+/ - if user_signed_in? and current_user.team == @team
+/   = button_to "Delete team", team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => "Are you sure?"}
+  
