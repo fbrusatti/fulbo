@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   respond_to :html
 
-  before_filter :authenticate_user!, only: [:new]
+  before_filter :authenticate_user!, only: [:new, :edit, :update]
   before_filter :verify_permission, only: [:edit]
   before_filter :verify_team, only: [:new]
 
