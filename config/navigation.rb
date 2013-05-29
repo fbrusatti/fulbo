@@ -97,13 +97,13 @@ SimpleNavigation::Configuration.run do |navigation|
     # Bootstrap classes for tabbed menu
     primary.dom_class = "nav nav-tabs nav-stacked"
 
-    primary.item :data, 'Informacion', '/sport_center', :icon => ['icon-flag'] do |data|
+    primary.item :data, 'Informacion', :icon => ['icon-flag'] do |data|
       data.item :view, 'Ver', '/sport_center/'
       data.item :modify, 'Modificar', '#'
     end    
     primary.item :locations, 'Sedes', '#' ,:icon => ['icon-home'] do |locations|
-      locations.item :show, 'Ver Sedes', '/teams'
-      locations.item :new, 'Nueva Sede', '/teams'
+      locations.item :show, 'Ver Sedes', '#'
+      locations.item :new, 'Nueva Sede', '#'
     end
     primary.item :tourmentent, 'Torneos','#',:icon =>['icon-star'] do |tourmentent|
       tourmentent.item :show, 'Ver Torneos', '#'
