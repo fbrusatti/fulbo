@@ -2,16 +2,24 @@ class SportCentersController < ApplicationController
   # for respond_with
   respond_to :html
 
-  def new
+  # GET /:user_id/sport_center
+  def edit
+    @user = User.find(params[:user_id])
+    @sport_center = @user.sport_center
   end
 
-  def create
+  # PUT /:user_id/sport_center
+  def update
+    @user = User.find(params[:user_id])
+    @sport_center = @user.sport_center
+
+    if @sport_center.update_attributes(params[:user_sport_center])
+      redirect_to user_sport_center_path(@user), :notice => "Successfully updated sport center."
+    else
+      render :edit
+    end
   end
-  
-  def index
-    @sport_centers = SportCenter.all
-  end
-    
+ 
   def show
     @user = User.find(params[:user_id])
     @sport_center = @user.sport_center

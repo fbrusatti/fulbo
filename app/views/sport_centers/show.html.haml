@@ -3,14 +3,28 @@
   .row-fluid
     .span2
       #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
-    .span10
-      = link_to image_tag('complejo.jpg'), '#'
-/ %h1 Informacion
-/ %div{:class => "well well-  large"}
-/   %div{:class => "dl-horizontal"}
-/     %dt Informacion:
-/     %dd= @sport_center.name
+    .span6
+      %div{:class => "well well-large"}
+        %div{:class => "dl-horizontal"}
+          %dt Dirección:
+          %dd= @sport_center.address
+          %dt Cuit:
+          %dd= @sport_center.cuit
+          %dt Teléfono:
+          %dd= @sport_center.phone
+          %dt E-mail:
+          %dd= @sport_center.email
+          %dt Descripción:
+          %dd= @sport_center.description
+        %a.btn.btn-primary{:href => edit_user_sport_center_path(@user)}
+          Cambiar
+    .span4
+      .img-polaroid
+        %h3 Logo
+        = link_to image_tag('complejo.jpg'), '#'
+        %a.btn.btn-primary{:href => edit_user_sport_center_path(@user)}
+          Cambiar
 
-/ - if user_signed_in? and current_user.team == @team
-/   = button_to "Delete team", team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => "Are you sure?"}
+      
+
   
