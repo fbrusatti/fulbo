@@ -23,6 +23,7 @@ describe Team do
   # has_many
   it { should have_many(:team_users) }
   it { should have_many(:users).through(:team_users) }
+  it { should have_many(:photos) }
 
   it { should have_db_column(:owner_id).
               of_type(:integer)}
