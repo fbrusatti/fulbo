@@ -19,7 +19,6 @@ describe Team do
 
   # has_one
   it { should have_one(:profile) }
-  it { should have_one(:gallery) }
 
   # has_many
   it { should have_many(:team_users) }
