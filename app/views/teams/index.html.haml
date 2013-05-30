@@ -13,7 +13,10 @@
       %td
         %div{:class => "media"}
           %a{:class => "pull-left", :href => "#"}
-            %img{:class => "media-object", "data-src" => "holder.js/64x64"}
+            - if team.profile.badge?
+              = image_tag team.profile.badge, size: "64x64"
+            - else
+              = image_tag "badge_default.jpg", size: "64x64"
           %div{:class => "media-body"}
             %h4{:class => "media-heading"}=link_to "#{team.name}", team
       %td
