@@ -17,7 +17,7 @@
       -if @team.profile.badge?
         = image_tag(@team.profile.badge_url(:thumb))
       -else
-        = image_tag "badge_default.jpg"
+        = image_tag "badge_default.jpg", size: "140x140"
 
   = f.label "#{:name}*"
   = f.text_field :name
