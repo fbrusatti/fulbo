@@ -11,7 +11,7 @@
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :path => "" do
     resource :profile, controller: "users_profiles"
-    resource :sport_center, controller: "sport_centers"
+    resource :sport_center
   end
 
   #devise_for :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

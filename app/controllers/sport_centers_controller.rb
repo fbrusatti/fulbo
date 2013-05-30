@@ -2,7 +2,6 @@
   # for respond_with
   respond_to :html
 
-  # the profile is available only if user is authenticates
   before_filter :verify_sport_center, :authenticate_user!
   
   def new

@@ -12,7 +12,7 @@
               Signed in as #{current_user.email}. Not you?
             %li= link_to "Profile", user_profile_path(current_user)
             - if user_signed_in? and !current_user.sport_center.blank?
-              %li= link_to "Complejo",  user_sport_center_path(current_user),method: "get"
+              %li= link_to "Complejo",  user_sport_center_path(current_user)
             %li= link_to "Salir", destroy_user_session_path, method: 'delete'
           - else
             %li= link_to "Registrarse", new_user_registration_path
