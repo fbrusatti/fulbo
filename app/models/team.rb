@@ -22,7 +22,7 @@ class Team < ActiveRecord::Base
   has_one :profile, dependent: :destroy,
                   class_name: "TeamProfile",
                   inverse_of: :team
-
+  has_many :photos
   has_many :team_users
   has_many :users, through: :team_users
 
