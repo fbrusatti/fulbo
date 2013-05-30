@@ -40,6 +40,8 @@ class User < ActiveRecord::Base
   # == Associations
   has_one :team, foreign_key: "owner_id"
 
+  has_one :sport_center, foreign_key: "owner_id"
+
   has_one :profile, dependent: :destroy,
                     class_name: 'UserProfile',
                     inverse_of: :user

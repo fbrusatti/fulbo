@@ -1,0 +1,6 @@
+%h2 Editar
+= form_for @sport_center, url: user_sport_center_path(@user) do |f|
+  = errors_for(@sport_center).html_safe
+  = render  "data", :f => f
+  %div
+    = f.submit "Guardar Cambios",:class => "btn"
