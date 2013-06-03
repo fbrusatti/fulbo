@@ -14,9 +14,11 @@ class Photo < ActiveRecord::Base
   belongs_to :team
 
   # == Accessors
-  attr_accessible :name, :image, :remote_image_url
+  attr_accessible :name, :image, :remote_image_url, :remove_image, :image_cache
 
   # == Mount
   # mount_uploader :image, ImageUploader
 
+  # == Validates
+  validates_presence_of :image
 end

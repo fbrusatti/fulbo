@@ -5,7 +5,9 @@
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :teams
+  resources :teams do
+    resources :photos, only: [:index, :new, :create, :destroy]
+  end
 
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :path => "" do
