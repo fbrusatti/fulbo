@@ -11,6 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.fancybox-buttons
+//= require jquery.fancybox-media
+//= require jquery.fancybox-thumbs
+//= require jquery.fancybox
+//= require jquery.fancybox.pack
 //= require bootstrap
 //= require jquery_ujs
 //= require jquery.Jcrop
