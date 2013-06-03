@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  respond_to :html
+  respond_to :html, :js
 
   before_filter :authenticate_user!, only: [:new, :create, :destroy, :update]
   before_filter :verify_permission, only: [:new, :update, :destroy, :create]
