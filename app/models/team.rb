@@ -26,6 +26,9 @@ class Team < ActiveRecord::Base
   has_many :team_users
   has_many :users, through: :team_users
 
+  # == Callbacks
+  before_create :init_profile
+
   # == Accessors
   attr_accessible :captain, :name, :profile_attributes
 
@@ -36,4 +39,8 @@ class Team < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
 
+  private
+    def init_profile
+      build_profile if profile.blank?
+    end
 end
