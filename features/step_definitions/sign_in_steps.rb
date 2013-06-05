@@ -39,7 +39,7 @@ And(/^I enter (my correct|wrong) credentials$/) do |correctness|
 end
 
 Then(/^I should (not)? be logged in$/) do |negation|
-  expectation = if negation.present? ? :should_not : :should
+  expectation = negation.present? ? :should_not : :should
 
   page.send(expectation, have_content("Signed in as #{@user.email}. Not you?"))
 end
