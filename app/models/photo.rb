@@ -17,6 +17,6 @@ class Photo < ActiveRecord::Base
   attr_accessible :name, :image, :remote_image_url
 
   # == Mount
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
 end
