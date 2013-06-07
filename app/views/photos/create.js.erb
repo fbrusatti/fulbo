@@ -1,0 +1,11 @@
+<% if @photo.errors.any?  %>
+  // Create a list of errors
+  var errors = $('<ul />');
+  <% @photo.errors.full_messages.each do |error| %>
+    errors.append('<li><%= escape_javascript( error ) %></li>');
+  <% end %>
+  $('#photoModal #photoErrors').html(errors);
+<% else %>
+  $('#thumb_gallery').append('<%= j(render "thumbnail_photo", :photo => @photo)%>');
+  $('#photoModal #photoModalNew').modal('hide');
+<% end %>

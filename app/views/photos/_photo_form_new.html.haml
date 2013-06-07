@@ -1,0 +1,21 @@
+#photoModalNew.modal.fade.hide
+  .modal-header
+    .close{"data-dismiss" => "modal"} x
+    %h3 Add photo
+  = form_for @photo, url: team_photos_path(@team), remote: true, multipart: true do |f|
+    .modal-body
+      #photoErrors
+      = f.label :image, :class => "img-polaroid pull-right" do
+        -if @photo.image?
+          = image_tag(@photo.image_url(:thumb))
+        -else
+          = image_tag "badge_default.jpg", size: "140x140"
+      %p
+        = f.label :name
+        = f.text_field :name
+      = f.file_field :image, :id => "image_file"
+      = f.hidden_field :image_cache
+      = f.label :remote_image_url, "or image URL"
+      = f.text_field :remote_image_url
+    .modal-footer
+      = f.submit "Save", :class => "btn", data: { disable_with: "Processing" }

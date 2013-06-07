@@ -1,0 +1,7 @@
+<%- if (@team.photos.count < PhotosHelper::PHOTO_LIMIT_AMOUNT) %>
+  var photo_new = $('<%= j(render(:partial => "photo_form_new"))%>');
+  $('#photoModal').html(photo_new);
+  $('#photoModal #photoModalNew').modal('toggle');
+<%- else %>
+  alert("you have arrived to limit of photos");
+<%- end %>

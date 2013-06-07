@@ -1,0 +1,3 @@
+  $("#thumb_gallery #photo_<%= @photo.id %>").remove();
+  $('#thumb_gallery').append('<%= j(render "thumbnail_photo", :photo => @photo)%>');
+  $('#photoModal #photoModalEdit').modal('hide');
