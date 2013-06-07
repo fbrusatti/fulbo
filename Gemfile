@@ -13,6 +13,7 @@ gem 'omniauth', "~> 1.0.3"
 gem 'omniauth-facebook'
 gem 'simple-navigation'
 gem 'simple-navigation-bootstrap'
+gem 'remotipart', '~> 1.0'
 
 gem 'thin'
 

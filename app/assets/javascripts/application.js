@@ -18,5 +18,6 @@
 //= require jquery.fancybox.pack
 //= require bootstrap
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require jquery.Jcrop
 //= require_tree .
