@@ -11,3 +11,14 @@ $(document).ready ->
         type: "inside"
 
       buttons: {}
+
+  $("#add_a_photo").on("ajax:success", () ->
+    $(document).ready ->
+      $("#new_photo")
+        .on("ajax:beforeSend", () ->
+          $.fancybox.showLoading()
+        )
+        .on("ajax:success", () ->
+          $.fancybox.hideLoading()
+        )
+  );
