@@ -17,8 +17,10 @@ $(document).ready ->
       $("#new_photo")
         .on("ajax:beforeSend", () ->
           $.fancybox.showLoading()
+          $(".btn_modal").attr("disabled", true)
         )
         .on("ajax:success", () ->
           $.fancybox.hideLoading()
+          $(".btn_modal").attr("disabled", false)
         )
   );
