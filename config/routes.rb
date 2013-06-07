@@ -6,7 +6,7 @@
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :teams do
-    resources :photos, only: [:index, :new, :create, :destroy]
+    resources :photos
   end
 
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
