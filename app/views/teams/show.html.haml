@@ -1,6 +1,7 @@
 %h1 Team
 %div{:class => "row-fluid"}
   %div{:class => "span10"}
+    %h6= link_to "photos", team_photos_path(@team)
     %div{:class => "hero-unit"}
       %div{:class => "dl-horizontal"}
         %h3
@@ -30,6 +31,6 @@
     %dd= @team.profile.description
 
 
-- if user_signed_in? and current_user.team == @team
+- if owner_permission?
   = button_to "Delete team", team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => "Are you sure?"}
 

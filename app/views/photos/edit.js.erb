@@ -1,0 +1,3 @@
+var photo_edit = $('<%= j(render(:partial => "photo_form_edit"))%>');
+  $('#photoModal').html(photo_edit);
+  $('#photoModal #photoModalEdit').modal('toggle');

@@ -1,0 +1,12 @@
+%h1
+  Photos of
+  =@team.name
+
+%ul.thumbnails#thumb_gallery
+  - for photo in @team.photos
+    =render "thumbnail_photo", :photo => photo
+
+- if owner_permission?
+  = link_to "Add a Photo", new_team_photo_path(@team), :remote => true, :id => "add_a_photo"
+
+#photoModal

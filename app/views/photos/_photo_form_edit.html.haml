@@ -1,0 +1,17 @@
+#photoModalEdit.fade.hide
+  = form_for([@photo.team, @photo], remote: true, multipart: true) do |f|
+    .modal
+      .modal-header
+        .close{"data-dismiss" => "modal"} x
+        %h3 Edit photo
+      .modal-body
+        = f.label :image, :class => "img-polaroid pull-right" do
+          -if @photo.image?
+            = image_tag(@photo.image_url(:thumb))
+          -else
+            = image_tag "badge_default.jpg", size: "140x140"
+        %p
+          = f.label :name
+          = f.text_field :name
+      .modal-footer
+        = f.submit "Save", :class => "btn btn_modal"
