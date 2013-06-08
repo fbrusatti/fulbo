@@ -209,6 +209,7 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    remotipart (1.0.5)
     responders (0.9.3)
       railties (~> 3.1)
     rmagick (2.13.2)
@@ -293,6 +294,7 @@ DEPENDENCIES
   omniauth-facebook
   pg
   rails (= 3.2.13)
+  remotipart (~> 1.0)
   rmagick
   rspec-rails (= 2.11.0)
   sass-rails (~> 3.2.3)
