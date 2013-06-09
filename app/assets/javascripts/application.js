@@ -19,5 +19,6 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require jquery.remotipart
+//= require twitter/bootstrap
 //= require jquery.Jcrop
 //= require_tree .
