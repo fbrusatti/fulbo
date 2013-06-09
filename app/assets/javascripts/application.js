@@ -21,4 +21,6 @@
 //= require jquery.remotipart
 //= require twitter/bootstrap
 //= require jquery.Jcrop
+//= require jquery.cycle.all.js
+//= require landing_page
 //= require_tree .

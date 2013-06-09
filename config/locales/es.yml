@@ -7,6 +7,8 @@ es:
     sign_in: Entrar
     sign_out: Salir
     session_status: "Registrado como %{user}"
+  landing_page:
+    comming_soon: Muy pronto
   date:
     abbr_day_names:
     - dom

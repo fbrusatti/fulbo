@@ -1,24 +1,34 @@
 %body
   .container
     .row
-      .span9
-        %h1 Movete que Entras..
-        .container
-          %p.center
-          = link_to image_tag('futbol1.jpg'), '#'
-        %h2 Muy Pronto...
-      .span3
-        %h2 Que es MqE?
-        Movete que entras es la nueva forma de organizar tus partidos,
-        tu equipo, campeonatos, desafios y mucho más.
-        Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores
-        amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar
-        a otros equipos y calificar jugadores después de un partido.
-        Además de esto en Movete que Entras encontrarás una gran cantidad de
-        estadios, en los que podrás poner a tu equipo en juego.
-        Y si todavía no estás decidido de crear tu perfil, en Movete que
-        Entras habrá un ranking de jugadores y equipos, con calificaciones de
-        los mismos creada por otros usuarios y jugadores dentro de la red. Para
-        que te sientas un Jugador Profesional.
+      %h2= t('.comming_soon')
 
+      .controls
+        .left
+          .prev_arrow
+            %a(href="#" id="prev")
+              = image_tag 'prev_arrow.png'
+        .right
+          .next_arrow
+            %a(href="#" id="next")
+              = image_tag 'next_arrow.png'
+
+      .slides
+        .step.video
+          .span9
+            Movete que entras es la nueva forma de organizar tus partidos,
+            tu equipo, campeonatos, desafios y mucho más.
+            Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores
+            amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar
+            a otros equipos y calificar jugadores después de un partido.
+            Además de esto en Movete que Entras encontrarás una gran cantidad de
+            estadios, en los que podrás poner a tu equipo en juego.
+            Y si todavía no estás decidido de crear tu perfil, en Movete que
+            Entras habrá un ranking de jugadores y equipos, con calificaciones de
+            los mismos creada por otros usuarios y jugadores dentro de la red. Para
+            que te sientas un Jugador Profesional.
+
+        .step.benefits
+          .span9
+            = link_to image_tag('futbol1.jpg'), '#'
 
