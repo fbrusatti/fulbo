@@ -1,4 +1,12 @@
 es:
+  navigation:
+    teams: Equipos
+    stadiums: Estadios
+    leagues: Campeonatos
+    sign_up: Registrarse
+    sign_in: Entrar
+    sign_out: Salir
+    session_status: "Registrado como %{user}"
   date:
     abbr_day_names:
     - dom
@@ -9,7 +17,6 @@ es:
     - vie
     - sáb
     abbr_month_names:
-    - 
     - ene
     - feb
     - mar

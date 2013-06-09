@@ -23,4 +23,7 @@ module ApplicationHelper
     html
   end
 
+  def user_has_sport_center?
+    user_signed_in? && !current_user.sport_center.blank?
+  end
 end
