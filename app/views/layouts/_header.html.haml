@@ -1,12 +1,12 @@
 %header.navbar.navbar-fixed-top.navbar-inverse
   .navbar-inner
     .container
-      = link_to "Fulbo", root_path, id: "logo"
+      = link_to "Movete Que Entras", root_path, id: "logo"
       .nav-collapse
         %nav
           %ul.nav.pull-right
             %li= link_to "Ligas", '#'
-            %li= link_to "Equipos", teams_path
+            %li= link_to t('navigation.menus.teams'), teams_path
             %li= link_to "Estadios", '#'
             - if user_signed_in?
               %li
