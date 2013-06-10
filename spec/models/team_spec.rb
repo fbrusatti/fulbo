@@ -33,4 +33,9 @@ describe Team do
   it { should allow_mass_assignment_of(:name) }
   it { should allow_mass_assignment_of(:captain) }
 
+  it "each team has a profile when it is created" do
+    team = FactoryGirl.create(:team)
+    assert_not_nil team.profile
+  end
+
 end

@@ -25,15 +25,20 @@
             = link_to "Cambiar", edit_user_profile_path(@user)
 %br
 
-%div{:class => "well well-large"}
-  %div{:class => "dl-horizontal"}
+.well.well-large
+  .dl-horizontal
+    %br
     %dt Playing position
     %dd= @profile.playing_position.to_sentence
-    %dt Born
-    %dd= @profile.dob
+    %br
     %dt Locallity
     %dd= @profile.locality
+    %br
+    %dt Born
+    %dd= @profile.dob
+    %br
     %dt Foot
     %dd= @profile.foot
+    %br
     %dt Features
     %dd= @profile.features
