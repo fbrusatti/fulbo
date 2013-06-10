@@ -11,9 +11,10 @@
   %body
     = render 'layouts/header'
 
-    .container
+    .container.main
       - flash.each do |key, value|
         %div(class="alert alert-#{key}")
           = value
       = yield
-      = render 'layouts/footer'
+
+    = render 'layouts/footer'

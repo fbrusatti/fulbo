@@ -17,6 +17,8 @@
         .step.player
           .span7.image
             Aca va a ir un viedo de un jugador precalentando con un texto al costado
+
+            = image_tag('fifa/profile.jpg')
           .span3.description
             Movete que entras es la nueva forma de vivir el fútbol amateur.
             %br
@@ -24,7 +26,7 @@
 
         .step.champinship
           .span7.image
-            = link_to image_tag('futbol1.jpg'), '#'
+            = link_to image_tag('fifa/jugada.jpg'), '#'
           .span3.description
             Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores
             amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar
@@ -34,7 +36,7 @@
 
         .step.bets
           .span7.image
-            imagen de apuesta
+            = link_to image_tag('fifa/estadisticas.jpg'), '#'
           .span3.description
             texto de apuesta.
             %br
@@ -42,8 +44,3 @@
             Entras habrá un ranking de jugadores y equipos, con calificaciones de
             los mismos creada por otros usuarios y jugadores dentro de la red. Para
             que te sientas un Jugador Profesional.
-
-        .step.benefits
-          .span9
-            = link_to image_tag('futbol1.jpg'), '#'
-
