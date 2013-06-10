@@ -21,12 +21,14 @@
           - if user_signed_in? and current_user == @team.owner
             = link_to "edit", edit_team_path(@team)
 
-%div{:class => "well well-large"}
-  %div{:class => "dl-horizontal"}
+.well.well-large
+  .dl-horizontal
     %dt Team category:
     %dd= @team.profile.category.to_sentence
+    %br
     %dt Team surface:
     %dd= @team.profile.surface.to_sentence
+    %br
     %dt Team description:
     %dd= @team.profile.description
 
