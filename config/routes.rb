@@ -13,13 +13,13 @@
     resources :photos
   end
 
-  resources :sport_centers do 
+  resources :sport_centers do
     resources :locations
   end
 
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :path => "" do
-    resource :profile, controller: "users_profiles"
+    resource :profile, only: [:show, :edit, :update]
   end
 
   #devise_for :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
