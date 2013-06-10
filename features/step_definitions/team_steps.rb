@@ -15,11 +15,11 @@ When(/^I go to teams page$/) do
   visit teams_path
 end
 
-Then(/^I should( not)? see "(.*?)" button$/) do |negation, name_button|
+Then(/^I should( not)? see "(.*?)" button$/) do |negation, button_name|
   if negation.present?
-    page.should_not have_button name_button
+    page.should_not have_button button_name
   else
-    page.should have_button name_button
+    page.should have_button button_name
   end
 end
 
@@ -29,8 +29,8 @@ Given(/^I am authorized for create a team$/) do
     And I am not owner of a team }
 end
 
-When(/^I press "(.*?)" button$/) do |name_button|
-  click_button name_button
+When(/^I press "(.*?)" button$/) do |button_name|
+  click_button button_name
 end
 
 When(/^I fill in "name" with "Barcelona"$/) do

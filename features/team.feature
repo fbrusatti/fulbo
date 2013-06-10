@@ -1,4 +1,4 @@
-Feature: Team feacture
+Feature: Team feature
 
   Scenario: Authorized for create a team
     Given I am logged in
@@ -6,7 +6,7 @@ Feature: Team feacture
     When I go to teams page
     Then I should see "create a team" button
 
-  Scenario: Authorized not for create a team
+  Scenario: Not Authorized to create a team
     Given I am logged in
     And I am owner of a team
     When I go to teams page

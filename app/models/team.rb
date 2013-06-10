@@ -43,4 +43,5 @@ class Team < ActiveRecord::Base
     def init_profile
       build_profile if profile.blank?
     end
+
 end
