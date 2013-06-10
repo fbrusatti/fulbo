@@ -1,14 +1,14 @@
-%h1 Team
+%h1= t ".title"
 %div{:class => "row-fluid"}
   %div{:class => "span10"}
-    %h6= link_to "photos", team_photos_path(@team)
+    %h6= link_to (t ".link_photos"), team_photos_path(@team)
     %div{:class => "hero-unit"}
       %div{:class => "dl-horizontal"}
         %h3
-          %dt Team name:
+          %dt= "#{Team.human_attribute_name(:name)}: "
           %dd= @team.name
         %h5
-          %dt Team owner:
+          %dt= "#{TeamProfile.human_attribute_name(:owner)}: "
           %dd= link_to "#{@team.owner.name}", user_profile_path(@team.owner)
   %div{:class => "span2"}
     %div{:class => "img-polaroid"}
@@ -19,20 +19,19 @@
           = image_tag "badge_default.jpg", size: "140x140"
         %div
           - if user_signed_in? and current_user == @team.owner
-            = link_to "edit", edit_team_path(@team)
+            = link_to (t ".link_edit"), edit_team_path(@team)
 
 .well.well-large
   .dl-horizontal
-    %dt Team category:
+    %dt= "#{TeamProfile.human_attribute_name(:category)}: "
     %dd= @team.profile.category.to_sentence
     %br
-    %dt Team surface:
-    %dd= @team.profile.surface.to_sentence
+    %dt= "#{TeamProfile.human_attribute_name(:surface)}: "
+    %dd= (@team.profile.surface.map { |s| (t "teams.surfaces.#{s}")}).to_sentence
     %br
-    %dt Team description:
+    %dt= "#{TeamProfile.human_attribute_name(:description)}: "
     %dd= @team.profile.description
 
 
 - if owner_permission?
-  = button_to "Delete team", team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => "Are you sure?"}
-
+  = button_to (t ".btn_delete"), team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => (t ".confirm")}
