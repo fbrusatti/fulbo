@@ -1,8 +1,10 @@
 %header.navbar.navbar-fixed-top.navbar-inverse
   .navbar-inner
-    .container
-      = link_to "Movete que Entras", root_path, id: "logo"
+    .container-fluid
+      = link_to "MqE", root_path, id: "logo"
       %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+        %span.icon-bar
+        %span.icon-bar
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
@@ -10,17 +12,25 @@
         %span.icon-bar
       .nav-collapse.collapse
         %ul.nav
-          %li= link_to "Ligas", '#'
-          %li= link_to "Equipos", teams_path
-          %li= link_to "Estadios", '#'
+          %li.active
+            %a{ :href => "#" } Ligas
+          %li.active
+            %a{ :href => teams_path } Equipos  
+          %li.active
+            %a{ :href => "#" } Estadios
         %ul.nav.pull-right    
           - if user_signed_in?
             %li
               Signed in as #{current_user.email}. Not you?
-            %li= link_to "Profile", user_profile_path(current_user)
+            %li.active
+              %a{ :href => user_profile_path(current_user) } Profile
             - if user_signed_in? and !current_user.sport_center.blank?
-              %li= link_to "Complejo",  user_sport_center_path(current_user)
-            %li= link_to "Salir", destroy_user_session_path, method: 'delete'
+              %li.active
+                %a{ :href => user_sport_center_path(current_user) } Complejo
+            %li.active
+              %a{ :href => destroy_user_session_path, method: 'delete' } Salir
           - else
-            %li= link_to "Registrarse", new_user_registration_path
-            %li= link_to "Entrar", new_user_session_path
+            %li.active
+              %a{ :href => new_user_registration_path } Registrarse
+            %li.active
+              %a{:href => new_user_session_path} Entrar

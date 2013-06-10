@@ -6,12 +6,16 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=devise-width, initial-scale=1.5">
+    <style>
+      body { padding-top: 60px; }
+    </style>
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <%= render 'layouts/shim' %>
   </head>
 
   <body>
     <%= render 'layouts/header2' %>
-    <div class="container">
+    <div class="container-fluid">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>

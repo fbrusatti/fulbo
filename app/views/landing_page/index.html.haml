@@ -1,25 +1,37 @@
-%body
-  .container
-    .row
-      .span9
-        %h1 Movete que Entras..
-        .container
-          %p.center
-          = link_to image_tag('futbol1.jpg'), '#'
-        %h2 Muy Pronto...   
-      .span3
-        %h2 Que es MqE?
-        Movete que entras es la nueva forma de organizar tus partidos,
-        tu equipo, campeonatos, desafios y mucho más.
-        Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores
-        amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar
-        a otros equipos y calificar jugadores después de un partido.
-        Además de esto en Movete que Entras encontrarás una gran cantidad de
-        estadios, en los que podrás poner a tu equipo en juego. 
-        Y si todavía no estás decidido de crear tu perfil, en Movete que 
-        Entras habrá un ranking de jugadores y equipos, con calificaciones de 
-        los mismos creada por otros usuarios y jugadores dentro de la red. Para 
-        que te sientas un Jugador Profesional.
+.hero-unit
+  %h Movete que Entras
+  %p
+    Movete que entras es la nueva forma de organizar tus partidos,
+    tu equipo, campeonatos, desafios y mucho más.
+    Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores
+    amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar
+    a otros equipos y calificar jugadores después de un partido.
+  %p
+    %a.btn.btn-primary.btn-large{ :href => new_user_session_path } Ingresar
+.row-fluid
+  .span4
+    %h2 Ligas
+    %t
+      La más completa grilla de ligas de tu ciudad. 
+      En MqE podrás encontrar la liga que estabas 
+      buscando para inscribir a tu equipo.
+    %p
+      %a.btn.btn-success{ :href => "#" } Ver Ligas 
+  .span4
+    %h2 Equipos
+    %t
+      Crea tu equipo y comenzá a desafiar a otros equipos para 
+      posicionarte 1ro en el ranking de equipos de MqE.
+    %p
+      %a.btn.btn-success{ :href => teams_path } Ver Equipos  
+  .span4
+    %h2 Estadios
+    %t
+      En MqE encontrarás la cancha justa para organizar un partido
+      con tus amigos o para desafiar otros equipos.
+    %p
+      %a.btn.btn-success{ :href => "#" } Ver Estadios       
+        
   
 
                       
