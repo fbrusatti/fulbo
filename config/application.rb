@@ -19,6 +19,7 @@ module Fulbo
 
     # Devise-i18n
     config.i18n.default_locale = :es
+    I18n.default_locale = :es
 
     # ActiveAdmin and Device
     # If you are deploying Rails 3.1+ on Heroku, you may want to set:
