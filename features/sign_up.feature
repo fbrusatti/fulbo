@@ -7,7 +7,7 @@ Feature: Sign Up
     And I fill in "user_password" with "<password>"
     And I fill in "user_password_confirmation" with "<password>"
     And I press "Sign up"
-    Then I should see "Signed in as <email>"
+    Then I should see signed in message for "<email>"
 
     Examples:
       | email           | password   |

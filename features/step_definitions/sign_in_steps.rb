@@ -21,8 +21,8 @@ When(/^I press "(.*?)"$/) do |button|
   click_button button
 end
 
-Then(/^I should see "(.*?)"$/) do |text|
-  page.should have_content text
+Then(/^I should see signed in message for "(.*?)"$/) do |user|
+  page.should have_content I18n.t('navigation.session_status', user: user)
 end
 
 When(/^I go to login page$/) do
@@ -41,5 +41,5 @@ end
 Then(/^I should( not)? be logged in$/) do |negation|
   expectation = negation.present? ? :should_not : :should
 
-  page.send(expectation, have_content("Signed in as #{@user.email}. Not you?"))
+  page.send(expectation, have_content(I18n.t('navigation.session_status', user: @user.email)))
 end
