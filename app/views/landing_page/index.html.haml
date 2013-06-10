@@ -1,6 +1,6 @@
 %body
   .container
-    .row
+    .landing_page.row
       %h2= t('.comming_soon')
 
       .controls
@@ -14,16 +14,31 @@
               = image_tag 'next_arrow.png'
 
       .slides
-        .step.video
-          .span9
-            Movete que entras es la nueva forma de organizar tus partidos,
-            tu equipo, campeonatos, desafios y mucho más.
+        .step.player
+          .span7.image
+            Aca va a ir un viedo de un jugador precalentando con un texto al costado
+          .span3.description
+            Movete que entras es la nueva forma de vivir el fútbol amateur.
+            %br
+            Organizar tus partidos, conformá tu equipo con tus amigos, anotá tu equipo en campeonatos jugados en las mejores canchas de la zona, desafiá a otros equipos y mucho más.
+
+        .step.champinship
+          .span7.image
+            = link_to image_tag('futbol1.jpg'), '#'
+          .span3.description
             Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores
             amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar
             a otros equipos y calificar jugadores después de un partido.
             Además de esto en Movete que Entras encontrarás una gran cantidad de
             estadios, en los que podrás poner a tu equipo en juego.
-            Y si todavía no estás decidido de crear tu perfil, en Movete que
+
+        .step.bets
+          .span7.image
+            imagen de apuesta
+          .span3.description
+            texto de apuesta.
+            %br
+            Todavía no estás decidido? crear tu perfil, en Movete que
             Entras habrá un ranking de jugadores y equipos, con calificaciones de
             los mismos creada por otros usuarios y jugadores dentro de la red. Para
             que te sientas un Jugador Profesional.

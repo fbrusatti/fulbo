@@ -1,30 +1,44 @@
-.slides {
-  text-align: center;
-  height: 600px;
-}
+.landing_page {
+  .slides {
+    text-align: center;
+    height: 600px;
+    .step {
+      .image {
 
-.controls {
-  background-color: red;
-  .left {
-    float: left;
-    left: 36px;
-    width: 40px;
-    height: 40px;
-    .prev_arrow {
-      background: inline-image('prev_arrow.png') no-repeat;
-      background-size: 100%;
-      left: -50px;
+      }
+      .description {
+        font-size: 21px;
+        font-family: Helvetica,Arial,sans-serif;
+        color: grey;
+        line-height: 30px;
+        text-align: justify;
+      }
     }
   }
-  .right {
-    float: right;
-    right: 36px;
-    width: 40px;
-    height: 40px;
-    .next_arrow {
-      background: inline-image('next_arrow.png') no-repeat;
-      background-size: 100%;
-      right: -50px;
+
+  .controls {
+    background-color: red;
+    .left {
+      float: left;
+      left: 36px;
+      width: 40px;
+      height: 40px;
+      .prev_arrow {
+        background: inline-image('prev_arrow.png') no-repeat;
+        background-size: 100%;
+        left: -50px;
+      }
+    }
+    .right {
+      float: right;
+      right: 36px;
+      width: 40px;
+      height: 40px;
+      .next_arrow {
+        background: inline-image('next_arrow.png') no-repeat;
+        background-size: 100%;
+        right: -50px;
+      }
     }
   }
 }
