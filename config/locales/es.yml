@@ -18,7 +18,7 @@ es:
     msj_destroyed: borrado
     msj_updated: actualizado
     permission_team: "No posee permiso"
-    verify_team: "Ya Posee un equipo"
+    verify_team: "Ya posee un equipo"
   navigation:
     teams: Equipos
     stadiums: Estadios
