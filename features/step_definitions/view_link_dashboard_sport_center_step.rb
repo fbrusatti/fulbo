@@ -15,5 +15,6 @@ end
 Then(/^I should( not)? view link dashboard sport center$/) do |negation|
 	visit root_path
 	expectation = negation.present? ? :should_not : :should
-	page.send(expectation, have_content("Complejo"))
+  page.send(expectation, have_content(I18n.t('navigation.sport_center')))
 end
+
