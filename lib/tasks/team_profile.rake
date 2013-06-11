@@ -1,4 +1,4 @@
-namespace :team do
+namespace :db do
   desc "ensure that all teams have a profile"
   task :profile => :environment do
     User.all.each do |user|

@@ -6,7 +6,7 @@ respond_to :html
   # before_filter :verify_team, only: [:new]
 
   def index
-    @team_users = TeamUser.all
+    @team_users = User.all
   end
 
   # def new
