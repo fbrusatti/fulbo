@@ -35,4 +35,6 @@
 
 - if owner_permission?
   = button_to "Delete team", team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => "Are you sure?"}
+  = button_to "Add to players",team_users_path, :method => :get, :class => "btn btn-mini btn btn-success"
+  / add_players_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => "Are you sure?"}
 
