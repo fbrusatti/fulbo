@@ -1,0 +1,26 @@
+%h2 Add player
+
+%table{:class => "table table-striped"}
+  - for player in @users
+    %tr
+      %td
+        %div{:class => "media"}
+          %a{:class => "pull-left", :href => "#"}
+            - if player.profile.avatar?
+              = image_tag player.profile.avatar, size: "64x64"
+            - else
+              = image_tag "profile_dafault.png", size: "64x64"
+          %div{:class => "media-body"}
+            %h4{:class => "media-heading"}=link_to "#{player.name}", player
+      %td
+        %div{:class => "btn-group"}
+          %a{:class => "btn dropdown-toggle", "data-toggle" => "dropdown", :href => "#"}
+            Action
+            %span{:class => "caret"}
+          %ul{:class => "dropdown-menu", :role => "menu", "aria-labelledby" => "dropdownMenu"}
+            %li
+              %a{:tabindex => "-1", :href =>"#"}
+                Agregar
+            %li
+              %a{:tabindex => "-1", :href =>"#"}
+                Ver

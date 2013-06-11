@@ -6,24 +6,26 @@ respond_to :html
   # before_filter :verify_team, only: [:new]
 
   def index
-    @team_users = User.all
+    @team_users = TeamUser.all
   end
 
-  # def new
-  #   @team = Team.new
-  #   @team.build_profile
-  # end
+  def new
+    @team_users = Team.new
+    # @team.build_profile
+    @users = User.all
+  end
 
   def create
-    # @team = current_user.create_team(params[:team])
-    # if @team.save
-    #   flash[:success] = "Successfully created team."
-    # end
-    # respond_with @team
+
+    @team_users = current_user.create_team_users(params[:team_users])
+    if @team_users.save
+      flash[:success] = "Successfully created team_users."
+    end
+    respond_with @team_users
   end
 
   def show
-    # @team = Team.find(params[:id])
+    @team_users = TeamUser.find(params[:team])
     # if request.path != team_path(@team)
     #   redirect_to team_path(@team), status: :moved_permanently
     # end
