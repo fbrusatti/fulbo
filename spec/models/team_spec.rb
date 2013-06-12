@@ -21,6 +21,8 @@ describe Team do
   it { should have_one(:profile) }
 
   # has_many
+  it { should have_many(:affiliations) }
+  it { should have_many(:leagues).through(:affiliations) }
   it { should have_many(:team_users) }
   it { should have_many(:users).through(:team_users) }
   it { should have_many(:photos) }
