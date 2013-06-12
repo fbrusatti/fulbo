@@ -5,7 +5,7 @@ FactoryGirl.define do
     name "MyString"
     cuit "MyString"
     phone "MyString"
-    email "MyString"
+    email { FactoryGirl.generate :email }
     address "MyString"
     description "MyString"
   end
