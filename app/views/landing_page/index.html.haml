@@ -1,37 +1,73 @@
-.hero-unit
-  %h Movete que Entras
-  %p
-    Movete que entras es la nueva forma de organizar tus partidos,
-    tu equipo, campeonatos, desafios y mucho más.
-    Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores
-    amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar
-    a otros equipos y calificar jugadores después de un partido.
-  %p
-    %a.btn.btn-primary.btn-large{ :href => new_user_session_path } Ingresar
-.row-fluid
-  .span4
-    %h2 Ligas
-    %t
-      La más completa grilla de ligas de tu ciudad. 
-      En MqE podrás encontrar la liga que estabas 
-      buscando para inscribir a tu equipo.
-    %p
-      %a.btn.btn-success{ :href => "#" } Ver Ligas 
-  .span4
-    %h2 Equipos
-    %t
-      Crea tu equipo y comenzá a desafiar a otros equipos para 
-      posicionarte 1ro en el ranking de equipos de MqE.
-    %p
-      %a.btn.btn-success{ :href => teams_path } Ver Equipos  
-  .span4
-    %h2 Estadios
-    %t
-      En MqE encontrarás la cancha justa para organizar un partido
-      con tus amigos o para desafiar otros equipos.
-    %p
-      %a.btn.btn-success{ :href => "#" } Ver Estadios       
-        
-  
+%body
+  .container
+    .landing_page.row
 
-                      
+      .controls
+        .left
+          .prev_arrow
+            %a(href="#" id="prev")
+              = image_tag 'prev_arrow.png'
+        .right
+          .next_arrow
+            %a(href="#" id="next")
+              = image_tag 'next_arrow.png'
+
+      .slides
+        .step.signin
+          .hero-unit.item.active
+            %h Movete que Entras
+            %p
+              Movete que entras es la nueva forma de organizar tus partidos,
+              tu equipo, campeonatos, desafios y mucho más.
+              Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores
+              amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar
+              a otros equipos y calificar jugadores después de un partido.
+            %p
+              %a.btn.btn-primary.btn-large{ :href => new_user_session_path } Ingresar
+
+        .step.champinship
+          .hero-unit
+            %h Movete que Entras
+            %p
+              Movete que entras es la nueva forma de organizar tus partidos,
+              tu equipo, campeonatos, desafios y mucho más.
+              Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores
+              amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar
+              a otros equipos y calificar jugadores después de un partido.
+            %p
+              %a.btn.btn-primary.btn-large{ :href => new_user_session_path } Ingresar
+
+        .step.bets
+          .hero-unit
+            %h Movete que Entras
+            %p
+              Movete que entras es la nueva forma de organizar tus partidos,
+              tu equipo, campeonatos, desafios y mucho más.
+              Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores
+              amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar
+              a otros equipos y calificar jugadores después de un partido.
+            %p
+              %a.btn.btn-primary.btn-large{ :href => new_user_session_path } Ingresar
+  .row-fluid
+    .span4
+      %h2 Ligas
+      %t
+        La más completa grilla de ligas de tu ciudad. 
+        En MqE podrás encontrar la liga que estabas 
+        buscando para inscribir a tu equipo.
+      %p
+        %a.btn.btn-success{ :href => "#" } Ver Ligas 
+    .span4
+      %h2 Equipos
+      %t
+        Crea tu equipo y comenzá a desafiar a otros equipos para 
+        posicionarte 1ro en el ranking de equipos de MqE.
+      %p
+        %a.btn.btn-success{ :href => teams_path } Ver Equipos  
+    .span4
+      %h2 Estadios
+      %t
+        En MqE encontrarás la cancha justa para organizar un partido
+        con tus amigos o para desafiar otros equipos.
+      %p
+        %a.btn.btn-success{ :href => "#" } Ver Estadios

@@ -1,6 +1,6 @@
   Fulbo::Application.routes.draw do
 
-  root :to => "landing_page#index"
+  root :to => "landing_page#index2"
 
   
   devise_for :admin_users, ActiveAdmin::Devise.config

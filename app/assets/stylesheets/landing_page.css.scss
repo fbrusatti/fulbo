@@ -1,3 +1,62 @@
-// Place all the styles related to the landing_page controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.landing_page {
+  .slides {
+    text-align: left;
+    height: 600px;
+    .step {
+      .image {
+
+      }
+      .description {
+        font-size: 21px;
+        font-family: Helvetica,Arial,sans-serif;
+        color: grey;
+        line-height: 30px;
+        text-align: justify;
+      }
+    }
+  }
+
+  .controls {
+    background-color: red;
+    .left {
+      float: left;
+      left: 36px;
+      width: 40px;
+      height: 40px;
+      .prev_arrow {
+        background: inline-image('prev_arrow.png') no-repeat;
+        background-size: 100%;
+        left: -20px;
+      }
+    }
+    .right {
+      float: right;
+      right: 36px;
+      width: 40px;
+      height: 40px;
+      .next_arrow {
+        background: inline-image('next_arrow.png') no-repeat;
+        background-size: 100%;
+        right: -50px;
+      }
+    }
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px 20px;
+    border-top: 1px solid #e5e5e5;
+    background-color: #f5f5f5;
+    max-width: 1200px;
+  }
+
+  .container-fluyd {
+    margin-right: 20px; 
+    margin-left: 20px;     
+  }
+
+  .row-fluid {
+    margin-right: 70px; 
+    margin-left: 70px;      
+  }
+}
