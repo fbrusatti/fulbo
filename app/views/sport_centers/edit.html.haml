@@ -1,4 +1,4 @@
-%h2= "#{t(".title")}"
+%h2= t(".title")
 = form_for @sport_center, url: user_sport_center_path(@user) do |f|
   = errors_for(@sport_center).html_safe
   = render  "data", :f => f
