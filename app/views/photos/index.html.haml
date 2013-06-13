@@ -1,12 +1,10 @@
-%h1
-  Photos of
-  =@team.name
+%h1= "#{t '.title'} #{@team.name}"
 
 %ul.thumbnails#thumb_gallery
   - for photo in @team.photos
     =render "thumbnail_photo", :photo => photo
 
 - if owner_permission?
-  = link_to "Add a Photo", new_team_photo_path(@team), :remote => true, :id => "add_a_photo"
+  = link_to t('.link_add'), new_team_photo_path(@team), :remote => true, :id => "add_a_photo"
 
 #photoModal

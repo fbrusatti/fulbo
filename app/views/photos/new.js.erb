@@ -3,5 +3,5 @@
   $('#photoModal').html(photo_new);
   $('#photoModal #photoModalNew').modal('toggle');
 <%- else %>
-  alert("you have arrived to limit of photos");
+  alert("<%= t '.msj_alert'  %>");
 <%- end %>

@@ -3,7 +3,7 @@
     .modal
       .modal-header
         .close{"data-dismiss" => "modal"} x
-        %h3 Edit photo
+        %h3= t ".title"
       .modal-body
         = f.label :image, :class => "img-polaroid pull-right" do
           -if @photo.image?
@@ -14,4 +14,4 @@
           = f.label :name
           = f.text_field :name
       .modal-footer
-        = f.submit "Save", :class => "btn btn_modal"
+        = f.submit t('.button'), :class => "btn btn_modal"
