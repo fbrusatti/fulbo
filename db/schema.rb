@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530161752) do
+ActiveRecord::Schema.define(:version => 20130612172502) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(:version => 20130530161752) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "affiliations", :force => true do |t|
+    t.integer  "league_id"
+    t.integer  "team_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "affiliations", ["league_id", "team_id"], :name => "index_affiliations_on_league_id_and_team_id", :unique => true
+  add_index "affiliations", ["league_id"], :name => "index_affiliations_on_league_id"
+  add_index "affiliations", ["team_id"], :name => "index_affiliations_on_team_id"
+
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
@@ -66,12 +77,37 @@ ActiveRecord::Schema.define(:version => 20130530161752) do
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "leagues", :force => true do |t|
+    t.integer  "organizer_id"
+    t.string   "name"
+    t.string   "category"
+    t.string   "number_matches"
+    t.decimal  "field_price",        :precision => 8, :scale => 2
+    t.decimal  "registration_price", :precision => 8, :scale => 2
+    t.string   "requirements"
+    t.string   "number_teams"
+    t.date     "start_date"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
+
+  add_index "leagues", ["organizer_id"], :name => "index_leagues_on_organizer_id"
+
   create_table "photos", :force => true do |t|
     t.string   "name"
     t.string   "image"
     t.integer  "team_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "point_systems", :force => true do |t|
+    t.integer  "league_id"
+    t.integer  "win",        :default => 3
+    t.integer  "tie",        :default => 1
+    t.integer  "loose",      :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "sport_centers", :force => true do |t|
@@ -147,8 +183,6 @@ ActiveRecord::Schema.define(:version => 20130530161752) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "provider"
-    t.string   "uid"
     t.string   "slug"
     t.string   "name"
   end
