@@ -11,17 +11,17 @@ respond_to :html
 
   def new
     @team_users = Team.new
-    # @team.build_profile
+    @team = current_user.team
     @users = User.all
   end
 
   def create
-
-    @team_users = current_user.create_team_users(params[:team_users])
+    @team_users.team = @team
+    @team_users.user = User.find(params[:team_id])
     if @team_users.save
       flash[:success] = "Successfully created team_users."
     end
-    respond_with @team_users
+    respond_with @team
   end
 
   def show

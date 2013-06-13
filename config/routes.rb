@@ -7,7 +7,6 @@
 
   resources :teams do
     resources :photos
-    resources :team_users
   end
 
   resources :team_users
