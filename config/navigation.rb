@@ -47,7 +47,7 @@
 #     #           :method - Specifies the http-method for the generated link - default is :get.
 #     #           :highlights_on - if autohighlighting is turned off and/or you want to explicitly specify
 #     #                            when the item should be highlighted, you can set a regexp which is matched
-#     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>. 
+#     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
 #     #
 #     primary.item :key_1, 'name', url, options
 
@@ -83,7 +83,7 @@
 #     primary.item :key_products, 'Products','#' do |sub_nav|
 #       sub_nav.item :key_1_1, 'Profile', '#'
 #       sub_nav.item :key_1_2, 'Logout', '#'
-#     end  
+#     end
 #     # User menu
 #     primary.item :key_1, 'User', '#' do |sub_nav|
 #       sub_nav.item :key_1_1, 'Profile', '#'
@@ -91,23 +91,23 @@
 #     end
 #   end
 # end
-SimpleNavigation::Configuration.run do |navigation|  
+SimpleNavigation::Configuration.run do |navigation|
   navigation.renderer = SimpleNavigation::Renderer::Bootstrap
   navigation.items do |primary|
     # Bootstrap classes for tabbed menu
     primary.dom_class = "nav nav-tabs nav-stacked"
 
-    primary.item :data, 'Informacion', user_sport_center_path(current_user),:icon => ['icon-flag'] do |data|
-       data.item :view, 'Ver',  user_sport_center_path(current_user)
+    primary.item :data, I18n.t("sport_centers.show.information"), user_sport_center_path(current_user),:icon => ['icon-flag'] do |data|
+       data.item :view, I18n.t("sport_centers.show.see"),  user_sport_center_path(current_user)
       # data.item :modify, 'Modificar', '#'
-    end    
-    primary.item :locations, 'Sedes', '#' ,:icon => ['icon-home'] do |locations|
-      locations.item :show, 'Ver Sedes', '#'
-      locations.item :new, 'Nueva Sede', '#'
     end
-    primary.item :tourmentent, 'Torneos','#',:icon =>['icon-star'] do |tourmentent|
-      tourmentent.item :show, 'Ver Torneos', '#'
-      tourmentent.item :new, 'Nuevo Torneo', '#'
-    end 
+    primary.item :locations, I18n.t("sport_centers.show.venues"), '#' ,:icon => ['icon-home'] do |locations|
+      locations.item :show, I18n.t("sport_centers.show.see_venues"), '#'
+      locations.item :new, I18n.t("sport_centers.show.new_venue"), '#'
+    end
+    primary.item :tourmentent, I18n.t("sport_centers.show.tournaments"),'#',:icon =>['icon-star'] do |tourmentent|
+      tourmentent.item :show, I18n.t("sport_centers.show.see_tournaments"), '#'
+      tourmentent.item :new, I18n.t("sport_centers.show.new_tournament"), '#'
+    end
   end
 end
