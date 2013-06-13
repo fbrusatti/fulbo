@@ -17,7 +17,7 @@ class TeamsController < ApplicationController
   def create
     @team = current_user.create_team(params[:team])
     if @team.save
-      flash[:success] = "Successfully created team."
+      flash[:success] = t('flash.team', message: t('flash.created'))
     end
     respond_with @team
   end
@@ -32,7 +32,7 @@ class TeamsController < ApplicationController
   def destroy
     @team = Team.find(params[:id])
     @team.destroy
-    flash[:notice] = "Successfully destroyed team."
+    flash[:notice] = t('flash.team', message: t('flash.destroyed'))
     respond_with(@team)
   end
 
@@ -43,7 +43,7 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if @team.update_attributes(params[:team])
-      flash[:success] = "Successfully updated team."
+      flash[:success] = t('flash.team', message: t('flash.updated'))
     end
     respond_with @team
   end
@@ -52,11 +52,11 @@ class TeamsController < ApplicationController
 
     def verify_permission
       @team = Team.find(params[:id])
-      redirect_to teams_path, notice: "you don't have permisson" unless current_user == @team.owner
+      redirect_to(teams_path, notice: t('flash.permission_team')) unless current_user == @team.owner
     end
 
     def verify_team
-      redirect_to teams_path, notice: "you have a team" unless current_user.team.blank?
+      redirect_to(teams_path, notice: t('flash.verify_team')) unless current_user.team.blank?
     end
 
 end

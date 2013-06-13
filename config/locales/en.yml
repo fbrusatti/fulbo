@@ -2,4 +2,85 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      team:
+        name: Name
+        captain: Captain
+      team_profile:
+        owner: Owner
+        category: Category
+        surface: Surface
+        description: Description
+        geo_availability: Disponibilidad
+      photo:
+        name: Name
+  flash:
+    team: "Successfully %{message} team."
+    created: created
+    destroyed: destroyed
+    updated: updated
+    permission_team: you don't have permisson
+    verify_team: you have a team
+  navigation:
+    teams: Teams
+    stadiums: Stadiums
+    leagues: Leagues
+    sign_up: Sign up
+    sign_in: Sign in
+    sign_out: Sign out
+    session_status: "Signed in as %{user}"
+    sport_center: Sport center
+  landing_page:
+    comming_soon: Comming soon
+  teams:
+    index:
+      title: Teams
+      btn_team: My team
+      btn_create: Create a team
+      msj_action: Action
+      msj_option_one: Organize match
+      msj_option_two: Join this team
+    show:
+      title: Teams
+      link_photos: Photos
+      link_edit: Edit
+      btn_delete: Delete team
+      confirm: Are you sure?
+    edit:
+      title: Edit your team
+      image_url: or image URL
+      remove_badge: remove badge
+      button: Save
+    new:
+      title: Create your team
+      image_url: or image URL
+      button: Save
+      remove_badge: remove badge
+    surfaces:
+      sand: sand
+      grass: grass
+      parquet: parquet
+      synthetic_grass: synthetic grass
+      land: land
+      cement: cement
+  photos:
+    index:
+      title: Photos of
+      link_add: Add a Photo
+    new:
+      msj_alert: you have arrived to limit of photos
+    photo_form_new:
+      thumbnail_photole: Add photo
+      button: Save
+      image_url: or image URL
+    photo_form_edit:
+      title: Edit photo
+      button: Save
+    thumbnail_photo:
+      confirm: Are you sure?
+      edit: Edit
+      remove: Remove
+  layouts:
+    footer:
+      about_us: About us

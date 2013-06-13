@@ -1,4 +1,24 @@
 es:
+  activerecord:
+    attributes:
+      team:
+        name: Nombre
+        captain: Capitán
+      team_profile:
+        owner: Dueño
+        category: Categoría
+        surface: Superficie
+        description: Descripción
+        geo_availability: Disponibilidad
+      photo:
+        name: Nombre
+  flash:
+    team: "Exitosamente se a %{message} el equipo"
+    created: creado
+    destroyed: borrado
+    updated: actualizado
+    permission_team: No posee permiso
+    verify_team: Ya posee un equipo
   navigation:
     teams: Equipos
     stadiums: Estadios
@@ -10,6 +30,57 @@ es:
     sport_center: Complejo
   landing_page:
     comming_soon: Muy pronto
+  teams:
+    index:
+      title: Equipos
+      btn_team: Mi equipo
+      btn_create: Crear un equipo
+      msj_action: Acción
+      msj_option_one: Oganizar partido
+      msj_option_two: Unirme a este equipo
+    show:
+      title: Equipo
+      link_photos: Fotos
+      link_edit: Editar
+      btn_delete: Borrar equipo
+      confirm: ¿Está seguro?
+    edit:
+      title: Edita tu equipo
+      image_url: o URL de la imagen
+      remove_badge: Remover imagen
+      button: Guardar
+    new:
+      title: Crea tu equipo
+      image_url: o URL de la imagen
+      button: Guardar
+      remove_badge: Remover imagen
+    surfaces:
+      sand: arena
+      grass: césped
+      parquet: parquet
+      synthetic_grass: césped sintético
+      land: tierra
+      cement: cemento
+  photos:
+    index:
+      title: Fotos de
+      link_add: Agregar foto
+    new:
+      msj_alert: has llegado al límite de fotos
+    photo_form_new:
+      thumbnail_photole: Agregar foto
+      button: Guardar
+      image_url: o URL de la imagen
+    photo_form_edit:
+      title: Editar foto
+      button: Guardar
+    thumbnail_photo:
+      confirm: ¿Está seguro?
+      edit: Editar
+      remove: Remover
+  layouts:
+    footer:
+      about_us: Quiénes somos
   date:
     abbr_day_names:
     - dom
@@ -210,10 +281,3 @@ es:
       long: ! '%A, %d de %B de %Y a las %I:%M %p'
       short: ! '%d de %b a las %H:%M hrs'
     pm: pm
-  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
-  activemodel:
-    errors:
-      <<: *errors
-  activerecord:
-    errors:
-      <<: *errors
