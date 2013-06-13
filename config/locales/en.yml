@@ -44,6 +44,9 @@ en:
       photo:
         name: Name
   flash:
+    error_update_form: There was a problem updating
+    error_create_form: There was a problem creating
+    league: "Successfully %{message} the League %{name}"
     sport_center: "Successfully %{message} the Sport Center."
     team: "Successfully %{message} team."
     created: created
