@@ -5,9 +5,8 @@ class CreateLeagues < ActiveRecord::Migration
       t.string :name
       t.string :category
       t.string :number_matches
-      t.string :schedules
-      t.string :field_price
-      t.string :registration_price
+      t.decimal :field_price, precision: 8, scale: 2
+      t.decimal :registration_price, precision: 8, scale: 2
       t.string :requirements
       t.string :number_teams
       t.date :start_date

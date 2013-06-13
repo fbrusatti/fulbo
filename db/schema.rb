@@ -82,14 +82,13 @@ ActiveRecord::Schema.define(:version => 20130612172502) do
     t.string   "name"
     t.string   "category"
     t.string   "number_matches"
-    t.string   "schedules"
-    t.string   "field_price"
-    t.string   "registration_price"
+    t.decimal  "field_price",        :precision => 8, :scale => 2
+    t.decimal  "registration_price", :precision => 8, :scale => 2
     t.string   "requirements"
     t.string   "number_teams"
     t.date     "start_date"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
   end
 
   add_index "leagues", ["organizer_id"], :name => "index_leagues_on_organizer_id"
@@ -104,11 +103,11 @@ ActiveRecord::Schema.define(:version => 20130612172502) do
 
   create_table "point_systems", :force => true do |t|
     t.integer  "league_id"
-    t.integer  "win"
-    t.integer  "tie"
-    t.integer  "loser"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "win",        :default => 3
+    t.integer  "tie",        :default => 1
+    t.integer  "loose",      :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "sport_centers", :force => true do |t|
