@@ -16,7 +16,7 @@
           = f.text_field :name
         = f.file_field :image, :id => "image_file"
         = f.hidden_field :image_cache
-        = f.label :remote_image_url, (t '.image_url')
+        = f.label :remote_image_url, t('.image_url')
         = f.text_field :remote_image_url
       .modal-footer
-        = f.submit (t '.button'), :class => "btn btn_modal"
+        = f.submit t('.button'), :class => "btn btn_modal"

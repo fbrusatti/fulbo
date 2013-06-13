@@ -7,12 +7,12 @@
     %div{:class => "img-polaroid pull-right"}
       = builder.file_field :badge
       = builder.hidden_field :badge_cache
-      = builder.label :remote_badge_url, (t '.image_url')
+      = builder.label :remote_badge_url, t('.image_url')
       = builder.text_field :remote_badge_url
       - if @team.profile.badge.url.present?
         %div{:class => "form-inline"}
           = builder.check_box :remove_badge
-          = builder.label :remove_badge, (t '.remove_badge')
+          = builder.label :remove_badge, t('.remove_badge')
     = builder.label :badge, :class => "img-polaroid pull-right" do
       -if @team.profile.badge?
         = image_tag(@team.profile.badge_url(:thumb))
@@ -32,9 +32,9 @@
     %div{:class => "form-inline"}
       - TeamsHelper::SURFACE.each do |surface|
         = builder.check_box :surface, {:multiple => true}, surface, nil
-        = builder.label "#{(t "teams.surfaces.#{surface}")} | "
+        = builder.label "#{t("teams.surfaces.#{surface}")} | "
     = builder.label :description
     = builder.text_area :description, rows: 4
 
   %div
-    = f.submit (t '.button'), :class => "btn"
+    = f.submit t('.button'), :class => "btn"

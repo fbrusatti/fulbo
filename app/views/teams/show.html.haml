@@ -1,7 +1,7 @@
 %h1= t ".title"
 %div{:class => "row-fluid"}
   %div{:class => "span10"}
-    %h6= link_to (t ".link_photos"), team_photos_path(@team)
+    %h6= link_to t('.link_photos'), team_photos_path(@team)
     %div{:class => "hero-unit"}
       %div{:class => "dl-horizontal"}
         %h3
@@ -19,7 +19,7 @@
           = image_tag "badge_default.jpg", size: "140x140"
         %div
           - if user_signed_in? and current_user == @team.owner
-            = link_to (t ".link_edit"), edit_team_path(@team)
+            = link_to t('.link_edit'), edit_team_path(@team)
 
 .well.well-large
   .dl-horizontal
@@ -27,11 +27,11 @@
     %dd= @team.profile.category.to_sentence
     %br
     %dt= "#{TeamProfile.human_attribute_name(:surface)}: "
-    %dd= (@team.profile.surface.map { |s| (t "teams.surfaces.#{s}")}).to_sentence
+    %dd= (@team.profile.surface.map { |s| t("teams.surfaces.#{s}")}).to_sentence
     %br
     %dt= "#{TeamProfile.human_attribute_name(:description)}: "
     %dd= @team.profile.description
 
 
 - if owner_permission?
-  = button_to (t ".btn_delete"), team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => (t ".confirm")}
+  = button_to t('.btn_delete'), team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => t('.confirm')}

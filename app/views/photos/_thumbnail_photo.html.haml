@@ -6,6 +6,6 @@
           = image_tag photo.image_url(:thumb) if photo.image?
           - if owner_permission?
             %div.thumbnail.text-center
-              = link_to (t '.edit'), edit_team_photo_path(@team, photo), remote: true
+              = link_to t('.edit'), edit_team_photo_path(@team, photo), remote: true
               |
-              = link_to (t ".remove"), [@team, photo], :confirm => (t ".confirm"), remote: true, :method => :delete
+              = link_to t('.remove'), [@team, photo], :confirm => t('.confirm'), remote: true, :method => :delete
