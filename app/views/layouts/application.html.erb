@@ -20,6 +20,7 @@
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
+      <div class="container">
+        <%= render 'layouts/footer' %>      
   </body>
 </html>
