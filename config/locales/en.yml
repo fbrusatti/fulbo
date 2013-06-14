@@ -54,6 +54,7 @@ en:
       button: Save
       players: Players
       delete_player: Delete
+      users: Users
     new:
       title: Create your team
       image_url: or image URL

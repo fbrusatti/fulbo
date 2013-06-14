@@ -39,6 +39,7 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
+    @not_players = Team.out_of_team(@team)
   end
 
   def update

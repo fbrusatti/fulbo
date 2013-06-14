@@ -1,0 +1,16 @@
+= @not_players.each do |builder|
+  %table{:class => "table table-striped"}                  
+    %tr
+      %td
+        %div{:class => "media"}
+          %a{:class => "pull-left", :href => "#"}
+            - if builder.profile.avatar?
+              = image_tag builder.profile.avatar, size: "64x64"
+            - else
+              = image_tag "profile_dafault.png", size: "64x64"
+      %th 
+        = builder.label builder.name
+        = builder.label builder.profile.surname
+      %td 
+        = t('teams.edit.delete_player')
+        = builder.check_box  :_destroy

@@ -38,13 +38,13 @@ class Team < ActiveRecord::Base
   accepts_nested_attributes_for :profile  
   accepts_nested_attributes_for :team_users , :allow_destroy => true, 
                                 :reject_if => :all_blank
-  
+
+  # == Scope
+  scope :out_of_team, lambda { |team| (User.all - team.players)}
+
   # == FriendlyId
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
-
-  # == Scope
-  scope :out_of_team, lambda { |team| where(User.all - :team.users, :tema=> team)}
 
   private
     def init_profile

@@ -51,6 +51,7 @@ es:
       button: Guardar
       players: Jugadores
       delete_player: Eliminar
+      users: Usuarios
     new:
       title: Crea tu equipo
       image_url: o URL de la imagen

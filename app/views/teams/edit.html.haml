@@ -38,5 +38,8 @@
     .span4
       %h5=t('.players')
       = render 'players', f: f
+    .span6
+      %h5=t('.users')
+      = render 'users', f: f  
     .span9
       = f.submit t('.button'), :class => "btn"
