@@ -1,0 +1,16 @@
+= f.fields_for :team_users do |builder|
+  %table{:class => "table table-striped"}                  
+    %tr
+      %td
+        %div{:class => "media"}
+          %a{:class => "pull-left", :href => "#"}
+            - if builder.object.player.profile.avatar?
+              = image_tag builder.object.player.profile.avatar, size: "64x64"
+            - else
+              = image_tag "profile_dafault.png", size: "64x64"
+      %th 
+        = builder.label builder.object.player.name
+        = builder.label builder.object.player.profile.surname
+      %td 
+        = t('teams.edit.delete_player')
+        = builder.check_box  :_destroy

@@ -52,6 +52,8 @@ en:
       image_url: or image URL
       remove_badge: remove badge
       button: Save
+      players: Players
+      delete_player: Delete
     new:
       title: Create your team
       image_url: or image URL

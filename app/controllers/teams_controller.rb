@@ -12,6 +12,7 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
     @team.build_profile
+    @team.players.build
   end
 
   def create

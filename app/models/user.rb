@@ -35,7 +35,8 @@ class User < ActiveRecord::Base
          :omniauth_providers => [:facebook]
 
   # == Accessors
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :uid, :provider
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+                 :uid, :provider
 
   # == Associations
   has_one :team, foreign_key: "owner_id"
@@ -47,13 +48,17 @@ class User < ActiveRecord::Base
                     inverse_of: :user
 
   has_many :team_users
-  has_many :teams, through: :team_users
+  has_many :teams, through: :team_users 
   
   has_many :authorizations
 
   before_create :init_profile
 
   validate :name, :email, :presence => true
+
+  accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :teams
+  accepts_nested_attributes_for :team_users
   
 
   def self.from_omniath(auth)

@@ -49,6 +49,8 @@ es:
       image_url: o URL de la imagen
       remove_badge: Remover imagen
       button: Guardar
+      players: Jugadores
+      delete_player: Eliminar
     new:
       title: Crea tu equipo
       image_url: o URL de la imagen
