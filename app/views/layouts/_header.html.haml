@@ -13,7 +13,7 @@
               %li= link_to t('navigation.profile'), user_profile_path(current_user)
 
               - if user_has_sport_center?
-                %li= link_to t('navigation.sport_center'), user_sport_center_path(current_user)
+                %li= link_to t('navigation.sport_center'), sport_center_path(current_user.sport_center)
 
               %li= t('navigation.session_status', user: current_user.email)
               %li= link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete'
