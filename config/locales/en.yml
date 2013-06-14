@@ -2,8 +2,36 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  sport_centers:
+    edit:
+      title: Edit
+      btn_submit: Save Changes
+    show:
+      tournaments: Tournaments
+      see_tournaments: See Tournaments
+      new_tournament: New Tournament
+      venues: venues
+      see_venues: See Venues
+      new_venue: New Venues
+      information: information
+      see: See
+      address: address
+      cuit: Cuit
+      phone: phone
+      email: E-mail
+      description: Description
+      change: Change
+      logo: Logo
   activerecord:
     attributes:
+      sport_center:
+        name: Name
+        cuit: Cuit
+        phone: Phone
+        email: E-mail
+        address: Address
+        description: Description
+        owner_id: Owner
       team:
         name: Name
         captain: Captain
@@ -16,12 +44,17 @@ en:
       photo:
         name: Name
   flash:
+    error_update_form: There was a problem updating
+    error_create_form: There was a problem creating
+    league: "Successfully %{message} the League %{name}"
+    sport_center: "Successfully %{message} the Sport Center."
     team: "Successfully %{message} team."
     created: created
     destroyed: destroyed
     updated: updated
     permission_team: you don't have permisson
     verify_team: you have a team
+    have_sport_center: you have a sport center
   navigation:
     teams: Teams
     stadiums: Stadiums

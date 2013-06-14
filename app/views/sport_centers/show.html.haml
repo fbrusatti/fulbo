@@ -2,29 +2,25 @@
 .container-fluid
   .row-fluid
     .span2
-      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap
     .span6
       %div{:class => "well well-large"}
         %div{:class => "dl-horizontal"}
-          %dt Dirección:
+          %dt= "#{t(".address")}:"
           %dd= @sport_center.address
-          %dt Cuit:
+          %dt= "#{t(".cuit")}:"
           %dd= @sport_center.cuit
-          %dt Teléfono:
+          %dt= "#{t(".phone")}:"
           %dd= @sport_center.phone
-          %dt E-mail:
+          %dt= "#{t(".email")}:"
           %dd= @sport_center.email
-          %dt Descripción:
+          %dt= "#{t(".description")}:"
           %dd= @sport_center.description
         %a.btn.btn-primary{:href => edit_user_sport_center_path(@user)}
-          Cambiar
+          = t(".change")
     .span4
       .img-polaroid
-        %h3 Logo
+        %h3= t(".logo")
         = link_to image_tag('complejo.jpg'), '#'
         %a.btn.btn-primary{:href => edit_user_sport_center_path(@user)}
-          Cambiar
-
-      
-
-  
+          = t(".change")
