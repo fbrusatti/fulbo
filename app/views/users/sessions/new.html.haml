@@ -1,16 +1,12 @@
-%h2 Ingresar
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, :autofocus => true
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-  - if devise_mapping.rememberable?
-    %div
-      = f.check_box :remember_me
-      = f.label :remember_me
-  %div= f.submit "Entrar"
-= render "devise/shared/links"
+.container
+  .row
+    .span4.offset4.well
+      %legend Ingresar
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        %input#username.span4{:name => "email", :placeholder => "Email", :type => "text"}/
+        %input#password.span4{:name => "contraseña", :placeholder => "Contraseña", :type => "password"}/
+        %label.checkbox
+          %input{:name => "remember", :type => "checkbox", :value => "1"}/
+          Recordarme
+        %button.btn.btn-info.btn-block{:name => "submit", :type => "submit"} Ingresar
+      = render "devise/shared/links"  

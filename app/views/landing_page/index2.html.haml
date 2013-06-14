@@ -20,53 +20,6 @@
         color: #5a5a5a;
       }
 
-
-
-      /* CUSTOMIZE THE NAVBAR
-      -------------------------------------------------- */
-
-      /* Special class on .container surrounding .navbar, used for positioning it into place. */
-      .navbar-wrapper {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 10;
-        margin-top: 20px;
-        margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
-      }
-      .navbar-wrapper .navbar {
-
-      }
-
-      /* Remove border and change up box shadow for more contrast */
-      .navbar .navbar-inner {
-        border: 0;
-        -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-           -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-                box-shadow: 0 2px 10px rgba(0,0,0,.25);
-      }
-
-      /* Downsize the brand/project name a bit */
-      .navbar .brand {
-        padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
-        font-size: 16px;
-        font-weight: bold;
-        text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-      }
-
-      /* Navbar links: increase padding for taller navbar */
-      .navbar .nav > li > a {
-        padding: 15px 20px;
-      }
-
-      /* Offset the responsive button for proper vertical alignment */
-      .navbar .btn-navbar {
-        margin-top: 10px;
-      }
-
-
-
       /* CUSTOMIZE THE CAROUSEL------------------------------------- */
 
       /* Carousel base class */
@@ -171,15 +124,6 @@
 
       @media (max-width: 979px) {
 
-        .container.navbar-wrapper {
-          margin-bottom: 0;
-          width: auto;
-        }
-        .navbar-inner {
-          border-radius: 0;
-          margin: -20px 0;
-        }
-
         .carousel .item {
           height: 500px;
         }
@@ -203,10 +147,6 @@
 
 
       @media (max-width: 767px) {
-
-        .navbar-inner {
-          margin: -20px;
-        }
 
         .carousel {
           margin-left: -20px;
@@ -255,41 +195,6 @@
     %link{:href => "http://twitter.github.io/bootstrap/assets/ico/favicon.png", :rel => "shortcut icon"}/
     %style#holderjs-style{:type => "text/css"} .holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}
   %body
-    .navbar-wrapper
-      .container
-        .navbar.navbar-inverse
-          .navbar-inner
-            %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
-            %a.brand{:href => root_path} Movete que Entras
-            .nav-collapse.collapse
-              %ul.nav
-                %li.active
-                  %a{:href => "#"} Home
-                %li
-                  %a{:href => ""} Acerca de
-                %li
-                  %a{:href => "#"} Contacto
-              %ul.nav.pull-right  
-                %li.dropdown
-                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} 
-                    Opciones
-                    %b.caret
-                  %ul.dropdown-menu
-                    %li
-                      %a{:href => "#"} Estadios
-                    %li
-                      %a{:href => "#"} Campeonatos
-                    %li
-                      %a{:href => teams_path} Equipos
-                    %li.divider
-                    %li.nav-header MqE
-                    %li
-                      %a{:href => new_user_session_path} Ingresar
-                    %li
-                      %a{:href => new_user_registration_path} Registrarse
     #myCarousel.carousel.slide
       .carousel-inner
         .item.active
