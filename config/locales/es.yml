@@ -1,6 +1,34 @@
 es:
+  sport_centers:
+    edit:
+      title: Editar
+      btn_submit: Guardar Cambios
+    show:
+      tournaments: Torneos
+      see_tournaments: Ver Torneos
+      new_tournament: Nuevo Torneo
+      venues: Sedes
+      see_venues: Ver Sedes
+      new_venue: Nueva Sede
+      information: Informacion
+      see: Ver
+      address: Dirección
+      cuit: Cuit
+      phone: Teléfono
+      email: E-mail
+      description: Descripción
+      change: Cambiar
+      logo: Logo
   activerecord:
     attributes:
+      sport_center:
+        name: Nombre
+        cuit: Cuit
+        phone: Teléfono
+        email: E-mail
+        address: Dirección
+        description: Descripción
+        owner_id: Dueño
       team:
         name: Nombre
         captain: Capitán
@@ -13,12 +41,17 @@ es:
       photo:
         name: Nombre
   flash:
+    error_update_form: Hubo un problema al actulizar
+    error_create_form: Hubo un problema al crear
+    league: "Exitosamente se a %{message} la Liga %{name}"
+    sport_center: "Exitosamente se a %{message} el Complejo"
     team: "Exitosamente se a %{message} el equipo"
     created: creado
     destroyed: borrado
     updated: actualizado
     permission_team: No posee permiso
     verify_team: Ya posee un equipo
+    have_sport_center: Ya posee Complejo
   navigation:
     teams: Equipos
     stadiums: Estadios
@@ -116,7 +149,7 @@ es:
       long: ! '%A, %d de %B de %Y'
       short: ! '%d de %b'
     month_names:
-    - 
+    -
     - enero
     - febrero
     - marzo
@@ -182,7 +215,7 @@ es:
       extension_white_list_error: "el formato del archivo no es valido"
       carrierwave_processing_error: "No se puede redimensionar la imagen."
       carrierwave_integrity_error: "No hay una imagen."
-      carrierwave_download_error: "No se puede descargar la imagen."    
+      carrierwave_download_error: "No se puede descargar la imagen."
       accepted: debe ser aceptado
       blank: no puede estar en blanco
       confirmation: no coincide con la confirmación
