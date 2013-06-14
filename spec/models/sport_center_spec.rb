@@ -21,6 +21,7 @@ describe SportCenter do
 
   # has many
   it { should have_many(:leagues) }
+  it { should have_many(:locations) }
 
 end
 

@@ -10,6 +10,7 @@ class SportCenter < ActiveRecord::Base
   # == Associations
   belongs_to :owner, :class_name => 'User', :validate => true
   has_many :leagues, foreign_key: "organizer_id", dependent: :destroy
+  has_many :locations, dependent: :destroy
 
   # == Accessors
   attr_accessible :address, :cuit, :description, :email, :name, :phone , :owner_id
