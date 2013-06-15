@@ -16,11 +16,11 @@
           %dd= @sport_center.email
           %dt= "#{t(".description")}:"
           %dd= @sport_center.description
-        %a.btn.btn-primary{:href => edit_user_sport_center_path(@user)}
+        %a.btn.btn-primary{:href => edit_sport_center_path(@sport_center)}
           = t(".change")
     .span4
       .img-polaroid
         %h3= t(".logo")
         = link_to image_tag('complejo.jpg'), '#'
-        %a.btn.btn-primary{:href => edit_user_sport_center_path(@user)}
+        %a.btn.btn-primary{:href => edit_sport_center_path(@sport_center)}
           = t(".change")

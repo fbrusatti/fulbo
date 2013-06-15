@@ -1,5 +1,5 @@
 %h2= t(".title")
-= form_for @sport_center, url: user_sport_center_path(@user) do |f|
+= form_for @sport_center, url: sport_center_path(@sport_center) do |f|
   = errors_for(@sport_center).html_safe
   = render  "data", :f => f
   %div
