@@ -102,8 +102,8 @@ SimpleNavigation::Configuration.run do |navigation|
       # data.item :modify, 'Modificar', '#'
     end
     primary.item :locations, I18n.t("sport_centers.show.venues"), '#' ,:icon => ['icon-home'] do |locations|
-      locations.item :show, I18n.t("sport_centers.show.see_venues"), '#'
-      locations.item :new, I18n.t("sport_centers.show.new_venue"), '#'
+      locations.item :show, I18n.t("sport_centers.show.see_venues"), user_sport_center_locations_path
+      locations.item :new, I18n.t("sport_centers.show.new_venue"), new_user_sport_center_location_path
     end
     primary.item :tourmentent, I18n.t("sport_centers.show.tournaments"),'#',:icon =>['icon-star'] do |tourmentent|
       tourmentent.item :show, I18n.t("sport_centers.show.see_tournaments"), '#'

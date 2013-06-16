@@ -1,4 +1,20 @@
 es:
+  locations:
+    new:
+      title: Crear nueva Sede
+      btn_submit: Guardar
+    show:
+      title: Sede 
+      change: Cambiar
+    edit:
+      title: Editar Sede
+      btn_submit: Guardar Cambios
+    index:
+      title: Sedes de
+      btn_delete: Borrar
+      btn_edit: Editar
+      confirm: ¿Está seguro?
+      btn_new: Nueva Sede
   sport_centers:
     edit:
       title: Editar
@@ -21,6 +37,12 @@ es:
       logo: Logo
   activerecord:
     attributes:
+      location:
+        address: Dirección
+        description: Descripción
+        locality: Localidad
+        name: Nombre
+        phone: Teléfono
       sport_center:
         name: Nombre
         cuit: Cuit
@@ -45,6 +67,7 @@ es:
     error_create_form: Hubo un problema al crear
     league: "Exitosamente se a %{message} la Liga %{name}"
     sport_center: "Exitosamente se a %{message} el Complejo"
+    location: "Exitosamente se a %{message} la sede"
     team: "Exitosamente se a %{message} el equipo"
     created: creado
     destroyed: borrado

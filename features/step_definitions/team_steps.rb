@@ -33,10 +33,6 @@ When(/^I press create a team button$/) do
   click_button(I18n.t('teams.index.btn_create'))
 end
 
-When(/^I fill in "name" with "Barcelona"$/) do
-  fill_in "team_name", with: "Barcelona"
-end
-
 When(/^I press Save$/) do 
   click_button(I18n.t('teams.new.button'))
 end

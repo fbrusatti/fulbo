@@ -1,9 +1,3 @@
-Given(/^I am in my sport center page$/) do
-  steps %{ Given I am logged in }
-  @user.sport_center = FactoryGirl.create(:sport_center)
-  visit user_sport_center_path(@user)
-end
-
 When(/^I press button to create a new League$/) do
   click_on(I18n.t("sport_centers.show.tournaments"))
   click_on(I18n.t("sport_centers.show.new_tournament"))
