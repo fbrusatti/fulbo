@@ -1,0 +1,25 @@
+%h1= "#{t '.title'} #{@location.name}"
+.container-fluid
+  .row-fluid
+    .span2
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
+    .span6
+      %div{:class => "well well-large"}
+        %div{:class => "dl-horizontal"}
+          %dt= "#{Location.human_attribute_name(:name)}: "
+          %dd= @location.name
+          %br
+          %dt= "#{Location.human_attribute_name(:address)}: "
+          %dd= @location.address
+          %br
+          %dt= "#{Location.human_attribute_name(:locality)}: "
+          %dd= @location.locality
+          %br
+          %dt= "#{Location.human_attribute_name(:phone)}: "
+          %dd= @location.phone
+          %br
+          %dt= "#{Location.human_attribute_name(:description)}: "
+          %dd= @location.description
+        %br
+      %a.btn.btn-primary{:href => edit_sport_center_location_path(@sport_center, @location)}
+        = t(".change")

@@ -73,6 +73,7 @@ es:
     destroyed: borrado
     updated: actualizado
     permission_team: No posee permiso
+    permission_location: No posee permiso en Sedes
     verify_team: Ya posee un equipo
     have_sport_center: Ya posee Complejo
   navigation:
