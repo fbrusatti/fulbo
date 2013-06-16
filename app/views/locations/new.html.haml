@@ -1,0 +1,14 @@
+%br
+%h1= t('.title')
+.container-fluid
+  .row-fluid
+    .span2
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
+    .span6
+      %div{:class => "well well-large"}
+        %div{:class => "dl-horizontal"}
+          = form_for @location, url: sport_center_locations_path(current_user.sport_center) do |f|
+            = errors_for(@location).html_safe
+            = render  "data", :f => f
+            %div
+            = f.submit t('.btn_submit'),:class => "btn"
