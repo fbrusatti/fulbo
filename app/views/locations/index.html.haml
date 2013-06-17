@@ -1,0 +1,24 @@
+%br
+%h1= "#{t '.title'} #{@sport_center.name}"
+.container-fluid
+  .row-fluid
+    .span2
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
+    .span6
+      %div{:class => "well well-large"}
+        %div{:class => "dl-horizontal"}
+          %table{:class => "table table-striped"}
+            - for location in @locations
+              %tr
+                %td
+                  %div{:class => "media"}
+                    %a{:class => "pull-left", :href => "#"}
+                    %div{:class => "media-body"}
+                      %h4{:class => "media-heading"}=link_to "#{location.name}", sport_center_location_path(@sport_center,location)
+                %td
+                  %div{:class => "btn-group"}
+                    = button_to t('.btn_delete'), sport_center_location_path(@sport_center, location), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => t('.confirm')}
+                %td
+                  %div{:class => "btn-group"}
+                    = button_to t('.btn_edit'), edit_sport_center_location_path(@sport_center, location), {:method => :get, :class => "btn btn-mini btn-info", :type => "button"}
+          = button_to t('.btn_new'), new_sport_center_location_path(@sport_center), {:method => :get, :class => "btn btn-primary btn-info", :type => "button"}

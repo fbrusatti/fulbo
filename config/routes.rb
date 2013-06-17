@@ -9,7 +9,9 @@
     resources :photos
   end
 
-  resources :sport_centers, only: [:edit, :update, :show]
+  resources :sport_centers do 
+    resources :locations
+  end
 
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :path => "" do
