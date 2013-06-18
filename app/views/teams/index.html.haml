@@ -1,33 +1,31 @@
-%h1 Equipos
-
-- if user_signed_in? and !current_user.team.blank?
-  = button_to "Mi Equipo", team_path(current_user.team), {:method => :get, :class => "btn btn-small btn-info", :type => "button"}
-- if user_signed_in? and current_user.team.blank?
-  = button_to "Crear Equipo", new_team_path, {:method => :get, :class => "btn btn-small btn-primary", :type => "button"}
-- if !user_signed_in?
-  = button_to "Crear Equipo", new_team_path, {:method => :get, :class => "btn btn-small btn-primary disabled", :type => "button"}
-
-%table{:class => "table zebra-striped"}
-  - for team in @teams
-    %tr
-      %td
-        %div{:class => "media"}
-          %a{:class => "pull-left", :href => "#"}
+.container
+  .span11.offset.well
+    %legend Equipos
+    %ul.thumbnails
+      - for team in @teams
+        %li.span5.clearfix
+          .thumbnail.clearfix
             - if team.profile.badge?
-              = image_tag team.profile.badge, size: "64x64"
+              %img.pull-left.span2.clearfix{:alt => "Team_Picture", :src => image_path(team.profile.badge), :style => "margin-right:10px", :size => "64x64"}/
             - else
-              = image_tag "badge_default.jpg", size: "64x64"
-          %div{:class => "media-body"}
-            %h4{:class => "media-heading"}=link_to "#{team.name}", team
-      %td
-        %div{:class => "btn-group"}
-          %a{:class => "btn dropdown-toggle", "data-toggle" => "dropdown", :href => "#"}
-            Action
-            %span{:class => "caret"}
-          %ul{:class => "dropdown-menu", :role => "menu", "aria-labelledby" => "dropdownMenu"}
-            %li
-              %a{:tabindex => "-1", :href =>"#"}
-                Oganizar partido
-            %li
-              %a{:tabindex => "-1", :href =>"#"}
-                Unirme a este equipo
+              %img.pull-left.span2.clearfix{:alt => "Team_Picture", :src => image_path("badge_default.jpg"), :style => "margin-right:10px", :size => "64x64"}/
+            .pull-left
+              %h4
+                %a{:class => "media-heading"}=link_to "#{team.name}", team
+              %div{:class => "btn-group"}
+                %a{:class => "btn dropdown-toggle", "data-toggle" => "dropdown", :href => "#"}
+                  Opciones
+                  %span{:class => "caret"}
+                %ul{:class => "dropdown-menu", :role => "menu", "aria-labelledby" => "dropdownMenu"}
+                  %li
+                    %a{:tabindex => "-1", :href =>"#"}
+                      Oganizar partido
+                  %li
+                    %a{:tabindex => "-1", :href =>"#"}
+                      Unirme a este equipo
+    - if user_signed_in? and !current_user.team.blank?
+      = button_to "Mi Equipo", team_path(current_user.team), {:method => :get, :class => "btn btn-small btn-info", :type => "button"}
+    - if user_signed_in? and current_user.team.blank?
+      = button_to "Crear Equipo", new_team_path, {:method => :get, :class => "btn btn-small btn-primary", :type => "button"}
+    - if !user_signed_in?
+      = button_to "Crear Equipo", new_team_path, {:method => :get, :class => "btn btn-small btn-primary disabled", :type => "button"}

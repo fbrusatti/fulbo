@@ -4,17 +4,11 @@
       %legend Registrarse
       = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
         = devise_error_messages!
-        %div
-          = f.label :email
-          %br/
-          = f.email_field :email, :autofocus => true
-        %div
-          = f.label :password
-          %br/
-          = f.password_field :password
-        %div
-          = f.label :password_confirmation
-          %br/
-          = f.password_field :password_confirmation
+        = f.label :email
+        %input#username.span4{:name => "email", :placeholder => "Email", :type => "text"}/
+        = f.label :Contraseña
+        %input#username.span4{:name => "contraseña", :placeholder => "Contraseña", :type => "password"}/
+        = f.label :Confirme_Contraseña
+        %input#username.span4{:name => "confirme_contraseña", :placeholder => "Contraseña", :type => "password"}/
         %button.btn.btn-info.btn-block{:name => "submit", :type => "submit"} Registrarme
       = render "devise/shared/links"
