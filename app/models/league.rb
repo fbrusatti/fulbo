@@ -24,6 +24,13 @@ class League < ActiveRecord::Base
   # == Serializes
   serialize :category, Array
 
+  def affiliate(team)
+    teams << team
+  end
+
+  def unaffiliated(team_id)
+    teams.destroy(team_id)
+  end
 
   private
     def init_point_system
