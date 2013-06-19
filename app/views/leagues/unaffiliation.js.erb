@@ -1,0 +1,6 @@
+$('.unaffiliation').bind('ajax:success', function() {
+    $(this).closest('tr').fadeOut();
+    var newRow = "<%= j render 'row_edit_team_table', team: @team, action: I18n.t('leagues.edit.action_affiliate') %>"
+    var nameTable = "#<%= j I18n.t('leagues.edit.action_affiliate') %>_table .table"
+    $(nameTable).append(newRow);
+});
