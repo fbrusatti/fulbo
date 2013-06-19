@@ -5,6 +5,13 @@
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  resources :leagues do
+    member do
+      post :affiliation
+      delete :unaffiliation
+    end
+  end
+
   resources :teams do
     resources :photos
   end
