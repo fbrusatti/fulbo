@@ -63,10 +63,13 @@
       }
 
       .marketing h2 {
-        font-weight: normal;
+        font-weight: bold;
+        color: #000;
       }
 
       .marketing .span4 p {
+        font-weight: bold;
+        color: #000;
         margin-left: 10px;
         margin-right: 10px;
       }
@@ -163,7 +166,7 @@
 
       }
    
-  %body
+  %body{ :background => image_path("back.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
     #myCarousel.carousel.slide
       .carousel-inner
         .item.active
@@ -210,27 +213,27 @@
           %p
             %a.btn{:href => "#"} Ver Estadios »
       %hr.featurette-divider/
-      .featurette
-        %img.featurette-image.pull-right{:src => image_path('pelota.jpg')} 
-        %h2.featurette-heading
-          Campeonatos.
-          %span.muted No te quedes afuera.
-        %p.lead Encontra la más amplia grilla de campeonatos de tu zona. Si queres participar de alguno de los campeonatos solo tenes que tener a tu equipo registrado en Movete que Entras.
-      %hr.featurette-divider/
-      .featurette
-        %img.featurette-image.pull-left{:src => image_path('pelota.jpg')}
-        %h2.featurette-heading
-          Fútbol 2.0.
-          %span.muted La nueva forma de vivir el fútbol.
-        %p.lead En esta red social de fútbol para jugadores amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar a otros equipos y calificar jugadores después de un partido.
-      %hr.featurette-divider/
-      .featurette
-        %img.featurette-image.pull-right{:src => image_path('pelota.jpg')}
-        %h2.featurette-heading
-          Grilla de Estadios.
-          %span.muted Olvidate del telefono.
-        %p.lead En Movete que Entras elegís el estadio que más te guste para organizar tu partido, buscas los horarios disponibles y reservas tu lugar para jugar tu amistos solo con ser usuario de la red. 
-      %hr.featurette-divider
+      / .featurette
+      /   %img.featurette-image.pull-right{:src => image_path('pelota.jpg')} 
+      /   %h2.featurette-heading
+      /     Campeonatos.
+      /     %span.muted No te quedes afuera.
+      /   %p.lead Encontra la más amplia grilla de campeonatos de tu zona. Si queres participar de alguno de los campeonatos solo tenes que tener a tu equipo registrado en Movete que Entras.
+      / %hr.featurette-divider/
+      / .featurette
+      /   %img.featurette-image.pull-left{:src => image_path('pelota.jpg')}
+      /   %h2.featurette-heading
+      /     Fútbol 2.0.
+      /     %span.muted La nueva forma de vivir el fútbol.
+      /   %p.lead En esta red social de fútbol para jugadores amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar a otros equipos y calificar jugadores después de un partido.
+      / %hr.featurette-divider/
+      / .featurette
+      /   %img.featurette-image.pull-right{:src => image_path('pelota.jpg')}
+      /   %h2.featurette-heading
+      /     Grilla de Estadios.
+      /     %span.muted Olvidate del telefono.
+      /   %p.lead En Movete que Entras elegís el estadio que más te guste para organizar tu partido, buscas los horarios disponibles y reservas tu lugar para jugar tu amistos solo con ser usuario de la red. 
+      / %hr.featurette-divider
     
     :javascript
       !function ($) {

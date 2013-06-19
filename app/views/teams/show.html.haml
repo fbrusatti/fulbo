@@ -1,29 +1,30 @@
-.container
-  .span11.offset.well
-    .row  
-      .span8
-        %div{:class => "dl-horizontal"}
-          %h2
-            %dd= @team.name
-          %dt Presidente
-          %dd= link_to "#{@team.owner.name}", user_profile_path(@team.owner)
-          %dt Team category:
-          %dd= @team.profile.category.to_sentence
-          %dt Team surface:
-          %dd= @team.profile.surface.to_sentence
-          %dt Team description:
-          %dd= @team.profile.description
-      .span3
-        %p Escudo del Equipo
-        %a.thumbnail{ :href =>  edit_team_path(@team) }
-          -if @team.profile.badge?
-            %img{ :alt => "", :src => image_path(@team.profile.badge_url(:thumb)) }
-          -else
-            %img{ :alt => "", :src => image_path("badge_default.jpg") }   
-        
-    - if user_signed_in? and current_user.team == @team
-      %button.btn.btn-info
-        .btn-block.pull-rigth{ :href => team_path(@team) } Editar    
-    - if user_signed_in? and current_user.team == @team
-      %button.btn.btn-danger
-        .btn-block.pull-rigth{ :method => :delete, :href => team_path(@team), :confirm => "Are you sure?" } Borrar
+%body{ :background => image_path("background.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
+  .container
+    .span11.offset.well
+      .row  
+        .span8
+          %div{:class => "dl-horizontal"}
+            %h2
+              %dd= @team.name
+            %dt Presidente
+            %dd= link_to "#{@team.owner.name}", user_profile_path(@team.owner)
+            %dt Team category:
+            %dd= @team.profile.category.to_sentence
+            %dt Team surface:
+            %dd= @team.profile.surface.to_sentence
+            %dt Team description:
+            %dd= @team.profile.description
+        .span3
+          %p Escudo del Equipo
+          %a.thumbnail{ :href =>  edit_team_path(@team) }
+            -if @team.profile.badge?
+              %img{ :alt => "", :src => image_path(@team.profile.badge_url(:thumb)) }
+            -else
+              %img{ :alt => "", :src => image_path("badge_default.jpg") }   
+          
+      - if user_signed_in? and current_user.team == @team
+        %button.btn.btn-info
+          .btn-block.pull-rigth{ :href => team_path(@team) } Editar    
+      - if user_signed_in? and current_user.team == @team
+        %button.btn.btn-danger
+          .btn-block.pull-rigth{ :method => :delete, :href => team_path(@team), :confirm => "Are you sure?" } Borrar

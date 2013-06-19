@@ -1,14 +1,15 @@
-.container
-  .row
-    .span4.offset4.well
-      %legend Registrarse
-      = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-        = devise_error_messages!
-        = f.label :email
-        %input#username.span4{:name => "email", :placeholder => "Email", :type => "text"}/
-        = f.label :Contraseña
-        %input#username.span4{:name => "contraseña", :placeholder => "Contraseña", :type => "password"}/
-        = f.label :Confirme_Contraseña
-        %input#username.span4{:name => "confirme_contraseña", :placeholder => "Contraseña", :type => "password"}/
-        %button.btn.btn-info.btn-block{:name => "submit", :type => "submit"} Registrarme
-      = render "devise/shared/links"
+%body{ :background => image_path("background.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
+  .container
+    .row
+      .span4.offset4.well
+        %legend Registrarse
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          = f.label :email
+          %input#username.span4{ :name => "email", :placeholder => "Email", :type => "text" }/
+          = f.label :Contraseña
+          %input#username.span4{ :name => "contraseña", :placeholder => "Contraseña", :type => "password" }/
+          = f.label :Confirme_Contraseña
+          %input#username.span4{ :name => "confirme_contraseña", :placeholder => "Contraseña", :type => "password" }/
+          %button.btn.btn-info.btn-block{:name => "submit", :type => "submit"} Registrarme
+        = render "devise/shared/links"
