@@ -1,0 +1,10 @@
+.row-fluid
+  .span12
+    .hero-unit
+      .text-center
+        %h3= t(".title")
+    %table.table.table-stripe
+      - for league in @leagues
+        %tr
+          %td
+            = render "row_league", league: league

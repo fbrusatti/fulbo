@@ -1,0 +1,87 @@
+.row-fluid
+  .span12
+    .hero-unit
+      %h2
+        = t(".title")
+        =": #{@league.name}"
+    .row-fluid
+      .span8
+        .hero-unit
+          .text-center
+            %h3= t(".data")
+          %ul
+            %li
+              %strong= "#{t(".organizer")}:"
+              = link_to @league.organizer.name, "#"
+            %br
+            %li
+              %strong= "#{t(".category")}:"
+              = @league.category.to_sentence
+            %br
+            %li
+              %strong= "#{t(".start_date")}:"
+              = @league.start_date
+            %br
+            %li
+              %strong= "#{t(".number_teams")}:"
+              = @league.number_teams
+            %br
+            %li
+              %strong= "#{t(".number_matches")}:"
+              = @league.number_matches
+            %br
+            %li
+              %strong= "#{t(".registration_price")}: $"
+              = @league.registration_price
+            %br
+            %li
+              %strong= "#{t(".field_price")}: $"
+              = @league.field_price
+            %br
+            %li
+              %strong= "#{t(".requirements")}:"
+              = @league.requirements
+            %br
+      .span4
+        .hero-unit
+          .text-center
+            %h3= t(".point_system_title")
+          %ul
+            %br
+            %li
+              %strong= "#{t(".win")}:"
+              = @point.win
+            %br
+            %li
+              %strong= "#{t(".tie")}:"
+              = @point.tie
+            %br
+            %li
+              %strong= "#{t(".loose")}:"
+              = @point.loose
+        - if owner_of_league?(@league)
+          .btn-group
+            = button_to t(".btn_edit"), edit_league_path(@league), method: :get, class: "btn"
+          .btn-group
+            = button_to t(".btn_delete"), league_path(@league), method: :delete, class: "btn btn-danger", confirm: t(".confirm_delete_msg")
+        - else
+          = button_to t(".btn_send_affiliation"), "#", class: "btn btn-primary", method: :get
+    .text-center
+      %h3
+        = t(".teams_of_league")
+    %table.table.table-bordered.table-striped
+      %thead
+        %th
+          .text-left
+            = t(".team_header_row")
+        %th
+          .text-left
+            = t(".owner_header_row")
+      - for team in @teams
+        %tr
+          %td
+            .text-left
+              = link_to team.name, team_path(team)
+          %td
+            .text-left
+              = link_to "#{team.owner.name} #{team.owner.profile.surname}", user_profile_path(team.owner)
