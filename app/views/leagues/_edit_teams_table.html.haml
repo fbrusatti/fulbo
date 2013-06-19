@@ -1,0 +1,16 @@
+.row-fluid
+  .span12
+    %div{ id: "#{action}_table"}
+      %table.table.table-stripe
+        %thead
+          %th
+            .text-left
+              = I18n.t("leagues.edit.team_header_row")
+          %th
+            .text-left
+              = I18n.t("leagues.edit.owner_header_row")
+          %th
+            .text-left
+              = action
+        - for team in collection
+          = render "row_edit_team_table", team: team, action: action

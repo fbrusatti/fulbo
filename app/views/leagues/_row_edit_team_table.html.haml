@@ -1,0 +1,19 @@
+%tr
+  %td
+    .text-left
+      = link_to team.name, team_path(team)
+  %td
+    .text-left
+      = link_to "#{team.owner.name} #{team.owner.profile.surname}", user_profile_path(team.owner)
+  %td
+    .text-left
+      - if action == I18n.t("leagues.edit.action_delete")
+        .unaffiliation
+          = form_tag unaffiliation_league_path(@league), method: :delete, remote: true do
+            = hidden_field_tag "team_id", team.id
+            = button_to action
+      - else
+        .affiliation
+          = form_tag affiliation_league_path(@league), remote: true do
+            = hidden_field_tag "team_id", team.id
+            = button_to action

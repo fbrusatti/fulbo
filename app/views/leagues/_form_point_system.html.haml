@@ -1,0 +1,13 @@
+.text-center
+  %br
+    %h6= t("leagues.new.point_system_title")
+= f.fields_for :point_system do |point|
+  %br
+  = point.label :win
+  = point.select :win, (0..20).to_a, class: "input-small"
+  %br
+  = point.label :tie
+  = point.select :tie, (0..20).to_a, class: "input-small"
+  %br
+  = point.label :loose
+  = point.select :loose, (0..20).to_a, class: "input-small"
