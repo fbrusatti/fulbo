@@ -4,7 +4,7 @@ es:
       title: Crear nueva Sede
       btn_submit: Guardar
     show:
-      title: Sede 
+      title: Sede
       change: Cambiar
     edit:
       title: Editar Sede
@@ -15,6 +15,9 @@ es:
       btn_edit: Editar
       confirm: ¿Está seguro?
       btn_new: Nueva Sede
+  leagues:
+    new:
+      btn_submit: Guardar
   sport_centers:
     edit:
       title: Editar
