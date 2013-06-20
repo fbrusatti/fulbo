@@ -13,10 +13,10 @@
 #
 
 class Field < ActiveRecord::Base
-  attr_accessible :category, :description, :name, :price, :type
+  attr_accessible :category, :description, :name, :price, :surface
 
   # == Validations
-  validates_presence_of :name,:category,:type
+  validates_presence_of :name,:category,:surface
 
    # == Associations
   belongs_to :location

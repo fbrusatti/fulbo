@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :field do
-    name "La Bombonera"
+    name "El Monumental"
     type "parquet"
     category "5"
   end

@@ -3,7 +3,7 @@ class CreateFields < ActiveRecord::Migration
     create_table :fields do |t|
       t.references :location
       t.string :name
-      t.string :type
+      t.string :surface
       t.string :category
       t.decimal :price, :precision => 8, :scale => 2
       t.string :description

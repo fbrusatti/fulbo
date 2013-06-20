@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20130617204224) do
   create_table "fields", :force => true do |t|
     t.integer  "location_id"
     t.string   "name"
-    t.string   "type"
+    t.string   "surface"
     t.string   "category"
     t.decimal  "price",       :precision => 8, :scale => 2
     t.string   "description"
