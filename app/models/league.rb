@@ -25,11 +25,11 @@ class League < ActiveRecord::Base
   serialize :category, Array
 
   def affiliate(team)
-    teams << team
+    affiliations.create(team_id: team.id)
   end
 
-  def unaffiliated(team_id)
-    teams.destroy(team_id)
+  def unaffiliated(team)
+    affiliations.find_by_team_id(team.id).destroy
   end
 
   private
