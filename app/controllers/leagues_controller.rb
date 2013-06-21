@@ -43,20 +43,6 @@ class LeaguesController < ApplicationController
     respond_with @league
   end
 
-  def affiliation
-    @league = League.find(params[:id])
-    team = Team.find(params[:team_id])
-    @league.affiliate(team)
-    respond_with @league
-  end
-
-  def unaffiliation
-    @league = League.find(params[:id])
-    @league.unaffiliated(params[:team_id])
-    @team = Team.find(params[:team_id])
-    respond_with @league
-  end
-
   private
     def verify_has_sport_center
       redirect_to(leagues_path, notice: t('flash.permission_league')) if current_user.sport_center.blank?

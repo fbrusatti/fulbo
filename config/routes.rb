@@ -6,10 +6,7 @@
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :leagues do
-    member do
-      post :affiliation
-      delete :unaffiliation
-    end
+    resources :affiliations, only: [:create, :destroy]
   end
 
   resources :teams do
