@@ -21,4 +21,5 @@ class Location < ActiveRecord::Base
 
   # == Associations
   belongs_to :sport_center
+  has_many :fields
 end
