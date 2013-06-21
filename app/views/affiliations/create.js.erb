@@ -1,3 +1,7 @@
-$('.affiliation').bind('ajax:success', function() {
+var element = ".affiliation #new_affiliation_<%= @team.id %> "
+$(element).bind('ajax:success', function() {
     $(this).closest('tr').fadeOut();
+    var newRow = "<%= j render 'leagues/row_edit_team_table', team: @team, action: I18n.t('leagues.edit.action_delete') %>";
+    var nameTable = "#<%= j I18n.t('leagues.edit.action_delete') %>_table .table";
+    $(nameTable).append(newRow);
 });
