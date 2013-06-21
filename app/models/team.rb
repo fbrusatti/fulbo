@@ -40,7 +40,7 @@ class Team < ActiveRecord::Base
   before_create :init_profile
 
   # == Accessors
-  attr_accessible :captain, :name, :profile_attributes, :player_tokens
+  attr_accessible :captain, :name, :profile_attributes, :player_tokens, :players
 
   # == attr reader
   attr_reader :player_tokens
@@ -59,7 +59,7 @@ class Team < ActiveRecord::Base
     end
 
     def player_tokens=(ids)
-      self.players.user_ids = ids.split(",")
+      self.user_ids = ids.split(",")
     end  
 
 

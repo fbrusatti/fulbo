@@ -36,6 +36,6 @@
     = builder.label :description
     = builder.text_area :description, rows: 4
   = f.label :player_tokens, "Players"
-  = f.text_field :player_tokens, data: {load: @team.players}
+  = f.text_field :player_tokens
   %div
     = f.submit t('.button'), :class => "btn"
