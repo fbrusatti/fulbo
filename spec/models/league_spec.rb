@@ -16,7 +16,7 @@ describe League do
   it { should allow_mass_assignment_of(:requirements) }
   it { should allow_mass_assignment_of(:number_teams) }
   it { should allow_mass_assignment_of(:start_date) }
-  it { should allow_mass_assignment_of(:description) }
+
 
   # belongs to
   it { should belong_to(:organizer) }
