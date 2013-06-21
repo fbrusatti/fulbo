@@ -30,18 +30,24 @@ class Team < ActiveRecord::Base
                   inverse_of: :team
   has_many :photos
   has_many :team_users
-  has_many :users, through: :team_users
+  has_many :players, through: :team_users
   has_many :affiliations, dependent: :destroy
   has_many :leagues, through: :affiliations
+
+  
 
   # == Callbacks
   before_create :init_profile
 
   # == Accessors
-  attr_accessible :captain, :name, :profile_attributes
+  attr_accessible :captain, :name, :profile_attributes, :player_tokens
+
+  # == attr reader
+  attr_reader :player_tokens
 
   # == Nested Attributes
   accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :players
 
   # == FriendlyId
   extend FriendlyId
@@ -51,5 +57,10 @@ class Team < ActiveRecord::Base
     def init_profile
       build_profile if profile.blank?
     end
+
+    def player_tokens=(ids)
+      self.players.user_ids = ids.split(",")
+    end  
+
 
 end

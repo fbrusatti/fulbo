@@ -17,6 +17,8 @@
     resources :locations
   end
 
+  resources :users, only:[:index]
+
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :path => "" do
     resource :profile, controller: "users_profiles"

@@ -15,7 +15,9 @@ class TeamsController < ApplicationController
   end
 
   def create
+    @us = params[:team][:player_tokens]
     @team = current_user.create_team(params[:team])
+
     if @team.save
       flash[:success] = t('flash.team', message: t('flash.created'))
     end

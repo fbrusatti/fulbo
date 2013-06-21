@@ -13,6 +13,6 @@ class TeamUser < ActiveRecord::Base
 
   # == Associations
   belongs_to :team
-  belongs_to :user
+  belongs_to :player, class_name: "User"
 
 end
