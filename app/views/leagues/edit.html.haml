@@ -46,9 +46,9 @@
       .span4
         .text-center
           %h4= t(".my_teams_table")
-        = render "edit_teams_table", collection: @teams, action: t(".action_delete")
+        = render "edit_teams_table", collection: @teams, action: "remove"
       .span4
       .span4
         .text-center
           %h4= t(".teams_table")
-        = render "edit_teams_table", collection: @all_teams, action: t(".action_affiliate")
+        = render "edit_teams_table", collection: @all_teams, action: "affiliate"

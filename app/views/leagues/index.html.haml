@@ -4,7 +4,7 @@
       .text-center
         %h3= t(".title")
     %table.table.table-stripe
-      - for league in @leagues
+      - @leagues.each do |league|
         %tr
           %td
             = render "row_league", league: league

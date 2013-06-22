@@ -77,7 +77,7 @@
         %th
           .text-left
             = t(".owner_header_row")
-      - for team in @teams
+      - @teams.each do |team|
         %tr
           %td
             .text-left

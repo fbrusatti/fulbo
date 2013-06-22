@@ -2,7 +2,7 @@ class AffiliationsController < ApplicationController
   respond_to :js
 
   before_filter :authenticate_user!
-  before_filter :verifi_amount_of_teams, only: [:create]
+  before_filter :verify_amount_of_teams, only: [:create]
 
   def create
     @league = League.find(params[:league_id])
@@ -20,7 +20,7 @@ class AffiliationsController < ApplicationController
   end
 
   private
-    def verifi_amount_of_teams
+    def verify_amount_of_teams
       @league = League.find(params[:league_id])
       if @league.teams.count >= @league.number_teams.to_i
         render js: "alert ('#{t('.leagues.edit.limit_of_teams')}')"

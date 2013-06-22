@@ -1,6 +1,6 @@
 .row-fluid
   .span12
-    %div{ id: "#{action}_table"}
+    %div{ id: "#{action}-table"}
       %table.table.table-stripe
         %thead
           %th
@@ -11,6 +11,6 @@
               = I18n.t("leagues.edit.owner_header_row")
           %th
             .text-left
-              = action
-        - for team in collection
+              = action == "affiliate" ? I18n.t("leagues.edit.action_affiliate") : I18n.t("leagues.edit.action_delete")
+        - collection.each do |team|
           = render "row_edit_team_table", team: team, action: action
