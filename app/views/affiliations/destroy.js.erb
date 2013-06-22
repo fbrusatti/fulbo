@@ -1,0 +1,7 @@
+$(".unaffiliation").on('ajax:success','#edit_affiliation_<%= @id %>', function() {
+    var tr = $(this).closest('tr')
+    tr.fadeOut();
+    tr.remove();
+    var newRow = "<%= j render 'leagues/row_edit_team_table', team: @team, action: 'affiliate' %>";
+    $('#affiliate-table .table').append(newRow);
+});

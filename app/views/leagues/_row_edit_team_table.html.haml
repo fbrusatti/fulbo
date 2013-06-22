@@ -1,0 +1,18 @@
+%tr
+  %td
+    .text-left
+      = link_to team.name, team_path(team)
+  %td
+    .text-left
+      = link_to "#{team.owner.name} #{team.owner.profile.surname}", user_profile_path(team.owner)
+  %td
+    .text-left
+      - if action == "remove"
+        .unaffiliation
+          = form_for([@league, @league.affiliations.find_by_team_id(team)], method: :delete, remote: :true)  do |f|
+            = f.submit I18n.t('leagues.edit.action_delete'), class: "btn btn-small btn-danger"
+      - else
+        .affiliation
+          = form_for([@league, @league.affiliations.build(team_id: team.id)], html: {id: "new_affiliation_#{team.id}"},  remote: :true) do |f|
+            = f.hidden_field :team_id
+            = f.submit I18n.t('leagues.edit.action_affiliate'), class: "btn btn-small btn-primary"
