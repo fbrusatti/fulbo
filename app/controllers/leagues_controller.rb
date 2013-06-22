@@ -43,6 +43,13 @@ class LeaguesController < ApplicationController
     respond_with @league
   end
 
+  def destroy
+    @league = League.find(params[:id])
+    @league.destroy
+    flash[:notice] = t('flash.league', message: t('flash.destroyed'), name: @league.name)
+    respond_with(@league)
+  end
+
   private
     def verify_has_sport_center
       redirect_to(leagues_path, notice: t('flash.permission_league')) if current_user.sport_center.blank?
