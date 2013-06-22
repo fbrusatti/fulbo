@@ -1,0 +1,17 @@
+.row-fluid
+  .span12
+    .span1
+      = image_tag "league_default.png", size: "64x64"
+    .span11
+      .row-fluid
+        .span6
+          = link_to "#{I18n.t('leagues.index.name')}: #{league.name}", league_path(league)
+          %br
+          ="#{I18n.t('leagues.index.category')}: #{league.category.to_sentence}"
+        .span6
+          = "#{I18n.t('leagues.index.organizer')}:"
+          = link_to league.organizer.name, "#"
+          %br
+          = "#{I18n.t('leagues.index.start_date')}: "
+          .label.label-info
+            = "#{league.start_date}"

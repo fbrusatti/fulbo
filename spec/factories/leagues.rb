@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :league do
     name "apertura"
-    category "5"
+    category [5]
     start_date "12/12/2012"
   end
 end

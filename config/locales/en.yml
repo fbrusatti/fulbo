@@ -2,6 +2,48 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  leagues:
+    index:
+      title: Leagues
+      name: Name
+      organizer: Organizer
+      category: Category
+      start_date: Start date
+    new:
+      title: New League
+      point_system_title: Point System of League
+      btn_submit: Save
+    edit:
+      limit_of_teams: You have arrived to limit of teams
+      title: Edit your League
+      my_teams_table: My teams
+      teams_table: Teams
+      action_delete: Delete
+      action_affiliate: Affiliate
+      team_header_row: Team
+      owner_header_row: Owner
+    show:
+      title: League
+      data: information of League
+      organizer: Organizer
+      category: Category of game
+      start_date: Start date
+      number_matches: Number of Matches
+      field_price: Field Price
+      registration_price: Resgistration Price
+      requirements: Requirements
+      number_teams: Number of teams
+      win: Win
+      tie: Tie
+      loose: Loose
+      point_system_title: Point System of League
+      teams_of_league: Teams that play this League
+      btn_edit: Edit
+      btn_delete: Delete
+      btn_send_affiliation: Enroll me
+      confirm_delete_msg: Are you sure?
+      team_header_row: Team
+      owner_header_row: Owner
   sport_centers:
     edit:
       title: Edit
@@ -24,6 +66,19 @@ en:
       logo: Logo
   activerecord:
     attributes:
+      point_system:
+        win: Win
+        tie: Tie
+        loose: Loose
+      league:
+        name: Name
+        category: Category
+        number_matches: Number of Matches
+        field_price: Field Price
+        registration_price: Resgistration Price
+        requirements: Requirements
+        number_teams: Number of Teams
+        start_date: Start date
       sport_center:
         name: Name
         cuit: Cuit
@@ -53,6 +108,7 @@ en:
     destroyed: destroyed
     updated: updated
     permission_team: you don't have permisson
+    permission_league: you don't have permisson
     verify_team: you have a team
     have_sport_center: you have a sport center
   navigation:

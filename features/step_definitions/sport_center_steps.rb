@@ -4,7 +4,7 @@ When(/^I press button to create a new League$/) do
 end
 
 When(/^I submit the form$/) do
-  click_button(I18n.t("sport_centers.show.btn_submit"))
+  click_button(I18n.t("leagues.new.btn_submit"))
 end
 
 Then(/^I should see a message advising me of the correctness$/) do
@@ -12,13 +12,13 @@ Then(/^I should see a message advising me of the correctness$/) do
 end
 
 When(/^I fill in form league$/) do
-    steps %{
-      I fill in "name" with "apertura"
-      I fill in "category" with "5"
-      I fill in "start_date" with "12/12/2012"
-    }
+  step 'I fill in "league_name" with "apertura"'
+  check('league_category_5')
+  select '2014', :from => 'league_start_date_1i'
+  select 'mayo', :from => 'league_start_date_2i'
+  select '1', :from => 'league_start_date_3i'
 end
 
 Then(/^I should see successfully created league message$/) do
-  page.should have_content I18n.t('flash.league', 'flash.created', name: "apertura")
+  page.should have_content I18n.t('flash.league', message: I18n.t('flash.created'), name: "apertura")
 end

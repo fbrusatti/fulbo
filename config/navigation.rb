@@ -106,8 +106,8 @@ SimpleNavigation::Configuration.run do |navigation|
       locations.item :new, I18n.t("sport_centers.show.new_venue"), new_sport_center_location_path(@sport_center)
     end
     primary.item :tourmentent, I18n.t("sport_centers.show.tournaments"),'#',:icon =>['icon-star'] do |tourmentent|
-      tourmentent.item :show, I18n.t("sport_centers.show.see_tournaments"), '#'
-      tourmentent.item :new, I18n.t("sport_centers.show.new_tournament"), '#'
+      tourmentent.item :show, I18n.t("sport_centers.show.see_tournaments"), "#"
+      tourmentent.item :new, I18n.t("sport_centers.show.new_tournament"), new_league_path
     end
   end
 end

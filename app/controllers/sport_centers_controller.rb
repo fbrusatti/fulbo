@@ -1,7 +1,7 @@
   class SportCentersController < ApplicationController
   respond_to :html
 
-  before_filter :verify_sport_center, :authenticate_user!
+  before_filter :authenticate_user!, :verify_sport_center
 
   def edit
     @sport_center = SportCenter.find(params[:id])

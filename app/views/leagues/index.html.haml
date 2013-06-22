@@ -1,0 +1,10 @@
+.row-fluid
+  .span12
+    .hero-unit
+      .text-center
+        %h3= t(".title")
+    %table.table.table-stripe
+      - @leagues.each do |league|
+        %tr
+          %td
+            = render "row_league", league: league

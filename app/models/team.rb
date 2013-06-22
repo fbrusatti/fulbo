@@ -13,6 +13,12 @@
 
 class Team < ActiveRecord::Base
 
+  # == Scope
+  scope :out_of_league, lambda {|league|
+    where(['id NOT IN
+      (SELECT affiliations.team_id FROM affiliations WHERE affiliations.league_id = ?)', league.id])
+  }
+
   # == Validations
   validates_presence_of :name
 

@@ -7,6 +7,6 @@ class PointSystem < ActiveRecord::Base
   validates_presence_of :win, :tie, :loose
 
   # == Associations
-  belongs_to :league
+  belongs_to :league, inverse_of: :point_system
 
 end
