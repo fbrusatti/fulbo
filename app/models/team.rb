@@ -53,14 +53,11 @@ class Team < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
 
+  def player_tokens=(ids)
+      self.player_ids = ids.split(",")
+  end  
   private
     def init_profile
       build_profile if profile.blank?
     end
-
-    def player_tokens=(ids)
-      self.user_ids = ids.split(",")
-    end  
-
-
 end

@@ -1,4 +1,15 @@
 es:
+  user_profile:
+    playing_position:
+      Goalkeeper: Arquero
+      Defender: Defensor
+      Midfielder: Mediocampista
+      Forward: Delantero
+      Coach: Tecnico
+      Coaching: Entrenador
+      Staff: Personal
+      Referee: Arbitro
+      Assistant: Asistente 
   locations:
     new:
       title: Crear nueva Sede
@@ -157,16 +168,20 @@ es:
       link_edit: Editar
       btn_delete: Borrar equipo
       confirm: ¿Está seguro?
+      players: Jugadores
+      playing_position: Posición de juego
     edit:
       title: Edita tu equipo
       image_url: o URL de la imagen
       remove_badge: Remover imagen
       button: Guardar
+      players: Jugadores
     new:
       title: Crea tu equipo
       image_url: o URL de la imagen
       button: Guardar
       remove_badge: Remover imagen
+      players: Jugadores
     surfaces:
       sand: arena
       grass: césped

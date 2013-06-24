@@ -44,6 +44,17 @@ en:
       confirm_delete_msg: Are you sure?
       team_header_row: Team
       owner_header_row: Owner
+  user_profile:
+    playing_position:
+      Goalkeeper: Goalkeeper
+      Defender: Defender
+      Midfielder: Midfielder
+      Forward: Forward
+      Coach: Coach
+      Coaching: Coaching
+      Staff: Staff
+      Referee: Referee
+      Assistant: Assistant
   sport_centers:
     edit:
       title: Edit
@@ -136,16 +147,20 @@ en:
       link_edit: Edit
       btn_delete: Delete team
       confirm: Are you sure?
+      players: Players
+      playing_position: Playing position
     edit:
       title: Edit your team
       image_url: or image URL
       remove_badge: remove badge
       button: Save
+      players: Players
     new:
       title: Create your team
       image_url: or image URL
       button: Save
       remove_badge: remove badge
+      players: Players
     surfaces:
       sand: sand
       grass: grass
