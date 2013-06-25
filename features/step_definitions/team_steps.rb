@@ -44,3 +44,29 @@ end
 Then(/^I should see "(.*?)"$/) do |team|
   page.should have_content team
 end
+  
+Given(/^I am included in the team$/) do
+  @user.team.players << @user
+end
+
+When(/^I go to show my team$/) do
+  visit team_path(@user.team)
+end
+
+Then (/^I should see me in the players$/) do
+  page.should have_content @user.name
+end 
+
+Then(/^I should( not)? see edit link$/) do |negation|
+  if negation.present?
+    page.should_not have_content I18n.t('teams.show.link_edit')
+  else
+    page.should have_content I18n.t('teams.show.link_edit')
+  end  
+end
+
+When(/^I go to show any team$/) do
+  @team = FactoryGirl.create(:team)  
+  visit team_path(@team)
+end
+
