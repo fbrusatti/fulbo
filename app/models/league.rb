@@ -11,6 +11,7 @@ class League < ActiveRecord::Base
   # == Associations
   belongs_to :organizer, class_name: 'SportCenter'
   has_one :point_system, dependent: :destroy, inverse_of: :league
+  has_one :fixture, dependent: :destroy
   has_many :affiliations, dependent: :destroy
   has_many :teams, through: :affiliations
 

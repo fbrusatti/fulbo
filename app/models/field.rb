@@ -20,4 +20,5 @@ class Field < ActiveRecord::Base
 
    # == Associations
   belongs_to :location
+  has_many :turns
 end
