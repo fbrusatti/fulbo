@@ -23,6 +23,7 @@ describe League do
 
   # has one
   it { should have_one(:point_system) }
+  it { should have_one(:fixture) }
 
   #has many
   it { should have_many(:affiliations) }
