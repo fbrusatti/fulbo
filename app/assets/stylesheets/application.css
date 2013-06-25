@@ -11,6 +11,7 @@
  *= require jquery.fancybox-thumbs
  *= require jquery.fancybox
  *= require jquery.Jcrop
+ *= require token-input-bootstrappy
  *= require_self
  *= require_tree .
  */

@@ -1,4 +1,4 @@
-%h1= t ".title"
+%h1=t ('.title')
 %div{:class => "row-fluid"}
   %div{:class => "span10"}
     %h6= link_to t('.link_photos'), team_photos_path(@team)
@@ -32,6 +32,21 @@
     %dt= "#{TeamProfile.human_attribute_name(:description)}: "
     %dd= @team.profile.description
 
-
+.well.well-large
+  .dl-horizontal
+    %h1=t('.players')
+    %table{:class => "table table-striped"}
+    - for player in @team.players
+      %tr
+        %td
+          %div{:class => "media"}
+            %a{:class => "pull-left", :href => "#"}
+              - if player.profile.avatar?
+                = image_tag player.profile.avatar, size: "64x64"
+              - else
+                = image_tag "profile_dafault.png", size: "64x64"
+            %div{:class => "media-body"}
+              %h4{:class => "media-heading"}=link_to "#{player.name} #{player.profile.surname}", player.profile
+              %h5{:class => "media-heading"}= (player.profile.playing_position.map { |s| t("user_profile.playing_position.#{s}")}).to_sentence
 - if owner_permission?
   = button_to t('.btn_delete'), team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => t('.confirm')}

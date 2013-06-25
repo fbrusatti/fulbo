@@ -58,5 +58,4 @@ class TeamsController < ApplicationController
     def verify_team
       redirect_to(teams_path, notice: t('flash.verify_team')) unless current_user.team.blank?
     end
-
 end

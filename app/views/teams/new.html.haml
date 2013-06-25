@@ -35,6 +35,7 @@
         = builder.label "#{t("teams.surfaces.#{surface}")} | "
     = builder.label :description
     = builder.text_area :description, rows: 4
-
+  = f.label :player_tokens, t('.players')
+  = f.text_field :player_tokens
   %div
     = f.submit t('.button'), :class => "btn"
