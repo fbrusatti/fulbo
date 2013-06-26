@@ -19,8 +19,8 @@
             - if user_signed_in?
               %li
                 %a{ :href => "#" } #{current_user.email}
-              - if user_signed_in? and !current_user.sport_center.blank?
-                %li = link_to "Complejo",  user_sport_center_path(current_user)
+              - if user_signed_in? && !current_user.sport_center.blank?
+                %li= link_to "Complejo", sport_center_path(current_user.sport_center)
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 Opciones

@@ -35,7 +35,7 @@ And(/^I enter (my correct|wrong) credentials$/) do |correctness|
 
   fill_in 'user_email', with: @user.email
   fill_in 'user_password', with: password
-  click_button 'Sign in'
+  click_button 'Ingresar'
 end
 
 Then(/^I should( not)? be logged in$/) do |negation|
