@@ -59,10 +59,13 @@ body {
 }
 
 .marketing h2 {
-  font-weight: normal;
+  font-weight: bold;
+  color: #000;
 }
 
 .marketing .span4 p {
+  font-weight: bold;
+  color: #000;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -96,6 +99,7 @@ body {
 
   .carousel .item {
     height: 500px;
+    width: 1200px;
   }
   .carousel img {
     width: auto;

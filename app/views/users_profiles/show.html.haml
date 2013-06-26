@@ -1,0 +1,39 @@
+%body{ :background => image_path("background.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
+  .container
+    .span11.offset.well
+      %legend Perfil de Jugador
+      .row
+        .span8
+          %div{ :class => "dl-horizontal" }
+            %h2
+              ="#{@profile.name} #{@profile.surname} "
+            -if @profile.nickname.blank?
+              %dt Nick
+              %dd= @profile.playing_position.to_sentence
+            -else
+              %dt Nick
+              %dd= @profile.nickname
+            %dt Playing position
+            %dd= @profile.playing_position.to_sentence
+            %dt Born
+            %dd= @profile.dob
+            %dt Locallity
+            %dd= @profile.locality
+            %dt Foot
+            %dd= @profile.foot
+            %dt Features
+            %dd= @profile.features
+        .span3
+          %p Foto de Perfil
+          %a.thumbnail{ :href => edit_user_profile_path(@user) }
+            -if @profile.avatar?
+              %img{ :alt => "", :src => image_path(@profile.avatar_url(:thumb)) }
+            -else
+              %img{ :alt => "", :src => image_path(profile_dafault.png) }
+
+          %span.badge.badge-success 15 Goles
+          %span.badge.badge-warning 1 Amarilla
+          %span.badge.badge-important 0 rojas
+      - if user_signed_in? and current_user == @user
+        %button.btn.btn-info
+          .btn-block.pull-rigth{ :href => edit_user_profile_path(@user) } Editar

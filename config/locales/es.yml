@@ -1,4 +1,6 @@
 es:
+  landing_page:
+    comming_soon: Muy pronto
   user_profile:
     playing_position:
       Goalkeeper: Arquero
@@ -9,7 +11,7 @@ es:
       Coaching: Entrenador
       Staff: Personal
       Referee: Arbitro
-      Assistant: Asistente 
+      Assistant: Asistente
   locations:
     new:
       title: Crear nueva Sede

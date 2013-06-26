@@ -17,6 +17,7 @@ Devise.setup do |config|
   # If you have more than one role in your application (such as "User" and "Admin"), you will notice
   # that Devise uses the same views for all roles. Fortunately, Devise offers an easy way to
   # customize views. All you need to do is set "config.scoped_views = true"
+  config.scoped_views = true
 
 
   # ==> Mailer Configuration

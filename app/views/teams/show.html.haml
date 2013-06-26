@@ -1,52 +1,51 @@
-%h1=t ('.title')
-%div{:class => "row-fluid"}
-  %div{:class => "span10"}
-    %h6= link_to t('.link_photos'), team_photos_path(@team)
-    %div{:class => "hero-unit"}
-      %div{:class => "dl-horizontal"}
-        %h3
-          %dt= "#{Team.human_attribute_name(:name)}: "
-          %dd= @team.name
-        %h5
-          %dt= "#{TeamProfile.human_attribute_name(:owner)}: "
-          %dd= link_to "#{@team.owner.name}", user_profile_path(@team.owner)
-  %div{:class => "span2"}
-    %div{:class => "img-polaroid"}
-      = form_for @team, :html => {:multipart => true} do |f|
-        -if @team.profile.badge?
-          = image_tag(@team.profile.badge_url(:thumb))
-        -else
-          = image_tag "badge_default.jpg", size: "140x140"
-        %div
-          - if user_signed_in? and current_user == @team.owner
+%body{ :background => image_path("background.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
+  .container
+    .span11.offset.well
+      .row
+        .span8
+          %div{:class => "dl-horizontal"}
+            %h2
+              %dd= @team.name
+
+            %dt= "#{TeamProfile.human_attribute_name(:owner)}: "
+            %dd= link_to "#{@team.owner.name}", user_profile_path(@team.owner)
+
+            %dt= "#{TeamProfile.human_attribute_name(:category)}: "
+            %dd= @team.profile.category.to_sentence
+
+            %dt= "#{TeamProfile.human_attribute_name(:surface)}: "
+            %dd= @team.profile.surface.to_sentence
+
+            %dt= "#{TeamProfile.human_attribute_name(:description)}: "
+            %dd= @team.profile.description
+        .span3
+          %p Escudo del Equipo
+          %a.thumbnail{ :href => edit_team_path(@team) }
+            -if @team.profile.badge?
+              %img{ :alt => "", :src => image_path(@team.profile.badge_url(:thumb)) }
+            -else
+              %img{ :alt => "", :src => image_path("badge_default.jpg") }
+
+      - if owner_permission?
+        %button.btn.btn-info
+          .btn-block.pull-rigth
             = link_to t('.link_edit'), edit_team_path(@team)
 
-.well.well-large
-  .dl-horizontal
-    %dt= "#{TeamProfile.human_attribute_name(:category)}: "
-    %dd= @team.profile.category.to_sentence
-    %br
-    %dt= "#{TeamProfile.human_attribute_name(:surface)}: "
-    %dd= (@team.profile.surface.map { |s| t("teams.surfaces.#{s}")}).to_sentence
-    %br
-    %dt= "#{TeamProfile.human_attribute_name(:description)}: "
-    %dd= @team.profile.description
+        %button.btn.btn-danger
+          %a.btn-block.pull-rigth{ :method => :delete, :href => team_path(@team), :confirm => "Are you sure?" }= t('.btn_delete')
 
-.well.well-large
-  .dl-horizontal
-    %h1=t('.players')
-    %table{:class => "table table-striped"}
-    - for player in @team.players
-      %tr
-        %td
-          %div{:class => "media"}
-            %a{:class => "pull-left", :href => "#"}
-              - if player.profile.avatar?
-                = image_tag player.profile.avatar, size: "64x64"
-              - else
-                = image_tag "profile_dafault.png", size: "64x64"
-            %div{:class => "media-body"}
-              %h4{:class => "media-heading"}=link_to "#{player.name} #{player.profile.surname}", user_profile_path(player)
-              %h5{:class => "media-heading"}= (player.profile.playing_position.map { |s| t("user_profile.playing_position.#{s}")}).to_sentence
-- if owner_permission?
-  = button_to t('.btn_delete'), team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => t('.confirm')}
+    .well.well-large
+      .dl-horizontal
+        %h1=t('.players')
+        %table{:class => "table table-striped"}
+        - @team.players.each do |player|
+          %tr
+            %td
+              %div{:class => "media"}
+                %a{:class => "pull-left", :href => "#"}
+                  = image_tag player.profile.avatar, size: "64x64"
+                %div{:class => "media-body"}
+                  %h4{:class => "media-heading"}
+                    =link_to "#{player.name} #{player.profile.surname}", user_profile_path(player)
+                  %h5{:class => "media-heading"}
+                    = (player.profile.playing_position.map { |s| t("user_profile.playing_position.#{s}")}).to_sentence
