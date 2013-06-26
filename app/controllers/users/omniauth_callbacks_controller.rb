@@ -39,11 +39,6 @@ private
     else
       raise 'Provider #{provider} not handled'
     end
-    # if User.exists?(auth_attr[:email])
-    #   user = find_for_oauth_by_email(auth_attr)
-    # else
-    #   user = create_new_user(auth_attr)
-    # end  
     user = find_for_oauth_by_email(auth_attr)
   end
 
@@ -60,8 +55,6 @@ private
   end
 
   def create_new_user(auth_attr)
-    # user = find_for_oauth_by_email(auth_attr)
-    # user.save  
     profile_attr = auth_attr[:name].split(' ')
     user.profile.update_attributes( :name              => profile_attr.first, 
                                     :surname           => profile_attr.last, 
