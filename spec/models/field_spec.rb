@@ -31,5 +31,5 @@ describe Field do
   it { should belong_to(:location) }
 
   # has_many
-  it { should have_many(:turns) }
+  it { should have_many(:reservations) }
 end

@@ -12,6 +12,6 @@ describe Match do
   it { should have_many(:cards) }
 
   #has one
-  it { should have_one(:turn) }
+  it { should have_one(:reservation) }
 
 end
