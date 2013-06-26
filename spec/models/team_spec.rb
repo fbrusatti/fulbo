@@ -24,8 +24,10 @@ describe Team do
   it { should have_many(:affiliations) }
   it { should have_many(:leagues).through(:affiliations) }
   it { should have_many(:team_users) }
-  it { should have_many(:users).through(:team_users) }
+  it { should have_many(:players).through(:team_users) }
   it { should have_many(:photos) }
+  it { should have_many(:visitor_matches) }
+  it { should have_many(:local_matches) }
 
   it { should have_db_column(:owner_id).
               of_type(:integer)}

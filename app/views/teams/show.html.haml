@@ -46,7 +46,7 @@
               - else
                 = image_tag "profile_dafault.png", size: "64x64"
             %div{:class => "media-body"}
-              %h4{:class => "media-heading"}=link_to "#{player.name} #{player.profile.surname}", player.profile
+              %h4{:class => "media-heading"}=link_to "#{player.name} #{player.profile.surname}", user_profile_path(player)
               %h5{:class => "media-heading"}= (player.profile.playing_position.map { |s| t("user_profile.playing_position.#{s}")}).to_sentence
 - if owner_permission?
   = button_to t('.btn_delete'), team_path(@team), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => t('.confirm')}

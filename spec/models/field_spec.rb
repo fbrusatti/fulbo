@@ -29,4 +29,7 @@ describe Field do
 
   # belongs_to
   it { should belong_to(:location) }
+
+  # has_many
+  it { should have_many(:reservations) }
 end
