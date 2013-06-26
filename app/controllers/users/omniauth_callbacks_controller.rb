@@ -11,7 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 private
 
   def oauthorize(kind)
-    @user = find_for_ouath(kind, env["omniauth.auth"], current_user)
+    @user = find_for_ouath(kind, env["omniauth.auth"])
     if @user
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => kind
       session["devise.#{kind.downcase}_data"] = env["omniauth.auth"]
@@ -19,7 +19,7 @@ private
     end
   end
 
-  def find_for_ouath(provider, access_token, resource=nil)
+  def find_for_ouath(provider, access_token)
     user, auth_attr = nil, {}
     case provider
     when "Facebook"
@@ -39,27 +39,29 @@ private
     else
       raise 'Provider #{provider} not handled'
     end
-    if resource.nil?
-      user = create_new_user(auth_attr)
-    else
-      user = resource
-    end  
-    user
+    # if User.exists?(auth_attr[:email])
+    #   user = find_for_oauth_by_email(auth_attr)
+    # else
+    #   user = create_new_user(auth_attr)
+    # end  
+    user = find_for_oauth_by_email(auth_attr)
   end
 
-  def find_for_oauth_by_email(resource=nil, auth_attr)    
+  def find_for_oauth_by_email(auth_attr)    
     if user = User.find_by_email(auth_attr[:email])
       user
     else
       user = User.new(:email => auth_attr[:email], 
                       :password => Devise.friendly_token[0,20])
+      user.save
+      create_new_user(auth_attr)
     end
     return user
   end
 
   def create_new_user(auth_attr)
-    user = find_for_oauth_by_email(resource, auth_attr)
-    user.save  
+    # user = find_for_oauth_by_email(auth_attr)
+    # user.save  
     profile_attr = auth_attr[:name].split(' ')
     user.profile.update_attributes( :name              => profile_attr.first, 
                                     :surname           => profile_attr.last, 
