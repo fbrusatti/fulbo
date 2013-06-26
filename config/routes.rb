@@ -19,6 +19,8 @@
 
   resources :users, only:[:index]
 
+  resources :fields, only:[:index]
+
   resources :locations do 
     resources :fields
   end

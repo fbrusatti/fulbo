@@ -19,7 +19,7 @@
           %dd= "$ #{@field.price}"
           %br
           %dt= "#{Field.human_attribute_name(:description)}: "
-          %dd= @field.description.to_sentence
+          %dd= (@field.description.map { |d| t("fields.descriptions.#{d}")}).to_sentence
           %br
           %dt= "#{t('.location')}: "
           %dd= link_to "#{@location.name}", sport_center_location_path(@location.sport_center, @location)

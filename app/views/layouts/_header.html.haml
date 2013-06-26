@@ -26,8 +26,9 @@
                 Opciones
                 %b.caret
               %ul.dropdown-menu
-                %li
-                  %a{:href => "#"} Estadios
+                - if user_signed_in? && !current_user.sport_center.blank?
+                  %li
+                    %a{:href => fields_path } Estadios
                 %li
                   %a{:href => "#"} Campeonatos
                 %li

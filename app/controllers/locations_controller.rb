@@ -1,7 +1,8 @@
 class LocationsController < ApplicationController
   respond_to :html
 
-  before_filter :verify_permission, only: [:edit,:new]
+  before_filter :verify_permission_new, only: [:new]
+  before_filter :verify_permission_edit, only: [:edit]
 
   def new
     @location = Location.new
@@ -48,8 +49,13 @@ class LocationsController < ApplicationController
 
   private
 
-    def verify_permission
+    def verify_permission_new
       @sport_center = SportCenter.find(params[:sport_center_id])
       redirect_to(sport_center_path(current_user.sport_center), notice: t('.flash.permission_location')) unless current_user.sport_center == @sport_center
+    end
+
+    def verify_permission_edit
+      @location = Location.find(params[:id])
+      redirect_to(sport_center_path(current_user.sport_center), notice: t('.flash.permission_location')) unless current_user.sport_center == @location.sport_center
     end
 end

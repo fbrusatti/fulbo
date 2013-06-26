@@ -14,5 +14,5 @@
 %div{:class => "form-inline"}
   - FieldsHelper::DESCRIPTION.each do |description|
     = f.check_box :description, {:multiple => true}, description, nil
-    = f.label "#{description}"
+    = f.label t("fields.descriptions.#{description}")
     

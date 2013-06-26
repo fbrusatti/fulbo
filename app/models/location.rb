@@ -21,5 +21,6 @@ class Location < ActiveRecord::Base
 
   # == Associations
   belongs_to :sport_center
-  has_many :fields
+  has_many :fields , dependent: :destroy
+
 end
