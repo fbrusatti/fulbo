@@ -35,11 +35,21 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+h {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-weight: bold;
+  color: #009933;
+}
+
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
+  color: white;
 }
 
 h2 {
@@ -54,6 +64,13 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  font-weight: bold;
+}
+
+t {
+  font-size: 1.1em;
+  line-height: 1.7em;
+  text-align: justify;
 }
 
 
