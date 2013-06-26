@@ -23,6 +23,10 @@ end
 
 gem 'devise'
 
+gem "therubyracer"
+gem "less-rails"
+gem 'twitter-bootstrap-rails'
+
 # ActiveAdmin
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
