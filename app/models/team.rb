@@ -33,6 +33,8 @@ class Team < ActiveRecord::Base
   has_many :players, through: :team_users
   has_many :affiliations, dependent: :destroy
   has_many :leagues, through: :affiliations
+  has_many :visitor_matches, class_name: "Match", foreign_key: "visitor_id"
+  has_many :local_matches, class_name: "Match", foreign_key: "local_id"
 
   
 

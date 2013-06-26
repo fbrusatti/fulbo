@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617204224) do
+ActiveRecord::Schema.define(:version => 20130625014458) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(:version => 20130617204224) do
     t.string   "token"
   end
 
+  create_table "cards", :force => true do |t|
+    t.integer  "match_id"
+    t.integer  "team_user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "cards", ["match_id"], :name => "index_cards_on_match_id"
+  add_index "cards", ["team_user_id"], :name => "index_cards_on_team_user_id"
+
   create_table "fields", :force => true do |t|
     t.integer  "location_id"
     t.string   "name"
@@ -75,6 +85,12 @@ ActiveRecord::Schema.define(:version => 20130617204224) do
     t.string   "description"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "fixtures", :force => true do |t|
+    t.integer  "league_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "friendly_id_slugs", :force => true do |t|
@@ -87,6 +103,16 @@ ActiveRecord::Schema.define(:version => 20130617204224) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "goals", :force => true do |t|
+    t.integer  "match_id"
+    t.integer  "team_user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "goals", ["match_id"], :name => "index_goals_on_match_id"
+  add_index "goals", ["team_user_id"], :name => "index_goals_on_team_user_id"
 
   create_table "leagues", :force => true do |t|
     t.integer  "organizer_id"
@@ -115,6 +141,18 @@ ActiveRecord::Schema.define(:version => 20130617204224) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "matches", :force => true do |t|
+    t.integer  "visitor_id"
+    t.integer  "local_id"
+    t.integer  "week_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "matches", ["local_id"], :name => "index_matches_on_local_id"
+  add_index "matches", ["visitor_id"], :name => "index_matches_on_visitor_id"
+  add_index "matches", ["week_id"], :name => "index_matches_on_week_id"
+
   create_table "photos", :force => true do |t|
     t.string   "name"
     t.string   "image"
@@ -131,6 +169,17 @@ ActiveRecord::Schema.define(:version => 20130617204224) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
+
+  create_table "reservations", :force => true do |t|
+    t.integer  "match_id"
+    t.integer  "field_id"
+    t.datetime "reservation_date"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "reservations", ["field_id"], :name => "index_reservations_on_field_id"
+  add_index "reservations", ["match_id"], :name => "index_reservations_on_match_id"
 
   create_table "sport_centers", :force => true do |t|
     t.string   "name"
@@ -212,5 +261,16 @@ ActiveRecord::Schema.define(:version => 20130617204224) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug"
+
+  create_table "weeks", :force => true do |t|
+    t.integer  "fixture_id"
+    t.integer  "number"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "weeks", ["fixture_id"], :name => "index_weeks_on_fixture_id"
 
 end
