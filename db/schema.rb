@@ -265,9 +265,12 @@ ActiveRecord::Schema.define(:version => 20130625014458) do
   create_table "weeks", :force => true do |t|
     t.integer  "fixture_id"
     t.integer  "number"
-    t.date     "date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "weeks", ["fixture_id"], :name => "index_weeks_on_fixture_id"
 
 end

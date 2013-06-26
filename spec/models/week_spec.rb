@@ -6,4 +6,7 @@ describe Week do
 
   #has many
   it { should have_many(:matches) }
+
+  #validate
+  it { should validate_presence_of(:number) }
 end
