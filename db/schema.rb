@@ -170,6 +170,17 @@ ActiveRecord::Schema.define(:version => 20130625014458) do
     t.datetime "updated_at",                :null => false
   end
 
+  create_table "reservations", :force => true do |t|
+    t.integer  "match_id"
+    t.integer  "field_id"
+    t.datetime "reservation_date"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "reservations", ["field_id"], :name => "index_reservations_on_field_id"
+  add_index "reservations", ["match_id"], :name => "index_reservations_on_match_id"
+
   create_table "sport_centers", :force => true do |t|
     t.string   "name"
     t.string   "cuit"
@@ -215,17 +226,6 @@ ActiveRecord::Schema.define(:version => 20130625014458) do
 
   add_index "teams", ["owner_id"], :name => "index_teams_on_owner_id"
   add_index "teams", ["slug"], :name => "index_teams_on_slug"
-
-  create_table "turns", :force => true do |t|
-    t.integer  "match_id"
-    t.integer  "field_id"
-    t.datetime "date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "turns", ["field_id"], :name => "index_turns_on_field_id"
-  add_index "turns", ["match_id"], :name => "index_turns_on_match_id"
 
   create_table "user_profiles", :force => true do |t|
     t.integer  "user_id"
