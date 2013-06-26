@@ -1,0 +1,22 @@
+%br
+%h1= "Canchas de #{@sport_center.name}"
+.container-fluid
+  .row-fluid
+    .span2
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
+      %br
+    .span6
+      %div{:class => "well well-large"}
+        %div{:class => "dl-horizontal"}
+          %table{:class => "table table-striped"}
+            - @sport_center.fields.each do |field|
+              %tr
+                %td
+                  %div{:class => "media"}
+                    %a{:class => "pull-left", :href => "#"}
+                    %div{:class => "media-body"}
+                      %h4{:class => "media-heading"}=link_to "#{field.name}", location_field_path(field.location, field)
+                      %h6{:class => "media-heading"}=link_to "#{t('.location')}: #{field.location.name}", sport_center_location_path(@sport_center, field.location)
+                %td
+                  %div{:class => "btn-group"}
+                    = button_to t('.btn_edit'), edit_location_field_path(field.location, field), {:method => :get, :class => "btn btn-mini btn-info", :type => "button"}
