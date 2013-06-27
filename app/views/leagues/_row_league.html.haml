@@ -9,9 +9,9 @@
           %br
           ="#{I18n.t('leagues.index.category')}: #{league.category.to_sentence}"
         .span3
-          - if league.teams.count.to_i < league.number_teams.to_i
+          - if league.teams.count < league.number_teams
             .label.label-success
-              = "#{I18n.t('leagues.index.available_inscriptions')}: #{league.number_teams.to_i - league.teams.count.to_i}"
+              = "#{I18n.t('leagues.index.available_inscriptions')}: #{league.number_teams - league.teams.count}"
           - else
             .label.label-important
               = I18n.t('leagues.index.unavailable_inscriptions')
