@@ -9,6 +9,9 @@ en:
       organizer: Organizer
       category: Category
       start_date: Start date
+      available_inscriptions: Available inscriptions
+      unavailable_inscriptions: Unavailable inscriptions
+      registered: Registered
     new:
       title: New League
       point_system_title: Point System of League
