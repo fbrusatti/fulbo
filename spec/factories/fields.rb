@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :field do
     name "El Monumental"
-    type "parquet"
-    category "5"
+    surface "parquet"
+    category "[5]"
   end
 end
