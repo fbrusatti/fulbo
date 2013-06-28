@@ -21,7 +21,7 @@
 
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :path => "" do
-    resource :profile, only: [:show, :edit, :update]
+    resource :profile, only: [:show, :edit, :update], controller: 'UserProfile'
   end
 
   #devise_for :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

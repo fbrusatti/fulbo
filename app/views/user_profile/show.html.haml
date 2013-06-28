@@ -36,4 +36,4 @@
           %span.badge.badge-important 0 rojas
       - if user_signed_in? and current_user == @user
         %button.btn.btn-info
-          .btn-block.pull-rigth{ :href => edit_user_profile_path(@user) } Editar
+          = link_to "Editar", edit_user_profile_path(@user), class: "btn-block pull-rigth"
