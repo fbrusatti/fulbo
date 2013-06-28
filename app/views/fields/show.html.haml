@@ -1,0 +1,28 @@
+%h1= "#{t '.title'} #{@location.sport_center.name}"
+.container-fluid
+  .row-fluid
+    .span2
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
+    .span6
+      %div{:class => "well well-large"}
+        %div{:class => "dl-horizontal"}
+          %dt= "#{Field.human_attribute_name(:name)}: "
+          %dd= @field.name
+          %br
+          %dt= "#{Field.human_attribute_name(:surface)}: "
+          %dd= t("fields.surfaces.#{@field.surface}")
+          %br
+          %dt= "#{Field.human_attribute_name(:category)}: "
+          %dd= @field.category
+          %br
+          %dt= "#{Field.human_attribute_name(:price)}: "
+          %dd= "$ #{@field.price}"
+          %br
+          %dt= "#{Field.human_attribute_name(:description)}: "
+          %dd= (@field.description.map { |d| t("fields.descriptions.#{d}")}).to_sentence
+          %br
+          %dt= "#{t('.location')}: "
+          %dd= link_to "#{@location.name}", sport_center_location_path(@location.sport_center, @location)
+        %br
+      %a.btn.btn-primary{:href => edit_location_field_path(@field.location_id, @field)}
+        = t('.btn_edit')

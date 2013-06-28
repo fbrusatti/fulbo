@@ -13,6 +13,9 @@
 #
 
 class Field < ActiveRecord::Base
+  serialize :description, Array
+
+  # == Accessors
   attr_accessible :category, :description, :name, :price, :surface
 
   # == Validations
