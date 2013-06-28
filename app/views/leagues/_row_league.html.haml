@@ -9,16 +9,21 @@
           %br
           ="#{I18n.t('leagues.index.category')}: #{league.category.to_sentence}"
         .span3
-          - if league.teams.count < league.number_teams
-            .label.label-success
-              = "#{I18n.t('leagues.index.available_inscriptions')}: #{league.number_teams - league.teams.count}"
+          - if league.number_teams.present?
+            - if league.teams.count < league.number_teams
+              .label.label-success
+                = "#{I18n.t('leagues.index.available_inscriptions')}: #{league.number_teams - league.teams.count}"
+            - else
+              .label.label-important
+                = I18n.t('leagues.index.unavailable_inscriptions')
+            %br
+              = I18n.t('leagues.index.registered')
+              .label.label-default
+                = "#{league.teams.count}/#{league.number_teams}"
           - else
-            .label.label-important
-              = I18n.t('leagues.index.unavailable_inscriptions')
-          %br
             = I18n.t('leagues.index.registered')
             .label.label-default
-              = "#{league.teams.count}/#{league.number_teams}"
+              = "#{league.teams.count}/#"
         .span3
           = "#{I18n.t('leagues.index.organizer')}:"
           = link_to league.organizer.name, "#"
