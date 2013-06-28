@@ -64,7 +64,7 @@
             = button_to t(".btn_edit"), edit_league_path(@league), method: :get, class: "btn"
           .btn-group
             = button_to t(".btn_delete"), league_path(@league), method: :delete, class: "btn btn-danger", confirm: t(".confirm_delete_msg")
-        - else
+        - elsif current_user && current_user.team
           = button_to t(".btn_send_affiliation"), "#", class: "btn btn-primary", method: :get
     .text-center
       %h3
