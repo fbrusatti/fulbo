@@ -28,7 +28,7 @@
               %ul.dropdown-menu
                 - if user_signed_in? && !current_user.sport_center.blank?
                   %li
-                    %a{:href => fields_path } Estadios
+                    = link_to t("navigation.stadiums"), fields_path
                 %li
                   %a{:href => "#"} Campeonatos
                 %li

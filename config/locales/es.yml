@@ -24,7 +24,7 @@ es:
       btn_edit: Editar Cancha
       location: Sede
     index:
-      title: Canchas de
+      title: "Canchas de %{sport_center_name}"
       location: Sede
       btn_edit: Editar
     surfaces:
