@@ -4,14 +4,26 @@
       = image_tag "league_default.png", size: "64x64"
     .span11
       .row-fluid
-        .span6
+        .span3
           = link_to "#{I18n.t('leagues.index.name')}: #{league.name}", league_path(league)
           %br
           ="#{I18n.t('leagues.index.category')}: #{league.category.to_sentence}"
-        .span6
+        .span3
+          - if league.teams.count < league.number_teams
+            .label.label-success
+              = "#{I18n.t('leagues.index.available_inscriptions')}: #{league.number_teams - league.teams.count}"
+          - else
+            .label.label-important
+              = I18n.t('leagues.index.unavailable_inscriptions')
+          %br
+            = I18n.t('leagues.index.registered')
+            .label.label-default
+              = "#{league.teams.count}/#{league.number_teams}"
+        .span3
           = "#{I18n.t('leagues.index.organizer')}:"
           = link_to league.organizer.name, "#"
           %br
           = "#{I18n.t('leagues.index.start_date')}: "
           .label.label-info
             = "#{league.start_date}"
+        .span3
