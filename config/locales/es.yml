@@ -35,6 +35,9 @@ es:
       organizer: Organizador
       category: Categoría
       start_date: Fecha de comienzo
+      available_inscriptions: Inscripciones disponibles
+      unavailable_inscriptions: No quedan Inscripciones
+      registered: Inscriptos
     new:
       title: Nueva Liga
       point_system_title: Sistema de puntuación de la Liga
