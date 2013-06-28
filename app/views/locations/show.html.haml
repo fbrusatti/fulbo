@@ -1,8 +1,10 @@
-%h1= "#{t '.title'} #{@location.name}"
+%div
+  %h1= "#{t '.title'} #{@location.name}"
 .container-fluid
   .row-fluid
     .span2
       #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
+      = button_to t('.new_field'), new_location_field_path(@location), {:method => :get, :class => "btn btn-primary btn-info", :type => "button"}
     .span6
       %div{:class => "well well-large"}
         %div{:class => "dl-horizontal"}
@@ -20,6 +22,28 @@
           %br
           %dt= "#{Location.human_attribute_name(:description)}: "
           %dd= @location.description
+          %br
+          %dt= "sport center :"
+          %dd= link_to "#{@sport_center.name}", sport_center_path(@sport_center)
         %br
-      %a.btn.btn-primary{:href => edit_sport_center_location_path(@sport_center, @location)}
-        = t(".change")
+        %a.btn.btn-primary{:href => edit_sport_center_location_path(@sport_center, @location)}
+          = t(".change")
+        %br
+      %h3= t('.fields')
+      .span6
+      %div{:class => "well well-large"}
+        %div{:class => "dl-horizontal"}
+          %table{:class => "table table-striped"}
+            - @location.fields.each do |field|
+              %tr
+                %td
+                  %div{:class => "media"}
+                    %a{:class => "pull-left", :href => "#"}
+                    %div{:class => "media-body"}
+                      %h4{:class => "media-heading"}=link_to "#{field.name}", location_field_path(@location,field)
+                %td
+                  %div{:class => "btn-group"}
+                    = button_to t('.btn_delete'), location_field_path(@location, field), {:method => :delete, :class => "btn btn-mini btn-danger", :type => "button", :confirm => t('.confirm')}
+                %td
+                  %div{:class => "btn-group"}
+                    = button_to t('.btn_edit'), edit_location_field_path(@location, field), {:method => :get, :class => "btn btn-mini btn-info", :type => "button"}

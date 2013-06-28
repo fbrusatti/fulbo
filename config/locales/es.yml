@@ -12,6 +12,31 @@ es:
       Staff: Personal
       Referee: Arbitro
       Assistant: Asistente
+  fields:
+    new:
+      title: Crear nueva Cancha
+      btn_submit: Guardar
+    edit:
+      title: Editar Cancha
+      btn_submit: Guardar Cambios
+    show:
+      title: Cancha de 
+      btn_edit: Editar Cancha
+      location: Sede
+    index:
+      title: "Canchas de %{sport_center_name}"
+      location: Sede
+      btn_edit: Editar
+    surfaces:
+      sand: arena
+      grass: césped
+      parquet: parquet
+      synthetic_grass: césped sintético
+      land: tierra
+      cement: cemento
+    descriptions:
+      roofed: Techada
+      illuminated: Iluminada
   locations:
     new:
       title: Crear nueva Sede
@@ -19,6 +44,11 @@ es:
     show:
       title: Sede
       change: Cambiar
+      confirm: ¿Está seguro?
+      new_field: Nueva Cancha
+      btn_edit: Editar
+      btn_delete: Borrar
+      fields: Canchas
     edit:
       title: Editar Sede
       btn_submit: Guardar Cambios
@@ -95,6 +125,12 @@ es:
       logo: Logo
   activerecord:
     attributes:
+      field:
+        name: Name
+        category: Categoría
+        description: Descripción
+        price: Precio
+        surface: Superficie
       location:
         address: Dirección
         description: Descripción
@@ -139,6 +175,7 @@ es:
     league: "Exitosamente se a %{message} la Liga %{name}"
     sport_center: "Exitosamente se a %{message} el Complejo"
     location: "Exitosamente se a %{message} la sede"
+    field: "Exitosamente se a %{message} la cancha"
     team: "Exitosamente se a %{message} el equipo"
     created: creado
     destroyed: borrado
@@ -146,11 +183,12 @@ es:
     permission_team: No posee permiso
     permission_location: No posee permiso en Sedes
     permission_league: No posee permiso para esta acción
+    permission_field: No posee permiso para la cancha
     verify_team: Ya posee un equipo
     have_sport_center: Ya posee Complejo
   navigation:
     teams: Equipos
-    stadiums: Estadios
+    stadiums: Canchas
     leagues: Campeonatos
     sign_up: Registrarse
     sign_in: Entrar

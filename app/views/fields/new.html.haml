@@ -1,0 +1,15 @@
+%br
+%h1= t('.title')
+.container-fluid
+  .row-fluid
+    .span2
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap
+    .span8
+      %div{:class => "well well-large"}
+        %div{:class => "dl-horizontal"}
+          = form_for @field, url: location_fields_path(@location, @field) do |f|
+            = errors_for(@field).html_safe
+            = render  "data", :f => f
+            %br
+            %div
+            = f.submit t('.btn_submit'),:class => "btn pull-right"

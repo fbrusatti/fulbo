@@ -4,11 +4,12 @@
   .row-fluid
     .span2
       #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
+      = button_to t('.btn_new'), new_sport_center_location_path(@sport_center), {:method => :get, :class => "btn btn-primary btn-info", :type => "button"}
     .span6
       %div{:class => "well well-large"}
         %div{:class => "dl-horizontal"}
           %table{:class => "table table-striped"}
-            - for location in @locations
+            - @locations.each do |location|
               %tr
                 %td
                   %div{:class => "media"}
@@ -21,4 +22,14 @@
                 %td
                   %div{:class => "btn-group"}
                     = button_to t('.btn_edit'), edit_sport_center_location_path(@sport_center, location), {:method => :get, :class => "btn btn-mini btn-info", :type => "button"}
-          = button_to t('.btn_new'), new_sport_center_location_path(@sport_center), {:method => :get, :class => "btn btn-primary btn-info", :type => "button"}
+                %td
+                  %div{:class => "btn-group"}
+                    %a{:class => "btn dropdown-toggle", "data-toggle" => "dropdown", :href => "#"}
+                      Canchas
+                      %span{:class => "caret"}
+                    %ul{:class => "dropdown-menu", :role => "menu", "aria-labelledby" => "dropdownMenu"}
+                      - location.fields.each do |field|
+                        %li
+                          %a{:tabindex => "-1", :href => location_field_path(location,field)}
+                            ="#{field.name}"
+          

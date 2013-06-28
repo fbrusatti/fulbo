@@ -1,0 +1,18 @@
+= f.label :name
+= f.text_field :name
+%br
+= f.label :surface
+= f.select :surface, FieldsHelper::SURFACE.map { |s| [t("fields.surfaces.#{s}"), s] }, {:include_blank => true}
+%br
+= f.label :category
+= f.select :category, FieldsHelper::CATEGORY, {:include_blank => true}
+%br
+= f.label :price
+= f.text_field :price
+%br
+= f.label :description  
+%div{:class => "form-inline"}
+  - FieldsHelper::DESCRIPTION.each do |description|
+    = f.check_box :description, {:multiple => true}, description, nil
+    = f.label t("fields.descriptions.#{description}")
+    

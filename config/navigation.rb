@@ -98,12 +98,12 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.dom_class = "nav nav-tabs nav-stacked"
 
     primary.item :data, I18n.t("sport_centers.show.information"), :icon => ['icon-flag'] do |data|
-       data.item :view, I18n.t("sport_centers.show.see"), sport_center_path(@sport_center)
+       data.item :view, I18n.t("sport_centers.show.see"), sport_center_path(current_user.sport_center)
       # data.item :modify, 'Modificar', '#'
     end
     primary.item :locations, I18n.t("sport_centers.show.venues"), '#' ,:icon => ['icon-home'] do |locations|
-      locations.item :show, I18n.t("sport_centers.show.see_venues"), sport_center_locations_path(@sport_center)
-      locations.item :new, I18n.t("sport_centers.show.new_venue"), new_sport_center_location_path(@sport_center)
+      locations.item :show, I18n.t("sport_centers.show.see_venues"), sport_center_locations_path(current_user.sport_center)
+      locations.item :new, I18n.t("sport_centers.show.new_venue"), new_sport_center_location_path(current_user.sport_center)
     end
     primary.item :tourmentent, I18n.t("sport_centers.show.tournaments"),'#',:icon =>['icon-star'] do |tourmentent|
       tourmentent.item :show, I18n.t("sport_centers.show.see_tournaments"), "#"
