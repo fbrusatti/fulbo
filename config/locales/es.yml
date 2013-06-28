@@ -186,6 +186,7 @@ es:
     permission_field: No posee permiso para la cancha
     verify_team: Ya posee un equipo
     have_sport_center: Ya posee Complejo
+    welcome: 'Bienvenido'
   navigation:
     teams: Equipos
     stadiums: Canchas

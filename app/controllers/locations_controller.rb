@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   respond_to :html
 
   before_filter :authenticate_user!, :except => [:index]
-  before_filter :verify_permission, :only => [:update, :create, :destroy]
+  before_filter :verify_permission, :only => [:update, :create, :destroy, :edit]
 
   def new
     @location = Location.new
@@ -22,7 +22,6 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @sport_center = current_user.sport_center
     @location = @sport_center.locations.create(params[:location])
     if @location.save
       flash[:success] = t('flash.location', message: t('flash.created'))
@@ -50,9 +49,12 @@ class LocationsController < ApplicationController
   private
 
   def verify_permission
-    sport_center_id = (params[:sport_center_id] || params[:id])
+    sport_center_id = params[:sport_center_id] || params[:id]
+    @sport_center = current_user.sport_center
 
-    redirect_to sport_center_path(current_user.sport_center),
-                notice: t('.flash.permission_location') unless current_user.sport_center.id == sport_center_id
+    unless @sport_center.id == sport_center_id.try(:to_i)
+      redirect_to sport_center_path(current_user.sport_center),
+                  notice: t('.flash.permission_location')
+    end
   end
 end

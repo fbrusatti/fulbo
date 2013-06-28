@@ -4,12 +4,17 @@
       .span4.offset4.well
         %legend Ingresar
         = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+
           = f.label :email
-          %input#username.span4{:name => "email", :placeholder => "Email", :type => "text"}/
+          = f.text_field :email, :class => 'span4', placeholder: '@email'
+
           = f.label :Contraseña
-          %input#password.span4{:name => "contraseña", :placeholder => "Contraseña", :type => "password"}/
+          = f.password_field :password, class: 'span4', placeholder: 'Contraseña'
+
           %label.checkbox
             %input{:name => "remember", :type => "checkbox", :value => "1"}/
             Recordarme
-          %button.btn.btn-info.btn-block{:name => "submit", :type => "submit"} Ingresar
+
+          = f.submit 'Ingresar', class: 'btn btn-info btn-block'
+
         = render "devise/shared/links"
