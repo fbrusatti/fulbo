@@ -64,8 +64,15 @@
             = button_to t(".btn_edit"), edit_league_path(@league), method: :get, class: "btn"
           .btn-group
             = button_to t(".btn_delete"), league_path(@league), method: :delete, class: "btn btn-danger", confirm: t(".confirm_delete_msg")
-        - elsif current_user && current_user.team
-          = button_to t(".btn_send_affiliation"), "#", class: "btn btn-primary", method: :get
+        - elsif is_owner_of_team?
+          - if has_sent_request_to_league?(@league)
+            .btn.btn-primary.disabled
+              = t(".has_been_sent_affiliation")
+          - else
+            = form_tag(tournament_inscriptions_path) do
+              = hidden_field_tag :tournament_id, @league.id
+              = hidden_field_tag :team_id, current_user.team.id
+              = submit_tag t(".btn_send_affiliation"), class: "btn btn-primary"
     .text-center
       %h3
         = t(".teams_of_league")

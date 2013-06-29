@@ -47,6 +47,7 @@ en:
       confirm_delete_msg: Are you sure?
       team_header_row: Team
       owner_header_row: Owner
+      has_been_sent_affiliation: Already sent the affiliation request
   user_profile:
     playing_position:
       Goalkeeper: Goalkeeper

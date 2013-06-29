@@ -20,7 +20,7 @@ es:
       title: Editar Cancha
       btn_submit: Guardar Cambios
     show:
-      title: Cancha de 
+      title: Cancha de
       btn_edit: Editar Cancha
       location: Sede
     index:
@@ -103,6 +103,7 @@ es:
       confirm_delete_msg: Está seguro?
       team_header_row: Equipo
       owner_header_row: Dueño
+      has_been_sent_affiliation: Ya se envio la solicitud
   sport_centers:
     edit:
       title: Editar
