@@ -5,6 +5,8 @@
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  resources :tournament_inscriptions, only: [:create, :destroy]
+
   resources :leagues do
     resources :affiliations, only: [:create, :destroy]
   end
