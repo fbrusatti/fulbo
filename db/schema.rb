@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627222046) do
+ActiveRecord::Schema.define(:version => 20130629000736) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -129,6 +129,14 @@ ActiveRecord::Schema.define(:version => 20130627222046) do
   end
 
   add_index "leagues", ["organizer_id"], :name => "index_leagues_on_organizer_id"
+
+  create_table "leagues_teams", :id => false, :force => true do |t|
+    t.integer "league_id"
+    t.integer "team_id"
+  end
+
+  add_index "leagues_teams", ["league_id", "team_id"], :name => "index_leagues_teams_on_league_id_and_team_id"
+  add_index "leagues_teams", ["team_id", "league_id"], :name => "index_leagues_teams_on_team_id_and_league_id"
 
   create_table "locations", :force => true do |t|
     t.integer  "sport_center_id"
