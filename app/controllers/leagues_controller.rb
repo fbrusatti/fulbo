@@ -31,7 +31,7 @@ class LeaguesController < ApplicationController
 
   def edit
     @league = League.find(params[:id])
-    @all_teams = Team.out_of_league(@league)
+    @registration_orders = @league.requests_of_register
     @teams = @league.teams
   end
 
