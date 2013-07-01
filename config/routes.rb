@@ -11,6 +11,7 @@
 
   resources :teams do
     resources :photos
+    resources :request_inscriptions, only: [:create]
   end
 
   resources :sport_centers do
@@ -22,7 +23,7 @@
 
   resources :fields, only:[:index]
 
-  resources :locations do 
+  resources :locations do
     resources :fields
   end
 
