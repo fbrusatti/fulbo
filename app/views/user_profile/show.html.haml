@@ -29,7 +29,7 @@
             -if @profile.avatar?
               %img{ :alt => "", :src => image_path(@profile.avatar_url(:thumb)) }
             -else
-              %img{ :alt => "", :src => image_path(profile_dafault.png) }
+              %img{ :alt => "", :src => image_path("profile_default.png") }
 
           %span.badge.badge-success 15 Goles
           %span.badge.badge-warning 1 Amarilla
