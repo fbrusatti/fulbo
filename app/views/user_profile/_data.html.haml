@@ -1,19 +1,23 @@
-= f.label "#{:name}*"
+= f.label :name
 = f.text_field :name
-= f.label "#{:surname}*"
+
+= f.label :surname
 = f.text_field :surname
+
 = f.label :nickname
 = f.text_field :nickname
-= f.label "#{:playing_position}*"
-%div{:class => "form-inline"}
-  - UsersProfilesHelper::POSITIONS.each do |position|
-    = f.check_box :playing_position, {:multiple => true}, position, nil
-    = f.label "#{position} |"
+
+.user_profile_positions
+  = user_profile_positions(f)
+
 = f.label :dob
-= f.date_select :dob, {:include_blank => true, :start_year => 1923, :end_year => 2013}
+= f.text_field :dob, {:"data-date-format" => "dd/mm/yy", :class => 'datepicker'}
+
 = f.label :locality
 = f.text_field :locality
+
 = f.label :foot
 = f.select :foot, UsersProfilesHelper::FOOTS, {:include_blank => true}
+
 = f.label :features
 = f.text_area :features, rows: 4
