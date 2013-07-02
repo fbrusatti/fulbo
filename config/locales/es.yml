@@ -2,13 +2,26 @@ es:
   landing_page:
     comming_soon: Muy pronto
   user_profile:
+    Goalkeeper: Arquero
+    Forward: Delantero
+    Defender: Defensor
+    Midfielder: Mediocampista
+    Coach: Tecnico
+    Coaching: Entrenador
+    Staff: Personal
+    Referee: Arbitro
+    Assistant: Asistente
+    field_position: Posición en la cancha
+    right: Derecho
+    left: Izquierdo
+    ambidextro: Ambas
+    avatar: Avatar
     edit:
+      remote_avatar: Avatar Remoto
       title: Editar Perfíl
-      playing_position:
-      Goalkeeper: Arquero
+      playing_position: Posición
       Defender: Defensor
       Midfielder: Mediocampista
-      Forward: Delantero
       Coach: Tecnico
       Coaching: Entrenador
       Staff: Personal
@@ -24,16 +37,6 @@ es:
       locality: Localidad
       foot: Pierna Buena
       features: Características
-    playing_position:
-      Goalkeeper: Arquero
-      Defender: Defensor
-      Midfielder: Mediocampista
-      Forward: Delantero
-      Coach: Tecnico
-      Coaching: Entrenador
-      Staff: Personal
-      Referee: Arbitro
-      Assistant: Asistente
   fields:
     new:
       title: Crear nueva Cancha
