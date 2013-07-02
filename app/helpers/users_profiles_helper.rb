@@ -25,5 +25,18 @@ module UsersProfilesHelper
     options_div = content_tag :div, options.html_safe, class: 'user-profile-positions'
     label + options_div
   end
-end
 
+  def avatar(form, profile)
+    form.label :avatar, :class => "img-polaroid pull-right" do
+      image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
+    end
+  end
+
+  def remove_avatar_section(form)
+    if @profile.avatar.url.present?
+      check_box = form.check_box :remove_avatar
+      label     = form.label :remove_avatar, I18n.t("user_profile.remove_avatar")
+      content_tag :div, check_box + label, class: 'form-inline'
+    end
+  end
+end
