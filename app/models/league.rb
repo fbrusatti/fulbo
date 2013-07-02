@@ -14,6 +14,9 @@ class League < ActiveRecord::Base
   has_one :fixture, dependent: :destroy
   has_many :affiliations, dependent: :destroy
   has_many :teams, through: :affiliations
+  has_many :inscription_requests,
+           class_name: 'RequestInscription',
+           as: :requested
 
   # == Callbacks
   before_create :init_point_system
