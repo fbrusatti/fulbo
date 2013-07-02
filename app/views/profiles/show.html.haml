@@ -18,7 +18,7 @@
         -if @profile.avatar?
           = image_tag(@profile.avatar_url(:thumb))
         -else
-          = image_tag "profile_dafault.png"
+          = image_tag "profile_default.png"
         %div
 
           - if user_signed_in? and current_user == @user

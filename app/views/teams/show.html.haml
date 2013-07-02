@@ -45,7 +45,7 @@
             %td
               %div{:class => "media"}
                 %a{:class => "pull-left", :href => "#"}
-                  = image_tag player.profile.avatar_url(:thumb), size: "64x64"
+                  = profile_avatar(player)
                 %div{:class => "media-body"}
                   %h4{:class => "media-heading"}
                     =link_to "#{player.name} #{player.profile.surname}", user_profile_path(player)
