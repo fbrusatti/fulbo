@@ -36,4 +36,6 @@
           %span.badge.badge-important 0 rojas
       - if user_signed_in? and current_user == @user
         %button.btn.btn-info
-          = link_to "Editar", edit_user_profile_path(@user), class: "btn-block pull-rigth"
+          .btn-block.pull-rigth
+            = link_to t('.link_edit'), edit_user_profile_path(@user)
+          /= link_to "Editar", edit_user_profile_path(@user), class: "btn-block pull-rigth"
