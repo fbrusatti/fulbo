@@ -16,6 +16,7 @@ es:
     left: Izquierdo
     ambidextro: Ambas
     avatar: Avatar
+    remove_avatar: Borrar Avatar
     edit:
       remote_avatar: Avatar Remoto
       title: Editar Perfíl
@@ -27,6 +28,7 @@ es:
       Staff: Personal
       Referee: Arbitro
       Assistant: Asistente
+      submit: Actualizar
     show:
       link_edit: Editar
       profile_picture: Foto de Perfíl
