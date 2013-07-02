@@ -46,9 +46,8 @@ private
     if user = User.find_by_email(auth_attr[:email])
       user
     else
-      user = User.new(:email => auth_attr[:email], 
-                      :password => Devise.friendly_token[0,20])
-      user.save
+      user = User.create(:email => auth_attr[:email], 
+                         :password => Devise.friendly_token[0,20])
       user = create_new_user(user, auth_attr)
     end
     return user
