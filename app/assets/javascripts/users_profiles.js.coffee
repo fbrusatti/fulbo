@@ -23,5 +23,8 @@ class AvatarCropper
       height: Math.round(100/coords.h * $('#cropbox').height()) + 'px'
       marginLeft: '-' + Math.round(100/coords.w * coords.x) + 'px'
       marginTop: '-' + Math.round(100/coords.h * coords.y) + 'px'
+
 jQuery ->
   new AvatarCropper()
+
+  $('.datepicker').datepicker()
