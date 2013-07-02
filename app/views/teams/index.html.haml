@@ -28,10 +28,10 @@
                         = t ".msj_option_two"
 
       - if user_signed_in? && !current_user.team.blank?
-        = button_to t('.btn_team'), team_path(current_user.team), {:method => :get, :class => "btn btn-mini btn-info", :type => "button"}
+        = button_to t('.btn_team'), team_path(current_user.team), {:method => :get, :class => "btn btn-info", :type => "button"}
 
       - if user_signed_in? && current_user.team.blank?
-        = button_to t('.btn_create'), new_team_path, {:method => :get, :class => "btn btn-mini btn-primary", :type => "button"}
+        = button_to t('.btn_create'), new_team_path, {:method => :get, :class => "btn btn-info", :type => "button"}
 
       - if !user_signed_in?
-        = button_to t('.btn_create'), new_team_path, {:method => :get, :class => "btn btn-mini btn-primary disabled", :type => "button"}
+        = button_to t('.btn_create'), new_team_path, {:method => :get, :class => "btn btn-info disabled", :type => "button"}

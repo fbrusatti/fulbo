@@ -2,6 +2,28 @@ es:
   landing_page:
     comming_soon: Muy pronto
   user_profile:
+    edit:
+      title: Editar Perfíl
+      playing_position:
+      Goalkeeper: Arquero
+      Defender: Defensor
+      Midfielder: Mediocampista
+      Forward: Delantero
+      Coach: Tecnico
+      Coaching: Entrenador
+      Staff: Personal
+      Referee: Arbitro
+      Assistant: Asistente
+    show:
+      link_edit: Editar
+      profile_picture: Foto de Perfíl
+      title: Perfil de Jugador
+      nick: Apodo
+      playing_position: Posición
+      born: Cumpleaños
+      locality: Localidad
+      foot: Pierna Buena
+      features: Características
     playing_position:
       Goalkeeper: Arquero
       Defender: Defensor
@@ -125,8 +147,26 @@ es:
       logo: Logo
   activerecord:
     attributes:
+      user_profile:
+        playing_position: 
+          Goalkeeper: Arquero
+          Defender: Defensor
+          Midfielder: Mediocampista
+          Forward: Delantero
+          Coach: Tecnico
+          Coaching: Entrenador
+          Staff: Personal
+          Referee: Arbitro
+          Assistant: Asistente
+        name: Nombre
+        surname: Apellido
+        nickname: Apodo
+        dob: Cumpleaños
+        locality: Localidad
+        foot: Pierna
+        features: Características  
       field:
-        name: Name
+        name: Nombre
         category: Categoría
         description: Descripción
         price: Precio
@@ -216,6 +256,10 @@ es:
       playing_position: Posición de juego
     edit:
       title: Edita tu equipo
+      category: Categoría
+      name: Nombre
+      surface: Superficie
+      description: Descripción
       image_url: o URL de la imagen
       remove_badge: Remover imagen
       button: Guardar

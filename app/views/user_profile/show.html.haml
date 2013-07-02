@@ -1,30 +1,30 @@
 %body{ :background => image_path("background.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
   .container
     .span11.offset.well
-      %legend Perfil de Jugador
+      %legend= t('.title')
       .row
         .span8
           %div{ :class => "dl-horizontal" }
             %h2
               ="#{@profile.name} #{@profile.surname} "
             -if @profile.nickname.blank?
-              %dt Nick
+              %dt= t('.nick') 
               %dd= @profile.playing_position.to_sentence
             -else
-              %dt Nick
+              %dt= t('.nick')
               %dd= @profile.nickname
-            %dt Playing position
+            %dt= t('.playing_position')
             %dd= @profile.playing_position.to_sentence
-            %dt Born
+            %dt= t('.born')
             %dd= @profile.dob
-            %dt Locallity
+            %dt= t('.locality')
             %dd= @profile.locality
-            %dt Foot
+            %dt= t('.foot')
             %dd= @profile.foot
-            %dt Features
+            %dt= t('.features')
             %dd= @profile.features
         .span3
-          %p Foto de Perfil
+          %p= t('.profile_picture')
           %a.thumbnail{ :href => edit_user_profile_path(@user) }
             -if @profile.avatar?
               %img{ :alt => "", :src => image_path(@profile.avatar_url(:thumb)) }
@@ -35,7 +35,7 @@
           %span.badge.badge-warning 1 Amarilla
           %span.badge.badge-important 0 rojas
       - if user_signed_in? and current_user == @user
+        %div
         %button.btn.btn-info
-          .btn-block.pull-rigth
-            = link_to t('.link_edit'), edit_user_profile_path(@user)
-          /= link_to "Editar", edit_user_profile_path(@user), class: "btn-block pull-rigth"
+          .btn-block.pull-rigth{ :href => edit_user_profile_path(@user) }
+            = t('.link_edit')
