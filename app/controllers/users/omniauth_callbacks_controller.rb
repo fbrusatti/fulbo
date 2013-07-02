@@ -49,12 +49,12 @@ private
       user = User.new(:email => auth_attr[:email], 
                       :password => Devise.friendly_token[0,20])
       user.save
-      create_new_user(auth_attr)
+      user = create_new_user(user, auth_attr)
     end
     return user
   end
 
-  def create_new_user(auth_attr)
+  def create_new_user(user, auth_attr)
     profile_attr = auth_attr[:name].split(' ')
     user.profile.update_attributes( :name              => profile_attr.first, 
                                     :surname           => profile_attr.last, 
