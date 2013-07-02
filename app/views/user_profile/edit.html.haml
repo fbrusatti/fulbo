@@ -1,7 +1,8 @@
-%body{ :background => image_path("background.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
+.user-profile
   .container
     .span11.offset.well
-      %legend Editar Perfil
+      %legend= t('.title')
+
       = form_for @profile, url: user_profile_path(@user) do |f|
         = errors_for(@profile).html_safe
 
