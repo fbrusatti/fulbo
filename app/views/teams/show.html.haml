@@ -30,13 +30,12 @@
 
       - if owner_permission?
 
-        %button.btn.btn-info
-          .btn-block.pull-rigth{ :href => edit_team_path(@team) }
-            = t('.link_edit')
+        = link_to t('.link_edit'), edit_team_path(@team), class: 'btn btn-info'
 
-        %button.btn.btn-danger
-          .btn-block.pull-rigth{ :method => :delete, :href => team_path(@team), :confirm => "Are you sure?" }
-            = t('.btn_delete')
+        = link_to t('.btn_delete'),
+                  team_path(@team),
+                  method: :delete,
+                  confirm: t('are_you_sure'), class: 'btn btn-danger'
 
     .well.well-large
       .dl-horizontal
