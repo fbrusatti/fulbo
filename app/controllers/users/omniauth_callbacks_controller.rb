@@ -34,7 +34,7 @@ private
                     :nickname => info['nickname'],
                     :location => info['location'],
                     :image    => info['image'],
-                    :dob      =>  Date.strptime(extra_info['birthday'],'%m/%d/%Y'),
+                    :dob      => (Date.strptime(extra_info['birthday'],'%m/%d/%Y') if extra_info['birthday']),
                     :provider => provider }
     else
       raise 'Provider #{provider} not handled'
