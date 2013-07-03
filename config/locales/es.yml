@@ -3,15 +3,16 @@ es:
   landing_page:
     comming_soon: Muy pronto
   user_profile:
-    Goalkeeper: Arquero
-    Forward: Delantero
-    Defender: Defensor
-    Midfielder: Mediocampista
-    Coach: Tecnico
-    Coaching: Entrenador
-    Staff: Personal
-    Referee: Arbitro
-    Assistant: Asistente
+    playing_position:
+      Goalkeeper: Arquero
+      Forward: Delantero
+      Defender: Defensor
+      Midfielder: Mediocampista
+      Coach: Tecnico
+      Coaching: Entrenador
+      Staff: Personal
+      Referee: Arbitro
+      Assistant: Asistente
     field_position: Posición en la cancha
     right: Derecho
     left: Izquierdo
