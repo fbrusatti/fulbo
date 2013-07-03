@@ -153,16 +153,18 @@ es:
   activerecord:
     attributes:
       user_profile:
-        playing_position:
-          Goalkeeper: Arquero
-          Defender: Defensor
-          Midfielder: Mediocampista
-          Forward: Delantero
-          Coach: Tecnico
-          Coaching: Entrenador
-          Staff: Personal
-          Referee: Arbitro
-          Assistant: Asistente
+        left: Izquierdo
+        right: Derecho
+        ambidextro: Ambas
+        Goalkeeper: Arquero
+        Defender: Defensor
+        Midfielder: Mediocampista
+        Forward: Delantero
+        Coach: Tecnico
+        Coaching: Entrenador
+        Staff: Personal
+        Referee: Arbitro
+        Assistant: Asistente
         name: Nombre
         surname: Apellido
         nickname: Apodo
