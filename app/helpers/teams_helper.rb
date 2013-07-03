@@ -5,8 +5,4 @@ module TeamsHelper
   def owner_permission?
     user_signed_in? and current_user == @team.owner
   end
-
-  def profile_avatar(player)
-    image_tag player.profile.avatar_url(:face)
-  end      
 end

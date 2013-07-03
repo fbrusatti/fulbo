@@ -47,7 +47,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    ActionController::Base.helpers.asset_path("profile_default.png")
+    ActionController::Base.helpers.asset_path("profile_default_#{version_name}.png")
   end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::MiniMagick
