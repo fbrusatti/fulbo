@@ -12,7 +12,7 @@
 
     %link{:href => "http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css", :rel => "stylesheet"}
 
-  %body
+  %body{class: params['controller']}
     = render 'layouts/header'
 
     .container.main
