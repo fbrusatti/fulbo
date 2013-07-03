@@ -19,6 +19,9 @@ es:
     avatar: Avatar
     remove_avatar: Borrar Avatar
     edit:
+      right: Derecho
+      left: Izquierdo
+      ambidextro: Ambas
       remote_avatar: Avatar Remoto
       title: Editar Perfíl
       playing_position: Posición
@@ -258,13 +261,25 @@ es:
       msj_option_one: Oganizar partido
       msj_option_two: Unirme a este equipo
     show:
-      title: Equipo
+      title: Perfíl de Equipo
+      category: Categoría
+      owner: Dueño
+      link_photos: Fotos
+      surface: Superficie
+      description: Descripción
       link_photos: Fotos
       link_edit: Editar
       btn_delete: Borrar equipo
       confirm: ¿Está seguro?
       players: Jugadores
       playing_position: Posición de juego
+      surfaces:
+        sand: arena
+        grass: césped
+        parquet: parquet
+        synthetic_grass: césped sintético
+        land: tierra
+        cement: cemento
     edit:
       title: Edita tu equipo
       category: Categoría
@@ -276,6 +291,10 @@ es:
       button: Guardar
       players: Jugadores
     new:
+      name: Nombre
+      description: Descripción
+      surface: Superficie
+      category: Categoría
       title: Crea tu equipo
       image_url: o URL de la imagen
       button: Guardar

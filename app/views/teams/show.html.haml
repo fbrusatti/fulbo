@@ -1,25 +1,25 @@
 %body{ :background => image_path("background.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
   .container
     .span11.offset.well
+      %legend= t('.title')
       .row
         .span8
           %div{:class => "dl-horizontal"}
-            %h2
+            %h2 
               %dd= @team.name
 
-            %dt= "#{TeamProfile.human_attribute_name(:owner)}: "
+            %dt= t('.owner')
             %dd= link_to "#{@team.owner.name}", user_profile_path(@team.owner)
 
-            %dt= "#{TeamProfile.human_attribute_name(:category)}: "
+            %dt= t('.category')
             %dd= @team.profile.category.to_sentence
 
-            %dt= "#{TeamProfile.human_attribute_name(:surface)}: "
+            %dt= t('.surface')
             %dd= @team.profile.surface.to_sentence
 
-            %dt= "#{TeamProfile.human_attribute_name(:description)}: "
+            %dt= t('.description')
             %dd= @team.profile.description
 
-            %h6= link_to t('.link_photos'), team_photos_path(@team)
         .span3
           %p Escudo del Equipo
           %a.thumbnail{ :href => edit_team_path(@team) }
@@ -27,6 +27,8 @@
               %img{ :alt => "", :src => image_path(@team.profile.badge_url(:thumb)) }
             -else
               %img{ :alt => "", :src => image_path("badge_default.jpg") }
+
+      = link_to t('.link_photos'), team_photos_path(@team), class: 'btn btn-info'
 
       - if owner_permission?
 
@@ -37,7 +39,7 @@
                   method: :delete,
                   confirm: t('are_you_sure'), class: 'btn btn-danger'
 
-    .well.well-large
+    .span11.offset.well.well-large
       .dl-horizontal
         %h1=t('.players')
         %table{:class => "table table-striped"}
