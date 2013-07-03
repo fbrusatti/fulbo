@@ -28,6 +28,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [140,140]
   end
 
+  version :face do
+    process :crop
+    process :resize_to_fill => [64,64]
+  end
+
   def crop
     if model.crop_x.present?
       resize_to_limit(600, 600)
@@ -41,6 +46,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
     end
   end
 
+  def default_url
+    ActionController::Base.helpers.asset_path("profile_default_#{version_name}.png")
+  end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::MiniMagick
 

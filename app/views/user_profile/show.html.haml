@@ -26,11 +26,7 @@
         .span3
           %p Foto de Perfil
           %a.thumbnail{ :href => edit_user_profile_path(@user) }
-            -if @profile.avatar?
-              %img{ :alt => "", :src => image_path(@profile.avatar_url(:thumb)) }
-            -else
-              %img{ :alt => "", :src => image_path("profile_default.png") }
-
+            = profile_avatar(@profile, :thumb)
           %span.badge.badge-success 15 Goles
           %span.badge.badge-warning 1 Amarilla
           %span.badge.badge-important 0 rojas

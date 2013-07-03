@@ -199,6 +199,9 @@ es:
   landing_page:
     comming_soon: Muy pronto
   teams:
+    noResultsText: "No hay resultado"
+    hintText: "Ingrese el nombre"
+    searchingText: "Buscando"
     index:
       title: Equipos
       btn_team: Mi equipo

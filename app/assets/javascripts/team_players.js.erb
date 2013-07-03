@@ -1,0 +1,15 @@
+$(function () {
+  $('#team_player_tokens').tokenInput('/users.json', { 
+    crossDomain: false,
+    prePopulate: $('#team_player_tokens').data('pre'),
+    theme: "facebook",
+    preventDuplicates: true,
+    noResultsText: "<%= I18n.t('teams.noResultsText') %>",
+    hintText: "<%= I18n.t('.teams.hintText')%>",
+    searchingText: "<%= I18n.t('.teams.searchingText')%>",
+    resultsFormatter: function(item){return "<li><p>" + item.name 
+    + " <b style='color: red'>" + item.email+ "</b></p></li>" },
+    tokenFormatter: function(item) { return "<li><p>" + item.name
+    + " <b style='color: red'>" + item.email+ "</b></p></li>" }
+  });
+});
