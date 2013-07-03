@@ -1,41 +1,48 @@
-%h2= t ".title"
+%body{ :background => image_path("background.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
+  .container
+    .span11.offset.well
+      %legend= t('.title')
 
-= form_for @team do |f|
-  = errors_for(@team).html_safe
+      = form_for @team do |f|
+        = errors_for(@team).html_safe
 
-  = f.fields_for :profile do |builder|
-    %div{:class => "img-polaroid pull-right"}
-      = builder.file_field :badge
-      = builder.hidden_field :badge_cache
-      = builder.label :remote_badge_url, t('.image_url')
-      = builder.text_field :remote_badge_url
-      - if @team.profile.badge.url.present?
-        %div{:class => "form-inline"}
-          = builder.check_box :remove_badge
-          = builder.label :remove_badge, t('.remove_badge')
-    = builder.label :badge, :class => "img-polaroid pull-right" do
-      -if @team.profile.badge?
-        = image_tag(@team.profile.badge_url(:thumb))
-      -else
-        = image_tag "badge_default.jpg", size: "140x140"
+        = f.fields_for :profile do |builder|
+          %div{:class => "img-polaroid pull-right"}
+            = builder.file_field :badge
+            = builder.hidden_field :badge_cache
+            = builder.label :remote_badge_url, t('.image_url')
+            = builder.text_field :remote_badge_url
+            - if @team.profile.badge.url.present?
+              %div{:class => "form-inline"}
+                = builder.check_box :remove_badge
+                = builder.label :remove_badge, t('.remove_badge')
+          = builder.label :badge, :class => "img-polaroid pull-right" do
+            -if @team.profile.badge?
+              = image_tag(@team.profile.badge_url(:thumb))
+            -else
+              = image_tag "badge_default.jpg", size: "140x140"
 
-  = f.label :name
-  = f.text_field :name
+        %dt= t('.name')
+        = f.text_field :name
 
-  = f.fields_for :profile do |builder|
-    = builder.label :category
-    %div{:class => "form-inline"}
-      - TeamsHelper::CATEGORY.each do |category|
-        = builder.check_box :category, {:multiple => true}, category, nil
-        = builder.label "#{category} |"
-    = builder.label :surface
-    %div{:class => "form-inline"}
-      - TeamsHelper::SURFACE.each do |surface|
-        = builder.check_box :surface, {:multiple => true}, surface, nil
-        = builder.label "#{t("teams.surfaces.#{surface}")} | "
-    = builder.label :description
-    = builder.text_area :description, rows: 4
-  = f.label :player_tokens, t('.players')
-  = f.text_field :player_tokens
-  %div
-    = f.submit t('.button'), :class => "btn"
+        = f.fields_for :profile do |builder|
+          %dt= t('.category')
+          %div{:class => "form-inline"}
+            - TeamsHelper::CATEGORY.each do |category|
+              = builder.check_box :category, {:multiple => true}, category, nil
+              = builder.label "#{category} |"
+
+          %dt= t('.surface')
+          %div{:class => "form-inline"}
+            - TeamsHelper::SURFACE.each do |surface|
+              = builder.check_box :surface, {:multiple => true}, surface, nil
+              = builder.label "#{t("teams.surfaces.#{surface}")} | "
+
+          %dt= t('.description')
+          = builder.text_area :description, rows: 4
+
+        %dt= t('.players')
+        = f.text_field :player_tokens
+        %div
+          %button.btn.btn-info
+            .btn-block.pull-rigth{ :href => f.submit }= t('.button')
