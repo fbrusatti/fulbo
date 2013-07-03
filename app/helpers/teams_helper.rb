@@ -7,10 +7,6 @@ module TeamsHelper
   end
 
   def profile_avatar(player)
-    if player.profile.avatar?
-      image_tag player.profile.avatar_url(:thumb), size: "64x64"
-    else
-      image_tag "profile_default.png" , size: "64x64"
-    end  
-  end    
+    image_tag player.profile.avatar_url(:face)
+  end      
 end
