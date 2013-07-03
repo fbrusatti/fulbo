@@ -39,4 +39,12 @@ module UsersProfilesHelper
       content_tag :div, check_box + label, class: 'form-inline'
     end
   end
+
+  def edit_button
+    if user_signed_in? && current_user == @user
+      link_to t('.link_edit'),
+              edit_user_profile_path(@user),
+              class: 'btn btn-info'
+    end
+  end
 end
