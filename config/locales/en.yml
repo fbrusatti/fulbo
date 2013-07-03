@@ -137,6 +137,9 @@ en:
   landing_page:
     comming_soon: Comming soon
   teams:
+    noResultsText: "No results"
+    hintText: "Type in a search name"
+    searchingText: "Searching"
     index:
       title: Teams
       btn_team: My team
