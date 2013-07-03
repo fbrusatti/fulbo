@@ -1,21 +1,21 @@
-%body{ :background => image_path("background.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
+.user-profile
   .container
     .span11.offset.well
-      %legend Editar Perfil
+      %legend= t('.title')
+
       = form_for @profile, url: user_profile_path(@user) do |f|
         = errors_for(@profile).html_safe
 
-        %div{:class => "img-polaroid pull-right"}
-          = f.file_field :avatar
-          = f.hidden_field :avatar_cache
-          - if @profile.avatar.url.present?
-            %div{:class => "form-inline"}
-              = f.check_box :remove_avatar
-              = f.label :remove_avatar, "remove avatar"
+        .well.pull-right.img-polaroid
+          .img-polaroid.pull-right
+            = f.file_field :avatar
+            = f.hidden_field :avatar_cache
+            = remove_avatar_section(f)
 
-        = f.label :avatar, :class => "img-polaroid pull-right" do
-          = image_tag(@profile.avatar_url(:thumb)) if @profile.avatar?
+          = avatar(f, @profile)
+
         = render  "data", :f => f
+
         %div
           %button.btn.btn-info
-            .btn-block.pull-rigth{ :href => f.submit, :method => 'put' } Guardar
+            .btn-block.pull-rigth{ :href => f.submit }= t('.submit')
