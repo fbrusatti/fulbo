@@ -1,0 +1,21 @@
+.match
+  .container
+    .span11.offset.well
+      %legend= t('.title')
+
+      = form_for @match do |f|
+        = errors_for(@match).html_safe
+
+        / .well.pull-right.img-polaroid
+        /   .img-polaroid.pull-right
+        /     = f.file_field :avatar
+        /     = f.hidden_field :avatar_cache
+        /     = remove_avatar_section(f)
+
+        /   = avatar(f, @profile)
+
+        = render  "team", :f => f
+
+        %div
+          %button.btn.btn-info
+            .btn-block.pull-rigth{ :href => f.submit }= t('.submit')

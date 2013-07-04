@@ -48,6 +48,12 @@ en:
       team_header_row: Team
       owner_header_row: Owner
       has_been_sent_affiliation: Already sent the affiliation request
+  matches:
+    new:
+      title: Create Match
+      local: Local
+      visit: Visit
+      name_team: Name of team       
   user_profile:
     playing_position:
       Goalkeeper: Goalkeeper
