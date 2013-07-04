@@ -12,10 +12,13 @@ class MatchesController < ApplicationController
   def new
     @match= Match.new
     @team_local = current_user.team
+    @sportCenters = SportCenter.all
+    @locations = Location.all
+    @fields = Field.all
   end
 
   def create
-    @match = create_match(params[:macht])
+    @match = create_match(params[:match])
     if @match.save
       flash[:success] = t('flash.team', message: t('flash.created'))
     end

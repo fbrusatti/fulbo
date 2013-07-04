@@ -1,9 +1,24 @@
 .row
   .span5
     %h2= t('.local')
-    %dt= t('.name_team')
+    .form-horizontal
+      %dt= t('.name_team')
+      = f.text_field :local_tokens
   .span1
     %h2 VS   
   .span5
     %h2= t('.visit')
     %dt= t('.name_team')
+    = f.text_field :visitor_tokens
+
+= f.fields_for :reservation do |builder|
+  = builder.label :field
+  = grouped_collection_select(:field, :field_id, @locations,:fields, :name, :id, :name)      
+  = builder.label :reservation_date
+  = builder.text_field :reservation_date, {:class => 'hasDatepicker'}
+  = builder.time_select :reservation_date
+  / = builder.datetime_select(:reservation_date,:prompt => true)
+ 
+/ = select :h, :sportCenter_id, @sportCenters.map{ |c| [c.name, c.id]}
+/ = select :hola, :location_id, @locations.map{ |c| [c.name, c.id]}
+/ = select :hola, :field_id, @fields.map{ |c| [c.name, c.id]}
