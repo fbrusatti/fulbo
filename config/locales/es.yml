@@ -154,6 +154,9 @@ es:
       description: Descripción
       change: Cambiar
       logo: Logo
+  sport_center_leagues:
+    index:
+      title: "Torneos de %{sport_center_name}"
   activerecord:
     attributes:
       user_profile:
