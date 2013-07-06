@@ -24,7 +24,7 @@
             = t 'leagues.index.registered'
             .label.label-default
               = "#{league.teams.count}/#"
-        .span3
+        .span3.organizer
           = t 'leagues.index.organizer'
           = link_to league.organizer.name, sport_center_path(league.organizer)
           %br
