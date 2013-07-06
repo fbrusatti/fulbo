@@ -5,60 +5,9 @@
         %h1= t (".title")
     .form-horizontal
       = form_for @league do |f|
-        = errors_for(@league).html_safe
-        .row-fluid
-          .span8
-            .control-group
-              .control-label
-                = f.label :name
-              .controls
-                = f.text_field :name
-              %br
-              .control-label
-                = f.label :category
-              .controls
-                .form-inline
-                  - LeaguesHelper::CATEGORY.each do |category|
-                    = f.check_box :category, { multiple: true}, category, nil
-                    = f.label "#{category} |"
-              %br
-              .control-label
-                = f.label :start_date
-              .control
-                = f.date_select :start_date, { include_blank: true, start_year: 2013, end_year: 2099 }, class: "input-small"
-              %br
-              .control-label
-                = f.label :number_matches
-              .control
-                = f.select :number_matches, (1..100).to_a, include_blank: true
-              %br
-              .control-label
-                = f.label :field_price
-              .control
-                .input-prepend
-                  .add-on
-                    $
-                  = f.text_field :field_price, class: "input-medium"
-              %br
-              .control-label
-                = f.label :registration_price
-              .control
-                .input-prepend
-                  .add-on
-                    $
-                  = f.text_field :registration_price, class: "input-medium"
-              %br
-              .control-label
-                = f.label :number_teams
-              .control
-                = f.select :number_teams, (1..50).to_a, include_blank: true
-              %br
-              .control-label
-                = f.label :requirements
-              .control
-                = f.text_area :requirements, size: "5x5"
-          .span4
-            .hero-unit
-              = render "form_point_system", f: f
-        %br
+        = render 'form', f: f
+        .hero-unit
+          = render "form_point_system", f: f
+
+        .span2
           = f.submit t('.btn_submit'), class: "btn"

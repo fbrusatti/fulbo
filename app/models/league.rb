@@ -3,7 +3,7 @@ class League < ActiveRecord::Base
   # == Accessors
   attr_accessible :name, :category, :number_matches, :field_price, :registration_price,
                   :requirements, :number_teams, :start_date, :point_system_attributes,
-                  :affiliations_attributes, :teams_attributes
+                  :affiliations_attributes, :teams_attributes, :organizer_id
 
   # == Validations
   validates_presence_of :name, :category, :start_date
@@ -22,9 +22,7 @@ class League < ActiveRecord::Base
   accepts_nested_attributes_for :point_system, :affiliations
   accepts_nested_attributes_for :teams, allow_destroy: true
 
-  # == Serializes
-  serialize :category, Array
-
+  # == Instance Methods
   def affiliate(team)
     affiliations.create(team_id: team.id)
   end
