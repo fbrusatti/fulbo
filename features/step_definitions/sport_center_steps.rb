@@ -11,9 +11,9 @@ Then(/^I should see a message advising me of the correctness$/) do
   page.should have_content I18n.t('flash.error_create_form')
 end
 
-When(/^I fill in form league$/) do
+When(/^I fill in all values in form league$/) do
   step 'I fill in "league_name" with "apertura"'
-  check('league_category_5')
+  choose 'league_category_5'
   select '2014', :from => 'league_start_date_1i'
   select 'mayo', :from => 'league_start_date_2i'
   select '1', :from => 'league_start_date_3i'

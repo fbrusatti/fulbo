@@ -1,8 +1,8 @@
 Given(/^I am( not)? owner of a team$/) do |negation|
   if negation.present?
-    @user.team.destroy unless @user.team.blank?
+    @current_user.team.destroy unless @current_user.team.blank?
   else
-    @user.create_team(name:"Myteam")
+    @current_user.create_team(name:"Myteam")
   end
 end
 
@@ -41,15 +41,15 @@ Then(/^I should see "(.*?)"$/) do |team|
 end
   
 Given(/^I am included in the team$/) do
-  @user.team.players << @user
+  @current_user.team.players << @current_user
 end
 
 When(/^I go to show my team$/) do
-  visit team_path(@user.team)
+  visit team_path(@current_user.team)
 end
 
 Then (/^I should see me in the players$/) do
-  page.should have_content @user.name
+  page.should have_content @current_user.name
 end 
 
 Then(/^I should( not)? see edit link$/) do |negation|

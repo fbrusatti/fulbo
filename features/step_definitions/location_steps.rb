@@ -1,12 +1,12 @@
 Given(/^I am in my sport center page$/) do
   steps %{ Given I am logged in }
-  @user.sport_center = FactoryGirl.create(:sport_center)
-  @user.save
-  visit sport_center_path(@user.sport_center)
+  @current_user.sport_center = FactoryGirl.create(:sport_center)
+  @current_user.save
+  visit sport_center_path(@current_user.sport_center)
 end
 
 When(/^I go to location page$/) do
-  visit sport_center_locations_path(@user.sport_center)
+  visit sport_center_locations_path(@current_user.sport_center)
 end
 
 Then(/^I should see new location button$/) do
