@@ -1,8 +1,8 @@
-.row-fluid
-  .span12
-    .hero-unit
-      .text-center
-        %h3= t(".title")
+.container
+  .span11.offset.well
+    %legend
+      = t ".title"
+
     %table.table.table-stripe
       - @leagues.each do |league|
         %tr
