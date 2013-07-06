@@ -15,6 +15,7 @@
 
   resources :sport_centers do
     resources :locations
+    resources :leagues, controller: 'sport_center_leagues'
   end
 
   resources :users, only:[:index]

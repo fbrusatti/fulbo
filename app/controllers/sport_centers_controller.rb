@@ -1,14 +1,14 @@
   class SportCentersController < ApplicationController
   respond_to :html
 
-  before_filter :authenticate_user!, :verify_sport_center
+  before_filter :authenticate_user!, :verify_sport_center, except: :show
 
   def edit
-    @sport_center = SportCenter.find(params[:id])
+    @sport_center = current_user.sport_center
   end
 
   def update
-    @sport_center = SportCenter.find(params[:id])
+    @sport_center = current_user.sport_center
     if @sport_center.update_attributes(params[:sport_center])
       flash[:notice] = t('flash.sport_center', message: t('flash.updated'))
     end
