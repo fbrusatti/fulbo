@@ -154,6 +154,9 @@ es:
       description: Descripción
       change: Cambiar
       logo: Logo
+  sport_center_leagues:
+    index:
+      title: "Torneos de %{sport_center_name}"
   activerecord:
     attributes:
       user_profile:
@@ -238,7 +241,7 @@ es:
     verify_team: Ya posee un equipo
     have_sport_center: Ya posee Complejo
     welcome: 'Bienvenido'
-  navigation:
+  navigation_bar:
     teams: Equipos
     stadiums: Canchas
     leagues: Campeonatos
@@ -247,6 +250,11 @@ es:
     sign_out: Salir
     session_status: "Registrado como %{user}"
     sport_center: Complejo
+    options: Opciones
+    home: Incio
+    about_us: Quiénes somos
+    contact_us: Contactenos
+    profile: Perfil
   landing_page:
     comming_soon: Muy pronto
   teams:

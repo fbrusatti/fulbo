@@ -4,42 +4,8 @@
       .text-center
         %h3= t(".title")
     = form_for @league do |f|
-      = errors_for(@league).html_safe
+      = render 'form', f: f
 
-      = f.label :name
-      = f.text_field :name
-
-      = f.label :start_date
-      = f.date_select :start_date, { include_blank: true, start_year: 2013, end_year: 2099 }, class: "input-small"
-      %br
-      = f.label :field_price
-      .input-prepend
-        .add-on
-          $
-        = f.text_field :field_price, class: "input-medium"
-
-      = f.label :registration_price
-      .input-prepend
-        .add-on
-          $
-        = f.text_field :registration_price
-      %br
-      = f.label :number_matches
-      = f.select :number_matches, (1..100).to_a, include_blank: true, class: "input-small"
-
-      = f.label :number_teams
-      = f.select :number_teams, (1..50).to_a, include_blank: true, class: "input-small"
-      %br
-      = f.label :category
-      .form-inline
-        - LeaguesHelper::CATEGORY.each do |category|
-          = f.check_box :category, { multiple: true}, category, nil
-          = f.label "#{category} |"
-      %br
-      = f.label :requirements
-      = f.text_area :requirements, size: "5x5"
-
-      %br
       = f.submit "Guardar", :class => "btn"
 
     .row-fluid

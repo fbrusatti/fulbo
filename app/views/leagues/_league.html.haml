@@ -1,0 +1,34 @@
+.row-fluid
+  .span12
+    .span1
+      = image_tag "league_default.png", size: "64x64"
+    .span11
+      .row-fluid
+        .span3
+          = link_to "#{t('leagues.index.name')}: #{league.name}", league_path(league)
+          %br
+          ="#{t('leagues.index.category')}: #{league.category}"
+        .span3
+          - if league.number_teams.present?
+            - if league.teams.count < league.number_teams
+              .label.label-success
+                = "#{t('leagues.index.available_inscriptions')}: #{league.number_teams - league.teams.count}"
+            - else
+              .label.label-important
+                = t 'leagues.index.unavailable_inscriptions'
+            %br
+              = t 'leagues.index.registered'
+              .label.label-default
+                = "#{league.teams.count}/#{league.number_teams}"
+          - else
+            = t 'leagues.index.registered'
+            .label.label-default
+              = "#{league.teams.count}/#"
+        .span3
+          = t 'leagues.index.organizer'
+          = link_to league.organizer.name, sport_center_path(league.organizer)
+          %br
+          = t 'leagues.index.start_date'
+          .label.label-info
+            = league.start_date
+        .span3

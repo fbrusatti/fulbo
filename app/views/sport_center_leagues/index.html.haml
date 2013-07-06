@@ -1,7 +1,7 @@
 .container
   .span11.offset.well
     %legend
-      = t ".title"
+      = t ".title", sport_center_name: @sport_center.name
 
     %table.table.table-stripe.leagues
       - @leagues.each do |league|
