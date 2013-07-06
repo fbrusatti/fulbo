@@ -22,3 +22,16 @@ end
 Then(/^I should see successfully created league message$/) do
   page.should have_content I18n.t('flash.league', message: I18n.t('flash.created'), name: "apertura")
 end
+
+When(/^I go to to sport center "(.*?)" page$/) do |sport_center_name|
+  sport_center = SportCenter.find_by_name(sport_center_name)
+  visit sport_center_path(sport_center)
+end
+
+When(/^I click to see its leagues$/) do
+  within("#top_navigation ul li#tournament") do
+    first("a").click
+
+    click_link I18n.t("sport_centers.show.see_tournaments")
+  end
+end
