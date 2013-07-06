@@ -1,5 +1,6 @@
-Given /^I am signed in$/ do
-  ui.sign_in
+Given(/^I am logged in$/) do
+  @current_user = FactoryGirl.create(:user)
+  login_as(@current_user, :scope => :user)
 end
 
 Given(/^I am not authenticated$/) do

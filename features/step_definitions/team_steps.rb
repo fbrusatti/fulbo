@@ -1,8 +1,3 @@
-Given(/^I am logged in$/) do
-  @user = FactoryGirl.create(:user)
-  login_as(@user, :scope => :user)
-end
-
 Given(/^I am( not)? owner of a team$/) do |negation|
   if negation.present?
     @user.team.destroy unless @user.team.blank?
