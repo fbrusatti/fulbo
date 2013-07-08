@@ -8,14 +8,17 @@ class Match < ActiveRecord::Base
   has_many :cards
   has_many :goals
 
-  attr_accessible :local_tokens, :visitor_tokens
+  attr_accessible :local_tokens, :visitor_tokens, :reservation
   # == attr reader
   attr_reader :local_tokens, :visitor_tokens
 
+  # # == Nested Attributes
+  # accepts_nested_attributes_for :reservation
+
   def local_tokens=(ids)
-      self.local_ids = ids.split(",")
+      self.local_id = ids.split(",")
   end  
   def visitor_tokens=(ids)
-      self.visitor_ids = ids.split(",")
+      self.visitor_id = ids.split(",")
   end  
 end

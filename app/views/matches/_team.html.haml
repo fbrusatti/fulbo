@@ -15,7 +15,7 @@
   = builder.label :field
   = grouped_collection_select(:field, :field_id, @locations,:fields, :name, :id, :name)      
   = builder.label :reservation_date
-  = builder.text_field :reservation_date, {:class => 'hasDatepicker'}
+  / = builder.text_field :reservation_date, {:class => 'hasDatepicker'}
   = builder.time_select :reservation_date
   / = builder.datetime_select(:reservation_date,:prompt => true)
  
