@@ -9,5 +9,9 @@ module LeagueSteps
     #has_css?("table.leagues tr", count: @sport_center.leagues.count)
     organizers.all?{ |o| o.text == @sport_center.name }
   end
-end
 
+  def has_edit_buttons?
+    has_button?(I18n.t('leagues.show.btn_edit')) &&
+    has_button?(I18n.t('leagues.show.btn_delete'))
+  end
+end

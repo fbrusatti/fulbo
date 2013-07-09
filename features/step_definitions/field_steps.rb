@@ -10,7 +10,7 @@ When(/^I go to a location$/) do
 end
 
 Then(/^I should see new field button$/) do
-  page.should have_button(I18n.t("locations.show.new_field"))
+  page.should have_content(I18n.t("locations.show.new_field"))
 end
 
 Given(/^I am authorized for create a field$/) do
@@ -21,20 +21,20 @@ Given(/^I am authorized for create a field$/) do
 end
 
 When(/^I press new field button$/) do
-  click_button(I18n.t("locations.show.new_field"))
+  click_on(I18n.t("locations.show.new_field"))
 end
 
 When(/^I fill all values in form field$/) do
-  debugger
   fill_in :field_name, with: 'Cancha 1'
-  select 'arena', :from => 'field_surface'
-  select '11', :from => 'field_category'
+  select 'arena', from: 'field_surface'
+  select '11', from: 'field_category'
 end
 
-When(/^I press save field$/) do 
-  click_button(I18n.t('locations.new.btn_submit'))
-end 
+When(/^I press save field$/) do
+  click_on(I18n.t('locations.new.btn_submit'))
+end
 
 Then(/^I should see Successfully created field$/) do
-  page.should have_content(I18n.t('flash.field', message: (I18n.t 'flash.created')))
+  page.should have_content(I18n.t('flash.field',
+                           message: (I18n.t 'flash.created')))
 end

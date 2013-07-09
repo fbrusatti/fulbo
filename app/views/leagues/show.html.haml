@@ -59,13 +59,8 @@
             %li
               %strong= "#{t(".loose")}:"
               = @point.loose
-        - if owner_of_league?(@league)
-          .btn-group
-            = button_to t(".btn_edit"), edit_league_path(@league), method: :get, class: "btn"
-          .btn-group
-            = button_to t(".btn_delete"), league_path(@league), method: :delete, class: "btn btn-danger", confirm: t(".confirm_delete_msg")
-        - elsif current_user && current_user.team
-          = button_to t(".btn_send_affiliation"), "#", class: "btn btn-primary", method: :get
+        = buttons_organizer_league(@league)
+        = buttons_owner_team(@league)
     .text-center
       %h3
         = t(".teams_of_league")

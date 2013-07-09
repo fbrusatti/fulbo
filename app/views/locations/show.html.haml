@@ -3,8 +3,9 @@
 .container-fluid
   .row-fluid
     .span2
-      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap 
-      = button_to t('.new_field'), new_location_field_path(@location), {:method => :get, :class => "btn btn-primary btn-info", :type => "button"}
+      #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap
+      = link_to t('.new_field'), new_location_field_path(@location),
+                                 class: 'btn btn-primary btn-info'
     .span6
       %div{:class => "well well-large"}
         %div{:class => "dl-horizontal"}

@@ -5,11 +5,13 @@ class FieldsController < ApplicationController
 
   def edit
     @field = Field.find(params[:id])
+    @sport_center = @field.location.sport_center
   end
 
   def new
     @field = Field.new
     @location = Location.find(params[:location_id])
+    @sport_center = @location.sport_center
   end
 
   def create
@@ -24,6 +26,7 @@ class FieldsController < ApplicationController
   def show
     @field = Field.find(params[:id])
     @location = @field.location
+    @sport_center = @location.sport_center
   end
 
   def update 

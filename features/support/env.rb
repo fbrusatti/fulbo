@@ -61,3 +61,5 @@ Dir[Rails.root.join("features/helpers/**/*.rb")].each{ |f| require f }
 
 Capybara::Session.send(:include, LeagueSteps)
 
+Capybara.javascript_driver = :webkit
+
