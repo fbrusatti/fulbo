@@ -35,8 +35,15 @@ class Team < ActiveRecord::Base
   has_many :leagues, through: :affiliations
   has_many :visitor_matches, class_name: "Match", foreign_key: "visitor_id"
   has_many :local_matches, class_name: "Match", foreign_key: "local_id"
+  # they are requests that I'm sending
+  has_many :inscription_requesters,
+           class_name: 'RequestInscription',
+           as: :requester
+  # they are requests that I'm receiving
+  has_many :inscription_requests,
+           class_name: 'RequestInscription',
+           as: :requested
 
-  
 
   # == Callbacks
   before_create :init_profile
@@ -57,7 +64,7 @@ class Team < ActiveRecord::Base
 
   def player_tokens=(ids)
       self.player_ids = ids.split(",")
-  end  
+  end
   private
     def init_profile
       build_profile if profile.blank?

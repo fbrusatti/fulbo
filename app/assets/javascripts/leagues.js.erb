@@ -1,0 +1,21 @@
+$(document).ready(function() {
+  $(".affiliation")
+    .on("ajax:beforeSend", function() {
+      $.fancybox.showLoading();
+    })
+    .on("ajax:success", function() {
+      $.fancybox.hideLoading();
+    });
+  $(".unaffiliation")
+    .on("ajax:beforeSend", function() {
+      $.fancybox.showLoading();
+    })
+    .on("ajax:success", function() {
+      $.fancybox.hideLoading();
+    });
+  $("#new_request_inscription").on("ajax:success", function() {
+     var msj = "<%= I18n.t('leagues.show.has_been_sent_affiliation') %>"
+     var btn = "<div class='btn btn-primary disabled'>"+ msj +"</div>"
+     $("#new_request_inscription").html(btn);
+  });
+});

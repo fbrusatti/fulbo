@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627222046) do
+ActiveRecord::Schema.define(:version => 20130701173842) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -169,6 +169,19 @@ ActiveRecord::Schema.define(:version => 20130627222046) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
+
+  create_table "request_inscriptions", :force => true do |t|
+    t.integer  "requester_id"
+    t.string   "requester_type"
+    t.integer  "requested_id"
+    t.string   "requested_type"
+    t.string   "status",         :default => "waiting"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
+
+  add_index "request_inscriptions", ["requested_id", "requested_type"], :name => "index_request_inscriptions_on_requested_id_and_requested_type"
+  add_index "request_inscriptions", ["requester_id", "requester_type"], :name => "index_request_inscriptions_on_requester_id_and_requester_type"
 
   create_table "reservations", :force => true do |t|
     t.integer  "match_id"

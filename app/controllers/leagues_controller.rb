@@ -23,6 +23,7 @@ class LeaguesController < ApplicationController
     @league = League.find(params[:id])
     @point = @league.point_system
     @teams = @league.teams
+    @request_inscription = RequestInscription.new()
   end
 
   def index
@@ -31,7 +32,8 @@ class LeaguesController < ApplicationController
 
   def edit
     @league = League.find(params[:id])
-    @all_teams = Team.out_of_league(@league)
+    @inscription_requests = @league.inscription_requests.where(status: :waiting)
+                                                        .map(&:requester)
     @teams = @league.teams
   end
 
