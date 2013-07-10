@@ -136,6 +136,8 @@ es:
       owner_header_row: Dueño
       has_been_sent_affiliation: Ya se envio la solicitud
   sport_centers:
+    index:
+      title: Complejos
     edit:
       title: Editar
       btn_submit: Guardar Cambios
@@ -250,7 +252,7 @@ es:
     sign_in: Entrar
     sign_out: Salir
     session_status: "Registrado como %{user}"
-    sport_center: Complejo
+    sport_center: Complejos
     options: Opciones
     home: Incio
     about_us: Quiénes somos

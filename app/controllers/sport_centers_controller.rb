@@ -3,6 +3,10 @@
 
   before_filter :authenticate_user!, :verify_sport_center, except: :show
 
+  def index
+    @sport_center = SportCenter.all
+  end
+
   def edit
     @sport_center = current_user.sport_center
   end
