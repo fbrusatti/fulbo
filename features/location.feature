@@ -12,6 +12,5 @@ Feature: Location feature
     And I fill in "location_name" with "Centro 11"
     And I fill in "location_address" with "Parana 1452"
     And I press Save
-    Then I should see Successfully "created" location
+    Then I should see Successfully created location
     And I should see "Centro 11"
-    

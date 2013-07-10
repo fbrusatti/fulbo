@@ -20,7 +20,9 @@ When(/^I fill in all values in form league$/) do
 end
 
 Then(/^I should see successfully created league message$/) do
-  page.should have_content I18n.t('flash.league', message: I18n.t('flash.created'), name: "apertura")
+  page.should have_content I18n.t('flash.league',
+                                  message: I18n.t('flash.created'),
+                                  name: "apertura")
 end
 
 When(/^I go to to sport center "(.*?)" page$/) do |sport_center_name|
@@ -34,4 +36,16 @@ When(/^I click to see its leagues$/) do
 
     click_link I18n.t("sport_centers.show.see_tournaments")
   end
+end
+
+Given(/^There exists a SportCenter named "(.*?)"$/) do |sport_center_name|
+  @sport_center = FactoryGirl.create(:sport_center, name: sport_center_name)
+end
+
+When(/^I visit the address "(.*?)"$/) do |address|
+  visit address
+end
+
+Then(/^I should see the sport center profile page$/) do
+  page.should have_content(@sport_center.name)
 end
