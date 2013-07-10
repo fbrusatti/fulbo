@@ -1,5 +1,9 @@
 class SportCenter < ActiveRecord::Base
 
+  # == FriendlyId
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
+
   # == Validations
   validates_presence_of :address, :cuit, :description, :email, :name, :phone
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
