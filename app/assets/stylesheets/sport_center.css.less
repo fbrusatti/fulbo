@@ -1,0 +1,54 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+
+.makeFluidRow(){
+  width: 100%;
+  .clearfix();
+}
+
+.makeFluidCol(@span:1, @offset:0){
+  float: left;
+  #grid > .fluid .span(@span);
+  #grid > .fluid .offset(@offset);
+  &:first-child {
+      margin-left: 0;
+      .offsetFirstChild(@offset);
+  }
+}
+
+
+.container-layout {
+  .makeFluidCol(11, 0.2);
+
+  @media (max-width: 979px) {
+    margin-top: 40px;
+  }
+
+  .well;
+}
+
+.sport-centers {
+  margin-top: 10px;
+  padding: 20px;
+  .makeFluidCol(9);
+
+  .title_fields {
+    font-weight: bold
+  }
+
+  li.sport-center{
+    padding: 10px;
+    list-style: none;
+    clear: both;
+    .name {
+      font-weight: bold;
+    }
+    .address {
+
+    }
+    .phone {
+
+    }
+  }
+}
