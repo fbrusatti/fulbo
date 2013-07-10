@@ -1,14 +1,16 @@
   class SportCentersController < ApplicationController
   respond_to :html
 
-  before_filter :authenticate_user!, :verify_sport_center, except: :show
+  before_filter :authenticate_user!, :check_ownership, except: [:show, :index]
+
+  def index
+    @sport_centers = SportCenter.all
+  end
 
   def edit
-    @sport_center = current_user.sport_center
   end
 
   def update
-    @sport_center = current_user.sport_center
     if @sport_center.update_attributes(params[:sport_center])
       flash[:notice] = t('flash.sport_center', message: t('flash.updated'))
     end
@@ -20,7 +22,14 @@
   end
 
   private
-    def verify_sport_center
-      redirect_to root_path, notice: t('flash.have_sport_center') if current_user.sport_center.blank?
+
+  def check_ownership
+    other_sport_center = SportCenter.find(params[:id])
+    @sport_center = current_user.sport_center
+
+    unless other_sport_center && @sport_center.id == other_sport_center.id
+      redirect_to sport_centers_path,
+                  notice: t('.flash.permission_sport_center')
     end
+  end
 end

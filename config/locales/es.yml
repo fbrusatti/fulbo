@@ -136,6 +136,11 @@ es:
       owner_header_row: Dueño
       has_been_sent_affiliation: Ya se envio la solicitud
   sport_centers:
+    index:
+      title: Complejos
+      title_fields: Canchas
+      address: Dirección
+      phone: Teléfono
     edit:
       title: Editar
       btn_submit: Guardar Cambios
@@ -239,6 +244,7 @@ es:
     permission_location: No posee permiso en Sedes
     permission_league: No posee permiso para esta acción
     permission_field: No posee permiso para la cancha
+    permission_sport_center: No posee permiso para editar este centro deportivo
     verify_team: Ya posee un equipo
     have_sport_center: Ya posee Complejo
     welcome: 'Bienvenido'
@@ -250,7 +256,7 @@ es:
     sign_in: Entrar
     sign_out: Salir
     session_status: "Registrado como %{user}"
-    sport_center: Complejo
+    sport_center: Complejos
     options: Opciones
     home: Incio
     about_us: Quiénes somos

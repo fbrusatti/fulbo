@@ -13,7 +13,20 @@ Scenario: Create a League successfully
   And I submit the form
   Then I should see successfully created league message
 
-Scenario: Nice Urls are used
+Scenario: Friendly urls
   Given There exists a SportCenter named "Doble 5 Retirate"
   When I visit the address "/sport_centers/doble-5-retirate"
   Then I should see the sport center profile page
+
+Scenario: See all Sport Centers
+  Given I am logged in
+  And there exists a few Sport Centers
+  When I go to page of all Sport Centers
+  Then I should see all the Sport Centers listed
+
+
+# Scenario: See all Sport Centers when there are not SportCenter
+#   Given I am logged in
+#   And there are not SportCenters
+#   When I go to page of all Sport Centers
+#   Then I should see an empty list of Sport Centers

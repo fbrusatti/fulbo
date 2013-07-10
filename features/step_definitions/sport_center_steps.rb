@@ -49,3 +49,16 @@ end
 Then(/^I should see the sport center profile page$/) do
   page.should have_content(@sport_center.name)
 end
+
+When(/^I go to page of all Sport Centers$/) do
+  visit sport_centers_path
+end
+
+And (/^there exists a few Sport Centers$/) do
+  3.times { FactoryGirl.create(:sport_center) }
+end
+
+Then(/^I should see all the Sport Centers listed$/) do
+  # page.should have_all_sport_centers
+  page.should have_css('.sport-center', count: SportCenter.count)
+end
