@@ -7,6 +7,10 @@
     @sport_centers = SportCenter.all
   end
 
+  def index
+    @sport_center = SportCenter.all
+  end
+
   def edit
   end
 
