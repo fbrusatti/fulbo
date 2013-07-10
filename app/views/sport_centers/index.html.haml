@@ -1,0 +1,25 @@
+
+.container
+  .container-layout
+    %legend.title
+      = t('.title')
+
+    .sport-centers
+      %ul
+        - @sport_centers.each do |sc|
+          %li.sport-center
+            .name
+              = sc.name
+            .address
+              = "#{t('.address')}:"
+              = sc.address
+            .phone
+              = "#{t('.phone')}:"
+              = sc.phone
+
+            %ul.fields
+              .title_fields
+                = t('.title_fields')
+              - sc.fields.each do |f|
+                %li.field
+                  = f.name

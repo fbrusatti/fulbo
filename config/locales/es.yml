@@ -138,6 +138,9 @@ es:
   sport_centers:
     index:
       title: Complejos
+      title_fields: Canchas
+      address: Dirección
+      phone: Teléfono
     edit:
       title: Editar
       btn_submit: Guardar Cambios
@@ -241,6 +244,7 @@ es:
     permission_location: No posee permiso en Sedes
     permission_league: No posee permiso para esta acción
     permission_field: No posee permiso para la cancha
+    permission_sport_center: No posee permiso para editar este centro deportivo
     verify_team: Ya posee un equipo
     have_sport_center: Ya posee Complejo
     welcome: 'Bienvenido'

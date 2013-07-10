@@ -2,11 +2,11 @@
 
 FactoryGirl.define do
   factory :sport_center do
-    name "MyString"
-    cuit "MyString"
-    phone "MyString"
-    email { FactoryGirl.generate :email }
-    address "MyString"
-    description "MyString"
+    sequence(:name)  { |n| "Sport Center #{n}" }
+    sequence(:cuit)  { |n| "cuit#{n}" }
+    phone            "MyString"
+    email            { FactoryGirl.generate :email }
+    address          "MyString"
+    description      "MyString"
   end
 end
