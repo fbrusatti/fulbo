@@ -8,6 +8,11 @@ es:
       local: Local
       visit: Visitante  
       name_team: Nombre del Equipo 
+      btn_create: Crear Partido
+      location: Seleccionar Cancha
+      week: Seleccionar Semana
+    show: 
+      week: Semena  
   user_profile:
     playing_position:
       Goalkeeper: Arquero

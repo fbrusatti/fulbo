@@ -53,7 +53,12 @@ en:
       title: Create Match
       local: Local
       visit: Visit
-      name_team: Name of team       
+      name_team: Name of team
+      btn_create: Create Match       
+      location: Select Field
+      week: Select Week
+    show:
+      week: Week   
   user_profile:
     playing_position:
       Goalkeeper: Goalkeeper

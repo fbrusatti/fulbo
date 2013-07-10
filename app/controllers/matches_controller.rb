@@ -11,12 +11,9 @@ class MatchesController < ApplicationController
 
   def new
     @match= Match.new
-    
-    @team_local = current_user.team
-    @sportCenters = SportCenter.all
+    @match.build_reservation
     @locations = Location.all
-    @fields = Field.all
-  end
+   end
 
   def create
     @match = Match.new(params[:match])
