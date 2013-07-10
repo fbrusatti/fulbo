@@ -49,10 +49,10 @@ class LocationsController < ApplicationController
   private
 
   def verify_permission
-    sport_center_id = params[:sport_center_id] || params[:id]
+    other_sport_center = SportCenter.find(params[:sport_center_id] || params[:id])
     @sport_center = current_user.sport_center
 
-    unless @sport_center.id == sport_center_id.try(:to_i)
+    unless other_sport_center && @sport_center.id == other_sport_center.id
       redirect_to sport_center_path(current_user.sport_center),
                   notice: t('.flash.permission_location')
     end
