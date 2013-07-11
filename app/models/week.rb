@@ -4,7 +4,7 @@ class Week < ActiveRecord::Base
 
   # == Associations
   belongs_to :fixture
-  has_many :matches
+  has_many :matches, dependent: :destroy
 
   # == Validations
   validates_presence_of :number
