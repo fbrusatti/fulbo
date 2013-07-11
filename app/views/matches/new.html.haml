@@ -1,21 +1,14 @@
-.match
-  .container
-    .span11.offset.well
-      %legend= t('.title')
 
-      = form_for @match do |f|
-        = errors_for(@match).html_safe
+.container
+  .container-layout
+    %legend.title
+      = t('.title')
 
-        / .well.pull-right.img-polaroid
-        /   .img-polaroid.pull-right
-        /     = f.file_field :avatar
-        /     = f.hidden_field :avatar_cache
-        /     = remove_avatar_section(f)
-
-        /   = avatar(f, @profile)
-
-        = render  "team", :f => f
-
+    = form_for @match do |f|
+      = errors_for(@match).html_safe
+      
+      = render  "team", :f => f
+      .span2.offset0.2
         %div
           %button.btn.btn-info
             .btn-block.pull-rigth{ :href => f.submit }= t('.btn_create')

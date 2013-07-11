@@ -1,27 +1,26 @@
-.row
-  .span5
-    %h2= t('matches.new.local')
-    .form-horizontal
-      %dt= t('matches.new.name_team')
-      = f.text_field :local_tokens
-  .span1
-    %h2 VS   
-  .span5
-    %h2= t('matches.new.visit')
-    %dt= t('matches.new.name_team')
+.match-local
+  .title_match
+    = t('matches.new.local')
+    = f.text_field :local_tokens
+.vs
+  .title
+    = t('matches.new.vs')    
+.match-visit
+  .title_match
+    = t('matches.new.visit')
     = f.text_field :visitor_tokens
 
-= f.fields_for :week_attributes do |w|
-  .form-inline
-    = w.label :week
-    = w.select :number, (0..20).to_a, class: "input-small"
-
-= f.fields_for :reservation_attributes do |builder|
-  .form-inline
-    = builder.label :field
+/ = f.fields_for :week_attributes do |w|
+/     = w.label :week
+/     = w.select :number, (0..20).to_a, class: "input-small"
+.field
+  = f.fields_for :reservation_attributes do |builder|
+    = t('matches.new.select_field')
+    %br
     = builder.grouped_collection_select :field_id, @locations, :fields, :name,:id, :name
-  = builder.datetime_select :reservation_date,{ :order => [:day, :month, :year, :hour,:minute], :reservation_date => Time.now.year },:size => 1 
-  / :reservation_date
-  / text_field :reservation_date, :class => 'datepicker'
-  / = builder.time_select :reservation_date
+    
+    .date_time
+      = t('matches.new.select_date')
+      %br
+      = builder.datetime_select :reservation_date,{ :order => [:day, :month, :year, :hour,:minute], :reservation_date => Time.now.year} ,:class => 'option-large'
 

@@ -53,10 +53,10 @@ en:
       title: Create Match
       local: Local
       visit: Visit
-      name_team: Name of team
       btn_create: Create Match       
-      location: Select Field
-      week: Select Week
+      select_field: Select Field
+      select_date: Select Date and Time
+      vs: VS
     show:
       week: Week   
   user_profile:
@@ -124,6 +124,14 @@ en:
         geo_availability: Disponibilidad
       photo:
         name: Name
+      match:
+        week: Week
+        visitor: Visitor
+        local: Local
+        cards: Cards
+        goals: Goals
+        field: Field
+        reservation_date: Reservation
   flash:
     error_update_form: There was a problem updating
     error_create_form: There was a problem creating

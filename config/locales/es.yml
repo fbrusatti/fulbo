@@ -7,10 +7,10 @@ es:
       title: Crear Partido
       local: Local
       visit: Visitante  
-      name_team: Nombre del Equipo 
       btn_create: Crear Partido
-      location: Seleccionar Cancha
-      week: Seleccionar Semana
+      select_field: Seleccionar Cancha
+      select_date: Seleccionar Día y Hora
+      vs: VS
     show: 
       week: Semena  
   user_profile:
@@ -241,6 +241,14 @@ es:
         geo_availability: Disponibilidad
       photo:
         name: Nombre
+      match:
+        week: Jornada
+        visitor: Visitante
+        local: Local
+        cards: Tarjetas
+        goals: Goles
+        field: Campo de Juego
+        reservation_date: Reserva
   flash:
     error_update_form: Hubo un problema al actulizar
     error_create_form: Hubo un problema al crear
