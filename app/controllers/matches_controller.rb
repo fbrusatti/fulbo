@@ -18,9 +18,9 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(params[:match])
     if @match.save
-      flash[:success] = t('flash.team', message: t('flash.created'))
+      flash[:success] = t('flash.match', message: t('flash.created'))
     end
-    respond_with @match
+    respond_with @match, location: edit_match_path(@match)
   end
 
   def show
@@ -33,7 +33,7 @@ class MatchesController < ApplicationController
   def destroy
     @match = Match.find(params[:id])
     @match.destroy
-    flash[:notice] = t('flash.team', message: t('flash.destroyed'))
+    flash[:notice] = t('flash.match', message: t('flash.destroyed'))
     respond_with(@match)
   end
 
@@ -44,7 +44,7 @@ class MatchesController < ApplicationController
   def update
     @match = Match.find(params[:id])
     if @match.update_attributes(params[:team])
-      flash[:success] = t('flash.team', message: t('flash.updated'))
+      flash[:success] = t('flash.match', message: t('flash.updated'))
     end
     respond_with @match
   end

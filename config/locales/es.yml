@@ -12,7 +12,14 @@ es:
       select_date: Seleccionar Día y Hora
       vs: VS
     show: 
-      week: Semena  
+    edit:
+      title: Editar Partido
+      local: Local
+      visit: Visitante  
+      btn_edit: Editar Partido
+      select_field: Seleccionar Cancha
+      select_date: Seleccionar Día y Hora
+      vs: VS      
   user_profile:
     playing_position:
       Goalkeeper: Arquero
@@ -257,6 +264,7 @@ es:
     location: "Exitosamente se a %{message} la sede"
     field: "Exitosamente se a %{message} la cancha"
     team: "Exitosamente se a %{message} el equipo"
+    match: "Exitosamente se a %{message} el partido"
     created: creado
     destroyed: borrado
     updated: actualizado
@@ -276,7 +284,8 @@ es:
     sign_in: Entrar
     sign_out: Salir
     session_status: "Registrado como %{user}"
-    sport_center: Complejos
+    sport_centers: Complejos
+    sport_center: Mi Complejo
     options: Opciones
     home: Incio
     about_us: Quiénes somos

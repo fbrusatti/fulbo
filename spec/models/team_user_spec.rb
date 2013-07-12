@@ -14,7 +14,7 @@ require 'spec_helper'
 describe TeamUser do
 
   #belongs to
-  it { should belong_to(:user) }
+  it { should belong_to(:player) }
   it { should belong_to(:team) }
 
   #has many

@@ -58,7 +58,14 @@ en:
       select_date: Select Date and Time
       vs: VS
     show:
-      week: Week   
+    edit:
+      title: Edit Match
+      local: Local
+      visit: Visit
+      btn_edit: Edit Match       
+      select_field: Select Field
+      select_date: Select Date and Time
+      vs: VS
   user_profile:
     playing_position:
       Goalkeeper: Goalkeeper
@@ -138,6 +145,7 @@ en:
     league: "Successfully %{message} the League %{name}"
     sport_center: "Successfully %{message} the Sport Center."
     team: "Successfully %{message} team."
+    match: "Successfully %{message} match."
     created: created
     destroyed: destroyed
     updated: updated
@@ -145,7 +153,7 @@ en:
     permission_league: you don't have permisson
     verify_team: you have a team
     have_sport_center: you have a sport center
-  navigation:
+  navigation_bar:
     teams: Teams
     stadiums: Stadiums
     leagues: Leagues
@@ -153,7 +161,8 @@ en:
     sign_in: Sign in
     sign_out: Sign out
     session_status: "Signed in as %{user}"
-    sport_center: Sport center
+    sport_center: My Sport Center
+    sport_centers: Sport Centers
   landing_page:
     comming_soon: Comming soon
   teams:

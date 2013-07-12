@@ -22,7 +22,7 @@
               %li
                 %a{ :href => "#" } #{current_user.email}
               - if user_signed_in? && !current_user.sport_center.blank?
-                %li= link_to "Complejo", sport_center_path(current_user.sport_center)
+                %li= link_to t('navigation_bar.sport_center'), sport_center_path(current_user.sport_center)
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 = t "navigation_bar.options"
@@ -32,7 +32,7 @@
                   %li
                     = link_to t("navigation_bar.stadiums"), fields_path
                 %li
-                  = link_to t('navigation_bar.sport_center'), sport_centers_path
+                  = link_to t('navigation_bar.sport_centers'), sport_centers_path
                 %li
                   = link_to t('navigation_bar.leagues'), leagues_path
                 %li
