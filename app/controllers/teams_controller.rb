@@ -9,6 +9,14 @@ class TeamsController < ApplicationController
     @teams = Team.all
   end
 
+  def index
+    @teams = Team.where("name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.html
+      format.json { render :json => @teams.map(&:attributes)}
+    end
+  end
+
   def new
     @team = Team.new
     @team.build_profile

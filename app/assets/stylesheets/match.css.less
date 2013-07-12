@@ -1,0 +1,83 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+.makeFluidRow(){
+  width: 100%;
+  .clearfix();
+}
+
+.makeFluidCol(@span:1, @offset:0){
+  float: left;
+  #grid > .fluid .span(@span);
+  #grid > .fluid .offset(@offset);
+  &:first-child {
+      margin-left: 0;
+      .offsetFirstChild(@offset);
+  }
+}
+
+
+.container-layout {
+  .makeFluidCol(11, 0.2);
+
+  @media (max-width: 979px) {
+    margin-top: 40px;
+  }
+
+  .well;
+}
+
+.btn_create{
+  
+}
+
+.match-local {
+  .well;
+  margin-top: 10px;
+  padding: 20px;
+  .makeFluidCol(4);
+    .center-block();
+      .title_match {
+        #font > .shorthand(50px, normal, 50px);
+        text-align: center;
+      }
+}
+
+.vs{
+  margin-top: 10px;
+  padding: 20px;
+  .makeFluidCol(2);
+  .center-block();
+    .title{
+      #font > .shorthand(60px, normal, 95px);
+      text-align: center;
+    }
+}
+
+.match-visit {
+  .well;
+  margin-top: 10px;
+  padding: 20px;
+  .makeFluidCol(4);
+    .center-block();
+      .title_match {
+        #font > .shorthand(50px, normal, 50px);
+        text-align:center;
+      }
+}
+.field{
+    margin-top: 10px;
+    padding: 20px;
+    .makeFluidCol(11,0.2);
+    .center-block();
+    .well;
+    #font > .shorthand(17px, bold, 17px);
+    text-align: left;
+    
+    .date_time{
+      .option-large {
+         width: 120px;
+      }
+    }
+}
+

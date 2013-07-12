@@ -24,5 +24,5 @@
 //= require jquery.cycle.all.js
 //= require landing_page
 //= require jquery.tokeninput.js
-//= requere team_players.js.erb
+//= require team_players.js.erb
 //= require_tree .

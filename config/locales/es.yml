@@ -2,16 +2,35 @@ es:
   are_you_sure: '¿Está Seguro?'
   landing_page:
     comming_soon: Muy pronto
+  matches:
+    new:
+      title: Crear Partido
+      local: Local
+      visit: Visitante  
+      btn_create: Crear Partido
+      select_field: Seleccionar Cancha
+      select_date: Seleccionar Día y Hora
+      vs: VS
+    show: 
+    edit:
+      title: Editar Partido
+      local: Local
+      visit: Visitante  
+      btn_edit: Editar Partido
+      select_field: Seleccionar Cancha
+      select_date: Seleccionar Día y Hora
+      vs: VS      
   user_profile:
-    Goalkeeper: Arquero
-    Forward: Delantero
-    Defender: Defensor
-    Midfielder: Mediocampista
-    Coach: Tecnico
-    Coaching: Entrenador
-    Staff: Personal
-    Referee: Arbitro
-    Assistant: Asistente
+    playing_position:
+      Goalkeeper: Arquero
+      Forward: Delantero
+      Defender: Defensor
+      Midfielder: Mediocampista
+      Coach: Tecnico
+      Coaching: Entrenador
+      Staff: Personal
+      Referee: Arbitro
+      Assistant: Asistente
     field_position: Posición en la cancha
     right: Derecho
     left: Izquierdo
@@ -229,6 +248,14 @@ es:
         geo_availability: Disponibilidad
       photo:
         name: Nombre
+      match:
+        week: Jornada
+        visitor: Visitante
+        local: Local
+        cards: Tarjetas
+        goals: Goles
+        field: Campo de Juego
+        reservation_date: Reserva
   flash:
     error_update_form: Hubo un problema al actulizar
     error_create_form: Hubo un problema al crear
@@ -237,6 +264,7 @@ es:
     location: "Exitosamente se a %{message} la sede"
     field: "Exitosamente se a %{message} la cancha"
     team: "Exitosamente se a %{message} el equipo"
+    match: "Exitosamente se a %{message} el partido"
     created: creado
     destroyed: borrado
     updated: actualizado
@@ -256,7 +284,8 @@ es:
     sign_in: Entrar
     sign_out: Salir
     session_status: "Registrado como %{user}"
-    sport_center: Complejos
+    sport_centers: Complejos
+    sport_center: Mi Complejo
     options: Opciones
     home: Incio
     about_us: Quiénes somos
