@@ -1,0 +1,92 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+@title-size: 26px;
+@radius: 5px;
+@shadow: 0 1px 3px rgba(0,0,0,.25);
+@gray87:  #dedede;
+
+.wellBox() {
+  background-color: @grayLighter;
+  .border-radius(@radius);
+  .box-shadow(@shadow);
+  #gradient > .radial(@grayLighter, @gray87);
+}
+
+.makeFluidRow() {
+  width: 100%;
+  .clearfix();
+}
+
+.makeFluidCol(@span:1, @offset:0){
+  float: left;
+  #grid > .fluid .span(@span);
+  #grid > .fluid .offset(@offset);
+  &:first-child {
+      margin-left: 0;
+      .offsetFirstChild(@offset);
+  }
+}
+
+body.leagues {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-position: rigth-bottom;
+}
+
+.container-league {
+  .makeFluidRow();
+  .makeFluidCol(@gridColumns);
+  .title-league {
+    margin-top: 10px;
+    .hero-unit;
+    .text-center;
+    font-size: @title-size;
+    font-weight: bold;
+  }
+  .information {
+    .makeFluidRow();
+    .general {
+      .makeFluidCol(8);
+      .wellBox();
+    }
+    .point-system {
+      .makeFluidCol(3,1);
+      .wellBox();
+    }
+  }
+  .buttons-league {
+    padding: 10px;
+   }
+}
+
+.edit-button { .btn; }
+.delete-button {
+  .btn;
+  .btn-danger;
+}
+.affiliation-sent.button {
+  .btn;
+  .btn-primary;
+  .disabled;
+}
+.send-affiliation-button {
+  .btn;
+  .btn-primary;
+}
+
+.league-players {
+  .title-players {
+    font-size: @title-size;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+    .well;
+  }
+  .players {
+    .table;
+    .table-bordered;
+    .table-striped;
+    .wellBox();
+  }
+}
