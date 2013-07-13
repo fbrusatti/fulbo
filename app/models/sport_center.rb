@@ -2,7 +2,7 @@ class SportCenter < ActiveRecord::Base
 
   # == FriendlyId
   extend FriendlyId
-  friendly_id :name, use: [:slugged, :history]
+  friendly_id :slug, use: [:slugged, :history]
 
   # == Validations
   validates_presence_of :address, :cuit, :description, :email, :name, :phone
@@ -18,6 +18,7 @@ class SportCenter < ActiveRecord::Base
   has_many :fields, :through => :locations
 
   # == Accessors
-  attr_accessible :address, :cuit, :description, :email, :name, :phone , :owner_id
+  attr_accessible :address, :cuit, :description,
+                  :email, :name, :phone , :owner_id , :slug
 
 end
