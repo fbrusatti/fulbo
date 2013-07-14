@@ -38,7 +38,7 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'factory_girl_rails', '4.1.0'
-  gem 'capybara-webkit'
+  gem 'capybara-webkit', '0.12.0'
 end
 # Gems used only for assets and not required
 # in production environments by default.

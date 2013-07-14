@@ -1,0 +1,14 @@
+
+.container
+  .container-layout
+    %legend.title
+      = t('.title')
+
+    = form_for @match do |f|
+      = errors_for(@match).html_safe
+      
+      = render  "team", :f => f
+      .span2.offset0.2
+        %div
+          %button.btn.btn-info
+            .btn-block.pull-rigth{ :href => f.submit }= t('.btn_create')

@@ -1,0 +1,38 @@
+$(function () {
+  $('#match_local_tokens').tokenInput('/teams.json', { 
+    crossDomain: false,
+    prePopulate: $('#macht_local_tokens').data('pre'),
+    theme: "facebook",
+    tokenLimit: "1",
+    noResultsText: "<%= I18n.t('teams.noResultsText') %>",
+    hintText: "<%= I18n.t('.teams.hintText')%>",
+    searchingText: "<%= I18n.t('.teams.searchingText')%>",
+    // resultsFormatter: function(item){return "<li><p>" + item.name 
+    // + " <b style='color: red'>" + item.owner.name+ "</b></p></li>" },
+    // tokenFormatter: function(item) { return "<li><p>" + item.name
+    // + " <b style='color: red'>" + item.email+ "</b></p></li>" }
+  });
+});
+
+$(function () {
+  $('#match_visitor_tokens').tokenInput('/teams.json', { 
+    crossDomain: false,
+    prePopulate: $('#macht_visitor_tokens').data('pre'),
+    theme: "facebook",
+    tokenLimit: "1",
+    noResultsText: "<%= I18n.t('teams.noResultsText') %>",
+    hintText: "<%= I18n.t('.teams.hintText')%>",
+    searchingText: "<%= I18n.t('.teams.searchingText')%>",
+    // resultsFormatter: function(item){return "<li><p>" + item.name 
+    // + " <b style='color: red'>" + item.email+ "</b></p></li>" },
+    // tokenFormatter: function(item) { return "<li><p>" + item.name
+    // + " <b style='color: red'>" + item.email+ "</b></p></li>" }
+  });
+});
+
+$(function() {
+    $('#datetimepicker').datetimepicker({
+        language: 'en',
+        pick12HourFormat: true
+    });
+});

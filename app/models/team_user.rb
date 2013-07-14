@@ -14,7 +14,6 @@ class TeamUser < ActiveRecord::Base
   # == Associations
   belongs_to :team
   belongs_to :player, foreign_key: "user_id", class_name: "User"
-  belongs_to :user
   has_many :goals
   has_many :cards
 end
