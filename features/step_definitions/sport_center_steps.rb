@@ -39,7 +39,7 @@ When(/^I click to see its leagues$/) do
 end
 
 Given(/^There exists a SportCenter named "(.*?)"$/) do |sport_center_name|
-  @sport_center = FactoryGirl.create(:sport_center, name: sport_center_name)
+  @sport_center = FactoryGirl.create(:sport_center, name: sport_center_name, slug: sport_center_name)
 end
 
 When(/^I visit the address "(.*?)"$/) do |address|
