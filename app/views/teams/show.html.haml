@@ -21,13 +21,9 @@
             %dd= @team.profile.description
 
         .span3
-          %p Escudo del Equipo
+          %p= t('.badge_team')
           %a.thumbnail{ :href => edit_team_path(@team) }
-            -if @team.profile.badge?
-              %img{ :alt => "", :src => image_path(@team.profile.badge_url(:thumb)) }
-            -else
-              %img{ :alt => "", :src => image_path("badge_default.jpg") }
-
+            = profile_badge(@team.profile,:badge)
       = link_to t('.link_photos'), team_photos_path(@team), class: 'btn btn-info'
 
       - if owner_permission?

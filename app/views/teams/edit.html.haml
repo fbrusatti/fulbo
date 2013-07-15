@@ -17,10 +17,7 @@
                 = builder.check_box :remove_badge
                 = builder.label :remove_badge, t('.remove_badge')
           = builder.label :badge, :class => "img-polaroid pull-right" do
-            -if @team.profile.badge?
-              = image_tag(@team.profile.badge_url(:thumb))
-            -else
-              = image_tag "badge_default.jpg", size: "140x140"
+            = profile_badge(@team.profile,:badge)
 
         %dt= t('.name')
         = f.text_field :name
