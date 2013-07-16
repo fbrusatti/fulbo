@@ -1,4 +1,3 @@
-
 .container
   .container-layout
     %legend.title
@@ -13,7 +12,7 @@
               .name
                 %h4
                   %a{:class => "media-heading"}
-                    = link_to "#{sc.name}", "#"
+                    = link_to "#{sc.name}", sc
               .address
                 = "#{t('.address')}:"
                 = sc.address
@@ -25,7 +24,7 @@
                 .title_fields
                   %h4
                     = t('.title_fields')
-                - sc.fields.each do |f|
+                - sc.fields.each do |field|
                   %h4
                   %a{:class => "media-heading"}
-                    = link_to "#{f.name}", "#"
+                    = link_to "#{field.name}", location_field_path(field.location_id, field)
