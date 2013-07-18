@@ -11,12 +11,27 @@ class ReservationsController < ApplicationController
 
     if @reservation.save
       flash[:success] = t('flash.rent', message: t('flash.rented'))
+    else
+      flash[:error] = 'no se puede guardar'
     end
-    respond_with(@reservation, :location => sport_centers_path)
+
+    respond_to do |format|
+      format.html {
+        if @reservation.errors.present?
+          @field = @reservation.field
+          @location = @reservation.field.location
+          @sport_center = @reservation.field.location.sport_center
+
+          render 'fields/show'
+        else
+          redirect_to sport_centers_path
+        end
+
+      }
+    end
   end
 
   def index
     @reservations = Reservation.all
   end
-
 end
