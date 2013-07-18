@@ -6,9 +6,9 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    #debugger
-    @reservation = current_user.reservations.create( :field_id  => params[:field_id],
-                                                     :reservation_date => params[:reservation][:reservation_date] )
+    @reservation = current_user.reservations.build( :field_id  => params[:field_id],
+                                                    :reservation_date => params[:reservation][:reservation_date] )
+
     if @reservation.save
       flash[:success] = t('flash.rent', message: t('flash.rented'))
     end

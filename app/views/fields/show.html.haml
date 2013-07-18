@@ -1,4 +1,4 @@
-%body{ :background => image_path("background.jpg"), :style => "background-repeat:no-repeat; background-position:rigth-bottom;" }
+.field
   .container
     .span11.offset.well
       %legend
@@ -37,12 +37,5 @@
                 = f.text_field :reservation_date, :data_format => "MM/dd/yyyy HH:mm:ss PP", :type => "text"
                 %span.add-on
                   %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
-              :javascript
-                $(function() {
-                  $('#datetimepicker2').datetimepicker({
-                    language: 'en',
-                    pick12HourFormat: true
-                  });
-                });
 
               = f.submit t(".btn_rent"),:class => "btn.btn-primary"
