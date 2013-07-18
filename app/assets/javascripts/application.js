@@ -22,10 +22,8 @@
 //= require twitter/bootstrap
 //= require jquery.Jcrop
 //= require jquery.cycle.all.js
-//= require landing_page
 //= require jquery.tokeninput.js
 //= require team_players.js.erb
 //= require cocoon
 //= require bootstrap-datetimepicker.min
 //= require_tree .
-//= require fields.js
