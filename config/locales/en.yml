@@ -69,6 +69,10 @@ en:
       select_field: Select Field
       select_date: Select Date and Time
       vs: VS
+      goals: Goles
+      add_goal: Agregar
+      remove_goal: Eliminar
+      no_register: No Registrado
   user_profile:
     playing_position:
       Goalkeeper: Goalkeeper
@@ -187,6 +191,7 @@ en:
       confirm: Are you sure?
       players: Players
       playing_position: Playing position
+      badge_team: Badge Team
     edit:
       title: Edit your team
       image_url: or image URL
