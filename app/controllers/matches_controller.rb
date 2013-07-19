@@ -39,14 +39,15 @@ class MatchesController < ApplicationController
 
   def edit
     @match = Match.find(params[:id])
+    @locations = Location.all
   end
 
   def update
     @match = Match.find(params[:id])
-    if @match.update_attributes(params[:team])
+    if @match.update_attributes(params[:match])
       flash[:success] = t('flash.match', message: t('flash.updated'))
     end
-    respond_with @match
+    respond_with @match, location: edit_match_path(@match)
   end
 
   private

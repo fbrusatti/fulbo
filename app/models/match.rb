@@ -5,8 +5,8 @@ class Match < ActiveRecord::Base
   belongs_to :visitor, class_name: "Team"
   belongs_to :local, class_name: "Team"
   has_one :reservation, dependent: :destroy
-  has_many :cards
-  has_many :goals
+  has_many :cards, :dependent => :destroy
+  has_many :goals, :dependent => :destroy
 
   # == Accessors
   attr_accessible :reservation_attributes,:local_tokens, :visitor_tokens,
@@ -17,6 +17,7 @@ class Match < ActiveRecord::Base
 
   # == Nested Attributes
   accepts_nested_attributes_for :reservation, :local , :visitor, :week
+  accepts_nested_attributes_for :goals, :reject_if => :all_blank, :allow_destroy => true
 
   def visitor_tokens=(ids)
       self.visitor_id = ids
