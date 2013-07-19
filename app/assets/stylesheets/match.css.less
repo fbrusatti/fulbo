@@ -18,12 +18,12 @@
 
 
 .container-layout {
+  .makeFluidRow();
   .makeFluidCol(11, 0.2);
 
   @media (max-width: 979px) {
     margin-top: 40px;
   }
-
   .well;
 }
 
@@ -68,7 +68,7 @@
 .field{
     margin-top: 10px;
     padding: 20px;
-    .makeFluidCol(11,0.2);
+    .makeFluidCol(11);
     .center-block();
     .well;
     #font > .shorthand(17px, bold, 17px);
@@ -81,3 +81,36 @@
     }
 }
 
+.goals_local{
+    margin-top: 10px;
+    padding: 20px;
+    .makeFluidCol(5);
+    .center-block();
+    .well;
+    #font > .shorthand(17px, bold, 17px);
+    text-align: left;
+}
+
+.goals_visit{
+    margin-top: 10px;
+    padding: 20px;
+    .makeFluidCol(5);
+    .center-block();
+    .well;
+    #font > .shorthand(17px, bold, 17px);
+    text-align: left;
+}
+.goal{
+  .input-small;
+}
+
+
+.button_edit_match{
+  .makeFluidCol(1,0);
+  vertical-align: bottom;
+  text-align: left;
+}
+.edit_button{
+  .btn;
+  .btn-info;
+}

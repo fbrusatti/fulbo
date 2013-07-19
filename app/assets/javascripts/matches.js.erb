@@ -36,3 +36,24 @@ $(function() {
         pick12HourFormat: true
     });
 });
+
+$(function(){
+  
+   //defaults
+   $.fn.editable.defaults.url = '/post'; 
+   $.fn.editable.defaults.mode = 'inline';
+
+    var sourceArray = new Array (20);
+    var i;
+    for (i = 0; i < 20; i++)
+    {
+      sourceArray[i] = { value: i+1, text: (i+1).toString() } ;
+    }
+
+
+    $('#goals').editable({
+        value: 1,    
+        source: sourceArray
+    });
+
+});
