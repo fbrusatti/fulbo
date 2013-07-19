@@ -123,6 +123,9 @@ es:
       point_system_title: Sistema de puntuación de la Liga
       btn_submit: Guardar
     edit:
+      btn_save: Guardar
+      teams: Equipos
+      information: Información
       limit_of_teams: Llego al límite de equipos.
       title: Edita tu Liga
       my_teams_table: Mis equipos

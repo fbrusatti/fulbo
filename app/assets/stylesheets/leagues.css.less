@@ -1,0 +1,181 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+@title-size: 26px;
+@radius: 5px;
+@shadow: 0 1px 3px rgba(0,0,0,.25);
+@gray87:  #dedede;
+
+.wellBox() {
+  background-color: @grayLighter;
+  .border-radius(@radius);
+  .box-shadow(@shadow);
+  #gradient > .radial(@grayLighter, @gray87);
+}
+
+.makeFluidRow() {
+  width: 100%;
+  .clearfix();
+}
+
+.makeFluidCol(@span:1, @offset:0){
+  float: left;
+  #grid > .fluid .span(@span);
+  #grid > .fluid .offset(@offset);
+  &:first-child {
+      margin-left: 0;
+      .offsetFirstChild(@offset);
+  }
+}
+
+body.leagues {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-position: rigth-bottom;
+}
+
+.container-league {
+  @media (max-width: 979px) {
+    margin-top: 40px;
+  }
+  .makeFluidRow();
+  .makeFluidCol(@gridColumns);
+}
+
+.title-league {
+    margin-top: 10px;
+    .well;
+    .well-small;
+    .text-center;
+    font-size: @title-size;
+    font-weight: bold;
+}
+
+.information {
+  .makeFluidRow();
+  .general {
+    .makeFluidCol(6);
+    .wellBox();
+    padding: 10px;
+  }
+  .point-system {
+    .makeFluidCol(3);
+    .wellBox();
+    padding: 10px;
+  }
+}
+
+.buttons-league {
+  padding: 10px;
+}
+
+.edit-button { .btn; }
+
+.delete-button {
+  .btn;
+  .btn-danger;
+}
+
+.affiliation-sent-button {
+  .btn;
+  .btn-primary;
+  .disabled;
+}
+
+.send-affiliation-button {
+  .btn;
+  .btn-primary;
+}
+
+.league-players {
+  .title-players {
+    font-size: @title-size;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+    .well;
+  }
+  .players {
+    .table;
+    .table-bordered;
+    .table-striped;
+    .wellBox();
+    tr > th, td { .text-left; }
+  }
+}
+
+// Form edit League
+// ----------------
+.edit-form-league {
+  .makeFluidRow();
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.edit-general-league {
+  padding: 10px;
+  margin: 5px;
+  .makeFluidCol(6);
+  .wellBox();
+}
+
+.edit-category-league {
+  padding: 10px;
+  margin: 5px;
+  .makeFluidCol(4);
+  .wellBox();
+}
+
+.edit-requirements-league {
+  margin: 5px;
+  padding: 10px;
+  .wellBox();
+}
+
+.field-money-league {
+  .input-prepend;
+  .add-on;
+}
+
+.medium-field {
+  .input-medium;
+}
+
+.small-field {
+  .input-small;
+}
+
+.navigation-league-edit {
+  margin-top: 5px;
+  .tabbable;
+  .box-shadow(@shadow);
+  .border-radius(@radius);
+  #gradient > .vertical(@white, @gray87);
+  ul > li:first-child {   .border-radius(@radius); }
+  ul > li { #gradient > .horizontal(@gray87, @white ) }
+  ul > li > a {
+    font-family: AsapRegular, sans-serif;
+    font-size: 11pt;
+    color: @black;
+  }
+}
+
+#teams-league {
+  .makeFluidRow();
+  .list-teams {
+    .makeFluidCol(4);
+    margin-left: @fluidGridColumnWidth;
+    margin-right: @fluidGridColumnWidth;
+  }
+  .teams-league {
+    .table;
+    .table-striped;
+    .wellBox();
+    .table-bordered;
+    tr > th { #gradient > .vertical(@gray87, @white ) }
+    tr > th, td {
+      .text-left;
+      padding: 10px;
+    }
+  }
+}

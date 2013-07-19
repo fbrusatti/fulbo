@@ -3,5 +3,5 @@ $(".affiliation").on('ajax:success','#new_affiliation_<%= @team.id %>', function
     tr.fadeOut();
     tr.remove();
     var newRow = "<%= j render 'leagues/row_edit_team_table', team: @team, action: 'remove' %>";
-    $('#remove-table .table').append(newRow);
+    $('#remove-table .teams-league').append(newRow);
 });
