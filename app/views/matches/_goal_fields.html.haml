@@ -1,0 +1,5 @@
+.nested-fields
+  .form.inline
+    = f.collection_select :team_user_id, @players,:id ,:name, {include_blank: t('matches.edit.no_register')}
+    = f.select :count, (1..50).to_a, {include_blank: true}, {class:'goal'}
+    = link_to_remove_association t('matches.edit.remove_goal'), f
