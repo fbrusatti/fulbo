@@ -34,3 +34,11 @@ Feature: League
     When I go to edit page of my league
     And I press accept button of the inscription
     Then I should see the team in list of teams that will play
+
+  @wip
+  Scenario:  Success generate League Fixture
+    Given I am logged in like owner of a league
+    And I have a few teams registered in my League
+    When I go to the League page
+    And I click on button Generate League Fixture of League
+    Then I should see The fixture generated

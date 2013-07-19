@@ -226,6 +226,7 @@ GEM
     responders (0.9.3)
       railties (~> 3.1)
     rmagick (2.13.2)
+    rrschedule (0.3.3)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -320,6 +321,7 @@ DEPENDENCIES
   rails (= 3.2.13)
   remotipart (~> 1.0)
   rmagick
+  rrschedule
   rspec-rails (= 2.11.0)
   sass-rails (~> 3.2.3)
   shoulda-matchers (= 2.0.0)
