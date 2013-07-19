@@ -20,6 +20,10 @@ es:
       select_field: Seleccionar Cancha
       select_date: Seleccionar Día y Hora
       vs: VS      
+      goals: Goles
+      add_goal: Agregar
+      remove_goal: Eliminar
+      no_register: No Registrado
   user_profile:
     playing_position:
       Goalkeeper: Arquero
@@ -320,6 +324,7 @@ es:
       confirm: ¿Está seguro?
       players: Jugadores
       playing_position: Posición de juego
+      badge_team: Escudo del Equipo
       surfaces:
         sand: arena
         grass: césped
