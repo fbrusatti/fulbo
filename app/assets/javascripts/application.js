@@ -25,4 +25,5 @@
 //= require landing_page
 //= require jquery.tokeninput.js
 //= require team_players.js.erb
+//= require cocoon
 //= require_tree .
