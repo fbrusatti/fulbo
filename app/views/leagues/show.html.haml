@@ -63,16 +63,14 @@
       = t(".teams_of_league")
     %table.players
       %thead
-        %th.text-left
+        %th
           = t(".team_header_row")
-        %th.text-left
+        %th
           = t(".owner_header_row")
       - @teams.each do |team|
         %tr
           %td
-            .text-left
-              = link_to team.name, team_path(team)
+            = link_to team.name, team_path(team)
           %td
-            .text-left
-              = link_to "#{team.owner.name} #{team.owner.profile.surname}",
-                        user_profile_path(team.owner)
+            = link_to "#{team.owner.name} #{team.owner.profile.surname}",
+                      user_profile_path(team.owner)

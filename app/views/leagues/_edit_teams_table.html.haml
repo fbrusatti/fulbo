@@ -1,16 +1,11 @@
-.row-fluid
-  .span12
-    %div{ id: "#{action}-table"}
-      %table.table.table-stripe
-        %thead
-          %th
-            .text-left
-              = I18n.t("leagues.edit.team_header_row")
-          %th
-            .text-left
-              = I18n.t("leagues.edit.owner_header_row")
-          %th
-            .text-left
-              = action == "affiliate" ? I18n.t("leagues.edit.action_affiliate") : I18n.t("leagues.edit.action_delete")
-        - collection.each do |team|
-          = render "row_edit_team_table", team: team, action: action
+%div{ id: "#{action}-table"}
+  %table.teams-league
+    %thead
+      %th
+        = I18n.t("leagues.edit.team_header_row")
+      %th
+        = I18n.t("leagues.edit.owner_header_row")
+      %th
+        = action == "affiliate" ? I18n.t("leagues.edit.action_affiliate") : I18n.t("leagues.edit.action_delete")
+    - collection.each do |team|
+      = render "row_edit_team_table", team: team, action: action
