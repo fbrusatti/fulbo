@@ -1,5 +1,8 @@
 class League < ActiveRecord::Base
 
+  # == Includes
+  include RRSchedule
+
   # == Accessors
   attr_accessible :name, :category, :number_matches, :field_price, :registration_price,
                   :requirements, :number_teams, :start_date, :point_system_attributes,
@@ -32,6 +35,23 @@ class League < ActiveRecord::Base
 
   def unaffiliated(team)
     affiliations.find_by_team_id(team.id).destroy
+  end
+
+  def generate_fixture(rules)
+    schedule = RRSchedule::Schedule.new(teams: self.team_ids,
+                                        rules: rules,
+                                        start_date: self.start_date
+                                       ).generate
+    fixture = create_fixture
+    schedule.gamedays.each_with_index do |gd, index|
+      week = fixture.weeks.create(number: index, start_date: gd.date)
+      gd.games.each do |game|
+        match = week.matches.create(visitor_id: game.team_a,
+                                    local_id: game.team_b)
+        match.create_reservation(field_id: game.playing_surface.to_i,
+                                 reservation_date:  game.game_time)
+      end
+    end
   end
 
   private
