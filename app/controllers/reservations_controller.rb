@@ -12,8 +12,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       flash[:success] = t('flash.rent', message: t('flash.rented'))
     else
-      flash[:error] = 'no se puede guardar'
-    end
+      flash[:error] = t('flash.rent_error')
 
     respond_to do |format|
       format.html {

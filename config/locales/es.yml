@@ -314,6 +314,7 @@ es:
         reservation_date: Reserva
   flash:
     fixture: "Exitosamente se a %{message} el Fixture de la Liga %{name}"
+    rent_error: "No se ha podido alquilar la cancha"
     rent: "Exitosamente se a %{message} la cancha"
     error_update_form: Hubo un problema al actulizar
     error_create_form: Hubo un problema al crear
