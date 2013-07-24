@@ -24,6 +24,20 @@ es:
       add_goal: Agregar
       remove_goal: Eliminar
       no_register: No Registrado
+      title_goal: Goles
+      surname: Apellido
+      name: Nombre
+      count: Cantidad
+      accion: Acción
+      delete_goal: Eliminar
+      add_goal: Agregar
+  goals:
+    new:
+      title: Agregar Nuevo Gol
+      name: Nombre del Goleador
+      count: Cantidad de Goles
+      description: Descripción
+      btn_submit: Agregar
   user_profile:
     playing_position:
       Goalkeeper: Arquero
@@ -272,6 +286,7 @@ es:
     field: "Exitosamente se a %{message} la cancha"
     team: "Exitosamente se a %{message} el equipo"
     match: "Exitosamente se a %{message} el partido"
+    goal: "Exitosamente se a %{message} un gol"
     created: creado
     destroyed: borrado
     updated: actualizado

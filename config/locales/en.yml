@@ -69,10 +69,24 @@ en:
       select_field: Select Field
       select_date: Select Date and Time
       vs: VS
-      goals: Goles
-      add_goal: Agregar
-      remove_goal: Eliminar
-      no_register: No Registrado
+      goals: Goals
+      add_goal: Add
+      remove_goal: Delete
+      no_register: No Register
+      title_goal: Goals
+      surname: Surname
+      name: Name
+      count: Count
+      accion: Accion
+      delete_goal: Delete
+      add_goal: Add
+  goals:
+    new:
+      title: Agregar Nuevo Gol
+      name: Nombre del Goleador
+      count: Cantidad de Goles
+      description: Descripción
+      btn_submit: Agregar    
   user_profile:
     playing_position:
       Goalkeeper: Goalkeeper
@@ -153,6 +167,7 @@ en:
     sport_center: "Successfully %{message} the Sport Center."
     team: "Successfully %{message} team."
     match: "Successfully %{message} match."
+    goal: "Successfully %{message} goal."
     created: created
     destroyed: destroyed
     updated: updated
