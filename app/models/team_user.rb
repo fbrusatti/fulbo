@@ -11,9 +11,17 @@
 
 class TeamUser < ActiveRecord::Base
 
+	scope :by_team, lambda {|team| joins.(:team).where('team.id = ?', team.id)}
+
   # == Associations
   belongs_to :team
   belongs_to :player, foreign_key: "user_id", class_name: "User"
   has_many :goals
   has_many :cards
+
+  attr_accessible :player
+
+  def name_player
+  	 player.profile.surname + " " + player.name
+  end
 end

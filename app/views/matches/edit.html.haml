@@ -1,52 +1,9 @@
+.container_match
+  .title_match_edit
+    = t('.title')
 
-.container
-  .container-layout
-    %legend.title
-      = t('.title')
-
-    = form_for @match do |f|
-      = errors_for(@match).html_safe
-      
-      / = render  "_date_edit", :f => f
-      .match-local
-        .title_match
-          = @match.local.name
-          = profile_badge(@match.local.profile,:badge)
-          Goles:
-      .vs
-        .title
-          = t('matches.new.vs')    
-      .match-visit
-        .title_match
-          = @match.visitor.name
-          = profile_badge(@match.visitor.profile,:badge)
-      
-      .field
-        = f.fields_for :reservation_attributes do |builder|
-          = t('matches.edit.select_field')
-          %br
-          - options = option_groups_from_collection_for_select(@locations,:fields, :name, :id, :name, @match.reservation.field_id)
-          / = builder.grouped_collection_select :field_id, @locations, :fields, :name,:id, :name
-          = builder.select :field_id, options 
-        
-          .date_time
-            = t('matches.new.select_date')
-            %br
-            = builder.datetime_select :reservation_date,{ :order => [:day, :month, :year, :hour,:minute], :default => @match.reservation.reservation_date} ,:class => 'option-large' 
-      .goals_local
-        = t('matches.edit.goals')
-        = f.fields_for :goals do |goal|
-          -@players = @match.local.players
-          = render 'goal_fields', :f => goal
-        .links
-          = link_to_add_association  t('matches.edit.add_goal'), f, :goals 
-      .span1
-      .goals_visit
-        = t('matches.edit.goals')
-        = f.fields_for :goals do |goal|
-          -@players = @match.visitor.players
-          = render 'goal_fields', :f => goal
-        .links
-          = link_to_add_association  t('matches.edit.add_goal'), f, :goals                   
-      .button_edit_match    
-        = f.submit t('.btn_edit') , class:'edit_button'
+  = form_for @match do |f|
+    = errors_for(@match).html_safe
+    = render  "data_edit", :f => f
+    .button_edit_match    
+      = f.submit t('.btn_edit') , class:'edit_button'

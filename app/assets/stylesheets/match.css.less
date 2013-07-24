@@ -1,6 +1,14 @@
 @import "twitter/bootstrap/bootstrap";
 @import "twitter/bootstrap/responsive";
 
+@title-size: 26px;
+@gray87:  #dedede;
+
+body.matches {
+  background-image: url("background.jpg");
+  background-repeat: repeat;
+  background-position: rigth-bottom;
+}
 .makeFluidRow(){
   width: 100%;
   .clearfix();
@@ -17,58 +25,66 @@
 }
 
 
-.container-layout {
+.container_match{
   .makeFluidRow();
   .makeFluidCol(11, 0.2);
 
   @media (max-width: 979px) {
     margin-top: 40px;
   }
-  .well;
+  
+  .title_match_edit{
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: @baseLineHeight;
+    font-size: @baseFontSize * 1.5;
+    line-height: @baseLineHeight * 2;
+    color: @white;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+
+    // Small
+    small {
+      font-size: @baseLineHeight * .75;
+      color: @grayLight;
+    }
+  }
 }
 
 .btn_create{
   
 }
 
-.match-local {
+.team{
   .well;
   margin-top: 10px;
   padding: 20px;
   .makeFluidCol(4);
     .center-block();
-      .title_match {
-        #font > .shorthand(50px, normal, 50px);
-        text-align: center;
-      }
+}
+.name_team {
+  #font > .shorthand(50px, normal, 50px);
+  text-align: center;
 }
 
 .vs{
-  margin-top: 10px;
-  padding: 20px;
-  .makeFluidCol(2);
+  margin-top: 30px;
+  padding: 50px;
+  .makeFluidCol(1);
   .center-block();
-    .title{
+    .title_vs{
       #font > .shorthand(60px, normal, 95px);
       text-align: center;
+      color: @white;
+      font-weight: bold;
     }
 }
 
-.match-visit {
-  .well;
-  margin-top: 10px;
-  padding: 20px;
-  .makeFluidCol(4);
-    .center-block();
-      .title_match {
-        #font > .shorthand(50px, normal, 50px);
-        text-align:center;
-      }
-}
-.field{
+.select_field{
     margin-top: 10px;
     padding: 20px;
-    .makeFluidCol(11);
+    .makeFluidCol(10,0.2);
     .center-block();
     .well;
     #font > .shorthand(17px, bold, 17px);
@@ -81,36 +97,43 @@
     }
 }
 
-.goals_local{
-    margin-top: 10px;
-    padding: 20px;
-    .makeFluidCol(5);
-    .center-block();
-    .well;
-    #font > .shorthand(17px, bold, 17px);
-    text-align: left;
+.team_goals{
+  .well;
+  margin-top: 10px;
+  padding: 20px;
+  .makeFluidCol(4);
+  .center-block();
+  #font > .shorthand(17px, bold, 17px);
+  text-align: left;
 }
 
-.goals_visit{
-    margin-top: 10px;
-    padding: 20px;
-    .makeFluidCol(5);
-    .center-block();
-    .well;
-    #font > .shorthand(17px, bold, 17px);
-    text-align: left;
-}
 .goal{
   .input-small;
 }
 
 
 .button_edit_match{
-  .makeFluidCol(1,0);
+  .makeFluidCol(11,0);
   vertical-align: bottom;
   text-align: left;
 }
 .edit_button{
   .btn;
   .btn-info;
+}
+
+.goals-table {
+  .table;
+  .table-bordered;
+  tr > th { #gradient > .vertical(@gray87, @white ) }
+  tr > th,{
+    .text-center;
+    padding: 8px;
+  } 
+  tr > td {
+    .text-center;
+    padding: 8px;
+    font-size: 11pt;
+    color: @black;
+  }
 }
