@@ -1,0 +1,27 @@
+= t("matches.edit.title_goal") 
+.goals-table
+  %table
+    %thead
+      %tr
+        %th 
+          =t("matches.edit.surname")
+        %th
+          =t("matches.edit.name")
+        %th 
+          =t("matches.edit.count")
+        %th 
+          =t("matches.edit.accion")
+    %tbody
+    - @match.goals.each do |goal|
+      -if goal.team_user.team == team
+        %tr
+          %td 
+            = goal.team_user.player.name
+          %td 
+            = goal.team_user.player.profile.surname  
+          %td 
+            = goal.count
+          %td 
+            = link_to t("matches.edit.delete_goal"), match_goal_path(@match,goal), method: 'delete'
+= link_to t("matches.edit.add_goal"), new_match_goal_path(@match,team), method: 'get'
+                    
