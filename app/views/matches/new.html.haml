@@ -4,7 +4,7 @@
     %legend.title
       = t('.title')
 
-    = form_for @match do |f|
+    = form_for @match, url: match_goals_path(@match, @goal) do |f|
       = errors_for(@match).html_safe
       
       = render  "team", :f => f

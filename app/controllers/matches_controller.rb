@@ -40,6 +40,7 @@ class MatchesController < ApplicationController
   def edit
     @match = Match.find(params[:id])
     @locations = Location.all
+    @local_players =  @match.local.players
   end
 
   def update
