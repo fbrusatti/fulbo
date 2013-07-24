@@ -1,0 +1,30 @@
+.team
+  .name_team
+    = @match.local.name
+    %br
+    = profile_badge(@match.local.profile,:badge)
+.vs
+  .title_vs
+    = t('matches.new.vs')    
+.team
+  .name_team
+    = @match.visitor.name
+    = profile_badge(@match.visitor.profile,:badge)
+
+.team_goals
+  = render "goal", :team => @match.local
+.vs  
+.team_goals  
+  = render "goal", :team => @match.visitor
+
+.select_field
+  = f.fields_for :reservation_attributes do |builder|
+    = t('matches.edit.select_field')
+    %br
+    - options = option_groups_from_collection_for_select(@locations,:fields, :name, :id, :name, @match.reservation.field_id)
+    = builder.select :field_id, options 
+  
+    .date_time
+      = t('matches.new.select_date')
+      %br
+      = builder.datetime_select :reservation_date,{ :order => [:day, :month, :year, :hour,:minute], :default => @match.reservation.reservation_date} ,:class => 'option-large'   
