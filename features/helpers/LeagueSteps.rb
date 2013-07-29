@@ -14,4 +14,17 @@ module LeagueSteps
     has_button?(I18n.t('leagues.show.btn_edit')) &&
     has_button?(I18n.t('leagues.show.btn_delete'))
   end
+
+  def has_fixture_delete_button?
+    has_content? I18n.t('leagues.edit.destroy_fixture')
+  end
+
+  def has_disable_buttons_of_teams?
+    has_css?(".btn.btn-small.btn-danger.disabled") &&
+    has_css?(".btn.btn-small.btn-primary.disabled")
+  end
+
+  def has_disable_fixture_generate_button?
+    has_css?("a.generate-fixture.disabled")
+  end
 end
