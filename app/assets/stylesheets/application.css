@@ -12,6 +12,7 @@
  *= require jquery.fancybox
  *= require jquery.Jcrop
  *= require token-input-bootstrappy
+ *= require bootstrap-datetimepicker.min
  *= require_self
  *= require_tree .
  */
