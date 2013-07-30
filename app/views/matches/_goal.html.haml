@@ -10,7 +10,7 @@
         %th 
           =t("matches.edit.count")
         %th 
-          =t("matches.edit.accion")
+          = title_table_goal(action)    
     %tbody
     - @match.goals.each do |goal|
       -if goal.team_user.team == team
@@ -22,6 +22,8 @@
           %td 
             = goal.count
           %td 
-            = link_to t("matches.edit.delete_goal"), match_goal_path(@match,goal), method: 'delete'
-= link_to t("matches.edit.add_goal"), new_match_goal_path(@match,team), method: 'get'
+            = column_table_goal(action, goal, @match)
+
+=button_add_goals(action, @match,team)
+  
                     

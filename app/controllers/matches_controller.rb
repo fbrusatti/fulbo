@@ -34,7 +34,7 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @match.destroy
     flash[:notice] = t('flash.match', message: t('flash.destroyed'))
-    respond_with(@match)
+    redirect_to new_match_path
   end
 
   def edit
@@ -48,7 +48,7 @@ class MatchesController < ApplicationController
     if @match.update_attributes(params[:match])
       flash[:success] = t('flash.match', message: t('flash.updated'))
     end
-    respond_with @match, location: edit_match_path(@match)
+    respond_with @match, location: match_path(@match)
   end
 
   private

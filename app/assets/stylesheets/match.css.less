@@ -50,13 +50,28 @@ body.matches {
       color: @grayLight;
     }
   }
+
+  .title_show_match{
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: @baseLineHeight;
+    font-size: @baseFontSize * 1.5;
+    line-height: @baseLineHeight * 2;
+    color: @white;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+
+    // Small
+    small {
+      font-size: @baseLineHeight * .75;
+      color: @grayLight;
+    }
+  }
 }
 
-.btn_create{
-  
-}
-
-.select_teams{
+.container_teams{
   .makeFluidCol(12);
   .team{
     .well;
@@ -87,13 +102,14 @@ body.matches {
 
 
 .select_field{
+    .makeFluidCol(10);
+    .well;
     margin-top: 10px;
     padding: 20px;
-    .makeFluidCol(11);
-    .center-block();
-    .well;
+    // .center-block();
     #font > .shorthand(17px, bold, 17px);
-    text-align: left;
+    // text-align: left;
+    vertical-align: bottom;
     
     .date_time{
       .option-large {
@@ -102,7 +118,7 @@ body.matches {
     }
 }
 
-.edit_goals{
+.container_goals{
   .makeFluidCol(12);
   .team_goals{
     .well;
@@ -125,15 +141,19 @@ body.matches {
   .input-small;
 }
 
-
-.button_edit_match{
+.container_button_match{
   .makeFluidCol(11);
   vertical-align: bottom;
   text-align: left;
-}
-.edit_button{
+}    
+
+.match_button{
   .btn;
   .btn-info;
+}
+.match_button_delete{
+  .btn;
+  .btn-danger;
 }
 
 .goals-table {

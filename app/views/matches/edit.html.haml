@@ -5,5 +5,5 @@
   = form_for @match do |f|
     = errors_for(@match).html_safe
     = render  "data_edit", :f => f
-    .button_edit_match    
-      = f.submit t('.btn_edit') , class:'edit_button'
+    .container_button_match    
+      = f.submit t('matches.btn_edit') , class:'match_button'
