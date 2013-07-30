@@ -1,0 +1,92 @@
+$(document).ready(function() {
+
+  hide_fixture_times_and_places();
+
+  $('a#next_step').on("click", function(e){
+    e.preventDefault();
+    if ($("input:checked").length === 0) {
+      alert("<%= I18n.t('fixtures.new.there_is_no_day_selected') %>");
+    } else {
+      $.ajax({
+        type: "GET",
+        url: this.href,
+        dataType: "html",
+        data: {days: get_days($("input:checked"))}
+      }).done(function(data, textStatus, xhr){
+        $(".fixture-days").remove();
+        $(".fixture-time-and-place").show();
+        $(".fixture-time-and-place").append(data);
+        $("#next_step").closest("li").hide();
+        $(".pick_time_fixture").datetimepicker({
+          pickDate: false,
+          pickSeconds: false,
+          pick12HourFormat: true,
+          maskInput: true
+        });
+        $(document).on("click", ".btn-create-fixture", check_fields);
+        $(document).on("click", ".btn-create-fixture", check_time);
+      });
+    }
+  });
+
+  $(document).on(
+          "click",
+          ".fixture-time-and-place .fixture-place [type=checkbox]:not(:checked)",
+          function(){
+    var form_day = $(this).closest('.time-and-place');
+    var amount_field = parseInt(form_day.data("field")) - 1;
+    form_day.data("field", amount_field);
+  });
+
+  $(document).on("click",
+                 ".fixture-time-and-place .fixture-place [type=checkbox]:checked",
+                 function(){
+    var form_day = $(this).closest('.time-and-place');
+    var amount_field = parseInt(form_day.data("field")) + 1;
+    form_day.data("field", amount_field);
+  });
+
+});
+
+function check_fields(e){
+  $(".time-and-place").each( function(){
+    var amount_fields = parseInt($(this).data("field"));
+    if (amount_fields <= 0) {
+      e.preventDefault();
+      alert("<%= I18n.t('fixtures.new.there_is_no_field_selected') %>");
+      $(".fixture-place", this).effect("highlight", {}, 3000);
+      return false;
+    }
+  });
+}
+
+function check_time(e){
+  var time_from, time_to;
+  $(".fixture-time").each( function(){
+    time_from  = $("#rules__time_from", this).prop("value");
+    time_to  = $("#rules__time_to", this).prop("value");
+    time_from = Date.parse("1-1-2000 " + time_from);
+    time_to = Date.parse("1-1-2000 " + time_to);
+    if (time_from >= time_to){
+      e.preventDefault();
+      alert("<%= I18n.t('fixtures.new.wrong_time_introduced') %>");
+      $(this).effect("highlight", {}, 3000);
+      return false;
+    }
+  });
+}
+
+function get_days(day_checkboxes){
+  var days = new Array();
+  for (var i = 0; i < day_checkboxes.length; i++){
+    days[i] = day_checkboxes[i].id;
+  }
+  return days;
+}
+
+function hide_fixture_times_and_places(){
+  var has_div = $(".fixture-days").length > 0
+  if(has_div) {
+    $(".fixture-time-and-place").hide();
+  }
+}

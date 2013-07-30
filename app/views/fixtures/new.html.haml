@@ -1,0 +1,17 @@
+.container-fixture
+  .fixture-days
+    .title-new-fixture
+      = t(".title_days")
+    = fixture_days
+  .fixture-time-and-place
+    .title-new-fixture
+      = t(".title_times_and_places")
+  %ul
+    %li
+      = link_to t(".back_step"),
+                new_league_fixture_path(@league),
+                id: "back_step"
+    %li
+      = link_to t(".next_step"),
+                new_league_fixture_path(@league),
+                id: "next_step"
