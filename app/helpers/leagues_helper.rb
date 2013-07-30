@@ -51,4 +51,19 @@ module LeaguesHelper
       form
     end
   end
+
+  def fixture_league_button(league)
+    if league.fixture.blank?
+      link_to t(".generate_fixture"),
+              new_league_fixture_path(league),
+              confirm: t(".fixture_confirm"),
+              class: "generate-fixture"
+    else
+      link_to t(".destroy_fixture"),
+              league_fixture_path(league),
+              method: :delete,
+              confirm: t(".fixture_confirm"),
+              class: "destroy-fixture"
+    end
+  end
 end
