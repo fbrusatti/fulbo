@@ -267,6 +267,8 @@ es:
         surface: Superficie
         description: Descripción
         geo_availability: Disponibilidad
+      goal:
+        team_user: Goleador  
       photo:
         name: Nombre
       match:
@@ -295,7 +297,9 @@ es:
     permission_league: No posee permiso para esta acción
     permission_field: No posee permiso para la cancha
     permission_sport_center: No posee permiso para editar este centro deportivo
+    not_duplicate_shoother: no se puede agregar de nuevo
     verify_team: Ya posee un equipo
+    verify_same_teams: No pueden enfrentarse los mismos equipos
     have_sport_center: Ya posee Complejo
     welcome: 'Bienvenido'
   navigation_bar:
@@ -313,6 +317,7 @@ es:
     about_us: Quiénes somos
     contact_us: Contactenos
     profile: Perfil
+    create_match: Crear Partido
   landing_page:
     comming_soon: Muy pronto
   teams:

@@ -33,7 +33,7 @@ body.matches {
     margin-top: 40px;
   }
   
-  .title_match_edit{
+  .title_match{
     display: block;
     width: 100%;
     padding: 0;
@@ -56,35 +56,40 @@ body.matches {
   
 }
 
-.team{
-  .well;
-  margin-top: 10px;
-  padding: 20px;
-  .makeFluidCol(4);
+.select_teams{
+  .makeFluidCol(12);
+  .team{
+    .well;
+    margin-top: 10px;
+    padding: 20px;
+    .makeFluidCol(4);
     .center-block();
-}
-.name_team {
-  #font > .shorthand(50px, normal, 50px);
-  text-align: center;
+  }
+  .name_team {
+    #font > .shorthand(50px, normal, 65px);
+    text-align: center;
+    // border: 20px;
+  }
+
+  .vs{
+    margin-top: 20px;
+    padding: 50px;
+    .makeFluidCol(1);
+    .center-block();
+      .title_vs{
+        #font > .shorthand(60px, normal, 95px);
+        text-align: center;
+        color: @white;
+        font-weight: bold;
+      }
+  }
 }
 
-.vs{
-  margin-top: 30px;
-  padding: 50px;
-  .makeFluidCol(1);
-  .center-block();
-    .title_vs{
-      #font > .shorthand(60px, normal, 95px);
-      text-align: center;
-      color: @white;
-      font-weight: bold;
-    }
-}
 
 .select_field{
     margin-top: 10px;
     padding: 20px;
-    .makeFluidCol(10,0.2);
+    .makeFluidCol(11);
     .center-block();
     .well;
     #font > .shorthand(17px, bold, 17px);
@@ -97,14 +102,23 @@ body.matches {
     }
 }
 
-.team_goals{
-  .well;
-  margin-top: 10px;
-  padding: 20px;
-  .makeFluidCol(4);
-  .center-block();
-  #font > .shorthand(17px, bold, 17px);
-  text-align: left;
+.edit_goals{
+  .makeFluidCol(12);
+  .team_goals{
+    .well;
+    margin-top: 10px;
+    padding: 20px;
+    .makeFluidCol(4);
+    .center-block();
+    #font > .shorthand(17px, bold, 17px);
+    text-align: left;
+  }
+  .vs{
+    margin-top: 20px;
+    padding: 50px;
+    .makeFluidCol(1);
+    .center-block();
+  }
 }
 
 .goal{
@@ -113,7 +127,7 @@ body.matches {
 
 
 .button_edit_match{
-  .makeFluidCol(11,0);
+  .makeFluidCol(11);
   vertical-align: bottom;
   text-align: left;
 }
@@ -125,6 +139,7 @@ body.matches {
 .goals-table {
   .table;
   .table-bordered;
+  overflow: auto;
   tr > th { #gradient > .vertical(@gray87, @white ) }
   tr > th,{
     .text-center;

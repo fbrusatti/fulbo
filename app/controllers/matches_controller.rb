@@ -2,8 +2,8 @@ class MatchesController < ApplicationController
   respond_to :html
 
   before_filter :authenticate_user!, only: [:new, :edit, :update]
-  before_filter :verify_permission, only: [:edit]
-  before_filter :verify_team, only: [:new]
+  before_filter :verify_permission_for_match, only: [:create, :edit]
+  before_filter :verify_same_teams, only: [:create]
 
   def index
     @matches = Match.all
@@ -19,7 +19,7 @@ class MatchesController < ApplicationController
     @match = Match.new(params[:match])
     if @match.save
       flash[:success] = t('flash.match', message: t('flash.created'))
-    end
+    end  
     respond_with @match, location: edit_match_path(@match)
   end
 
@@ -53,12 +53,16 @@ class MatchesController < ApplicationController
 
   private
 
-    def verify_permission
-    #   @match = Match.find(params[:id])
-    #   redirect_to(teams_path, notice: t('flash.permission_team')) unless current_user == @team.owner
+    def verify_permission_for_match
+      #be required: be owner of any team (local or visitor) 
+      #             or be owner of tourmentent
+      #             or be owner of sportCenter   
     end
 
-    def verify_team
-      # redirect_to(teams_path, notice: t('flash.verify_team')) unless current_user.team.blank?
+    def verify_same_teams
+      @match = Match.new(params[:match])
+      if @match.visitor == @match.local
+        redirect_to(new_match_path, notice: t('flash.verify_same_teams')) 
+      end  
     end
 end

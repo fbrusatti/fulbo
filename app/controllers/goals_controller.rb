@@ -13,6 +13,8 @@ class GoalsController < ApplicationController
     @goal = @match.goals.build(params[:goal])
     if @goal.save
       flash[:success] = t('flash.goal', message: t('flash.created'))
+    else  
+      flash[:success] = @goal.errors.full_messages.join(",")
     end
     respond_with @match, location: edit_match_path(@match)
   end

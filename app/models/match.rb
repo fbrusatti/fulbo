@@ -19,6 +19,14 @@ class Match < ActiveRecord::Base
   accepts_nested_attributes_for :reservation, :local , :visitor, :week
   accepts_nested_attributes_for :goals, :reject_if => :all_blank, :allow_destroy => true
 
+  def sum_goal(team)
+    total = 0
+    goals.each do |goal|
+      total = total + goal.count  if goal.team_user.team == team
+    end  
+    total
+  end  
+
   def visitor_tokens=(ids)
       self.visitor_id = ids
   end

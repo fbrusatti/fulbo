@@ -173,7 +173,9 @@ en:
     updated: updated
     permission_team: you don't have permisson
     permission_league: you don't have permisson
+    not_duplicate_shoother: Can not add.
     verify_team: you have a team
+    verify_same_teams: they can not play the same teams
     have_sport_center: you have a sport center
   navigation_bar:
     teams: Teams
@@ -185,6 +187,7 @@ en:
     session_status: "Signed in as %{user}"
     sport_center: My Sport Center
     sport_centers: Sport Centers
+    create_match: Create Match
   landing_page:
     comming_soon: Comming soon
   teams:
