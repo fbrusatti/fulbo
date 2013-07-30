@@ -3,23 +3,20 @@ es:
   landing_page:
     comming_soon: Muy pronto
   matches:
+    btn_edit: Editar Partido
+    select_field: Seleccionar Cancha
+    select_date: Seleccionar Día y Hora
+    local: Local
+    visit: Visitante  
+    vs: VS
     new:
       title: Crear Partido
-      local: Local
-      visit: Visitante  
       btn_create: Crear Partido
-      select_field: Seleccionar Cancha
-      select_date: Seleccionar Día y Hora
-      vs: VS
-    show: 
+    show:
+      description: Descripción
+      btn_delete: Borrar
     edit:
       title: Editar Partido
-      local: Local
-      visit: Visitante  
-      btn_edit: Editar Partido
-      select_field: Seleccionar Cancha
-      select_date: Seleccionar Día y Hora
-      vs: VS      
       goals: Goles
       add_goal: Agregar
       remove_goal: Eliminar
@@ -30,7 +27,6 @@ es:
       count: Cantidad
       accion: Acción
       delete_goal: Eliminar
-      add_goal: Agregar
   goals:
     new:
       title: Agregar Nuevo Gol

@@ -1,14 +1,14 @@
-.select_teams  
+.container_teams  
   .team
     .name_team
-      = t('matches.new.local')
+      = t('matches.local')
       = f.text_field :local_tokens
   .vs
     .title_vs
-      = t('matches.new.vs')    
+      = t('matches.vs')    
   .team
     .name_team
-      = t('matches.new.visit')
+      = t('matches.visit')
       = f.text_field :visitor_tokens
 
 / = f.fields_for :week_attributes do |w|
@@ -16,12 +16,12 @@
 /     = w.select :number, (0..20).to_a, class: "input-small"
 .select_field
   = f.fields_for :reservation_attributes do |builder|
-    = t('matches.new.select_field')
+    = t('matches.select_field')
     %br
     = builder.grouped_collection_select :field_id, @locations, :fields, :name,:id, :name
     
     .date_time
-      = t('matches.new.select_date')
+      = t('matches.select_date')
       %br
       = builder.datetime_select :reservation_date,{ :order => [:day, :month, :year, :hour,:minute], :reservation_date => Time.now.year} ,:class => 'option-large'
 

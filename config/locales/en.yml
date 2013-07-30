@@ -52,23 +52,22 @@ en:
       owner_header_row: Owner
       has_been_sent_affiliation: Already sent the affiliation request
   matches:
+    select_field: Select Field
+    select_date: Select Date and Time
+    vs: VS
+    local: Local
+    visit: Visitor
+    btn_edit: Edit Match       
     new:
       title: Create Match
       local: Local
       visit: Visit
       btn_create: Create Match       
-      select_field: Select Field
-      select_date: Select Date and Time
-      vs: VS
     show:
+      description: Description
+      btn_delete: Delete
     edit:
       title: Edit Match
-      local: Local
-      visit: Visit
-      btn_edit: Edit Match       
-      select_field: Select Field
-      select_date: Select Date and Time
-      vs: VS
       goals: Goals
       add_goal: Add
       remove_goal: Delete
@@ -79,7 +78,6 @@ en:
       count: Count
       accion: Accion
       delete_goal: Delete
-      add_goal: Add
   goals:
     new:
       title: Agregar Nuevo Gol

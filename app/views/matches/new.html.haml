@@ -6,7 +6,6 @@
     = errors_for(@match).html_safe
     
     = render  "select_teams", :f => f
-    .span2.offset0.2
-      %div
-        %button.btn.btn-info
-          .btn-block.pull-rigth{ :href => f.submit }= t('.btn_create')
+    .container_button_match    
+      = f.submit t('.btn_create') , class:'match_button'
+    
