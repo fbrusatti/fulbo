@@ -13,14 +13,14 @@ class ReservationsController < ApplicationController
       flash[:success] = t('flash.rent', message: t('flash.rented'))
     else
       flash[:error] = t('flash.rent_error')
+    end
 
     respond_to do |format|
       format.html {
         if @reservation.errors.present?
           @field = @reservation.field
-          @location = @reservation.field.location
-          @sport_center = @reservation.field.location.sport_center
-
+          @location = @field.location
+          @sport_center = @location.sport_center
           render 'fields/show'
         else
           redirect_to sport_centers_path
