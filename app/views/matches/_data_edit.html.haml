@@ -28,8 +28,9 @@
     %br
     - options = option_groups_from_collection_for_select(@locations,:fields, :name, :id, :name, @match.reservation.field_id)
     = builder.select :field_id, options 
-  
-    .date_time
+
+    .date_time.js-match_date_time.input-append
       = t('matches.select_date')
-      %br
-      = builder.datetime_select :reservation_date,{ :order => [:day, :month, :year, :hour,:minute], :default => @match.reservation.reservation_date} ,:class => 'option-large'   
+      = builder.text_field :reservation_date
+      %span.add-on
+        %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}

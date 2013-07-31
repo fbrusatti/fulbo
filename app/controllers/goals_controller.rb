@@ -3,9 +3,8 @@ class GoalsController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-    @goal = Goal.new
     @match = Match.find(params[:match_id])
-    @team = Team.find(params[:format])
+    @goal  = @match.goals.new
   end
 
   def create

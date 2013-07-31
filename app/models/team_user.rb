@@ -20,6 +20,6 @@ class TeamUser < ActiveRecord::Base
   attr_accessible :player
 
   def name_player
-  	 player.profile.surname + " " + player.name
+  	"#{player.profile.surname} #{player.name}"
   end
 end

@@ -12,12 +12,12 @@ class Goal < ActiveRecord::Base
   # == Validations
   validates_presence_of :count, :match, :team_user
   validates :description, length: {maximum: 200}
-  validate :not_duplicate_shoother
+  validate :not_duplicate_shooter
 
-  def not_duplicate_shoother
+  def not_duplicate_shooter
     shothers = Goal.where(match_id: match.id).where(team_user_id: team_user.id)
     if !shothers.blank?
-      errors.add(:team_user,I18n.t('flash.not_duplicate_shoother'))
+      errors.add(:team_user,I18n.t('flash.not_duplicate_shooter'))
     end  
   end  
 

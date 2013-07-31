@@ -3,6 +3,7 @@ es:
   landing_page:
     comming_soon: Muy pronto
   matches:
+    btn_save: Guardar
     btn_edit: Editar Partido
     select_field: Seleccionar Cancha
     select_date: Seleccionar Día y Hora

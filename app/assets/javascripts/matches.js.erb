@@ -29,3 +29,14 @@ $(function () {
     // + " <b style='color: red'>" + item.email+ "</b></p></li>" }
   });
 });
+
+$(function () {
+  $('.js-match_date_time').datetimepicker({
+    language: 'es',
+    maskInput: true,
+    pick12HourFormat: true,
+    format: 'dd/MM/yyyy hh:mm',
+    startDate: new Date(),
+    endDate: Infinity
+  });
+});
