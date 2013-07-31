@@ -35,10 +35,25 @@ Feature: League
     And I press accept button of the inscription
     Then I should see the team in list of teams that will play
 
-  @wip
-  Scenario:  Success generate League Fixture
+ @javascript
+  Scenario: Authorized to generate Fixture
     Given I am logged in like owner of a league
-    And I have a few teams registered in my League
-    When I go to the League page
-    And I click on button Generate League Fixture of League
-    Then I should see The fixture generated
+    And I have more than one team registered in my League
+    When I go to teams tag on the League page
+    And I click on button Generate Fixture of League
+    Then I should see the generate fixture page
+
+  @javascript
+  Scenario: Not Authorized to generate Fixture
+    Given I am logged in like owner of a league
+    And I have less than two teams registered in my League
+    When I go to teams tag on the League page
+    Then I should see the Fixture generate button disable
+
+  @javascript
+  Scenario: Fixture generated
+    Given I am logged in like owner of a league
+    And I have a fixture generated
+    When I go to teams tag on the League page
+    Then I should see disable the buttons to affiliate or unaffiliate
+    And I should see the delete fixture button

@@ -20,6 +20,7 @@
           .title-league
             = t(".my_teams_table")
           = render "edit_teams_table", collection: @teams, action: "remove"
+        = fixture_league_button(@league)
         .list-teams
           .title-league
             = t(".teams_table")
