@@ -83,3 +83,57 @@ end
 Then(/^I should see the buttons to edit and delete my league$/) do
   page.should have_edit_buttons
 end
+
+Given(/^I have a fixture generated$/) do
+  @league = @sport_center.leagues.last
+  3.times {
+    owner = FactoryGirl.create(:user)
+    @league.teams << FactoryGirl.create(:team, owner: owner)
+  }
+  requested_id = @league.id
+  requested_type = @league.class.name
+  owner = FactoryGirl.create(:user)
+  team = FactoryGirl.create(:team, owner: owner)
+  team.inscription_requesters.create(requested_id: requested_id,
+                                     requested_type: requested_type)
+  @league.fixture = FactoryGirl.create(:fixture)
+end
+
+When(/^I go to teams tag on the League page$/) do
+  visit edit_league_path(@league)
+  click_on I18n.t('leagues.edit.teams')
+end
+
+Then(/^I should see disable the buttons to affiliate or unaffiliate$/) do
+  page.should have_disable_buttons_of_teams
+end
+
+Then(/^I should see the delete fixture button$/) do
+  page.should have_fixture_delete_button
+end
+
+Given(/^I have more than one team registered in my League$/) do
+  @league = @sport_center.leagues.last
+  2.times {
+    owner = FactoryGirl.create(:user)
+    @league.teams << FactoryGirl.create(:team, owner: owner)
+  }
+end
+
+When(/^I click on button Generate Fixture of League$/) do
+  click_on I18n.t("leagues.edit.generate_fixture")
+end
+
+Then(/^I should see the generate fixture page$/) do
+  current_path.should == new_league_fixture_path(@league)
+end
+
+Given(/^I have less than two teams registered in my League$/) do
+  @league = @sport_center.leagues.last
+  owner = FactoryGirl.create(:user)
+  @league.teams << FactoryGirl.create(:team, owner: owner)
+end
+
+Then(/^I should see the Fixture generate button disable$/) do
+  page.should have_disable_fixture_generate_button
+end

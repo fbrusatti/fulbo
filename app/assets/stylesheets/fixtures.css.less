@@ -1,0 +1,155 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+@title-small-size: 18px;
+@title-very-small-size: 16px;
+@title-size: 26px;
+@radius: 5px;
+@shadow: 0 1px 3px rgba(0,0,0,.25);
+@gray87:  #dedede;
+
+.center {
+  margin-left:auto;
+  margin-right:auto;
+  width:70%;
+}
+
+.wellBox() {
+  background-color: @grayLighter;
+  .border-radius(@radius);
+  .box-shadow(@shadow);
+  #gradient > .radial(@grayLighter, @gray87);
+}
+
+body.fixtures {
+  background-image: url("background.jpg");
+  background-repeat: repeat;
+  background-position: rigth-bottom;
+}
+
+.makeFluidRow() {
+  width: 100%;
+  .clearfix();
+}
+
+.makeFluidCol(@span:1, @offset:0){
+  float: left;
+  #grid > .fluid .span(@span);
+  #grid > .fluid .offset(@offset);
+  &:first-child {
+      margin-left: 0;
+      .offsetFirstChild(@offset);
+  }
+}
+
+.container-fixture {
+  .well;
+  padding: 20px;
+  margin-top: 20px;
+  ul {
+    li:first-child {
+      .btn;
+      border-radius: 15px;
+    }
+    li:last-child {
+      .pull-right;
+      .btn;
+      border-radius: 15px;
+      margin-right: 10px;
+    }
+
+  }
+}
+
+.fixture-days {
+
+  .check_days {
+    .wellBox;
+    .center;
+    padding: 10px;
+    input[type=checkbox] {
+      float: left;
+      margin-right: 20px;
+    }
+    input[type=checkbox]:checked + label[for=day_label] {
+      font-weight: bold;
+    }
+  }
+}
+
+.title-new-fixture {
+    .wellBox();
+    .center;
+    .text-center;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: @title-size;
+    font-weight: bold;
+}
+
+.fixture-time-and-place {
+  .makeFluidRow();
+  .makeFluidCol(@gridColumns);
+}
+
+.time-and-place {
+  margin-top: 5px;
+  .makeFluidRow();
+  .wellBox();
+  .title-time-and-place {
+    .text-left;
+    margin: 5px;
+    font-size: @title-small-size;
+    font-weight: bold;
+    border: 5px;
+  }
+}
+
+.fixture-time {
+  .makeFluidCol(4);
+  .form-horizontal;
+  .control-group;
+  .time-label {
+    .control-label;
+    margin-right: 5px;
+  }
+  .time-field {
+    .controls;
+    .input-small;
+    margin-left: 5px;
+  }
+}
+
+.fixture-place {
+  .makeFluidCol(4);
+  margin-left: 30px;
+  input[type=checkbox] {
+   float: left;
+   margin-right: 20px;
+  }
+  input[type=checkbox]:checked + label[for=place_label] {
+      font-weight: bold;
+  }
+}
+
+.fixture-label-text {
+  .makeFluidCol(1);
+  .text-center;
+  margin: 5px;
+  margin-top: 10px;
+  font-size: @title-very-small-size;
+  font-weight: bold;
+}
+
+.btn-create-fixture {
+  margin-top: 20px;
+  .btn;
+  .btn-success;
+  .pull-right;
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
+.pick_time_fixture {
+  .input-append;
+}

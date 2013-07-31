@@ -7,6 +7,7 @@
 
   resources :leagues do
     resources :affiliations, only: [:create, :destroy]
+    resource :fixture
   end
 
   resources :teams do

@@ -1,0 +1,30 @@
+= form_tag league_fixture_path do
+  - @days.each do |day|
+    .time-and-place{ "data-field" => 0 }
+      = hidden_field_tag "rules[][day]", day
+      .title-time-and-place
+        = "#{I18n.t('fixtures.new.title')}: #{I18n.t("date.day_names")[day.to_i]}"
+      .fixture-label-text
+        = "#{I18n.t("fixtures.new.text_time")}:"
+      .fixture-time
+        = label_tag I18n.t("fixtures.new.start"), nil, class: "time-label"
+        .pick_time_fixture
+          = text_field_tag "rules[][#{:time_from}]","15:00", class: "time-field",
+                           "data-format" => "hh:mm"
+          .add-on
+            %i{ "data-time-icon" => "icon-time",
+                "data-date-icon" => "icon-calendar" }
+        = label_tag I18n.t("fixtures.new.finish"), nil, class: "time-label"
+        .pick_time_fixture
+          = text_field_tag "rules[][#{:time_to}]", "16:00", class: "time-field",
+                           "data-format" => "hh:mm"
+          .add-on
+            %i{ "data-time-icon" => "icon-time",
+                "data-date-icon" => "icon-calendar" }
+      .fixture-label-text
+        = "#{I18n.t("fixtures.new.text_place")}:"
+      .fixture-place
+        = fixture_places(@league)
+  = submit_tag I18n.t("fixtures.new.create_fixture"),
+               confirm: I18n.t("fixtures.new.confirm_create"),
+               class: "btn-create-fixture"

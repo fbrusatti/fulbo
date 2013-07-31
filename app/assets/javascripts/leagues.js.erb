@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  var players_league = $("#remove-table tr").length;
+  handle_button_new_fixture (players_league);
+  handle_button_delete_fixture();
+
   $(".affiliation")
     .on("ajax:beforeSend", function() {
       $.fancybox.showLoading();
@@ -18,4 +22,39 @@ $(document).ready(function() {
      var btn = "<div class='btn btn-primary disabled'>"+ msj +"</div>"
      $("#new_request_inscription").html(btn);
   });
+
+  $(document).on("click",".unaffiliation",function(){
+    players_league--;
+    handle_button_new_fixture(players_league);
+  });
+
+  $(document).on("click",".affiliation",function(){
+    players_league++;
+    handle_button_new_fixture(players_league);
+  });
+
 });
+
+function handle_button_new_fixture (players_league){
+  var button = $('a.generate-fixture');
+  if (players_league > 2) {
+    $(document).off("click","a.generate-fixture",prevent_action_fixture);
+    button.removeClass("disabled");
+  } else {
+    $(document).on("click","a.generate-fixture",prevent_action_fixture);
+    button.addClass("disabled");
+  }
+}
+
+function prevent_action_fixture(event){
+  event.preventDefault();
+}
+
+function handle_button_delete_fixture(){
+  var button = $(".destroy-fixture");
+  if(button.length > 0){
+    var buttons = $('.list-teams input[name=commit]');
+    buttons.addClass("disabled");
+    buttons.click(buttons,prevent_action_fixture);
+  }
+}

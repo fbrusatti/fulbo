@@ -2,6 +2,21 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  fixtures:
+    new:
+      wrong_time_introduced: Please assign a higher value on Finish Time that Start Time
+      text_place: Places
+      text_time: Time
+      title_times_and_places: Times and Places
+      title_days: Days where will play the league
+      back_step: Older
+      next_step: Next Step
+      create_fixture: Create
+      finish: Finish
+      start: Start
+      title: The day
+      there_is_no_field_selected: Lack select some Field
+      confirm_create: Are you sure?
   leagues:
     index:
       title: Leagues
@@ -17,17 +32,21 @@ en:
       point_system_title: Point System of League
       btn_submit: Save
     edit:
+      destroy_fixture: Delete Fixture
+      fixture_confirm: Are you sure?
+      generate_fixture: Generate Fixture
       btn_save: Save
       teams: Teams
       information: Information
       limit_of_teams: You have arrived to limit of teams
       title: Edit your League
-      my_teams_table: My teams
-      teams_table: Teams
+      my_teams_table: Teams inscribed
+      teams_table:  Teams to inscribe
       action_delete: Delete
       action_affiliate: Affiliate
       team_header_row: Team
       owner_header_row: Owner
+      fixture: Fixture
     show:
       title: League
       data: information of League
@@ -62,7 +81,10 @@ en:
       title: Create Match
       local: Local
       visit: Visit
-      btn_create: Create Match       
+      btn_create: Create Match
+      select_field: Select Field
+      select_date: Select Date and Time
+      vs: VS
     show:
       description: Description
       btn_delete: Delete
@@ -85,6 +107,12 @@ en:
       count: Cantidad de Goles
       description: Descripción
       btn_submit: Agregar    
+      local: Local
+      visit: Visit
+      btn_edit: Edit Match
+      select_field: Select Field
+      select_date: Select Date and Time
+      vs: VS
   user_profile:
     playing_position:
       Goalkeeper: Goalkeeper
@@ -159,6 +187,7 @@ en:
         field: Field
         reservation_date: Reservation
   flash:
+    fixture: "Successfully %{message} the Fixture of de League %{name}"
     error_update_form: There was a problem updating
     error_create_form: There was a problem creating
     league: "Successfully %{message} the League %{name}"
