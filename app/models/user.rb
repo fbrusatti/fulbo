@@ -51,6 +51,8 @@ class User < ActiveRecord::Base
   
   has_many :authorizations
 
+  has_many :reservations
+
   before_create :init_profile
 
   validate :name, :email, :presence => true

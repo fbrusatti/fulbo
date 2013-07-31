@@ -22,6 +22,10 @@
 
   resources :users, only:[:index]
 
+  resources :fields do
+    resources :reservations, only: [:create]
+  end
+
   resources :fields, only:[:index]
 
   resources :locations do

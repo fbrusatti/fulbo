@@ -1,25 +1,30 @@
-
 .container
   .container-layout
     %legend.title
       = t('.title')
 
     .sport-centers
-      %ul
+      %ul.thumbnails
         - @sport_centers.each do |sc|
           %li.sport-center
-            .name
-              = sc.name
-            .address
-              = "#{t('.address')}:"
-              = sc.address
-            .phone
-              = "#{t('.phone')}:"
-              = sc.phone
+            %img.pull-left.span2.clearfix{:alt => "Team_Picture", :src => image_path("sport_center.jpg"), :style => "margin-right:10px", :size => "64x64"}/
+            .pull-left
+              .name
+                %h4
+                  %a{:class => "media-heading"}
+                    = link_to "#{sc.name}", sc
+              .address
+                = "#{t('.address')}:"
+                = sc.address
+              .phone
+                = "#{t('.phone')}:"
+                = sc.phone
 
-            %ul.fields
-              .title_fields
-                = t('.title_fields')
-              - sc.fields.each do |f|
-                %li.field
-                  = f.name
+              %ul.fields
+                .title_fields
+                  %h4
+                    = t('.title_fields')
+                - sc.fields.each do |field|
+                  %h4
+                  %a{:class => "media-heading"}
+                    = link_to "#{field.name}", location_field_path(field.location_id, field)

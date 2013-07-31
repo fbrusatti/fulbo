@@ -10,8 +10,11 @@
 .user_profile_positions
   = user_profile_positions(f)
 
-= f.label :dob
-= f.text_field :dob, {:"data-date-format" => "dd/mm/yy", :class => 'datepicker'}
+#user_profile_datepicker.input-append
+  = f.label :dob
+  = f.text_field :dob, :data_format => "yyyy - mm - dd", :type => "text"
+  %span.add-on
+    %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
 
 = f.label :locality
 = f.text_field :locality
