@@ -1,0 +1,36 @@
+.container_match
+  .title_show_match
+    = @match.reservation.field.complete_name     
+    %br
+    = I18n.localize(@match.reservation.reservation_date, format: :long)
+    
+
+.container_teams  
+  .team
+    .name_team
+      = @match.local.name 
+      (#{@match.sum_goal(@match.local)})
+      %br
+      = profile_badge(@match.local.profile,:badge)
+  .vs
+    .title_vs
+      = t('matches.vs')    
+  .team
+    .name_team
+      = @match.visitor.name
+      (#{@match.sum_goal(@match.visitor)})
+      %br
+      = profile_badge(@match.visitor.profile,:badge)
+
+.container_goals
+  .team_goals
+    = render "goal", :team => @match.local, :action => 'show'
+  .vs  
+  .team_goals  
+    = render "goal", :team => @match.visitor, :action => 'show'
+
+.container_button_match
+  - if user_permission?
+    = link_to t('matches.btn_edit'), edit_match_path(@match), class: 'match_button'
+    = link_to t('.btn_delete'),match_path(@match), method: :delete,
+              confirm: t('are_you_sure'), class: 'match_button_delete'    

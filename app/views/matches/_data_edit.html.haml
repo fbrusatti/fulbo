@@ -1,0 +1,36 @@
+.container_teams  
+  .team
+    .name_team
+      = @match.local.name 
+      (#{@match.sum_goal(@match.local)})
+      %br
+      = profile_badge(@match.local.profile,:badge)
+  .vs
+    .title_vs
+      = t('matches.vs')    
+  .team
+    .name_team
+      = @match.visitor.name
+      (#{@match.sum_goal(@match.visitor)})
+      %br
+      = profile_badge(@match.visitor.profile,:badge)
+
+.container_goals
+  .team_goals
+    = render "goal", :team => @match.local, :action => 'edit'
+  .vs  
+  .team_goals  
+    = render "goal", :team => @match.visitor, :action => 'edit'
+
+.select_field
+  = f.fields_for :reservation_attributes do |builder|
+    = t('matches.select_field')
+    %br
+    - options = option_groups_from_collection_for_select(@locations,:fields, :name, :id, :name, @match.reservation.field_id)
+    = builder.select :field_id, options 
+
+    .date_time.js-match_date_time.input-append
+      = t('matches.select_date')
+      = builder.text_field :reservation_date
+      %span.add-on
+        %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}

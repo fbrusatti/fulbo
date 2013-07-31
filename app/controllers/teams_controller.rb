@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
   end
 
   def index
-    @teams = Team.where("name like ?", "%#{params[:q]}%")
+    @teams = Team.where("name ILIKE ?", "%#{params[:q]}%")
     respond_to do |format|
       format.html
       format.json { render :json => @teams.map(&:attributes)}

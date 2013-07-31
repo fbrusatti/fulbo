@@ -4,8 +4,6 @@
 
   = form_for @match do |f|
     = errors_for(@match).html_safe
-    
-    = render  "select_teams", :f => f
+    = render  "data_edit", :f => f
     .container_button_match    
-      = f.submit t('.btn_create') , class:'match_button'
-    
+      = f.submit t('matches.btn_save') , class:'match_button'

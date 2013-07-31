@@ -1,0 +1,25 @@
+.container_goal
+  .title_goal
+    = t('.title')
+
+  = form_for @goal, url: match_goals_path(@match, @goal) do |f|
+    = errors_for(@goal).html_safe
+
+    .information_goal
+      .data_goal
+        = (t'.name')
+        %br
+        = f.collection_select :team_user_id, @team.team_users,:id ,:name_player, {include_blank: false}
+        %br
+        = (t'.count')
+        %br
+        = f.select :count, (1..50).to_a, {include_blank: false}, {class:'goal'}
+        %br
+        = (t'.description')
+        %br
+        = f.text_area :description, {class:'description_goal'}
+   
+      = f.submit t('.btn_submit'),{class: "button_create_goal"}
+
+
+    

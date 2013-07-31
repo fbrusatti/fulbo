@@ -16,4 +16,10 @@ class TeamUser < ActiveRecord::Base
   belongs_to :player, foreign_key: "user_id", class_name: "User"
   has_many :goals
   has_many :cards
+
+  attr_accessible :player
+
+  def name_player
+  	"#{player.profile.surname} #{player.name}"
+  end
 end

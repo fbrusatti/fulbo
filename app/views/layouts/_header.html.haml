@@ -37,12 +37,11 @@
                   = link_to t('navigation_bar.leagues'), leagues_path
                 %li
                   = link_to t('navigation_bar.teams'), teams_path
-                %li
-                  %a{:href => new_match_path} Crear Partido
                 %li.divider
                 %li.nav-header MqE
 
                 - if user_signed_in?
+                  %li= link_to t('navigation_bar.create_match'),new_match_path
                   %li= link_to t('navigation_bar.profile'), user_profile_path(current_user)
                   %li= link_to t('navigation_bar.sign_out'), destroy_user_session_path, method: 'delete'
                 -else

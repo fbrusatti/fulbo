@@ -27,7 +27,9 @@
     resources :fields
   end
 
-  resources :matches
+  resources :matches do
+    resources :goals, only: [:create, :destroy, :new]
+  end
 
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :path => "" do
