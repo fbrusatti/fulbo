@@ -3,23 +3,38 @@ es:
   landing_page:
     comming_soon: Muy pronto
   matches:
+    btn_save: Guardar
+    btn_edit: Editar Partido
+    select_field: Seleccionar Cancha
+    select_date: Seleccionar Día y Hora
+    local: Local
+    visit: Visitante  
+    vs: VS
     new:
       title: Crear Partido
-      local: Local
-      visit: Visitante  
       btn_create: Crear Partido
-      select_field: Seleccionar Cancha
-      select_date: Seleccionar Día y Hora
-      vs: VS
-    show: 
+    show:
+      description: Descripción
+      btn_delete: Borrar
     edit:
       title: Editar Partido
-      local: Local
-      visit: Visitante  
-      btn_edit: Editar Partido
-      select_field: Seleccionar Cancha
-      select_date: Seleccionar Día y Hora
-      vs: VS      
+      goals: Goles
+      add_goal: Agregar
+      remove_goal: Eliminar
+      no_register: No Registrado
+      title_goal: Goles
+      surname: Apellido
+      name: Nombre
+      count: Cantidad
+      accion: Acción
+      delete_goal: Eliminar
+  goals:
+    new:
+      title: Agregar Nuevo Gol
+      name: Nombre del Goleador
+      count: Cantidad de Goles
+      description: Descripción
+      btn_submit: Agregar
   user_profile:
     playing_position:
       Goalkeeper: Arquero
@@ -249,6 +264,8 @@ es:
         surface: Superficie
         description: Descripción
         geo_availability: Disponibilidad
+      goal:
+        team_user: Goleador  
       photo:
         name: Nombre
       match:
@@ -268,6 +285,7 @@ es:
     field: "Exitosamente se a %{message} la cancha"
     team: "Exitosamente se a %{message} el equipo"
     match: "Exitosamente se a %{message} el partido"
+    goal: "Exitosamente se a %{message} un gol"
     created: creado
     destroyed: borrado
     updated: actualizado
@@ -276,7 +294,9 @@ es:
     permission_league: No posee permiso para esta acción
     permission_field: No posee permiso para la cancha
     permission_sport_center: No posee permiso para editar este centro deportivo
+    not_duplicate_shoother: no se puede agregar de nuevo
     verify_team: Ya posee un equipo
+    verify_same_teams: No pueden enfrentarse los mismos equipos
     have_sport_center: Ya posee Complejo
     welcome: 'Bienvenido'
   navigation_bar:
@@ -294,6 +314,7 @@ es:
     about_us: Quiénes somos
     contact_us: Contactenos
     profile: Perfil
+    create_match: Crear Partido
   landing_page:
     comming_soon: Muy pronto
   teams:
@@ -320,6 +341,7 @@ es:
       confirm: ¿Está seguro?
       players: Jugadores
       playing_position: Posición de juego
+      badge_team: Escudo del Equipo
       surfaces:
         sand: arena
         grass: césped

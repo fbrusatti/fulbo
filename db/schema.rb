@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710030325) do
+ActiveRecord::Schema.define(:version => 20130717173124) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -71,6 +71,9 @@ ActiveRecord::Schema.define(:version => 20130710030325) do
     t.integer  "team_user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "time"
+    t.string   "type"
+    t.string   "description"
   end
 
   add_index "cards", ["match_id"], :name => "index_cards_on_match_id"
@@ -109,6 +112,9 @@ ActiveRecord::Schema.define(:version => 20130710030325) do
     t.integer  "team_user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "time"
+    t.string   "description"
+    t.integer  "count"
   end
 
   add_index "goals", ["match_id"], :name => "index_goals_on_match_id"
@@ -189,10 +195,12 @@ ActiveRecord::Schema.define(:version => 20130710030325) do
     t.datetime "reservation_date"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "user_id"
   end
 
   add_index "reservations", ["field_id"], :name => "index_reservations_on_field_id"
   add_index "reservations", ["match_id"], :name => "index_reservations_on_match_id"
+  add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"
 
   create_table "sport_centers", :force => true do |t|
     t.string   "name"

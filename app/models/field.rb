@@ -24,4 +24,8 @@ class Field < ActiveRecord::Base
    # == Associations
   belongs_to :location
   has_many :reservations
+
+  def complete_name
+  	name + " (#{location.sport_center.name} , #{location.name})" 
+  end	
 end

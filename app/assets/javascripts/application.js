@@ -25,5 +25,6 @@
 //= require landing_page
 //= require jquery.tokeninput.js
 //= require team_players.js.erb
+//= require cocoon
 //= require bootstrap-datetimepicker.min
 //= require_tree .

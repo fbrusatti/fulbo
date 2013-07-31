@@ -52,23 +52,39 @@ en:
       owner_header_row: Owner
       has_been_sent_affiliation: Already sent the affiliation request
   matches:
+    select_field: Select Field
+    select_date: Select Date and Time
+    vs: VS
+    local: Local
+    visit: Visitor
+    btn_edit: Edit Match       
     new:
       title: Create Match
       local: Local
       visit: Visit
       btn_create: Create Match       
-      select_field: Select Field
-      select_date: Select Date and Time
-      vs: VS
     show:
+      description: Description
+      btn_delete: Delete
     edit:
       title: Edit Match
-      local: Local
-      visit: Visit
-      btn_edit: Edit Match       
-      select_field: Select Field
-      select_date: Select Date and Time
-      vs: VS
+      goals: Goals
+      add_goal: Add
+      remove_goal: Delete
+      no_register: No Register
+      title_goal: Goals
+      surname: Surname
+      name: Name
+      count: Count
+      accion: Accion
+      delete_goal: Delete
+  goals:
+    new:
+      title: Agregar Nuevo Gol
+      name: Nombre del Goleador
+      count: Cantidad de Goles
+      description: Descripción
+      btn_submit: Agregar    
   user_profile:
     playing_position:
       Goalkeeper: Goalkeeper
@@ -149,12 +165,15 @@ en:
     sport_center: "Successfully %{message} the Sport Center."
     team: "Successfully %{message} team."
     match: "Successfully %{message} match."
+    goal: "Successfully %{message} goal."
     created: created
     destroyed: destroyed
     updated: updated
     permission_team: you don't have permisson
     permission_league: you don't have permisson
+    not_duplicate_shoother: Can not add.
     verify_team: you have a team
+    verify_same_teams: they can not play the same teams
     have_sport_center: you have a sport center
   navigation_bar:
     teams: Teams
@@ -166,6 +185,7 @@ en:
     session_status: "Signed in as %{user}"
     sport_center: My Sport Center
     sport_centers: Sport Centers
+    create_match: Create Match
   landing_page:
     comming_soon: Comming soon
   teams:
@@ -187,6 +207,7 @@ en:
       confirm: Are you sure?
       players: Players
       playing_position: Playing position
+      badge_team: Badge Team
     edit:
       title: Edit your team
       image_url: or image URL

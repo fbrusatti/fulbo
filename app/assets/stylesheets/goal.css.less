@@ -1,0 +1,78 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+@title-size: 26px;
+
+.makeFluidRow(){
+  width: 100%;
+  .clearfix();
+}
+
+.makeFluidCol(@span:1, @offset:0){
+  float: left;
+  #grid > .fluid .span(@span);
+  #grid > .fluid .offset(@offset);
+  &:first-child {
+      margin-left: 0;
+      .offsetFirstChild(@offset);
+  }
+}
+
+body.goals {
+  background-image: url("goal.jpg");
+  background-repeat: no-repeat;
+  background-position: rigth-bottom;
+}
+
+.container_goal {
+  .makeFluidRow();
+  .makeFluidCol(11, 0.2);
+  @media (max-width: 979px) {
+    margin-top: 40px;
+  }
+  .title_goal{
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: @baseLineHeight;
+    font-size: @baseFontSize * 1.5;
+    line-height: @baseLineHeight * 2;
+    color: @white;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+
+    // Small
+    small {
+      font-size: @baseLineHeight * .75;
+      color: @grayLight;
+    }
+  }
+  
+}
+
+.information_goal{
+  .makeFluidRow();
+  .makeFluidCol(3);  
+  .well;
+  float: left;
+  margin-top: 20px;
+  padding: 20px;
+  .center-block();
+  .data_goal {
+    float: left;
+    .makeFluidRow();
+    #font > .shorthand(17px, normal, 17px);
+  }
+}
+
+.description_goal{
+  #grid > .fluid .span(11);
+  height: 70px;
+}
+.button_create_goal{
+  .makeFluidCol(11,0);
+  vertical-align: bottom;
+  text-align: left;
+  .btn;
+  .btn-info;
+}

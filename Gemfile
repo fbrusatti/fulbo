@@ -15,7 +15,7 @@ gem 'simple-navigation'
 gem 'simple-navigation-bootstrap'
 gem 'remotipart', '~> 1.0'
 gem 'rrschedule'
-
+gem "cocoon"
 gem 'thin'
 
 group :development do

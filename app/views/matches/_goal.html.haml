@@ -1,0 +1,29 @@
+= t("matches.edit.title_goal") 
+.goals-table
+  %table
+    %thead
+      %tr
+        %th 
+          =t("matches.edit.surname")
+        %th
+          =t("matches.edit.name")
+        %th 
+          =t("matches.edit.count")
+        %th 
+          = title_table_goal(action)    
+    %tbody
+    - @match.goals.each do |goal|
+      -if goal.team_user.team == team
+        %tr
+          %td 
+            = goal.team_user.player.name
+          %td 
+            = goal.team_user.player.profile.surname  
+          %td 
+            = goal.count
+          %td 
+            = column_table_goal(action, goal, @match)
+
+=button_add_goals(action, @match,team)
+  
+                    
