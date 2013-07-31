@@ -118,6 +118,7 @@ es:
     show:
       title: Cancha de
       btn_edit: Editar Cancha
+      btn_rent: Alquilar Cancha
       location: Sede
     index:
       title: "Canchas de %{sport_center_name}"
@@ -313,6 +314,8 @@ es:
         reservation_date: Reserva
   flash:
     fixture: "Exitosamente se a %{message} el Fixture de la Liga %{name}"
+    rent_error: "No se ha podido alquilar la cancha"
+    rent: "Exitosamente se a %{message} la cancha"
     error_update_form: Hubo un problema al actulizar
     error_create_form: Hubo un problema al crear
     league: "Exitosamente se a %{message} la Liga %{name}"
@@ -323,6 +326,7 @@ es:
     match: "Exitosamente se a %{message} el partido"
     goal: "Exitosamente se a %{message} un gol"
     created: creado
+    rented: Alquilado
     destroyed: borrado
     updated: actualizado
     permission_team: No posee permiso

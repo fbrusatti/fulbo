@@ -27,4 +27,7 @@ class AvatarCropper
 jQuery ->
   new AvatarCropper()
 
-  $('.datepicker').datepicker()
+  $('#user_profile_datepicker').datetimepicker
+    maskInput: true
+    language: "es"
+    pickTime: false
