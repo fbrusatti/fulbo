@@ -15,4 +15,6 @@
  *= require bootstrap-datetimepicker.min
  *= require_self
  *= require_tree .
+ *= require fullcalendar
+ *= require fullcalendar.print
  */

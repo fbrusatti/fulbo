@@ -129,6 +129,7 @@ GEM
     formtastic (2.2.1)
       actionpack (>= 3.0)
     friendly_id (4.0.9)
+    fullcalendar-rails (1.6.1.0)
     gherkin (2.12.0)
       multi_json (~> 1.3)
     haml (4.0.3)
@@ -313,6 +314,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails (= 4.1.0)
   friendly_id (~> 4.0.9)
+  fullcalendar-rails
   haml-rails
   jquery-rails (= 2.3.0)
   less-rails

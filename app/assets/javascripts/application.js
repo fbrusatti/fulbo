@@ -27,3 +27,4 @@
 //= require cocoon
 //= require bootstrap-datetimepicker.min
 //= require_tree .
+//= require fullcalendar
