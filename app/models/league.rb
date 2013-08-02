@@ -37,19 +37,35 @@ class League < ActiveRecord::Base
     affiliations.find_by_team_id(team.id).destroy
   end
 
-  def generate_fixture(rules)
+  def generate_fixture(params={})
+    rules = params[:rules]
     schedule = RRSchedule::Schedule.new(teams: self.team_ids,
                                         rules: rules,
                                         start_date: self.start_date
                                        ).generate
-    fixture = create_fixture
-    schedule.gamedays.each_with_index do |gd, index|
-      week = fixture.weeks.create(number: index, start_date: gd.date)
+    fixture = self.create_fixture
+    nround = 1
+    monday_week = get_first_monday
+    week = fixture.weeks.create(number: nround,
+                                start_date: monday_week,
+                                end_date: monday_week + 1.week - 1.day)
+    schedule.gamedays.each do |gd|
+      days_diff = (monday_week.mjd - gd.date.mjd).abs
+      if days_diff >= 7
+        nround += 1
+        monday_week += 1.week
+        week = fixture.weeks.create(number: nround,
+                                    start_date: monday_week,
+                                    end_date: monday_week + 1.week - 1.day)
+      end
       gd.games.each do |game|
         match = week.matches.create(visitor_id: game.team_a,
                                     local_id: game.team_b)
+        reservation_date = DateTime.new(gd.date.year, gd.date.month, gd.date.day,
+                                        game.game_time.strftime("%k").to_i,
+                                        game.game_time.strftime("%M").to_i)
         match.create_reservation(field_id: game.playing_surface.to_i,
-                                 reservation_date:  game.game_time)
+                                 reservation_date:  reservation_date)
       end
     end
   end
@@ -57,5 +73,13 @@ class League < ActiveRecord::Base
   private
     def init_point_system
       build_point_system if point_system.blank?
+    end
+
+    def get_first_monday
+      day = self.start_date
+      until day.monday? do
+        day -= 1.day
+      end
+      day
     end
 end
