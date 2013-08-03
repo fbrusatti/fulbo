@@ -114,6 +114,15 @@ en:
       select_date: Select Date and Time
       vs: VS
   user_profile:
+    search_buttons:
+      link_profiles: All Players
+      default_position: Position in court
+      default_name: "Name,Surname or Nickname"
+      default_message: Please wait...
+      btn_search: Search Players
+    not_found_result: Not found any results
+    result_search_params: "Search Results for: '%{name}' and '%{position}'"
+    result_search_param: "Search Results for: '%{name}'"
     playing_position:
       Goalkeeper: Goalkeeper
       Defender: Defender
@@ -205,6 +214,7 @@ en:
     verify_same_teams: they can not play the same teams
     have_sport_center: you have a sport center
   navigation_bar:
+    players: Players
     teams: Teams
     stadiums: Stadiums
     leagues: Leagues

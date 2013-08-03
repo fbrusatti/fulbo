@@ -67,6 +67,15 @@ es:
       select_date: Seleccionar Día y Hora
       vs: VS
   user_profile:
+    search_buttons:
+      link_profiles: Todos los Jugadores
+      default_position: Posicion en Cancha
+      default_name: "Nombre,Apellido o Apodo"
+      default_message: Por favor espere...
+      btn_search: Buscar Jugadores
+    not_found_result: No se ha encontrado ningun resultado
+    result_search_params: "Resultado de busqueda por: '%{name}' y '%{position}'"
+    result_search_param: "Resultado de busqueda por: '%{name}'"
     playing_position:
       Goalkeeper: Arquero
       Forward: Delantero
@@ -340,6 +349,7 @@ es:
     have_sport_center: Ya posee Complejo
     welcome: 'Bienvenido'
   navigation_bar:
+    players: Jugadores
     teams: Equipos
     stadiums: Canchas
     leagues: Campeonatos
