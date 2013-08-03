@@ -315,6 +315,7 @@ DEPENDENCIES
   friendly_id (~> 4.0.9)
   haml-rails
   jquery-rails (= 2.3.0)
+  kaminari
   less-rails
   meta_search (>= 1.1.0.pre)
   omniauth (~> 1.0.3)
