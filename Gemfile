@@ -17,6 +17,7 @@ gem 'remotipart', '~> 1.0'
 gem 'rrschedule'
 gem "cocoon"
 gem 'thin'
+gem 'kaminari'
 
 group :development do
   gem 'annotate', ">=2.5.0"
