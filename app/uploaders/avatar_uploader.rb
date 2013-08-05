@@ -33,6 +33,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [64,64]
   end
 
+  version :thumbnail_badge do
+    process :resize_to_fill => [64,64]
+  end
+
   version :badge do
     process :crop
     process :resize_to_fill => [140,140]
