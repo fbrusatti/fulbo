@@ -1,0 +1,13 @@
+.form-search
+  = render 'search_buttons'
+  .messages-list
+    .search-message
+      = search_result_message(params[:query], params[:query_position])
+    .search-message
+      = result_found(@profiles)
+    = paginate @profiles, remote: true
+.list-search-results
+  - @profiles.each do |profile|
+    .search-result
+      = link_to "#{profile.name} #{profile.surname} (#{profile.nickname})", profile
+      = profile_avatar(profile, :thumb)

@@ -1,0 +1,97 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+@darkred: #af1919;
+
+body.user_profile {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-position: rigth-bottom;
+}
+
+.user-profile {
+
+}
+
+.user-profile-positions {
+  margin-left: 20px;
+  input[type=checkbox] {
+   float: left;
+   margin-right: 20px;
+  }
+}
+
+ // Search Profile
+
+.makeFluidRow(){
+  width: 100%;
+  .clearfix();
+}
+
+.makeFluidCol(@span:1, @offset:0){
+  float: left;
+  #grid > .fluid .span(@span);
+  #grid > .fluid .offset(@offset);
+  &:first-child {
+      margin-left: 0;
+      .offsetFirstChild(@offset);
+  }
+}
+
+.container-search {
+  .makeFluidRow();
+  .makeFluidCol(11);
+  .well;
+}
+
+.render-search-partial {
+  display: table;
+}
+
+.link-all-profiles {
+  width: 270px;
+  float: left;
+  min-height: 1px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  display: inline-block;
+  font-size: 24px;
+}
+
+.search-options {
+  display: inline;
+  margin-bottom: 0;
+  float: right;
+}
+
+.messages-list {
+  .makeFluidRow();
+  .makeFluidCol(11);
+}
+
+.search-message {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: @darkred;
+}
+
+.search-result {
+  width: 220px;
+  float: left;
+  border: 4px;
+  min-height: 1px;
+  margin-top: 20px;
+  margin-left: 10px;
+  .thumbnail;
+}
+
+.list-search-results {
+  display: table;
+}
+
+.button-search {
+  .btn; 
+  .btn-info;
+}

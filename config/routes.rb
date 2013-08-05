@@ -20,6 +20,8 @@
     resources :leagues, controller: 'sport_center_leagues'
   end
 
+  resources :profiles, only:[:index], controller: 'user_profile'
+
   resources :users, only:[:index]
 
   resources :fields do

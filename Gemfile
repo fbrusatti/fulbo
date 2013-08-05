@@ -18,6 +18,7 @@ gem 'rrschedule'
 gem "cocoon"
 gem 'thin'
 gem 'kaminari'
+gem 'pg_search'
 
 group :development do
   gem 'annotate', ">=2.5.0"

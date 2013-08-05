@@ -1,0 +1,13 @@
+.form-search
+  .link-all-profiles
+    = link_to t('.link_profiles'), profiles_path, remote: true
+  .search-options
+    = form_tag profiles_path, {method: :get, remote: true} do 
+      = select_tag :query_position,
+                   options_for_select(positions),
+                   {prompt: t('.default_position'), class: 'form-control'}
+      = text_field_tag :query, nil, {id: "btn_search",
+                                     placeholder: t('.default_name'),
+                                     type: "text", class: 'submit'}
+      = submit_tag t('.btn_search'),{ disable_with: t('.default_message'),
+                                      class: 'button-search'}
