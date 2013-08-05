@@ -43,10 +43,11 @@ body.fixtures {
 }
 
 .container-fixture {
+  .makeFluidRow();
   .well;
   padding: 20px;
   margin-top: 20px;
-  ul {
+  .creation-nav ul {
     li:first-child {
       .btn;
       border-radius: 15px;
@@ -152,4 +153,84 @@ body.fixtures {
 
 .pick_time_fixture {
   .input-append;
+}
+
+
+// Show Fixture
+
+.title-show-fixture {
+  font-size: @baseLineHeight;
+  margin: 5px;
+  text-align: center;
+}
+
+.week-information {
+  .text-center;
+  font-weight: bold;
+  padding: 5px;
+  word-spacing: 10px;
+}
+
+#matches-of-week li.header {
+  width: 98%;
+  .clearfix();
+  background-color: #eee;
+  .text-center;
+  font-weight: bold;
+  .hlocal { .makeFluidCol(3) }
+  .hvs { .makeFluidCol(1) }
+  .hvisitor{ .makeFluidCol(3) }
+  .hdate { .makeFluidCol(2) }
+  .hplace { .makeFluidCol(2) }
+}
+
+#matches-of-week li {
+  list-style: none;
+  clear:left;
+  border-bottom: 1px solid #ccc;
+  margin: 5px;
+  padding: 5px;
+}
+
+#matches-of-week li:last-child {
+  border: none;
+}
+
+#matches-of-week li :hover {
+  background-color: #eee;
+}
+
+// Partial Match
+.match-fixture {
+  .makeFluidRow();
+  .local-team {
+    .makeFluidCol(3);
+    img { margin-left: 25px; float: left }
+    a { margin-top: 15px; float: right }
+  }
+
+  .vs-match {
+    .makeFluidCol(1);
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  .vistior-team {
+    .makeFluidCol(3);
+    img { margin-right: 25px; float: right }
+    a { margin-top: 15px; float: left }
+  }
+
+  .match-date {
+    .makeFluidCol(2);
+    .text-center;
+    margin-top: 15px;
+  }
+
+  .match-place {
+    .makeFluidCol(2);
+    .text-center;
+    margin-top: 15px;
+  }
 }

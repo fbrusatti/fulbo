@@ -1,0 +1,20 @@
+.container-fixture
+  .title-show-fixture
+    = t (".title")
+  = paginate @weeks, remote: true
+  .week-information
+    = "#{t('.week_number')}-#{@week.number}"
+    = "#{t('.week_start')}-#{@week.start_date} #{t('.week_end')}-#{@week.end_date}"
+  %ul#matches-of-week
+    %li.header
+      .hlocal
+        = t(".local")
+      .hvs
+        vs
+      .hvisitor
+        = t(".visitor")
+      .hdate
+        = t(".date_time")
+      .hplace
+        = t(".place")
+    = render "matches", week: @week
