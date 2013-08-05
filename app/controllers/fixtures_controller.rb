@@ -2,6 +2,12 @@ class FixturesController < ApplicationController
   respond_to :js, :html
   before_filter :authenticate_user!, only: [:new, :create]
   before_filter :check_permission, only: [:new, :create]
+  before_filter :check_exist_fixture, only: [:show]
+
+  def show
+    @weeks = @league.fixture.weeks.order(:number).page(params[:page]).per(1)
+    @week = @weeks.first
+  end
 
   def new
     @days = params[:days]
@@ -28,10 +34,15 @@ class FixturesController < ApplicationController
     flash[:success] = t('flash.fixture',
                          message: t('flash.created'),
                          name: @league.name)
-    respond_with @league
+    redirect_to league_fixture_path(@league)
   end
 
   private
+    def check_exist_fixture
+      @league = League.find(params[:league_id])
+      redirect_to league_path(@league) if @league.fixture.blank?
+    end
+
     def check_permission
       @league = League.find(params[:league_id])
       owner = @league.organizer.owner

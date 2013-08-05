@@ -3,6 +3,15 @@ es:
   landing_page:
     comming_soon: Muy pronto
   fixtures:
+    show:
+      week_end: Hasta
+      week_start: Desde
+      week_number: Fecha
+      title: Fixture
+      local: Local
+      visitor: Visitante
+      date_time: Fecha
+      place: Lugar
     new:
       wrong_time_introduced: Por favor elige una hora mas baja de comienzo que la de terminacion
       text_place: Lugares
@@ -166,6 +175,7 @@ es:
       btn_new: Nueva Sede
   leagues:
     index:
+      see_fixture: Ver Fixture >
       title: Ligas
       name: Nombre
       organizer: Organizador

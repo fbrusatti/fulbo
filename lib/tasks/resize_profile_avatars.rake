@@ -5,4 +5,11 @@ namespace :resize do
       up.avatar.recreate_versions! if up.avatar?
     end
   end
+
+  desc "generate thumbnail badge image"
+  task :thumbnail_badge => :environment do
+    TeamProfile.all.each do |up|
+      up.badge.recreate_versions! if up.badge?
+    end
+  end
 end
