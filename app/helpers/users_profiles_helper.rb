@@ -3,6 +3,25 @@ module UsersProfilesHelper
   POSITIONS = %w{Goalkeeper Defender Midfielder Forward Coach Coaching Staff Referee Assistant }
   FOOTS = %w{right left ambidextro}.map{ |key| I18n.t("user_profile.#{key}")}
 
+  def search_result_message(name, pos)
+    pos = I18n.t(".user_profile.playing_position.#{pos}") if pos.present?
+
+    if name.present? && pos.present?
+      I18n.t('user_profile.result_search_params', name: name, position: pos)
+    elsif name.present? || pos.present?
+      I18n.t('user_profile.result_search_param',
+           name: "#{name} #{pos}")
+    end
+  end
+
+  def result_found(profiles)
+    I18n.t('user_profile.not_found_result') if profiles.empty?
+  end
+
+  def positions
+    POSITIONS.map{ |pos| [I18n.t(".user_profile.playing_position.#{pos}"), pos] }
+  end
+
   def profile_avatar(profile,size)
     image_tag profile.avatar_url(size)
   end      

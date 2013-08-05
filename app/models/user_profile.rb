@@ -49,6 +49,19 @@ class UserProfile < ActiveRecord::Base
     avatar.recreate_versions! if crop_x.present?
   end
 
+  include PgSearch
+  pg_search_scope :search, against: [:surname, :nickname, :playing_position],
+                  using: {:tsearch => {:prefix => true}},
+                  associated_against: {:user => :name}
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end
+  
   private
     # For removing temp folder of avatar after destroy picture
     def remove_tmp_directory
