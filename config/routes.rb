@@ -7,7 +7,9 @@
 
   resources :leagues do
     resources :affiliations, only: [:create, :destroy]
-    resource :fixture
+    resource :fixture do
+      get 'page/:page', action: :show, on: :collection
+    end
   end
 
   resources :teams do
