@@ -3,6 +3,15 @@
 
 en:
   fixtures:
+    show:
+      week_end: To
+      week_start: From
+      week_number: Date
+      title: Fixture
+      local: Local
+      visitor: Visitor
+      date_time: Date
+      place: Place
     new:
       wrong_time_introduced: Please assign a higher value on Finish Time that Start Time
       text_place: Places
@@ -19,6 +28,7 @@ en:
       confirm_create: Are you sure?
   leagues:
     index:
+      see_fixture: See Fixture >
       title: Leagues
       name: Name
       organizer: Organizer
