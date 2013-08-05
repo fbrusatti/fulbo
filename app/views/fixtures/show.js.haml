@@ -1,0 +1,8 @@
+var matches = '#{ j (render "matches", week: @week)}';
+$('#matches-of-week li:not(:first)').remove();
+$('#matches-of-week li:first').after(matches);
+$('.pagination').html('#{ j (paginate(@weeks, remote: true).to_s) }');
+var wnumber =  "#{t('.week_number')}-#{@week.number} ";
+var wstart =  "#{t('.week_start')}-#{@week.start_date} ";
+var wend = "#{t('.week_end')}-#{@week.end_date}";
+$('.week-information').html(wnumber + wstart + wend);

@@ -1,0 +1,17 @@
+- week.matches.each do |match|
+  %li
+    .match-fixture
+      .local-team
+        = profile_badge(match.local.profile, :thumbnail_badge)
+        = link_to match.local.name, team_path(match.local)
+      .vs-match
+        vs
+      .vistior-team
+        = link_to match.visitor.name, team_path(match.visitor)
+        = profile_badge(match.visitor.profile, :thumbnail_badge)
+      .match-date
+        = match.reservation.reservation_date.strftime("%e-%b %I:%M %p")
+      .match-place
+        = link_to match.reservation.field.name,
+                    location_field_path(match.reservation.field.location ,
+                                        match.reservation.field)
