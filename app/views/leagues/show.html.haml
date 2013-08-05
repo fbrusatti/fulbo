@@ -58,6 +58,8 @@
   .buttons-league
     = buttons_organizer_league(@league)
     = buttons_owner_team(@league)
+    %br
+    = league_fixture(@league)
   .league-players
     .title-players
       = t(".teams_of_league")

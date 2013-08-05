@@ -33,6 +33,7 @@ module LeaguesHelper
   end
 
   def buttons_owner_team(league)
+    return if league.fixture
     if is_owner_of_team? && has_sent_request_to_league?(@league)
       btn = content_tag(:div, class: "affiliation-sent-button") do
         t(".has_been_sent_affiliation")
@@ -64,6 +65,14 @@ module LeaguesHelper
               method: :delete,
               confirm: t(".fixture_confirm"),
               class: "destroy-fixture"
+    end
+  end
+
+  def league_fixture(league)
+    if league.fixture
+      link_to t("leagues.index.see_fixture"),
+              league_fixture_path(league),
+              class: "see-fixture"
     end
   end
 end
