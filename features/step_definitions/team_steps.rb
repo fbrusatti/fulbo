@@ -12,9 +12,9 @@ end
 
 Then(/^I should( not)? see create a team button$/) do |negation|
   if negation.present?
-    page.should_not have_button(I18n.t('teams.index.btn_create'))
+    page.should_not have_button(I18n.t('teams.search_data.btn_create'))
   else
-    page.should have_button(I18n.t('teams.index.btn_create'))
+    page.should have_button(I18n.t('teams.search_data.btn_create'))
   end
 end
 
@@ -25,7 +25,7 @@ Given(/^I am authorized for create a team$/) do
 end
 
 When(/^I press create a team button$/) do
-  click_button(I18n.t('teams.index.btn_create'))
+  click_button(I18n.t('teams.search_data.btn_create'))
 end
 
 When(/^I press Save$/) do 

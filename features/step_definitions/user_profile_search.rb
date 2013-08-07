@@ -13,7 +13,7 @@ When(/^I enter "(.*?)" in the search box$/) do |name|
   click_button(I18n.t('user_profile.search_buttons.btn_search'))
 end
 
-Then(/^I should see a link to "(.*?)" profile as result$/) do |name|
+Then(/^I should see a link to "(.*?)" "(.*?)" as result$/) do |name, _ |
   page.should have_content name
 end
 
