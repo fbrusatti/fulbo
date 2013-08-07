@@ -24,6 +24,18 @@ Scenario: See all Sport Centers
   When I go to page of all Sport Centers
   Then I should see all the Sport Centers listed
 
+Scenario: See calendar reservation of my SportCenter
+  Given I am logged in
+  And I am owner of Sport Center "Doble 5"
+  When I go to page of my sport center
+  Then I should see calendar reservation link
+
+Scenario: See calendar reservation of my SportCenter
+  Given I am logged in
+  And I am not owner of Sport Center "Doble 5"
+  When I go to page of my sport center
+  Then I should not see calendar reservation link
+
 
 # Scenario: See all Sport Centers when there are not SportCenter
 #   Given I am logged in

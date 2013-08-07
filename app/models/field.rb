@@ -25,7 +25,11 @@ class Field < ActiveRecord::Base
   belongs_to :location
   has_many :reservations
 
+  # == Delegators
+  delegate :owner, to: :location
+
+  # == Instance Methods
   def complete_name
-  	name + " (#{location.sport_center.name} , #{location.name})" 
-  end	
+  	name + " (#{location.sport_center.name} , #{location.name})"
+  end
 end

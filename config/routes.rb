@@ -16,6 +16,7 @@
   end
 
   resources :sport_centers do
+    resource :calendar, only: :show
     resources :locations
     resources :leagues, controller: 'sport_center_leagues'
   end
@@ -26,15 +27,20 @@
     resources :reservations, only: [:create]
   end
 
-  resources :fields, only:[:index]
+  resources :fields, only:[:index] do
+    resource :calendar, only: :show
+  end
 
   resources :locations do
+    resource :calendar, only: :show
     resources :fields
   end
 
   resources :matches do
     resources :goals, only: [:create, :destroy, :new]
   end
+
+  resources :reservations, only: [:show]
 
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, :path => "" do

@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  respond_to :html
+  respond_to :html, :json
 
   def new
     @reservation = Reservation.new
@@ -28,6 +28,11 @@ class ReservationsController < ApplicationController
 
       }
     end
+  end
+
+  def show
+    @reservation = Reservation.find(params[:id])
+    respond_with @reservation
   end
 
   def index

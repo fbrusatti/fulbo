@@ -1,0 +1,38 @@
+%h1= t(".title")
+
+#calendar{:"data-reservations" => @resource.reservations.to_json}
+
+#createReservationModal.modal.hide{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel1", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
+    %h3= t('.modal_title')
+
+  .modal-body
+    %form.form-horizontal
+      %input#reservationStartTime{type: "hidden"}
+      %input#reservationEndTime{type: "hidden"}
+
+      .control-group
+        %label.control-label{:for => "userNameInput"}= "#{t(".user")}:"
+        .controls
+          %input#userNameInput{type: "text"}
+
+      .control-group
+        %label.control-label{:for => "field"}= "#{t(".field")}:"
+        .controls
+          .btn-group
+            %button.btn= "#{t('.field')}"
+            %button.btn.dropdown-toggle{ :"data-toggle" => "dropdown" }
+              %span.caret
+            %ul.dropdown-menu
+              - @resource.fields.flatten.each do |field|
+                %li
+                  %a{href: "#{root_path}"}= field.name
+
+      .control-group
+        %label.control-label{:for => "when"}= "#{t('.when')}:"
+        #when.controls.controls-row{:style => "margin-top:5px;"}
+
+  .modal-footer
+    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+    %button#submitReservation.btn.btn-primary{:type => "submit"} Save

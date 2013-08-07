@@ -28,3 +28,5 @@
 //= require bootstrap-datetimepicker.min
 //= require_tree .
 //= require fullcalendar
+//= require gcal
+//= require calendars

@@ -60,6 +60,7 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 Dir[Rails.root.join("features/helpers/**/*.rb")].each{ |f| require f }
 
 Capybara::Session.send(:include, LeagueSteps)
+Capybara::Session.send(:include, Ui::Widgets::SignIn)
 
 Capybara.javascript_driver = :webkit
 

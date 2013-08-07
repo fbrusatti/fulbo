@@ -1,0 +1,51 @@
+$(document).ready(function(){
+
+  $('#calendar').fullCalendar({
+    editable: true,
+    selectable: true,
+    select: function(start, end, allDay) {
+        endtime = $.fullCalendar.formatDate(end, 'h:mm tt');
+        starttime = $.fullCalendar.formatDate(start, 'ddd, MMM d, h:mm tt');
+        var mywhen = starttime + ' - ' + endtime;
+
+        $('#createReservationModal #reservationStartTime').val(start);
+        $('#createReservationModal #reservationEndTime').val(end);
+
+        $('#createReservationModal #when').text(mywhen);
+        $('#createReservationModal').modal('show');
+    },
+    header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+    defaultView: 'agendaWeek',
+    height: 900,
+    slotMinutes: 15,
+    minTime: '16',
+    events: $('#calendar').data('reservations'),
+    eventClick: function(calEvent, jsEvent, view) {
+      // popup with reservation edit form
+    }
+  });
+})
+
+$('#submitReservation').on('click', function(e){
+  // We don't want this to act as a link so cancel the link action
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: this.href,
+    dataType: "html",
+    data: {days: get_days($("input:checked"))}
+  }).done(function(data, textStatus, xhr){
+    $(".fixture-days").remove();
+    $(".fixture-time-and-place").show();
+    $(".fixture-time-and-place").append(data);
+    $("#next_step").closest("li").hide();
+    $(document).on("click", ".btn-create-fixture", check_fields);
+    $(document).on("click", ".btn-create-fixture", check_time);
+  });
+
+});

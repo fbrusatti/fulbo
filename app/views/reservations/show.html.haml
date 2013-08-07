@@ -1,0 +1,26 @@
+Reservation
+
+= @reservation.inspect
+
+
+#calendar
+
+/ #createEventModal.modal.hide{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel1", :role => "dialog", :tabindex => "-1"}
+/   .modal-header
+/     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
+/     %h3#myModalLabel1 Create Appointment
+/   .modal-body
+/     %form#createAppointmentForm.form-horizontal
+/       .control-group
+/         %label.control-label{:for => "inputPatient"} Patient:
+/         .controls
+/           %input#patientName{"data-items" => "4", "data-provide" => "typeahead", "data-source" => "["Value 1","Value 2","Value 3"]", :name => "patientName", :tyle => "margin: 0 auto;", :type => "text"}/
+/           %input#apptStartTime{:type => "hidden"}/
+/           %input#apptEndTime{:type => "hidden"}/
+/           %input#apptAllDay{:type => "hidden"}/
+/       .control-group
+/         %label.control-label{:for => "when"} When:
+/         #when.controls.controls-row{:style => "margin-top:5px;"}
+/   .modal-footer
+/     %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+/     %button#submitButton.btn.btn-primary{:type => "submit"} Save

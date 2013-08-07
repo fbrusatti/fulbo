@@ -1,0 +1,9 @@
+Reservation
+
+= form_for [@field, Reservation.new] do |f|
+  #datetimepicker2.input-append
+    = f.text_field :reservation_date, :data_format => "MM/dd/yyyy HH:mm PP", :type => "text"
+    %span.add-on
+      %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+
+  = f.submit t(".btn_rent"),:class => "btn.btn-primary"

@@ -23,4 +23,11 @@ class Location < ActiveRecord::Base
   belongs_to :sport_center
   has_many :fields , dependent: :destroy
 
+  # == Delegators
+  delegate :owner, to: :sport_center
+
+  # == Instance Methods
+  def reservations
+    fields.map(&:reservations).flatten
+  end
 end

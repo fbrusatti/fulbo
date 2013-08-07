@@ -3,6 +3,8 @@
   .row-fluid
     .span2
       #top_navigation= render_navigation :expand_all => true, :renderer => :bootstrap
+      = reservation_calendar(@sport_center)
+
     .span6
       %div{:class => "well well-large"}
         %div{:class => "dl-horizontal"}

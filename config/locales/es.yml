@@ -233,6 +233,14 @@ es:
       description: Descripción
       change: Cambiar
       logo: Logo
+      reservation_calendar: Calendario de Reservas
+  calendars:
+    show:
+      title: Reservas
+      modal_title: Reserva
+      user: Usuario
+      when: Hora
+      field: Cancha
   sport_center_leagues:
     index:
       title: "Torneos de %{sport_center_name}"
