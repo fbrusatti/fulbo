@@ -1,0 +1,16 @@
+.form-search
+  .link-all-teams
+    = link_to t(".link_teams"), teams_path, remote: true
+  .search-options
+    = form_tag teams_path, { method: :get, remote: true } do
+      = text_field_tag :search_name, nil, { id: "btn_search_teams",
+                                            placeholder: t('.default_name'),
+                                            type: "text", class: 'submit' }
+      = select_tag :search_surface,
+                   options_for_select(surfaces),
+                   { prompt: t('.default_surface') }
+      = select_tag :search_category,
+                    options_for_select(TeamsHelper::CATEGORY),
+                   { prompt: t('.default_category') }
+      = submit_tag t(".btn_search"), { disable_with: t(".default_message"),
+                                      class: "button-search" }

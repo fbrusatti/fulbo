@@ -193,7 +193,7 @@ es:
       fixture_confirm: ¿Está Seguro?
       generate_fixture: Generar Fixture
       btn_save: Guardar
-      teams: Equipos
+      teams: Equipos en la Liga
       information: Información
       limit_of_teams: Llego al límite de equipos.
       title: Edita tu Liga
@@ -381,13 +381,6 @@ es:
     noResultsText: "No hay resultado"
     hintText: "Ingrese el nombre"
     searchingText: "Buscando"
-    index:
-      title: Equipos
-      btn_team: Mi equipo
-      btn_create: Crear un equipo
-      msj_action: Acción
-      msj_option_one: Oganizar partido
-      msj_option_two: Unirme a este equipo
     show:
       title: Perfíl de Equipo
       category: Categoría
@@ -429,6 +422,25 @@ es:
       button: Guardar
       remove_badge: Remover imagen
       players: Jugadores
+    search_buttons:
+      link_teams: Todos los Equipos
+      default_surface: Superficie
+      default_category: Categoría
+      default_name: Nombre
+      default_message: Por favor espere...
+      btn_search: Buscar Equipos
+    not_found_result: No se ha encontrado ningun resultado
+    result_search_params: "Resultado de busqueda por: '%{name}','%{surface}' y '%{category}'"
+    result_search_two_params: "Resultado de busqueda por: '%{first_param}' y '%{second_param}'"
+    result_search_param: "Resultado de busqueda por: '%{param}'"
+    search_data:
+      title: Equipos
+      btn_team: Mi equipo
+      btn_create: Crear un equipo
+      msj_action: Acción
+      org_match: Oganizar partido
+      join_team: Unirme a este equipo
+      team_picture: Imagen del Equipo
     surfaces:
       sand: arena
       grass: césped
