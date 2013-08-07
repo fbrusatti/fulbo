@@ -9,4 +9,47 @@ module TeamsHelper
   def profile_badge(profile,size)
     image_tag profile.badge_url(size)
   end
+
+  def surfaces
+    SURFACE.map{ |sur| [I18n.t(".teams.surfaces.#{sur}"), sur] }
+  end
+
+  def search_result_messages(name, surface, category)
+    surface = I18n.t(".teams.surfaces.#{surface}") if surface.present?
+    has_name_and_sur = name.present? && surface.present?
+    has_name_and_cat = name.present? && category.present?
+    has_sur_and_cat = surface.present? && category.present?
+    
+    if name.present? && surface.present? && category.present?
+      I18n.t('.teams.result_search_params', name: name, surface: surface, category: category)
+    elsif has_name_and_sur 
+      result_message(name, surface)
+    elsif has_name_and_cat
+      result_message(name, category)
+    elsif has_sur_and_cat
+      result_message(surface, category)
+    elsif name.present? || surface.present? || category.present?
+      I18n.t('.teams.result_search_param', param:  "#{name} #{surface} #{category}")
+    end
+  end
+
+  def result_message (first_param, second_param)
+    I18n.t('.teams.result_search_two_params', 
+           first_param: first_param, second_param: second_param)
+  end
+
+  def result_found(teams_profiles)
+    I18n.t('.teams.not_found_result') if teams_profiles.empty?
+  end
+
+  def team_button
+    if user_signed_in? && current_user.team.present?
+      button_to t(".btn_team"), team_path(current_user.team),
+                  { method: :get, class: "btn", type: "button" }
+    else
+      button_to t(".btn_create"), new_team_path,
+                  { method: :get, class: "btn", type: "button" }
+    end
+  end
+
 end
