@@ -241,13 +241,6 @@ en:
     noResultsText: "No results"
     hintText: "Type in a search name"
     searchingText: "Searching"
-    index:
-      title: Teams
-      btn_team: My team
-      btn_create: Create a team
-      msj_action: Action
-      msj_option_one: Organize match
-      msj_option_two: Join this team
     show:
       title: Teams
       link_photos: Photos
@@ -269,6 +262,25 @@ en:
       button: Save
       remove_badge: remove badge
       players: Players
+    search_buttons:
+      link_teams: All Teams
+      default_surface: Surface
+      default_category: Category
+      default_name: Name
+      default_message: Please wait...
+      btn_search: Search Teams
+    not_found_result: Not found any results
+    result_search_params: "Search Results for: '%{name}','%{surface}' and '%{category}'"
+    result_search_two_params: "Search Results for: '%{first_param}' and '%{second_param}'"
+    result_search_param: "Search Results for: '%{param}'"
+    search_data:
+      title: Teams
+      btn_team: My Teams
+      btn_create: Create Team
+      msj_action: Action
+      org_match: Organize match
+      join_team: Join this team
+      team_picture: Team Image
     surfaces:
       sand: sand
       grass: grass
