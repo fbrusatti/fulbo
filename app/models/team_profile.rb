@@ -32,4 +32,17 @@ class TeamProfile < ActiveRecord::Base
 
   validates :description, length: {maximum: 200}
 
+  include PgSearch
+  pg_search_scope :search, against: [:category, :surface],
+                  using: {:tsearch => {:prefix => true}},
+                  associated_against: {:team => :name}
+
+  def self.search_teams(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end
+
 end

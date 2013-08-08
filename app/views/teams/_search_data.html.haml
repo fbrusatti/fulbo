@@ -1,0 +1,25 @@
+.render-search-buttons
+  = render "search_buttons"
+.messages-list
+  .search-message
+    = search_result_messages(params[:search_name], params[:search_surface], params[:search_category])
+  .search-message
+    =  result_found(@teams_profiles)
+  = paginate @teams_profiles, remote: true
+.button-create-team
+  = team_button
+  %ul.teams
+    - @teams_profiles.each do |team_profile|
+      %li.team
+        = profile_badge(team_profile, :badge)
+        .name-team
+          = link_to "#{team_profile.team.name}", team_profile.team
+        .btn-group.team-options
+          %a.btn.dropdown-toggle{ "data-toggle" => "dropdown" }
+            = t(".msj_action")
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              = link_to t(".org_match"), "#"
+            %li
+              = link_to t(".join_team"), "#"
