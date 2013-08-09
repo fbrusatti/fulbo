@@ -7,7 +7,7 @@ Feature: User profile search
   Scenario: Found User
     Given I am a guest user
     When I enter "Diego" in the search box
-    Then I should see a link to "Diego" profile as result
+    Then I should see a link to "Diego" "profile" as result
 
   @javascript
   Scenario: Not Found User

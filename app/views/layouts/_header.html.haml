@@ -18,6 +18,8 @@
               = link_to t('navigation_bar.contact_us'), root_url
             %li
               = link_to t('navigation_bar.players'), profiles_path
+            %li
+              = link_to t('navigation_bar.teams'), teams_path
 
           %ul.nav.pull-right
             - if user_signed_in?
@@ -37,8 +39,6 @@
                   = link_to t('navigation_bar.sport_centers'), sport_centers_path
                 %li
                   = link_to t('navigation_bar.leagues'), leagues_path
-                %li
-                  = link_to t('navigation_bar.teams'), teams_path
                 %li.divider
                 %li.nav-header MqE
 

@@ -1,17 +1,21 @@
 class TeamsController < ApplicationController
-  respond_to :html
+  respond_to :html, :js
 
   before_filter :authenticate_user!, only: [:new, :edit, :update]
   before_filter :verify_permission, only: [:edit]
   before_filter :verify_team, only: [:new]
 
   def index
-    @teams = Team.all
-  end
-
-  def index
-    @teams = Team.where("name ILIKE ?", "%#{params[:q]}%")
+    if params[:q].present?
+      @teams = Team.where("name ILIKE ?", "%#{params[:q]}%")
+    else
+      @teams_profiles = TeamProfile.search_teams("#{params[:search_name]}
+                                                  #{params[:search_surface]}
+                                                  #{params[:search_category]} ")
+                                                  .page(params[:page])
+    end
     respond_to do |format|
+      format.js
       format.html
       format.json { render :json => @teams.map(&:attributes)}
     end

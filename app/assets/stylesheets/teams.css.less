@@ -1,0 +1,87 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+@darkred: #af1919;
+
+.link-all-teams {
+  width: 270px;
+  float: left;
+  min-height: 1px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  display: inline-block;
+  font-size: 24px;
+}
+
+.search-options {
+  display: inline;
+  margin-bottom: 0;
+  float: right;
+}
+
+.button-search {
+  .btn; 
+  .btn-info;
+}
+
+.render-search-buttons {
+  .well
+}
+
+.messages-list {
+  .makeFluidRow();
+  .makeFluidCol(11);
+  .well;
+}
+
+.search-message {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: @darkred;
+}
+
+.makeFluidRow(){
+  width: 100%;
+  .clearfix();
+}
+
+.makeFluidCol(@span:1, @offset:0){
+  float: left;
+  #grid > .fluid .span(@span);
+  #grid > .fluid .offset(@offset);
+  &:first-child {
+      margin-left: 0;
+      .offsetFirstChild(@offset);
+  }
+}
+
+.button-create-team {
+  .makeFluidCol(11);
+  .well;
+}
+
+.name-team {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.team-options {
+  float: right;
+}
+
+.team {
+  .makeColumn(4);
+  margin-bottom: 10px;
+  .thumbnail;
+}
+
+.link {
+  margin-left: 30px;
+}
+
+img {
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
