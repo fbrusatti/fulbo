@@ -20,6 +20,7 @@ gem 'thin'
 gem 'kaminari'
 gem 'pg_search'
 gem 'faker'
+gem 'rabl'
 
 group :development do
   gem 'annotate', ">=2.5.0"
