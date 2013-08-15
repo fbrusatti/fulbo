@@ -19,6 +19,7 @@ gem "cocoon"
 gem 'thin'
 gem 'kaminari'
 gem 'pg_search'
+gem 'faker'
 
 group :development do
   gem 'annotate', ">=2.5.0"
