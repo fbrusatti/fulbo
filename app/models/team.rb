@@ -65,6 +65,11 @@ class Team < ActiveRecord::Base
   def player_tokens=(ids)
       self.player_ids = ids.split(",")
   end
+
+  def name_with_owner
+    "#{self.name}(#{owner.name})"
+  end
+
   private
     def init_profile
       build_profile if profile.blank?
