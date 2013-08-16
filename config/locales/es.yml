@@ -383,6 +383,7 @@ es:
     error_update_form: Hubo un problema al actulizar
     error_create_form: Hubo un problema al crear
     league: "Exitosamente se a %{message} la Liga %{name}"
+    fixture: "Exitosamente se a %{message} El fixture de la liga %{name}"
     sport_center: "Exitosamente se a %{message} el Complejo"
     location: "Exitosamente se a %{message} la sede"
     field: "Exitosamente se a %{message} la cancha"

@@ -229,6 +229,7 @@ en:
     error_update_form: There was a problem updating
     error_create_form: There was a problem creating
     league: "Successfully %{message} the League %{name}"
+    fixture: "Successfully %{message} the fixture of the League %{name}"
     sport_center: "Successfully %{message} the Sport Center."
     team: "Successfully %{message} team."
     match: "Successfully %{message} match."
