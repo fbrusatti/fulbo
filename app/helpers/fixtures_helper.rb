@@ -20,4 +20,11 @@ module FixturesHelper
     options.html_safe
   end
 
+  def edit_fixture_button(league)
+    if league.organizer.owner == current_user
+      link_to t(".edit_fixture"),
+              edit_league_fixture_path(league),
+              class: "edit-button"
+    end
+  end
 end
