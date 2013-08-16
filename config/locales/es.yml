@@ -1,4 +1,30 @@
 es:
+  faker:
+    name:
+      sport_center: [ Doble 5, Aguila, FundeMur]
+      league:     [ Torneo Clausura, Torneo Apertura, Torneo Nacional B ]
+      nickname:   [ Burrito, Gato, Fiera, Laucha, Mono, Pajaro, Raton, Tiburon,
+                    Lavandina, Jefecito, Principe, Virrey, Cebolla, Chori, Lechuga,
+                    Poroto, Chino, Turco, Hueso, Tecla , Chucky, Furia, Doctor,
+                    Cabezon, Chapa, Colorado, Negro, Tanque ]
+      playing_position: [ Goalkeeper, Defender, Midfielder, Forward, Coach, Staff,
+                          Coaching, Referee, Assistant ]
+      foot:       [ right, left, ambidextro ]
+      category:   [ 5, 7,11]
+      surface:    [ sand, grass, parquet, synthetic_grass, land, cement]
+      team:       [ Boca Juniors, River Plate, San Lorenzo, Racing, Lanus, Velez]
+      location:   [ El Aguila, Punta Norte, Sol de Mayo, Trewa,
+                    Los 5 amigos, Los Ranqueles , Doble 5]
+      field_description: [roofed, illuminated]
+      user_image: [ agu.jpg, apache.jpg, dino.jpg, cabezon.jpg, chino.jpg, edu.jpg,
+                    chinoo.jpg, roni.jpg, chipi.jpg, diego.jpg, eber.jpg, fune.jpg,
+                    indio.jpg, messi.png, monge.jpg, pibe.jpg, rene.jpg, ribery.jpg,
+                    rodri.jpg, roman.jpg, size.png, titan.jpg, burrito.jpg ]
+      team_image: [ all.jpg, alm.jpg, ars.png, atenas.png, ban.jpg, boca.jpg,
+                    est.jpg, estu.jpg, god.jpg, inde.jpg, lanus.jpg, new.png,
+                    racing.jpg, river.jpg, san.jpg, colon.jpg, vel.jpg, bel.jpg ]
+    address:
+      locality:   [Rio Cuarto, Sampacho,Las Higueras, Holmberg]
   are_you_sure: '¿Está Seguro?'
   landing_page:
     comming_soon: Muy pronto
