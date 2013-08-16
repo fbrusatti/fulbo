@@ -29,7 +29,26 @@ es:
   landing_page:
     comming_soon: Muy pronto
   fixtures:
+    edit:
+      tooltip_delete: Borrar el partido
+      tooltip_edit: Editar el partido
+      tooltip_result: Agregar el resultado del partido
+      tooltip_add: Agregar un partido
+      error_empty_fields: Existen campos vacios!
+      error_same_teams: Los Equipos a enfrentarse no pueden ser los mismos
+      add_match: Nuevo Partido
+      confirm_delete: ¿Está Seguro?
+      save_changes: Guardar
+      title_match: Editar Partido
+      actions: Acciones
+      title: Editar Fixture
+      edit_fixture: Editar
+      local_team: Equipo Local
+      visitor_team: Equipo Visitante
+      field: Cancha
+      reservation_datetime: Fecha y Hora del encuentro
     show:
+      edit_fixture: Editar
       week_end: Hasta
       week_start: Desde
       week_number: Fecha
@@ -59,7 +78,7 @@ es:
     select_field: Seleccionar Cancha
     select_date: Seleccionar Día y Hora
     local: Local
-    visit: Visitante  
+    visit: Visitante
     vs: VS
     new:
       title: Crear Partido
@@ -346,7 +365,7 @@ es:
         description: Descripción
         geo_availability: Disponibilidad
       goal:
-        team_user: Goleador  
+        team_user: Goleador
       photo:
         name: Nombre
       match:
