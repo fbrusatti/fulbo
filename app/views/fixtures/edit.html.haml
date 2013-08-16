@@ -1,0 +1,29 @@
+.container-fixture
+  .title-edit-fixture
+    = t (".title")
+  = paginate @weeks, remote: true
+  .week-information-edit
+    = "#{t('fixtures.show.week_number')}-#{@week.number}"
+    = "#{t('fixtures.show.week_start')}-#{@week.start_date.strftime("%d/%m/%Y")} #{t('fixtures.show.week_end')}-#{@week.end_date.strftime("%d/%m/%Y")}"
+  .add-match
+    = link_to "#", id: "add-match", "title" => t(".tooltip_add") do
+      %i.icon-plus
+
+  %ul#matches-of-week-edit
+    %li.header
+      .hlocal
+        = t("fixtures.show.local")
+      .hvs
+        vs
+      .hvisitor
+        = t("fixtures.show.visitor")
+      .hdate
+        = t("fixtures.show.date_time")
+      .hplace
+        = t("fixtures.show.place")
+      .hactions
+        = t(".actions")
+    = render "edit_matches", week: @week
+
+.new-match
+  = render "new_match_fixture", match: @match

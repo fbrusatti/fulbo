@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  respond_to :html
+  respond_to :html, :json
 
   before_filter :authenticate_user!, only: [:new, :edit, :update]
   before_filter :verify_permission_for_match, only: [:create, :edit]
@@ -18,9 +18,11 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(params[:match])
     if @match.save
-      flash[:success] = t('flash.match', message: t('flash.created'))
-    end  
-    respond_with @match, location: edit_match_path(@match)
+      unless request.xhr?
+        flash[:success] = t('flash.match', message: t('flash.created'))
+      end
+    end
+    respond_with @match
   end
 
   def show
@@ -33,8 +35,12 @@ class MatchesController < ApplicationController
   def destroy
     @match = Match.find(params[:id])
     @match.destroy
-    flash[:notice] = t('flash.match', message: t('flash.destroyed'))
-    redirect_to new_match_path
+    unless request.xhr?
+      flash[:notice] = t('flash.match', message: t('flash.destroyed'))
+    end
+    respond_with @match do |format|
+      format.js { render nothing: true }
+    end
   end
 
   def edit
@@ -46,9 +52,12 @@ class MatchesController < ApplicationController
   def update
     @match = Match.find(params[:id])
     if @match.update_attributes(params[:match])
-      flash[:success] = t('flash.match', message: t('flash.updated'))
+      unless request.xhr?
+        flash[:success] = t('flash.match', message: t('flash.updated'))
+      end
     end
-    respond_with @match, location: match_path(@match)
+    respond_with @match
+
   end
 
   private

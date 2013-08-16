@@ -1,8 +1,9 @@
 class FixturesController < ApplicationController
   respond_to :js, :html
-  before_filter :authenticate_user!, only: [:new, :create]
-  before_filter :check_permission, only: [:new, :create]
-  before_filter :check_exist_fixture, only: [:show]
+  before_filter :authenticate_user!, only: [:new, :create, :edit]
+  before_filter :check_new_permission, only: [:new, :create]
+  before_filter :check_exist_fixture, only: [:show, :edit]
+  before_filter :check_edit_permission, only: [:edit]
 
   def show
     @weeks = @league.fixture.weeks.order(:number).page(params[:page]).per(1)
@@ -37,17 +38,29 @@ class FixturesController < ApplicationController
     redirect_to league_fixture_path(@league)
   end
 
+  def edit
+    @weeks = @league.fixture.weeks.order(:number).page(params[:page]).per(1)
+    @week = @weeks.first
+    @fields = @league.organizer.fields
+    @match = Match.new(week_id: @week.id)
+  end
+
   private
     def check_exist_fixture
       @league = League.find(params[:league_id])
       redirect_to league_path(@league) if @league.fixture.blank?
     end
 
-    def check_permission
+    def check_new_permission
       @league = League.find(params[:league_id])
       owner = @league.organizer.owner
       redirect_to league_path(@league) and return unless owner == current_user
       redirect_to league_path(@league) and return if @league.fixture
+    end
+
+    def check_edit_permission
+      owner = @league.organizer.owner
+      redirect_to league_path(@league) unless owner == current_user
     end
 
     def dispatch_time(params={})
