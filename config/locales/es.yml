@@ -137,6 +137,7 @@ es:
       title: Cancha de
       btn_edit: Editar Cancha
       btn_rent: Alquilar Cancha
+      btn_login: Ingresar
       location: Sede
     index:
       title: "Canchas de %{sport_center_name}"

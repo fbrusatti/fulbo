@@ -29,13 +29,14 @@
                 %dt= "#{t('.location')}: "
                 %dd= link_to "#{@location.name}", sport_center_location_path(@location.sport_center, @location)
               %br
-            %a.btn.btn-primary{:href => edit_location_field_path(@field.location_id, @field)}
-              = t('.btn_edit')
-
+            
             = form_for [@field, Reservation.new] do |f|
+              %a.btn.btn-primary{:href => edit_location_field_path(@field.location_id, @field)}
+                = t('.btn_edit')
+
               #datetimepicker2.input-append
                 = f.text_field :reservation_date, :data_format => "MM/dd/yyyy HH:mm PP", :type => "text"
                 %span.add-on
                   %i{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
 
-              = f.submit t(".btn_rent"),:class => "btn.btn-primary"
+              = rent_button(f)
