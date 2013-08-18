@@ -8,7 +8,7 @@ module FieldsHelper
     if user_signed_in?
       form.submit t('.btn_rent'), class: 'btn btn-primary'
     else
-      link_to t('.link_login'),
+      link_to t('.btn_login'),
         new_user_session_path,
         class: 'btn btn-primary'
     end

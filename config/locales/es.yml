@@ -163,6 +163,7 @@ es:
       title: Cancha de
       btn_edit: Editar Cancha
       btn_rent: Alquilar Cancha
+      btn_login: Ingresar
       location: Sede
     index:
       title: "Canchas de %{sport_center_name}"
@@ -360,6 +361,7 @@ es:
   flash:
     fixture: "Exitosamente se a %{message} el Fixture de la Liga %{name}"
     rent_error: "No se ha podido alquilar la cancha"
+    field_ocupped: "La cancha no esta disponible en ese horario"
     rent: "Exitosamente se a %{message} la cancha"
     error_update_form: Hubo un problema al actulizar
     error_create_form: Hubo un problema al crear
