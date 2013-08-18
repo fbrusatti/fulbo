@@ -30,16 +30,82 @@
 
 body.leagues {
   background-image: url("background.jpg");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: rigth-bottom;
 }
 
 .container-league {
+
   @media (max-width: 979px) {
     margin-top: 40px;
   }
   .makeFluidRow();
   .makeFluidCol(@gridColumns);
+}
+
+// Form to New and Edit league
+.form-league {
+  .wellBox();
+  padding: 10px;
+  div label {
+    width: 25%;
+    float: left;
+    padding-right: 1%;
+  }
+  input[name="league[category]"] {
+    margin-left: 5px;
+  }
+  form fieldset {
+    float: left;
+    width: 48%
+  }
+  input.button-form {
+    width: 90%;
+    .btn;
+    .btn-primary;
+    margin-left: 5%;
+  }
+}
+
+.point-system {
+  select { .input-small }
+}
+
+.categories {
+  margin: 5px;
+  .category {
+    display:inline-block;
+    margin-left: 10px;
+  }
+}
+
+.field-money-league {
+  .input-prepend;
+  .add-on;
+}
+.medium-field { .input-medium }
+.small-field { .input-small }
+.datetime-league { .input-append }
+// End form to New and Edit
+
+// index
+.badge-tournament {
+  .makeFluidCol(2)
+}
+
+.tournaments {
+  .makeFluidRow();
+  .wellBox();
+  .table;
+  .table-striped;
+}
+
+.tournament-information {
+  .makeFluidCol(10);
+  .name-category { .makeFluidCol(3) }
+  .status { .makeFluidCol(3) }
+  .organizer-date { .makeFluidCol(3) }
+  .fixture { .makeFluidCol(1) }
 }
 
 .title-league {
@@ -104,46 +170,7 @@ body.leagues {
   }
 }
 
-// Form edit League
-// ----------------
-.edit-form-league {
-  .makeFluidRow();
-  margin-left: 10px;
-  margin-right: 10px;
-}
 
-.edit-general-league {
-  padding: 10px;
-  margin: 5px;
-  .makeFluidCol(6);
-  .wellBox();
-}
-
-.edit-category-league {
-  padding: 10px;
-  margin: 5px;
-  .makeFluidCol(4);
-  .wellBox();
-}
-
-.edit-requirements-league {
-  margin: 5px;
-  padding: 10px;
-  .wellBox();
-}
-
-.field-money-league {
-  .input-prepend;
-  .add-on;
-}
-
-.medium-field {
-  .input-medium;
-}
-
-.small-field {
-  .input-small;
-}
 
 .navigation-league-edit {
   margin-top: 5px;

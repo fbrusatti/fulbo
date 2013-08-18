@@ -46,8 +46,11 @@ en:
       there_is_no_field_selected: Lack select some Field
       confirm_create: Are you sure?
   leagues:
+    point_system_title: Point System of League
+    general_information: General Information
+    btn_submit: Save
     index:
-      see_fixture: See Fixture >
+      see_fixture: See Fixture
       title: Leagues
       name: Name
       organizer: Organizer
@@ -58,13 +61,10 @@ en:
       registered: Registered
     new:
       title: New League
-      point_system_title: Point System of League
-      btn_submit: Save
     edit:
       destroy_fixture: Delete Fixture
       fixture_confirm: Are you sure?
       generate_fixture: Generate Fixture
-      btn_save: Save
       teams: Teams in the League
       information: Information
       limit_of_teams: You have arrived to limit of teams

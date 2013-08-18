@@ -75,4 +75,42 @@ module LeaguesHelper
               class: "see-fixture"
     end
   end
+
+  def league_status(league)
+    html = ""
+    if league.number_teams.present?
+      if league.teams.count < league.number_teams
+        html << content_tag(:div, class: "label label-success" ) do
+          "#{t('leagues.index.available_inscriptions')}: #{league.number_teams - league.teams.count}"
+        end
+      else
+        html << content_tag(:div, class: "label label-important" ) do
+          t('leagues.index.unavailable_inscriptions')
+        end
+      end
+      html << "<br>"
+      html << t('leagues.index.registered')
+      html << content_tag(:div, class: "label label-default" ) do
+        "#{league.teams.count}/#{league.number_teams}"
+      end
+      html.html_safe
+    else
+      html << "#{t('leagues.index.registered')}"
+      html << content_tag(:div, class: "label label-default" ) do
+        "#{league.teams.count}/#"
+      end
+      html.html_safe
+    end
+  end
+
+  def league_categories(league, form)
+    html = ""
+    LeaguesHelper::CATEGORY.each do |category|
+      radio_button = form.radio_button :category, category, { }
+      category_label = form.label "category_#{category}", "#{category}"
+      cl = category_label + radio_button
+      html << (content_tag :div, cl, class: "category").to_s
+    end
+    categories = content_tag :div, html.html_safe, class: "categories"
+  end
 end

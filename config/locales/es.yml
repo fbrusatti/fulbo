@@ -219,8 +219,11 @@ es:
       confirm: ¿Está seguro?
       btn_new: Nueva Sede
   leagues:
+    point_system_title: Sistema de puntuación de la Liga
+    general_information: Datos Generales
+    btn_submit: Guardar
     index:
-      see_fixture: Ver Fixture >
+      see_fixture: Ver Fixture
       title: Ligas
       name: Nombre
       organizer: Organizador
@@ -231,13 +234,10 @@ es:
       registered: Inscriptos
     new:
       title: Nueva Liga
-      point_system_title: Sistema de puntuación de la Liga
-      btn_submit: Guardar
     edit:
       destroy_fixture: Borrar Fixture
       fixture_confirm: ¿Está Seguro?
       generate_fixture: Generar Fixture
-      btn_save: Guardar
       teams: Equipos en la Liga
       information: Información
       limit_of_teams: Llego al límite de equipos.

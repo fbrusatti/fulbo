@@ -1,10 +1,8 @@
-.container
-  .span11.offset.well
-    %legend
-      = t ".title"
-
-    %table.table.table-stripe.leagues
-      - @leagues.each do |league|
-        %tr
-          %td
-            = render 'league', league: league
+.container-league
+  .title-league
+    = t(".title")
+  %table.tournaments
+    - @leagues.each do |league|
+      %tr
+        %td
+          = render 'league', league: league
