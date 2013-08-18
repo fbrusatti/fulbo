@@ -8,12 +8,16 @@ class ReservationsController < ApplicationController
   def create
     @reservation = current_user.reservations.build( field_id: params[:field_id],
                                                     reservation_date: params[:reservation][:reservation_date] )
-
-    if @reservation.save
-      flash[:success] = t('flash.rent', message: t('flash.rented'))
+    
+    if Reservation.find_by_reservation_date( params[:reservation][:reservation_date] ).blank?
+      if @reservation.save 
+        flash[:success] = t('flash.rent', message: t('flash.rented'))
+      else 
+        flash[:error] = t('flash.rent_error')
+      end
     else
-      flash[:error] = t('flash.rent_error')
-    end
+      flash[:error] = t('flash.field_ocupped')
+    end    
 
     respond_to do |format|
       format.html {
