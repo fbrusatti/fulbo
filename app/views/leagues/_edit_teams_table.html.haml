@@ -8,4 +8,5 @@
       %th
         = action == "affiliate" ? I18n.t("leagues.edit.action_affiliate") : I18n.t("leagues.edit.action_delete")
     - collection.each do |team|
-      = render "row_edit_team_table", team: team, action: action
+      = render partial: "row_edit_team_table",
+               locals: { team: team, action: action }

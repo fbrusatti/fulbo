@@ -1,40 +1,52 @@
-.edit-form-league
+= form_for @league do |f|
   = errors_for(@league).html_safe
-  .edit-general-league
-    = f.label :name
-    = f.text_field :name
-
-    = f.label :start_date
-    = f.date_select :start_date,
-                    { include_blank: true, start_year: 2013, end_year: 2099},
-                    {class: "small-field"}
-    %br
-    = f.label :field_price
-    .field-money-league
-      $
-    = f.text_field :field_price, {class: "medium-field"}
-
-    = f.label :registration_price
-    .field-money-league
-      $
-    = f.text_field :registration_price, {class: "medium-field"}
-    %br
-    = f.label :number_matches
-    = f.select :number_matches, (1..100).to_a,{ include_blank: true },
-               {class: "medium-field"}
-    %br
-    = f.label :number_teams
-    = f.select :number_teams, (1..50).to_a,{ include_blank: true },
-               { class: "medium-field" }
-  .edit-category-league
-    = f.label :category
-    .form-inline
-      - LeaguesHelper::CATEGORY.each do |category|
-        = f.radio_button :category, category, { }
-        = f.label "#{category} "
+  %fieldset
+    %legend
+      = t("leagues.general_information")
+    %div
+      = f.label :name
+      = f.text_field :name
+    %div
+      = f.label :start_date
+      .datetime-league
+        = f.text_field :start_date,
+                       "data-format" => "yyyy-MM-dd",
+                       class: "medium-field"
+        .add-on
+          %i{ "data-time-icon" => "icon-time",
+              "data-date-icon" => "icon-calendar" }
+    %div
+      = f.label :field_price
+      .field-money-league
+        $
+      = f.text_field :field_price, {class: "medium-field"}
+    %div
+      = f.label :registration_price
+      .field-money-league
+        $
+      = f.text_field :registration_price, {class: "medium-field"}
+    %div
+      = f.label :number_teams
+      = f.select :number_teams, (1..50).to_a,{ include_blank: true },
+                 { class: "small-field" }
+    %div
+      = f.label :category
+      = league_categories(@league, f)
+    %div
+      = f.label :requirements
+      = f.text_area :requirements, size: "5x5"
+  %fieldset
+    %legend
+      = t("leagues.point_system_title")
+    .point-system
+      = f.fields_for :point_system do |point|
         %br
-.edit-requirements-league
-  = f.label :requirements
-  = f.text_area :requirements, size: "5x5"
-  %br
-  = f.submit t('leagues.edit.btn_save'), class: 'edit-button'
+        = point.label :win
+        = point.select :win, (0..20).to_a, class: "small-field"
+        %br
+        = point.label :tie
+        = point.select :tie, (0..20).to_a, class: "small-field"
+        %br
+        = point.label :loose
+        = point.select :loose, (0..20).to_a, class: "small-field"
+  = f.submit t('leagues.btn_submit'), class: 'button-form'
