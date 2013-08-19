@@ -1,13 +1,5 @@
-.row-fluid
-  .span12
-    .hero-unit
-      .text-center
-        %h1= t (".title")
-    .form-horizontal
-      = form_for @league do |f|
-        = render 'form', f: f
-        .hero-unit
-          = render "form_point_system", f: f
-
-        .span2
-          = f.submit t('.btn_submit'), class: "btn"
+.container-league
+  .title-league
+    = t (".title")
+  .form-league
+    = render "form"

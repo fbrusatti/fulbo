@@ -1,9 +1,9 @@
 class FixturesController < ApplicationController
   respond_to :js, :html
-  before_filter :authenticate_user!, only: [:new, :create, :edit]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :destroy]
   before_filter :check_new_permission, only: [:new, :create]
-  before_filter :check_exist_fixture, only: [:show, :edit]
-  before_filter :check_edit_permission, only: [:edit]
+  before_filter :check_exist_fixture, only: [:show, :edit, :destroy]
+  before_filter :check_edit_permission, only: [:edit, :destroy]
 
   def show
     @weeks = @league.fixture.weeks.order(:number).page(params[:page]).per(1)
@@ -43,6 +43,15 @@ class FixturesController < ApplicationController
     @week = @weeks.first
     @fields = @league.organizer.fields
     @match = Match.new(week_id: @week.id)
+  end
+
+  def destroy
+    if @league.fixture.destroy
+      flash[:notice] = t('flash.fixture',
+                         message: t('flash.destroyed'),
+                         name: @league.name)
+    end
+    respond_with @league
   end
 
   private

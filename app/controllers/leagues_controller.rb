@@ -40,7 +40,13 @@ class LeaguesController < ApplicationController
   def update
     @league = League.find(params[:id])
     if @league.update_attributes(params[:league])
-      flash[:notice] = t('flash.league', message: t('flash.updated'), name: @league.name)
+      flash[:notice] = t('flash.league',
+                         message: t('flash.updated'),
+                         name: @league.name)
+    else
+      @inscription_requests = @league.inscription_requests.where(status: :waiting)
+                                                          .map(&:requester)
+      @teams = @league.teams
     end
     respond_with @league
   end

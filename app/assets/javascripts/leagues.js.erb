@@ -33,6 +33,13 @@ $(document).ready(function() {
     handle_button_new_fixture(players_league);
   });
 
+  $(".datetime-league").datetimepicker({
+    language: 'en',
+    maskInput: true,
+    pickTime: false,
+    startDate: new Date()
+  });
+
 });
 
 function handle_button_new_fixture (players_league){
