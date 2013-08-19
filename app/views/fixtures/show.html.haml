@@ -5,6 +5,8 @@
   .week-information
     = "#{t('.week_number')}-#{@week.number}"
     = "#{t('.week_start')}-#{@week.start_date} #{t('.week_end')}-#{@week.end_date}"
+  .edit-fixture
+    = edit_fixture_button @league
   %ul#matches-of-week
     %li.header
       .hlocal

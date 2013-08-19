@@ -3,7 +3,26 @@
 
 en:
   fixtures:
+    edit:
+      tooltip_delete: Delete Match
+      tooltip_edit: Edit the Match
+      tooltip_result: Add result of the Match
+      tooltip_add: Add a Match
+      error_empty_fields: There are empty fields!
+      error_same_teams: The opponents can't be same
+      add_match: New Match
+      confirm_delete: ¿Are you sure?
+      save_changes: Save
+      title_match: Edit Match
+      actions: Actions
+      title: Edit Fixture
+      edit_fixture: Edit
+      local_team: Local Team
+      visitor_team: Visitor Team
+      field: Field
+      reservation_datetime: Time and Date of the Match
     show:
+      edit_fixture: Edit
       week_end: To
       week_start: From
       week_number: Date
@@ -86,7 +105,7 @@ en:
     vs: VS
     local: Local
     visit: Visitor
-    btn_edit: Edit Match       
+    btn_edit: Edit Match
     new:
       title: Create Match
       local: Local
@@ -116,7 +135,7 @@ en:
       name: Nombre del Goleador
       count: Cantidad de Goles
       description: Descripción
-      btn_submit: Agregar    
+      btn_submit: Agregar
       local: Local
       visit: Visit
       btn_edit: Edit Match

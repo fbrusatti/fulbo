@@ -46,7 +46,129 @@ $(document).ready(function() {
     form_day.data("field", amount_field);
   });
 
+  // Delete match(row & modal)
+  $(document).on('ajax:success','.delete-match', function(evt, data, status, xhr){
+    $(this).closest('li').remove();
+    var match_id = $(this).prev().data("match");
+    $("#modal-edit-match-info-" + match_id).remove();
+  });
+
+  // Update match
+  $(document).on("click", "#openmodal-match", function(e){
+    e.preventDefault();
+    var match_id = $(this).data("match");
+    $('#modal-edit-match-info-' + match_id).modal('show');
+    $('#modal-edit-match-info-' + match_id + ' .modal-new-match-datetime')
+    .datetimepicker({
+      language: 'en',
+      pickSeconds: false,
+      maskInput: true,
+      minuteStep: 10,
+      startDate: new Date()
+    });
+
+    $('#modal-edit-match-info-' + match_id).on('ajax:success',
+    function(evt, data, status, xhr){
+      $(this).modal('hide');
+      update_match_row(data.match);
+      update_match_modal(data.match);
+    });
+  });
+
+  // Add match
+  $(document).on("click", "#add-match", function(e){
+    e.preventDefault();
+    $('#modal-add-match').modal('show');
+    $('#modal-add-match .modal-new-match-datetime')
+    .datetimepicker({
+      language: 'en',
+      pickSeconds: false,
+      maskInput: true,
+      minuteStep: 10,
+      startDate: new Date()
+    });
+  });
+
+  $(document).on('ajax:success', '#modal-add-match #new_match',
+  function(evt, data, status, xhr){
+    $('#modal-add-match').modal('hide');
+    var new_row, match, new_edit;
+    match = data.match;
+    new_row = $('#matches-of-week-edit li:eq(1)').clone();
+    new_row.attr("id","match_" + match.id);
+    new_row.find(".buttons-match-edit a").data("match", match.id);
+    new_row.find(".buttons-match-edit .delete-match")
+                 .attr("href", match.delete_url);
+    new_row.find(".buttons-match-edit .add-result")
+                 .attr("href", match.edit_url);
+    $('#matches-of-week-edit li:first').after(new_row);
+    update_match_row(match);
+    new_edit = $('#matches-of-week-edit li:last').prev().clone();
+    new_edit.attr("id", "modal-edit-match-info-" + match.id);
+    new_edit.find("form").attr("action", "/matches/" + match.id + ".json");
+    new_edit.find("form").attr("id", "edit_match_" + match.id);
+    $('#matches-of-week-edit li:eq(1)').after(new_edit);
+    update_match_modal(match);
+  });
+
+  $(document).on("click", ".new-match .btn-edit-match", function(e){
+    if (has_same_opponents()){
+      e.preventDefault();
+      alert("<%= I18n.t('fixtures.edit.error_same_teams') %>");
+    }
+    if (has_empty_fields()){
+      e.preventDefault();
+      alert("<%= I18n.t('fixtures.edit.error_empty_fields') %>");
+    };
+  });
+
 });
+
+// check new match
+function has_same_opponents(){
+  var local, visitor;
+  visitor = $("#modal-add-match #match_visitor_id").val();
+  local = $("#modal-add-match #match_local_id").val();
+  return (visitor == local)
+}
+function has_empty_fields(){
+  var dt;
+  dt = $(".new-match input#match_reservation_attributes_reservation_date").val()
+  return (dt.trim().length <= 0);
+}
+// end- check new match
+
+function update_match_modal(match){
+  var match_modal, team, dom_element, dt, d, t;
+  match_modal = "#edit_match_" + match.id;
+  team = match.local;
+  $(match_modal + " #match_local_id").val(team.id).prop('selected',true);
+  team = match.visitor;
+  $(match_modal + " #match_visitor_id").val(team.id).prop('selected',true);
+  field = match.reservation.field;
+  dom_elment = match_modal + " #match_reservation_attributes_field_id";
+  $(dom_element).val(field.id).prop('selected',true);
+}
+
+function update_match_row(match) {
+  var match_row, dt, d, t, str_dt, team, field;
+  match_row = '#match_' + match.id;
+  dt = match.reservation.reservation_date.split("T");
+  d = dt[0].split("-"); // d =  [year,month,day]
+  t = dt[1].split(":"); // t =  [hour,min]
+  str_dt = d[2] +"/"+ d[1] +"/"+ d[0] +" - "+ t[0] +":"+ t[1];
+  $(match_row + ' .match-date').html(str_dt);
+  team = match.local;
+  $(match_row + ' .local-team a').text(team.name);
+  $(match_row + ' .local-team a').attr("href", team.url);
+  team = match.visitor;
+  $(match_row + ' .visitor-team a').text(team.name);
+  $(match_row + ' .visitor-team a').attr("href", team.url);
+  field = match.reservation.field;
+  $(match_row + ' .match-place a').text(field.name);
+  $(match_row + ' .match-place a').attr("href", field.url);
+  $(match_row).effect("highlight", {}, 3000);
+}
 
 function check_fields(e){
   $(".time-and-place").each( function(){

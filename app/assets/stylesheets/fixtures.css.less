@@ -43,7 +43,6 @@ body.fixtures {
 }
 
 .container-fixture {
-  .makeFluidRow();
   .well;
   padding: 20px;
   margin-top: 20px;
@@ -165,10 +164,20 @@ body.fixtures {
 }
 
 .week-information {
+  .makeFluidCol(9);
   .text-center;
   font-weight: bold;
   padding: 5px;
   word-spacing: 10px;
+}
+
+.edit-fixture {
+  .makeFluidCol(2);
+  padding: 5px;
+  .edit-button {
+    .btn;
+    .btn-info
+  }
 }
 
 #matches-of-week li.header {
@@ -233,4 +242,117 @@ body.fixtures {
     .text-center;
     margin-top: 15px;
   }
+}
+
+// Edit Fixture
+.title-edit-fixture {
+  font-size: @baseLineHeight;
+  margin: 5px;
+  text-align: center;
+}
+
+.add-match {
+  .makeFluidCol(1);
+  a { color: black };
+  i { color: none };
+}
+
+.week-information-edit {
+  .makeFluidCol(10);
+  .text-center;
+  font-weight: bold;
+  padding: 5px;
+  word-spacing: 10px;
+  i { float: right}
+}
+
+#matches-of-week-edit {
+  li.header {
+    width: 98%;
+    .clearfix();
+    background-color: #eee;
+    .text-center;
+    font-weight: bold;
+    .hlocal { .makeFluidCol(2) }
+    .hvs { .makeFluidCol(1) }
+    .hvisitor{ .makeFluidCol(2) }
+    .hdate { .makeFluidCol(2) }
+    .hplace { .makeFluidCol(2) }
+    .hactions { .makeFluidCol(2); text-align: left }
+  }
+  li {
+    list-style: none;
+    clear:left;
+    border-bottom: 1px solid #ccc;
+    margin: 5px;
+    padding: 5px;
+  }
+  li:last-child { border: none }
+  li :hover { background-color: #eee}
+}
+
+// Partial Edit Match
+.match-fixture-edit {
+  .makeFluidRow();
+
+  .local-team {
+    .makeFluidCol(2);
+    text-align: center;
+  }
+
+  .vs-match {
+    .makeFluidCol(1);
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .visitor-team {
+    .makeFluidCol(2);
+    text-align: center;
+  }
+
+  .match-date {
+    .makeFluidCol(2);
+    text-align: center;
+  }
+
+  .match-place {
+    .makeFluidCol(2);
+    text-align: center;
+  }
+  .buttons-match-edit {
+    .makeFluidCol(2);
+    a { color: black }
+    a:first-child { margin-left: 5px }
+  }
+}
+
+// modal form edit Match
+#modal-edit-match-info, #modal-add-match { .hide; .fade; }
+.form_edit {
+  .modal;
+  .header { .modal-header }
+  .body { .modal-body }
+  .footer { .modal-footer }
+  .btn-edit-match {
+    .btn;
+    .btn-primary
+  }
+}
+
+// date match (form in modal)
+.edit-date-match {
+  .form-inline;
+  select {
+    .input-mini;
+  }
+}
+
+// modal new match
+.modal-new-match-datetime {
+  .input-append;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+  z-index: 1050;
 }

@@ -1,0 +1,10 @@
+$("#modal-add-match").remove();
+$(".new-match").html('#{ j (render "new_match_fixture", match: @match)}');
+var matches = '#{ j (render "edit_matches", week: @week)}';
+$('#matches-of-week-edit li:not(:first)').remove();
+$('#matches-of-week-edit li:first').after(matches);
+$('.pagination').html('#{ j (paginate(@weeks, remote: true).to_s) }');
+var wnumber =  "#{t('fixtures.show.week_number')}-#{@week.number} ";
+var wstart = "#{t('fixtures.show.week_start')}-#{@week.start_date.strftime("%d/%m/%Y")} ";
+var wend = "#{t('fixtures.show.week_end')}-#{@week.end_date.strftime("%d/%m/%Y")}";
+$('.week-information-edit').html(wnumber + wstart + wend);

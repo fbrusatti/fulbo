@@ -1,0 +1,30 @@
+#modal-add-match
+  = form_for match, remote: true, format: :json do |f|
+    .form_edit
+      .header
+        .close{"data-dismiss" => "modal"} x
+        .title-edit-fixture
+          = I18n.t("fixtures.edit.add_match")
+      .body
+        .edit-fixture-teams
+          = I18n.t("fixtures.edit.local_team")
+        = f.collection_select :local_id, @league.teams, :id, :name_with_owner
+        .edit-fixture-teams
+          = I18n.t("fixtures.edit.visitor_team")
+        = f.collection_select :visitor_id, @league.teams, :id, :name_with_owner
+        = f.hidden_field :week_id
+        = f.fields_for :reservation_attributes do |r|
+          .edit-fixture-fields
+            = I18n.t("fixtures.edit.field")
+          = r.collection_select :field_id, @fields, :id, :name
+          .edit-fixture-fields
+            = I18n.t("fixtures.edit.reservation_datetime")
+          .modal-new-match-datetime
+            = r.text_field :reservation_date,
+                           "data-format" => "dd/MM/yyyy hh:mm"
+            .add-on
+              %i{ "data-time-icon" => "icon-time",
+                  "data-date-icon" => "icon-calendar" }
+      .footer
+        = f.submit I18n.t("fixtures.edit.save_changes"),
+                   class: "btn-edit-match"

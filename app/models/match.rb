@@ -9,7 +9,7 @@ class Match < ActiveRecord::Base
   has_many :goals, :dependent => :destroy
 
   # == Accessors
-  attr_accessible :reservation_attributes,:local_tokens, :visitor_tokens,
+  attr_accessible :reservation_attributes, :local_tokens, :visitor_tokens, :week_id,
                   :visitor, :local , :week_attributes, :visitor_id, :local_id
 
   # == attr reader
