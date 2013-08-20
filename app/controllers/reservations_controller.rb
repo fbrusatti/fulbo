@@ -6,10 +6,12 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    new_reservation = DateTime.parse(params[:reservation][:reservation_date])
     @reservation = current_user.reservations.build( field_id: params[:field_id],
-                                                    reservation_date: params[:reservation][:reservation_date] )
+                                                    reservation_date: new_reservation )
     
-    if Reservation.find_by_reservation_date( params[:reservation][:reservation_date] ).blank?
+    reservation_on_field = Reservation.where( :field_id => params[:field_id] )
+    if reservation_on_field.where("reservation_date BETWEEN ? AND ?", new_reservation - 1.hours, new_reservation + 1.hours ).blank?
       if @reservation.save 
         flash[:success] = t('flash.rent', message: t('flash.rented'))
       else 
