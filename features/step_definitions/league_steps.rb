@@ -35,7 +35,7 @@ Then(/^I should( not)? see inscription button to the League$/) do |negation|
 end
 
 Then (/^I should see all leagues listed$/) do
-  page.should have_css("table.leagues tr", :count => League.count)
+  page.should have_css("table.tournaments tr", :count => League.count)
 end
 
 Then(/^I should see only the leagues of "(.*?)" sport center$/) do |sport_center_name|
