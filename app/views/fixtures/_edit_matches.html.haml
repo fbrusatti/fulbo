@@ -8,7 +8,7 @@
       .visitor-team
         = link_to match.visitor.name, team_path(match.visitor)
       .match-date
-        = match.reservation.reservation_date.strftime("%d/%m/%Y - %H:%S")
+        = match.reservation.reservation_date.strftime("%d/%m/%Y - %H:%M")
       .match-place
         = link_to match.reservation.field.name,
                     location_field_path(match.reservation.field.location ,
