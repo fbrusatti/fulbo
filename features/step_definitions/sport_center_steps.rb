@@ -4,7 +4,7 @@ When(/^I press button to create a new League$/) do
 end
 
 When(/^I submit the form$/) do
-  click_button(I18n.t("leagues.new.btn_submit"))
+  click_button(I18n.t("leagues.btn_submit"))
 end
 
 Then(/^I should see a message advising me of the correctness$/) do
@@ -14,9 +14,7 @@ end
 When(/^I fill in all values in form league$/) do
   step 'I fill in "league_name" with "apertura"'
   choose 'league_category_5'
-  select '2014', :from => 'league_start_date_1i'
-  select 'mayo', :from => 'league_start_date_2i'
-  select '1', :from => 'league_start_date_3i'
+  fill_in "league_start_date", with: "2015-11-11"
 end
 
 Then(/^I should see successfully created league message$/) do
