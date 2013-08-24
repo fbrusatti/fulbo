@@ -28,6 +28,10 @@ class League < ActiveRecord::Base
   accepts_nested_attributes_for :point_system, :affiliations
   accepts_nested_attributes_for :teams, allow_destroy: true
 
+  # == FriendlyId
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
+
   # == Instance Methods
   def affiliate(team)
     affiliations.create(team_id: team.id)

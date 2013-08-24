@@ -21,6 +21,9 @@ class LeaguesController < ApplicationController
 
   def show
     @league = League.find(params[:id])
+    if request.path != league_path(@league)
+      redirect_to @league, status: :moved_permanently
+    end
     @point = @league.point_system
     @teams = @league.teams
     @request_inscription = RequestInscription.new()
