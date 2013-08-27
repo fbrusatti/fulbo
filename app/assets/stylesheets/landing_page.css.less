@@ -1,0 +1,35 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+.makeFluidRow(){
+  width: 100%;
+  .clearfix();
+}
+.makeFluidCol(@span:1, @offset:0){
+  float: left;
+  #grid > .fluid .span(@span);
+  #grid > .fluid .offset(@offset);
+  &:first-child {
+      margin-left: 0;
+      .offsetFirstChild(@offset);
+  }
+}
+
+body.landing_page {
+  background-image: url("landing/background-1920x1080.jpg");
+  background-repeat: repeat;
+}
+.images-carousel {
+  width: 88%;
+  margin: 0 auto
+}
+
+.information {
+  .makeFluidRow();
+  .tournaments { .makeFluidCol(3); .well }
+  .teams { .makeFluidCol(3,1); .well }
+  .fields { .makeFluidCol(3); .well; float: right; }
+}
+
+.button-landing { .btn; .btn-primary }
+.button { .btn; font-weight: bold }
