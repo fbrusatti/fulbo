@@ -2,6 +2,26 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  landing_page:
+    comming_soon: Comming Soon
+    index:
+      tournaments: Tournaments
+      see_tournaments: See Tournaments »
+      teams: Teams
+      see_teams: See Teams »
+      stadiums: Stadiums
+      see_stadiums: See Stadiums »
+      description_tournament: The broadest grid of tournaments. If you want to participate in any of the tournaments, you only have to register your team in Movete que Entras and choose the one that you and your team like
+      description_teams: You can build your  team and customize it. You will have a photo gallery for you and your team's players, Build your team and get to the higher ranks in the grid
+      description_stadium: In Movete que Entras you will find the best football fields in the area. You can rent these to play an exhibition game with your friends and then check the pictures in the website. You can participate in the different tournaments that are available and take your football career to the next level
+    carousel:
+      stadium: Estadios
+      title1: Movete que Entras
+      title2: The new way to feel the amateur football.
+      title3: It is play football 2.0.
+      description1: Movete Que Entras is the new way to organize your matches, team, tournaments and so on. It is play football 2.0. In this social network to amateur players you can build your team, build your player profile,build your challenge to others teams  and qualify to players after a match.
+      description2: In Movete Que Entras you can organize yours matches, build your team with your friends, write down your team in different tournaments and challenge others teams and so on.
+      description3: In this social network to amateur players you can build your team, your player profile, challenge to others teams and qualify the players after that a match. In addition to this in MVQ you will find loads of stadiums in which you can bring your team to play.
   fixtures:
     edit:
       tooltip_delete: Delete Match
@@ -255,8 +275,6 @@ en:
     sport_center: My Sport Center
     sport_centers: Sport Centers
     create_match: Create Match
-  landing_page:
-    comming_soon: Comming soon
   teams:
     noResultsText: "No results"
     hintText: "Type in a search name"

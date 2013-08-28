@@ -6,20 +6,12 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     %meta(name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0")
-
     = render 'layouts/shim'
-
-    %link{:href => "http://twitter.github.io/bootstrap/assets/css/bootstrap.css", :rel => "stylesheet"}
-
-    %link{:href => "http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css", :rel => "stylesheet"}
-
-  %body{class: params['controller']}
+  %body{ class: params['controller'] }
     = render 'layouts/header'
-
     .container.main
       - flash.each do |key, value|
         %div(class="alert alert-#{key}")
           = value
       = yield
-
-    = render 'layouts/footer'
+      = render 'layouts/footer'

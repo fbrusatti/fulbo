@@ -28,6 +28,24 @@ es:
   are_you_sure: '¿Está Seguro?'
   landing_page:
     comming_soon: Muy pronto
+    index:
+      tournaments: Campeonatos
+      see_tournaments: Ver Campeonatos »
+      teams: Equipos
+      see_teams: Ver Equipos »
+      stadiums: Estadios
+      see_stadiums: Ver Estadios »
+      description_tournament: La más amplia grilla de campeonatos de tu zona. Si queres participar de alguno de los campeonatos solo tenes que tener a tu equipo registrado en Movete que Entras y seleccionar el que más te guste dependiendo de los gustos de tu equipo.
+      description_teams: Podés armar tu equipo y comenzar a personalizar su perfil. Vas a poder tener una galeria de fotos de los jugadores de tu equipo, del equipo completo, cualidades y posiciones de cada jugador dentro de el y más. Crea tu equipo y posicionate en la cima de la tabla.
+      description_stadium: En Movete que Entras vas a encontrar los mejores estadios de la zona. Podes alquilar alguno de estos para jugar un amistoso con tus amigo, ver fotos de los mismos y jugar los torneos que en estos se estadios se organizan para comenzar a crear tu carrera.
+    carousel:
+      stadium: Estadios
+      title1: Movete que Entras
+      title2: La nueva forma de vivir el fútbol amateur.
+      title3: Es jugar al fútbol 2.0.
+      description1: Movete que entras es la nueva forma de organizar tus partidos, tu equipo, campeonatos, desafios y mucho más. Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar a otros equipos y calificar jugadores después de un partido.
+      description2: En Movete que Entras podrás organizar tus partidos, crear tu equipo con tus amigos, anotar tu equipo en los distintos campeonatos organizados en las mejores canchas de la zona, desafiar a otros equipos y mucho más.
+      description3: En esta red social de fútbol para jugadores amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar a otros equipos y calificar jugadores después de un partido. Además de esto en Movete que Entras encontrarás una gran cantidad de estadios, en los que podrás poner a tu equipo en juego.
   fixtures:
     edit:
       tooltip_delete: Borrar el partido
@@ -421,8 +439,6 @@ es:
     contact_us: Contactenos
     profile: Perfil
     create_match: Crear Partido
-  landing_page:
-    comming_soon: Muy pronto
   teams:
     noResultsText: "No hay resultado"
     hintText: "Ingrese el nombre"

@@ -16,7 +16,21 @@
 }
 
 body.landing_page {
-  background-image: url("landing/background-1920x1080.jpg");
+  .images-carousel { margin-top: 40px }
+  background-image: url("landing/background-1366x768.jpg");
+  /* Landscape phones and down */
+  @media (max-width: 480px) {
+    .images-carousel { margin-top: 40px }
+    background-image: url("landing/background-960x540.jpg")
+  }
+  @media (min-width: 980px) and (max-width: 1199px) {
+    .images-carousel { margin-top: 10px }
+  }
+  /* Large desktop */
+  @media (min-width: 1200px) {
+    .images-carousel { margin-top: 10px }
+    background-image: url("landing/background-1920x1080.jpg")
+  }
   background-repeat: repeat;
 }
 .images-carousel {
