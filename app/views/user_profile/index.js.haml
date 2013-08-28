@@ -1,1 +1,11 @@
+// update message
+var result_msj = "#{search_result_message(params[:query], params[:query_position])}"
+result_msj += " #{result_found(@profiles)}"
+$('.message').html(result_msj);
+
+// update result
 $('#update-profiles').html("#{ j render partial: 'search_data' }");
+
+// reset search
+$("#query_position").val("");
+$("#btn_search").val("");
