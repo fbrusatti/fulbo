@@ -1,0 +1,49 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+.makeFluidRow(){
+  width: 100%;
+  .clearfix();
+}
+.makeFluidCol(@span:1, @offset:0){
+  float: left;
+  #grid > .fluid .span(@span);
+  #grid > .fluid .offset(@offset);
+  &:first-child {
+      margin-left: 0;
+      .offsetFirstChild(@offset);
+  }
+}
+
+body.landing_page {
+  .images-carousel { margin-top: 40px }
+  background-image: url("landing/background-1366x768.jpg");
+  /* Landscape phones and down */
+  @media (max-width: 480px) {
+    .images-carousel { margin-top: 40px }
+    background-image: url("landing/background-960x540.jpg")
+  }
+  @media (min-width: 980px) and (max-width: 1199px) {
+    .images-carousel { margin-top: 10px }
+  }
+  /* Large desktop */
+  @media (min-width: 1200px) {
+    .images-carousel { margin-top: 10px }
+    background-image: url("landing/background-1920x1080.jpg")
+  }
+  background-repeat: repeat;
+}
+.images-carousel {
+  width: 88%;
+  margin: 0 auto
+}
+
+.information {
+  .makeFluidRow();
+  .tournaments { .makeFluidCol(3); .well }
+  .teams { .makeFluidCol(3,1); .well }
+  .fields { .makeFluidCol(3); .well; float: right; }
+}
+
+.button-landing { .btn; .btn-primary }
+.button { .btn; font-weight: bold }

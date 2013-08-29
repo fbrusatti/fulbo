@@ -45,12 +45,12 @@ module TeamsHelper
   def team_button
     if user_signed_in? && current_user.team.present?
       path = team_path(current_user.team)
-      btn_msj = t(".btn_team")
+      btn_msj = t("teams.search_data.btn_team")
     else
       path = new_team_path
-      btn_msj = t(".btn_create")
+      btn_msj = t("teams.search_data.btn_create")
     end
-    button_to btn_msj, path, { method: :get, class: "btn", type: "button" }
+    link_to btn_msj, path, class: "btn-team"
   end
 
 end

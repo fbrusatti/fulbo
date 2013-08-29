@@ -1,0 +1,25 @@
+#landing-carousel.carousel.slide
+  .carousel-inner
+    .item.active
+      = image_tag 'landing/carousel/img1-1024x576.jpg',
+                  class: 'landing-carousel-image'
+      .carousel-caption
+        %h4= t("landing_page.carousel.title1")
+        %p.lead= t("landing_page.carousel.description1")
+        = link_to "Ingresar", new_user_session_path, class: "button-landing"
+    .item
+      = image_tag 'landing/carousel/img2-1024x576.jpg',
+                  class: 'landing-carousel-image'
+      .carousel-caption
+        %h4= t("landing_page.carousel.title2")
+        %p.lead= t("landing_page.carousel.description2")
+        = link_to "Campeonatos", leagues_path, class: "button-landing"
+    .item
+      = image_tag 'landing/carousel/img3-1024x576.jpg',
+                   class: 'landing-carousel-image'
+      .carousel-caption
+        %h4= t("landing_page.carousel.title3")
+        %p.lead= t("landing_page.carousel.description3")
+        %a.btn.btn-primary{href: sport_centers_path}= t("landing_page.carousel.stadium")
+%a.left.carousel-control{"data-slide" => "prev", href: "#landing-carousel"} ‹
+%a.right.carousel-control{"data-slide" => "next", href: "#landing-carousel"} ›
