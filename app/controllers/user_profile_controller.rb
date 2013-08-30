@@ -17,7 +17,7 @@ class UserProfileController < ApplicationController
   def index
     @profiles = UserProfile.text_search(
                 "#{params[:query_position]} #{params[:query]}")
-                .page(params[:page])
+                .page(params[:page]).per(12)
   end
 
   def update

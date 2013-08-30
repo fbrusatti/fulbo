@@ -2,26 +2,31 @@
 @import "twitter/bootstrap/responsive";
 
 @darkred: #af1919;
+@radius: 5px;
+@shadow: 0 1px 3px rgba(0,0,0,.25);
+@gray87:  #dedede;
 
 body.user_profile {
-  background-image: url("background.jpg");
-  background-repeat: no-repeat;
-  background-position: rigth-bottom;
-}
-
-.user-profile {
-
-}
-
-.user-profile-positions {
-  margin-left: 20px;
-  input[type=checkbox] {
-   float: left;
-   margin-right: 20px;
+  .search-buttons { margin-top: 45px }
+  background-image: url("backgrounds/background3-1366x768.jpg");
+  /* Landscape phones and down */
+  @media (max-width: 480px) {
+    background-image: url("backgrounds/background3-960x540.jpg")
   }
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) {
+    background-image: url("backgrounds/background3-1366x768.jpg")
+  }
+  @media (min-width: 980px) and (max-width: 1199px) {
+    .search-buttons { margin-top: 5px }
+  }
+  /* Large desktop */
+  @media (min-width: 1200px) {
+    .search-buttons { margin-top: 5px }
+    background-image: url("backgrounds/background3-1920x1080.jpg")
+  }
+  background-repeat: repeat
 }
-
- // Search Profile
 
 .makeFluidRow(){
   width: 100%;
@@ -38,60 +43,57 @@ body.user_profile {
   }
 }
 
-.container-search {
-  .makeFluidRow();
-  .makeFluidCol(11);
-  .well;
+.wellBox() {
+  background-color: @grayLighter;
+  .border-radius(@radius);
+  .box-shadow(@shadow);
+  #gradient > .radial(@grayLighter, @gray87);
 }
 
-.render-search-partial {
-  display: table;
+.user-profile-positions {
+  margin-left: 20px;
+  input[type=checkbox] {
+   float: left;
+   margin-right: 20px;
+  }
 }
+
+.container-players {
+  .makeFluidRow();
+  .makeFluidCol(@gridColumns);
+}
+
+// index
+.search-buttons {
+  .well;
+  .message {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: @darkred;
+  }
+ }
 
 .link-all-profiles {
-  width: 270px;
   float: left;
-  min-height: 1px;
-  margin-left: 30px;
-  margin-bottom: 30px;
-  display: inline-block;
   font-size: 24px;
 }
-
 .search-options {
-  display: inline;
-  margin-bottom: 0;
   float: right;
 }
 
-.messages-list {
-  .makeFluidRow();
-  .makeFluidCol(11);
-}
-
-.search-message {
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: @darkred;
-}
-
-.search-result {
-  width: 220px;
-  float: left;
-  border: 4px;
-  min-height: 1px;
-  margin-top: 20px;
-  margin-left: 10px;
-  .thumbnail;
-}
-
-.list-search-results {
-  display: table;
+.result-search {
+  .player {
+    width: 220px;
+    float: left;
+    margin: 5px;
+    .name { text-align: center }
+    .wellBox();
+  }
 }
 
 .button-search {
-  .btn; 
+  .btn;
   .btn-info;
 }

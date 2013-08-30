@@ -1,48 +1,25 @@
-#landing-carousel.carousel.slide
-  .carousel-inner
-    .item.active
-      = image_tag 'futbol3.jpg', class: 'landing-carousel-image'
-      .container
-        .carousel-caption
-          %h4 Movete que Entras
-          %p.lead  Movete que entras es la nueva forma de organizar tus partidos, tu equipo, campeonatos, desafios y mucho más. Es jugar al fútbol 2.0. En esta red social de fútbol para jugadores amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar a otros equipos y calificar jugadores después de un partido.
-          %a.btn.btn-large.btn-primary{:href => new_user_session_path} Ingresar
-    .item
-      = image_tag 'futbol1.jpg', class: 'landing-carousel-image'
-      .container
-        .carousel-caption
-          %h4 La nueva forma de vivir el fútbol amateur.
-          %p.lead En Movete que Entras podrás organizar tus partidos, crear tu equipo con tus amigos, anotar tu equipo en los distintos campeonatos organizados en las mejores canchas de la zona, desafiar a otros equipos y mucho más.
-          %a.btn.btn-large.btn-primary{:href => "#"} Campeonatos
-    .item
-      = image_tag 'futbol2.jpg', class: 'landing-carousel-image'
-      .container
-        .carousel-caption
-          %h4 Es jugar al fútbol 2.0.
-          %p.lead En esta red social de fútbol para jugadores amateur podrás armar tu equipo, crear tu perfil de jugador, desafiar a otros equipos y calificar jugadores después de un partido. Además de esto en Movete que Entras encontrarás una gran cantidad de estadios, en los que podrás poner a tu equipo en juego.
-          %a.btn.btn-large.btn-primary{:href => "#"} Estadios
-
-  %a.left.carousel-control{"data-slide" => "prev", :href => "#landing-carousel"} ‹
-  %a.right.carousel-control{"data-slide" => "next", :href => "#landing-carousel"} ›
-
-.container.marketing
-  .row
-    .span4
-      %img.img-circle#thumb{:alt => "140x140", "data-src" => "holder.js/140x140", :src => image_path('circulo.png'), :style => "width: 140px; height: 140px;"}/
-      %h2 Campeonatos
-      %p La más amplia grilla de campeonatos de tu zona. Si queres participar de alguno de los campeonatos solo tenes que tener a tu equipo registrado en Movete que Entras y seleccionar el que más te guste dependiendo de los gustos de tu equipo.
-      %p
-        %a.btn{:href => "#"} Ver Campeonatos »
-    .span4
-      %img.img-circle{:alt => "140x140", "data-src" => "holder.js/140x140", :src => image_path('circulo.png'), :style => "width: 140px; height: 140px;"}/
-      %h2 Equipos
-      %p Podés armar tu equipo y comenzar a personalizar su perfil. Vas a poder tener una galeria de fotos de los jugadores de tu equipo, del equipo completo, cualidades y posiciones de cada jugador dentro de el y más. Crea tu equipo y posicionate en la cima de la tabla.
-      %p
-        %a.btn{:href => "#"} Ver Equipos »
-    .span4
-      %img.img-circle{:alt => "140x140", "data-src" => "holder.js/140x140", :src => image_path('circulo.png'), :style => "width: 140px; height: 140px;"}/
-      %h2 Estadios
-      %p En Movete que Entras vas a encontrar los mejores estadios de la zona. Podes alquilar alguno de estos para jugar un amistoso con tus amigo, ver fotos de los mismos y jugar los torneos que en estos se estadios se organizan para comenzar a crear tu carrera.
-      %p
-        %a.btn{:href => "#"} Ver Estadios »
-  %hr.featurette-divider/
+.landing-page
+  .images-carousel
+    = render "landing_carousel"
+  .information.hidden-phone
+    .tournaments
+      %img.img-circle#thumb{ "data-src" => "holder.js/140x140",
+                             :src => image_path('landing/tournament.jpg'),
+                             :style => "width: 140px; height: 140px;"}
+      %h2= t(".tournaments")
+      %p= t(".description_tournament")
+      = link_to t(".see_tournaments"), leagues_path, class: "button"
+    .teams
+      %img.img-circle{ "data-src" => "holder.js/140x140",
+                       :src => image_path('landing/team.jpg'),
+                       :style => "width: 140px; height: 140px;"}
+      %h2= t(".teams")
+      %p= t(".description_teams")
+      = link_to t(".see_teams"), teams_path, class: "button"
+    .fields
+      %img.img-circle{"data-src" => "holder.js/140x140",
+                      :src => image_path('landing/field.jpg'),
+                      :style => "width: 140px; height: 140px;"}
+      %h2= t(".stadiums")
+      %p= t(".description_stadium")
+      = link_to t(".see_stadiums"), sport_centers_path, class: "button"

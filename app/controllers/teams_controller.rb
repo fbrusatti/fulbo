@@ -12,7 +12,7 @@ class TeamsController < ApplicationController
       @teams_profiles = TeamProfile.search_teams("#{params[:search_name]}
                                                   #{params[:search_surface]}
                                                   #{params[:search_category]} ")
-                                                  .page(params[:page])
+                                                  .page(params[:page]).per(9)
     end
     respond_to do |format|
       format.js
