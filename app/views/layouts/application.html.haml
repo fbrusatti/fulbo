@@ -8,8 +8,10 @@
     %meta(name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0")
     = render 'layouts/shim'
   %body{ class: params['controller'] }
+
     = render 'layouts/header'
     .container.main
+      %h3 Working in Process...
       - flash.each do |key, value|
         %div(class="alert alert-#{key}")
           = value
